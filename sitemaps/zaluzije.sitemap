@@ -1,0 +1,10 @@
+sitemap hisa label="Žaluzije za rezidenco Gantar" {
+	Frame label="Kabinet" icon="heating" {
+		Text item=ActKabinetDo
+		Switch item=ZalKabinetDo
+		Switch item=SwiKabinetDo
+		Text item=ActKabinetUp
+		Switch item=ZalKabinetUp
+		Switch item=SwiKabinetUp
+	}
+}

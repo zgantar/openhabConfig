@@ -1,0 +1,202 @@
+import org.joda.time.*
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+import org.apache.commons.lang.StringUtils.*
+
+var boolean bool
+	
+rule "Set all necessary variables for heating"
+when
+	System started
+then
+	sendCommand(Heating, OFF)
+	sendCommand(Override, OFF)
+	sendCommand(LowElectricity, OFF)
+	sendCommand(Holidays, OFF)
+	Log.sendCommand(OFF)
+	Man.sendCommand(OFF)
+//	Mot.sendCommand(CLOSED)
+	Fhs.sendCommand(OFF)
+	//setting up desired values for rooms
+	Set.members.forEach[ item |
+		if ((item.state == 'Uninitialized') || (item.state == 'Undefined')) item.postUpdate(20.0)
+	]
+	logInfo("heating", "1 Nastavljene začetne vrednosti!")
+end
+
+//checking to see if any of the rooms needs heating
+rule "Checking if one of the rooms needs heating"
+when
+	Time cron "0 */5 * * * ?" or
+	Item Set changed 
+then
+	bool = false
+	callScript("missingTempSensor")
+	if (Override.state == OFF) {
+		Temp.members.forEach[ item |
+			var name = item.name.substring(4)
+			//need to get living room since there is no temp sensor there
+			var setItem = Set.members.filter(setter | setter.name.containsIgnoreCase(name)).head
+			logInfo("heating", "2 Preverjamo ali je potrebno ogreti - " + setItem.name)
+			var logItem = Log.members.filter( doer | doer.name.containsIgnoreCase(name)).head
+			var mejnaTemp = setItem.state as Number
+			logInfo("heating", "3 Našli smo ventil - " + logItem.name)
+			logInfo("heating", "3.1 gledamo kakšna je vrednost odvoda zadnjih 15 min: " + (item.deltaSince(now.minusMinutes(15)) as Number)/30)
+			logInfo("heating", "3.1 gledamo kakšna je vrednost evolution v zadnjih 15 min: " + item.evolutionRate(now.minusMinutes(16)) as Number)
+			if (now.getHourOfDay > 6 && now.getHourOfDay < 14 && now.getDayOfWeek < 6 && Holidays.state == OFF) {
+				mejnaTemp = mejnaTemp - 0.2
+				logInfo("heating", "3.2 Ker je zjutraj med tednom in nismo na dopustu, se mejna temperatura spusti za 0.2 stopinje - " + mejnaTemp)
+			} else if (FhsHeater.state == ON && LowElectricity.state == ON) {
+				mejnaTemp = mejnaTemp + 0.3
+				logInfo("heating", "3.2 Ker se že ogreva in je nizka cena elektrike, se mejna temperatura dvigne za 0.3 stopinje - " + mejnaTemp)
+			} else if (FhsHeater.state == ON) {
+				mejnaTemp = mejnaTemp + 0.1
+				logInfo("heating", "3.2 Ker se že ogreva, se mejna temperatura dvigne za 0.1 stopinje - " + mejnaTemp)
+			
+			}
+			logInfo("heating", "3.3 Temperatura sobe je - " + item.previousState.state as Number)
+			logInfo("heating", "3.4 Temperatura sobe bi morala biti - " + mejnaTemp)
+			logInfo("heating", "3.5 If pa pride - " + ((item.previousState.state as Number) <= mejnaTemp))
+			if ((item.previousState.state as Number) <= mejnaTemp) {
+				bool = true
+				logInfo("heating", "4.1 temperatura je prenizka, stikalo " + logItem.name + " - " + logItem.state)
+				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+					if (logItem.state == OFF) {
+						logItem.sendCommand(ON)
+						logInfo("heating", "4.1.1 Izdan ukaz za ogrevanje sobe - " + name)
+					}
+				} else {
+					//because of the NO switches
+					if (logItem.state == ON) {
+						logItem.sendCommand(OFF)
+						logInfo("heating", "4.1.2 Izdan ukaz za ogrevanje NO sobe - " + name)
+					}
+				}
+			} else {
+				logInfo("heating", "4.2 temperatura je previsoka, stikalo " + logItem.name + " - " + logItem.state)
+				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+					if (logItem.state == ON) {
+						logItem.sendCommand(OFF)
+						logInfo("heating", "4.2.1 Izdan ukaz za konec ogrevanja sobe - " + name)
+					}
+				} else {
+					//because of the NO switches
+					if (logItem.state == OFF) {
+						logItem.sendCommand(ON)
+						logInfo("heating", "4.2.2.3 Izdan ukaz za konec ogrevanja NO sobe - " + name)
+					}
+				}
+			}
+		]
+		if (bool) {
+			logInfo("heating", "5.1 Poslal ukaz za ogrevanje")
+			sendCommand(LogOgrevanje, ON)
+		} else if (!bool && FhsHeater.state == ON) {
+			sendCommand(LogOgrevanje, OFF)
+			logInfo("heating", "5.2 Poslal ukaz za konec ogrevanja")
+		}
+	
+	}
+	logInfo("heating", "**********************Konec********************")
+end
+
+rule "heating of a room was requested by logic"
+when
+	Item LogOgrevanje received command or
+	Item ManHeating received command
+then
+	bool = false
+	logInfo("heating", "Poglejmo ali je bilo ročno proženo ali ne - " + Override.state.toString)
+	if (Override.state == OFF) {
+		Log.members.forEach[ logItem |
+			val name = logItem.name.substring(3)
+			if (logItem.state == ON) {
+				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+					logInfo("heating", "6.1 Našel ventil za odpret - " + logItem.name + " - " + logItem.state.toString)
+					bool = true
+				} else {
+					logInfo("heating", "6.2 Našel ventil za zapret - " + logItem.name + " - " + logItem.state.toString)
+				}
+			} else {
+				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+					logInfo("heating", "6.3 Našel ventil za zapret - " + logItem.name + " - " + logItem.state.toString)
+				} else {
+					logInfo("heating", "6.4 Našel ventil za odpret - " + logItem.name + " - " + logItem.state.toString)
+					bool = true
+				}
+			}
+			val fhsList = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name))
+			fhsList.forEach[ fhsItem |
+				fhsItem.sendCommand(logItem.state.toString)
+				logInfo("heating", "7 Odprl ventil  - " + fhsItem.name + " - " + fhsItem.state.toString)
+			]
+		]
+	} else {
+		Man.members.forEach[ manItem |
+			val name = manItem.name.substring(3)
+			if (manItem.state == ON) {
+				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+					logInfo("heating", "8.1 Našel ventil za ročno odpret - " + manItem.name + " - " + manItem.state.toString)
+					bool = true
+				} else {
+					logInfo("heating", "8.2 Našel ventil za ročno zapret - " + manItem.name + " - " + manItem.state.toString)
+				}
+			} else {
+				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+					logInfo("heating", "8.3 Našel ventil za ročno zapret - " + manItem.name + " - " + manItem.state.toString)
+				} else {
+					logInfo("heating", "8.4 Našel ventil za ročno odpret - " + manItem.name + " - " + manItem.state.toString)
+					bool = true
+				}
+			}
+			val fhsList = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name))
+			fhsList.forEach[ fhsItem |
+				fhsItem.sendCommand(manItem.state.toString)
+				logInfo("heating", "9 Ročno odprl ventil  - " + fhsItem.name + " - " + fhsItem.state.toString)
+			]
+		]
+	}
+	if (bool) {
+		logInfo("heating", "Vklopimo ogrevanje.")
+		sendCommand(Heating, ON)
+	} else {
+		logInfo("heating", "Ker je ogrevanje izklopljeno ne preverjamo posameznih ventilov.")
+		sendCommand(Heating, OFF)
+	}
+end
+
+rule "Heating when logic ordered"
+when
+	Item Heating received command
+then
+	if (Override.state == OFF) {
+		logInfo("heating", "Ročni override je OFF")
+		if (Heating.state == ON) {
+			sendCommand(FhsHeater, ON)
+			logInfo("heating", "10.1.1 Ogrevanje se je vklopilo - " + FhsHeater.state)
+		} else {
+			sendCommand(FhsHeater, OFF)
+			logInfo("heating", "10.1.2 Ogrevanje se je izklopilo - " + FhsHeater.state)
+			//Turn off all the switches since we are not heating anymore
+			Fhs.members.filter(item | item.state == ON).forEach[ tmpItem | 
+				tmpItem.sendCommand(OFF)
+				logInfo("heating", "10.1.3 Ugasnil ventil - " + tmpItem.name + ", ker se je prenehalo ogrevati")
+			]
+		}
+	} else {
+		logInfo("heating", "Ročni override je ON")
+		if (ManHeating.state == ON) {
+			sendCommand(FhsHeater, ON)
+			logInfo("heating", "10.2.1 Ogrevanje se je vklopilo na ročno zahtevo - " + FhsHeater.state)
+		} else {
+			sendCommand(FhsHeater, OFF)
+			logInfo("heating", "10.2.2 Ogrevanje se je izklopilo na ročno zahtevo- " + FhsHeater.state)
+			//Turn off all the switches since we are not heating anymore
+			Fhs.members.filter(item | item.state == ON).forEach[ tmpItem | 
+				tmpItem.sendCommand(OFF)
+				logInfo("heating", "10.2.3 Ugasnil ventil - " + tmpItem.name + ", ker se je prenehalo ogrevati")
+			]
+		}
+	}
+end

@@ -1,0 +1,22 @@
+val linesSet = new java.util.HashSet()
+
+// create a url object
+val url = new java.net.URL(theUrl)
+
+try {
+    // create a urlconnection object
+    val urlConnection = url.openConnection()
+
+    // wrap the urlconnection in a bufferedreader
+    val bufferedReader = new java.io.BufferedReader(new java.io.InputStreamReader(urlConnection.getInputStream()))
+
+    var String line = bufferedReader.readLine
+    while (line != null) {
+    	linesSet.add(line)
+    	line = values.readLine
+    }
+} finally {
+  	try { bufferedReader.close() } catch(Exception e) {}
+   	try { urlConnection.close() } catch(Exception e) {}
+}
+return lineSet

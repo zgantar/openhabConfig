@@ -1,0 +1,37 @@
+// Persistence strategies have a name and a definition and are referred to in the "Items" section
+Strategies {
+	everyFiveMinutes	: "0 */5 * * * ?"
+	everyTenMinutes		: "0 */10 * * * ?"
+	everyCourterHour	: "0 */15 * * * ?"
+	everyHour			: "0 0 * * * ?"
+	everyDay			: "0 0 0 * * ?"
+
+	// If no strategy is specified for an item entry below, the default list will be used.
+	default = everyChange 
+}
+
+/*
+ * Each line in this section defines for which item(s) which strategy(ies) should be applied.
+ * You can list single items, use "*" for all items or "groupitem*" for all members of a group
+ * item (excl. the group item itself).
+ */
+Items {
+	Temp* : strategy = everyFiveMinutes, restoreOnStartup
+	Hum* : strategy = everyFiveMinutes, restoreOnStartup
+	Lum* : strategy = everyFiveMinutes, restoreOnStartup
+	Mot* : strategy = everyChange, restoreOnStartup
+	Log* : strategy = everyChange, restoreOnStartup
+	Fhs* : strategy = everyChange, restoreOnStartup
+	Set* : strategy = everyChange, restoreOnStartup
+	Out* : strategy = everyFiveMinutes, restoreOnStartup
+	Man* : strategy = everyChange, restoreOnStartup
+	Act* : strategy = everyChange
+	Swi* : strategy = everyChange
+	Zal* : strategy = everyChange, restoreOnStartup
+
+	Override: strategy = everyChange, restoreOnStartup
+	Heating: strategy = everyChange, restoreOnStartup
+	LowElectricity: strategy = everyChange, restoreOnStartup
+	
+	undefined : strategy = everyFiveMinutes, restoreOnStartup
+}

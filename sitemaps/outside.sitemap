@@ -1,0 +1,13 @@
+sitemap hisa label="Zunanji podatki" {
+	Frame label="Zunanje razmere" icon="heating" {
+		Text item=OutTemp
+		Text item=OutFeelTemp
+		Text item=OutHum
+		Text item=OutWindDir
+		Text item=OutWindSpeed
+		Text item=OutPressure
+		Text item=OutPercipInten
+		Text item=OutPercipToday
+		Text item=OutSolarRad
+	}
+}

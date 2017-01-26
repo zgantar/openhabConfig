@@ -1,0 +1,28 @@
+rule "Time of lower price electricity start weekdays"
+when
+	Time cron "0 0 22 ? * MON-FRI"
+then
+	sendCommand(LowElectricity, ON)
+	logInfo("heating", "Začetek poceni elektrike - " + LowElectricity.state)
+end	
+
+rule "Time of lower price electricity end weekdays"
+when
+	Time cron "0 0 6 ? * MON-FRI"
+then
+	sendCommand(LowElectricity, OFF)
+	logInfo("heating", "Konec poceni elektrike - " + LowElectricity.state)
+end
+ 
+rule "Set things up"
+when
+	System started
+then
+	if (now.getHourOfDay > 6 && now.getHourOfDay < 22) {
+		sendCommand(LowElectricity, OFF)
+		logInfo("electricity", "Ni poceni elektrika - " + LowElectricity.state)
+	} else {
+		sendCommand(LowElectricity, ON)
+		logInfo("electricity", "Je poceni elektrika - " + LowElectricity.state)
+	} 
+end

@@ -1,0 +1,14 @@
+CLOSED=zaprto
+OPEN=odprto
+undefined=neznano
+MOTION-CLOSED=ni gibanja
+MOTION-OPEN=gibanje
+MOTION--=ni aktivno
+WORKING--=dela
+WORKING-CLOSED=ne dela
+SWITCH-CLOSED=ni ukaza
+SWITCH-OPEN=ukaz
+SWITCH--=ni aktivno
+SWITCH-ON=ukaz
+SWITCH-OFF=ni ukaza
+SWITCH--=ni aktivno

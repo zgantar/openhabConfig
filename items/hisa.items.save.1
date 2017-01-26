@@ -1,0 +1,44 @@
+Group	Temp
+Group	Hum
+Group	Lum
+Group	TempAvg	"PovprečnaTemp [%.2f °C]"	<temperature>	(Temp)	
+Group	HumAvg	"PovprečnaVlaga [%.1f %%]"	(Hum)	
+Group	LumAvg	"PovprečnaSvetlost [%.1f lx]"	(Lum)	
+Group	Mot	"Senzorji gibanja"
+Group	Log	"Logične spremenljivke"
+
+Number	HumJulija	"JulijaVlaga [%.1f %%]"	(Hum,HumAvg)		{ tinkerforge="uid=qRv" }
+Number	HumAljaz	"AljazVlaga [%.1f %%]"	(Hum,HumAvg)		{ tinkerforge="uid=qW5" }
+Number	HumSpalnica	"SpalnicaVlaga [%.1f %%]"	(Hum,HumAvg)		{ tinkerforge="uid=kc4" }
+Number	HumKuhinja	"KuhinjaVlaga [%.1f %%]"	(Hum,HumAvg)		{ tinkerforge="uid=qWX" }
+Number	HumKabinet	"KabinetVlaga [%.2f %%]"	(Hum,HumAvg)		{ tinkerforge="uid=qVG" }
+Number	HumKopalnicaZ	"KopalnicaZVlaga [%.2f %%]"	(Hum,HumAvg)		{ tinkerforge="uid=qVU" }
+Number	HumKopalnicaS	"KopalnicaSVlaga [%.2f %%]"	(Hum,HumAvg)		{ tinkerforge="uid=qWH" }
+Number	TempJulija	"JulijaTemp [%.2f °C]"	<temperature>	(Temp,TempAvg)		{ tinkerforge="name=tempjul" }
+Number	TempAljaz	"AljazTemp [%.2f °C]"	<temperature>	(Temp,TempAvg)		{ tinkerforge="name=tempalj" }
+Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp,TempAvg)		{ tinkerforge="name=tempspal" }
+Number	TempKuhinja	"KuhinjaTemp [%.2f °C]"	<temperature>	(Temp,TempAvg)		{ tinkerforge="name=tempkuh" }
+Number	TempKabinet	"KabinetTemp [%.2f °C]"	<temperature>	(Temp,TempAvg)		{ tinkerforge="name=tempkab" }
+Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp,TempAvg)		{ tinkerforge="name=tempkopalz" }
+Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp,TempAvg)		{ tinkerforge="name=tempkopals" }
+Number	LumJulija	"JulijaSvetlost [%.1f lx]"	(Lum,LumAvg)		{ tinkerforge="uid=kYW" }
+Number	LumAljaz	"AljazSvetlost [%.1f lx]"	(Lum,LumAvg)		{ tinkerforge="uid=mbu" }
+Number	LumSpalnica	"SpalnicaSvetlost [%.1f lx]"	(Lum,LumAvg)		{ tinkerforge="uid=mip" }
+Number	LumKuhinja	"KuhinjaSvetlost [%.1f lx]"	(Lum,LumAvg)		{ tinkerforge="uid=mg9" }
+Number	LumKabinet	"KabinetSvetlost [%.1f lx]"	(Lum,LumAvg)		{ tinkerforge="uid=m87" }
+
+//Vreme strazisce.zevs.si
+Number	TempOut		"Zunanja temperatura [%.2f °C]"	<temperature>	(Temp)	{  }
+
+Contact	MotKuhinja		"Kuhinja [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in0" }
+Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in3" }
+Contact	MotVhod			"Vetrolov [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in1" }
+//Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="name=motionSteps" }
+//Contact MotHodnikZgoraj		"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="name=motionBath" }
+Contact MotDnevna               "Dnevna [MAP(si.map):MOTION-%s]"              <motion>        (Mot)   { tinkerforge="uid=gZr, subid=in0" }
+
+
+Number	Temperature_Chart_Period	"Chart period [%s]"
+Switch	LogAlarmRaised	"Proženje alarma"		(Log)
+Switch	LogHeating	"Ogrevanje"	<heating>	(Log)
+Switch	FHHeater	"Talno gretje"	<heating>	(Log)	{ tinkerforge="uid=kBH, subid=relay1" }

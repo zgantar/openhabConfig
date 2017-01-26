@@ -1,0 +1,54 @@
+sitemap hisa label="Stikala za rezidenco Gantar" {
+	Frame label="Ogrevanje" icon="heating" {
+		Switch item=FhsHeater
+	}
+
+	Frame label="Ogrevanje po sobah" icon="heating" {
+		Switch item=FhsKopalnicaZ
+		Switch item=FhsJulija
+		Switch item=FhsAljaz
+		Switch item=FhsHodnikZ
+		Switch item=FhsHodnikS
+		Switch item=FhsKopalnicaS
+		Switch item=FhsKuhinja1
+		Switch item=FhsDnevna2
+		Switch item=LowElectricity
+		Switch item=Holidays
+	}
+
+	Frame label="Ročne nastavitve ogrevanja" icon="heating" {
+		Switch item=Override
+		Switch item=ManHeating visibility=[Override==ON]
+		Switch item=ManKopalnicaZ visibility=[Override==ON]
+		Switch item=ManJulija visibility=[Override==ON]
+		Switch item=ManAljaz visibility=[Override==ON]
+		Switch item=ManHodnikZ visibility=[Override==ON]
+		Switch item=ManHodnikS visibility=[Override==ON]
+		Switch item=ManKopalnicaS visibility=[Override==ON]
+		Switch item=ManKuhinja visibility=[Override==ON]
+		Switch item=ManDnevna visibility=[Override==ON]
+	}
+		
+	Frame label="Nastavljene temperature po sobah" icon="heating" {
+		Setpoint item=SetAljaz minValue=19 maxValue=25 step=0.1
+		Text item=TempAljaz
+		Setpoint item=SetJulija minValue=19 maxValue=25 step=0.1
+		Text item=TempJulija
+		Setpoint item=SetSpalnica minValue=19 maxValue=25 step=0.1
+		Text item=TempSpalnica
+		Setpoint item=SetKopalnicaZ minValue=19 maxValue=25 step=0.1
+		Text item=TempKopalnicaZ
+		Setpoint item=SetKopalnicaS minValue=19 maxValue=25 step=0.1
+		Text item=TempKopalnicaS
+		Setpoint item=SetKuhinja minValue=19 maxValue=25 step=0.1
+		Text item=TempKuhinja
+		Setpoint item=SetDnevna minValue=19 maxValue=25 step=0.1
+		Text item=TempDnevna
+		Setpoint item=SetKabinet minValue=19 maxValue=25 step=0.1
+		Text item=TempKabinet
+		Setpoint item=SetHodnikZ minValue=19 maxValue=25 step=0.1
+		Text item=TempHodnikZ
+		Setpoint item=SetHodnikS minValue=19 maxValue=25 step=0.1
+		Text item=TempHodnikS
+	}
+}

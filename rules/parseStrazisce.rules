@@ -1,0 +1,36 @@
+//import org.joda.time
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+
+rule "Parse strazisce.zevs.si"
+
+when
+	Time cron "10 0/10 * * * ?"
+then
+	logInfo("strazisce", "Klic za parsanje - ")
+	executeCommandLine("wget@@http://strazisce.zevs.si/downld02.txt",1)
+
+	//Čas
+	val time = executeCommandLine("/home/ziga/progs/strazisceParser.sh@@1",1)
+	logInfo("strazisce", "Klic za parsanje - čas: " + time)
+	
+	
+	//temperatura
+	val temperatura = executeCommandLine("/home/ziga/progs/strazisceParser.sh@@4",1)
+	logInfo("strazisce", "Klic za parsanje - temperatura: " + temperatura)
+	
+	//vlaga
+	executeCommandLine("/home/ziga/progs/strazisceParser.sh@@6",1)
+	
+	//veter
+	executeCommandLine("/home/ziga/progs/strazisceParser.sh@@8",1)
+	executeCommandLine("/home/ziga/progs/strazisceParser.sh@@9",1)
+	
+	//dež
+	executeCommandLine("/home/ziga/progs/strazisceParser.sh@@19",1)
+	
+	//sonce
+	executeCommandLine("/home/ziga/progs/strazisceParser.sh@@20",1)
+	
+end

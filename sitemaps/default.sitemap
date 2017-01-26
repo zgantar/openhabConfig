@@ -1,0 +1,80 @@
+sitemap hisa label="Rezidenca Gantar" {
+	Frame label="Gibanje" icon="motion" {
+		Text item=MotKuhinja
+		Text item=MotPodStopnicami
+		Text item=MotVhod
+		Text item=MotDnevna
+	}
+//	Frame label="Kamere" {
+//		Video item=Nexus4 icon="video" url="http://192.168.1.56:8080/video" encoding="mjpeg"
+//		Image item=Nexus4 icon=image url="http://192.168.1.56:8080/shot.jpg" label="Nexus4" refresh=10000
+//	}
+//	Frame label="Povprečne vrednosti" {
+//		Text item=TempAvg
+//		Text item=HumAvg
+//	}
+	Frame label="Ogrevanje" {
+		Switch item=FhsHeater
+	}
+
+	Frame label="Julija" {
+		Text item=HumJulija
+		Text item=TempJulija
+		Text item=LumJulija
+	}
+
+	Frame label="Aljaž"  {
+		Text item=HumAljaz
+		Text item=TempAljaz
+		Text item=LumAljaz
+	}
+	
+	Frame label="Spalnica" {
+		Text item=HumSpalnica
+		Text item=TempSpalnica
+		Text item=LumSpalnica
+	}
+	
+	Frame label="Zgornja kopalnica" {
+		Text item=HumKopalnicaZ
+		Text item=TempKopalnicaZ
+	}
+    
+    Frame label="Kuhinja" {
+		Text item=HumKuhinja
+		Text item=TempKuhinja
+		Text item=LumKuhinja
+	}
+	
+	Frame label="Kabinet" {
+		Text item=HumKabinet
+		Text item=TempKabinet
+		Text item=LumKabinet
+	}
+
+	Frame label="Spodnja kopalnica" {
+		Text item=HumKopalnicaS
+		Text item=TempKopalnicaS
+	}
+
+	Frame label="Grafi" {
+		Switch item=Temperature_Chart_Period label="Period" icon="chart" mappings=[0="Hour", 1="Day", 2="Week"]
+		
+		Chart item=Temp period=h refresh=300 visibility=[Temperature_Chart_Period==0, Temperature_Chart_Period=="Uninitialized"]
+		Chart item=Temp period=D refresh=1800 visibility=[Temperature_Chart_Period==1]
+		Chart item=Temp period=W refresh=3600 visibility=[Temperature_Chart_Period==2]
+		
+		Chart item=Hum period=h refresh=300 visibility=[Temperature_Chart_Period==0, Temperature_Chart_Period=="Uninitialized"]
+		Chart item=Hum period=D refresh=1800 visibility=[Temperature_Chart_Period==1]
+		Chart item=Hum period=W refresh=3600 visibility=[Temperature_Chart_Period==2]
+
+		Chart item=Lum period=h refresh=300 visibility=[Temperature_Chart_Period==0, Temperature_Chart_Period=="Uninitialized"]
+		Chart item=Lum period=D refresh=1800 visibility=[Temperature_Chart_Period==1]
+		Chart item=Lum period=W refresh=3600 visibility=[Temperature_Chart_Period==2]
+
+//		Text label="Povprečja"
+//		Chart item=TempAvg period=D refresh=900000
+//		Chart item=HumAvg period=D refresh=900000
+//		Chart item=LumAvg period=D refresh=900000
+	}
+}

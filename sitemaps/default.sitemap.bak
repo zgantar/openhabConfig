@@ -1,0 +1,52 @@
+sitemap hisa label="Rezidenca Gantar" {
+#        Frame label="Gibanje" {
+#                Text item=Kuhinja
+#                Text item=Vhod
+#		Text item=Hodnik
+#		Text item=Dnevna
+#		Text item=Stenge
+#        }
+
+	Frame label="I. štuk" {
+		Frame label="Kopalnica" icon="bath"
+			{
+		        	Text item=KopalnicaZ_Vlaznost
+				Text item=KopalnicaZ_Temperatura
+       		    	}
+#		Frame label="Julija"
+#			{
+#				Text item=Julija_Vlaznost
+#				Text item=Julija_Temperatura
+#				Text item=Julija_Svetlost
+#			}
+#		Frame label="Aljaž"
+#			{
+#		        	Text item=Aljaz_Vlaznost
+#			        Text item=Aljaz_Temperatura
+#				Text item=Aljaz_Svetlost
+#			}
+	}
+#	Frame label="Pritličje" {
+#		Frame label="Kopalnica" {
+#			Text item=KopalnicaS_Vlaznost
+#			Text item=KopalnicaS_Temperatura
+#		}
+#		 Frame label="Kuhinja"
+#                    {
+#                        Text item=Kuhinja_Vlaznost
+#                        Text item=Kuhinja_Temperatura
+#                        Text item=Kuhinja_Svetlost
+#                    }
+#                 Frame label="Kabinet"
+#                    {
+#                        Text item=Kabinet_Vlaznost
+#                        Text item=Kabinet_Temperatura
+#                        Text item=Kabinet_Svetlost
+#                    }
+#	}
+#	Frame label="Grafi" {
+#		Chart item=Temp period=D refresh=900000
+#		Chart item=Vlaz period=D refresh=900000
+#		Chart item=Svet period=D refresh=900000
+#	}
+}

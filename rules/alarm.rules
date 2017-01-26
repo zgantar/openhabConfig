@@ -1,0 +1,13 @@
+//import org.joda.time
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+
+rule "Set all necessary variables for alarm"
+
+when
+	System started
+then
+	sendCommand(LogAlarmRaised, OFF)
+	logInfo("alarm", "Nastavljene začetne vrednosti - " + LogAlarmRaised.state)
+end

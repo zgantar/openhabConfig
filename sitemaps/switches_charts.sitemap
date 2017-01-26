@@ -1,0 +1,27 @@
+sitemap hisa label="Grafi ogrevanja za rezidenco Gantar" {
+	Frame label="Ogrevanje" icon="heating" {
+		Text label="Talno gretje"
+		Chart item=FhsHeater period=D refresh=900000 
+	}
+
+	Frame label="Ogrevanje po sobah" icon="heating" {
+		Text label="Talno gretje kopalnica zgoraj"
+		Chart item=FhsKopalnicaZ period=D refresh=900000 
+		Text label="Talno gretje Julija"
+		Chart item=FhsJulija period=D refresh=900000 
+		Text label="Talno gretje Aljaž"
+		Chart item=FhsAljaz period=D refresh=900000 
+		Text label="Talno gretje hodnik zgoraj"
+		Chart item=FhsHodnikZ period=D refresh=900000 
+		Text label="Talno gretje kopalnica spodaj"
+		Chart item=FhsKopalnicaS period=D refresh=900000 
+		Text label="Talno gretje hodnik spodaj"
+		Chart item=FhsHodnikS period=D refresh=900000 
+		Text label="Talno gretje kuhinja 1"
+		Chart item=FhsKuhinja1 period=D refresh=900000 
+		Text label="Talno gretje dnevna 2"
+		Chart item=FhsDnevna2 period=D refresh=900000 
+		Text label="Elektrika nizka tarifa"
+		Chart item=LowElectricity period=D refresh=900000 
+	}
+}
