@@ -28,7 +28,7 @@ val Functions$Function1 getNameWithCommand = [
 val Functions$Function1 getNameWithOppositeCommand = [ 
 	SwitchItem item|
 	logInfo("blinds", "Iščemo nasprotno ime z ukazom")
-	if (getCommand.apply(item).toString.equals("Up")) {
+	if (item.name.substring(item.name.length - 2, item.name.length).toString.equals("Up")) {
 		return item.name.substring(3, item.name.length - 2).concat("Do")
 	} else {
 		return item.name.substring(3, item.name.length - 2).concat("Up")
@@ -39,9 +39,11 @@ val Functions$Function1 getNameWithOppositeCommand = [
 val Functions$Function1 checkSwiItem = [
 	SwitchItem item|
 
+	
+	val lastUpdateState = item.historicState(now.minusMinutes(10))
 	logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo - preverjam ali je stikalo vklopljeno že dalj časa " + item.name)
-	val lastUpdate = item.lastUpdate
-	if ((now.millis - lastUpdate.millis) > 600000) {
+	logInfo("blinds", "Trenutni čas " + "----" + now)
+	if (item.state == lastUpdateState.state) {
 		if (item.name.substring(item.name.length - 2, item.name.length).equals("Up")) {
 			logInfo("blinds", "Dvig žaluzij zahtevalo ročno stikalo pred več kot 10. minutami, očitno pozabili izklopiti zato ignoriram")
 			var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 2).concat("Do"))).head
@@ -58,7 +60,7 @@ val Functions$Function1 checkSwiItem = [
 			activateActBlind.apply(item, 1)
 		}
 	} else {
-		logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo pred " + (now.millis - lastUpdate.millis) + ", ignoriram logični ukaz")
+		logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo ob " + (item.lastUpdate) + ", ignoriram logični ukaz")
 		item.sendCommand(OFF)
 		return true
 	}
@@ -212,6 +214,9 @@ then
 				activateActBlind.apply(logItem, 0)
 				logInfo("blinds", "###############Spuščam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
 				activateActBlind.apply(swiItem, 1)
+			} else {
+				logInfo("blinds", "###############Spuščam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
+				activateActBlind.apply(swiItem, 1)
 			}
 		} else {
 			logInfo("blinds", "Dobil ukaz za dvig žaluzij")
@@ -221,6 +226,9 @@ then
 				logInfo("blinds", "Spust žaluzij zahtevala logika, preklicujem!")
 				logItem.sendCommand(OFF)
 				activateActBlind.apply(logItem, 0)
+				logInfo("blinds", "###############Dvigam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
+				activateActBlind.apply(swiItem, 1)
+			} else {
 				logInfo("blinds", "###############Dvigam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
 				activateActBlind.apply(swiItem, 1)
 			}

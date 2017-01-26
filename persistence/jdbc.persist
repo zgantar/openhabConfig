@@ -25,9 +25,9 @@ Items {
 	Set* : strategy = everyChange, restoreOnStartup
 	Out* : strategy = everyFiveMinutes, restoreOnStartup
 	Man* : strategy = everyChange, restoreOnStartup
-	Act* : strategy = everyChange
-	Swi* : strategy = everyChange
-	Zal* : strategy = everyChange, restoreOnStartup
+	BlindAct* : strategy = everyChange
+	BlindSwi* : strategy = everyChange
+	BlindLog* : strategy = everyChange, restoreOnStartup
 
 	Override: strategy = everyChange, restoreOnStartup
 	Heating: strategy = everyChange, restoreOnStartup
