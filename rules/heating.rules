@@ -14,6 +14,7 @@ then
 	sendCommand(Override, OFF)
 	sendCommand(LowElectricity, OFF)
 	sendCommand(Holidays, OFF)
+	sendCommand(Away, OFF)
 	Log.sendCommand(OFF)
 	Man.sendCommand(OFF)
 //	Mot.sendCommand(CLOSED)
@@ -35,7 +36,7 @@ then
 	callScript("missingTempSensor")
 	if (Override.state == OFF) {
 		Temp.members.forEach[ item |
-			var name = item.name.substring(4)
+			val name = item.name.substring(4)
 			//need to get living room since there is no temp sensor there
 			var setItem = Set.members.filter(setter | setter.name.containsIgnoreCase(name)).head
 			logInfo("heating", "2 Preverjamo ali je potrebno ogreti - " + setItem.name)
@@ -44,7 +45,9 @@ then
 			logInfo("heating", "3 Našli smo ventil - " + logItem.name)
 			logInfo("heating", "3.1 gledamo kakšna je vrednost odvoda zadnjih 15 min: " + (item.deltaSince(now.minusMinutes(15)) as Number)/30)
 			logInfo("heating", "3.1 gledamo kakšna je vrednost evolution v zadnjih 15 min: " + item.evolutionRate(now.minusMinutes(16)) as Number)
-			if (now.getHourOfDay > 6 && now.getHourOfDay < 14 && now.getDayOfWeek < 6 && Holidays.state == OFF) {
+			if (Away.state == ON && LowElectricity.state == OFF) {
+				mejnaTemp = mejnaTemp - 3
+			} else if (now.getHourOfDay > 6 && now.getHourOfDay < 14 && now.getDayOfWeek < 6 && Holidays.state == OFF) {
 				mejnaTemp = mejnaTemp - 0.2
 				logInfo("heating", "3.2 Ker je zjutraj med tednom in nismo na dopustu, se mejna temperatura spusti za 0.2 stopinje - " + mejnaTemp)
 			} else if (FhsHeater.state == ON && LowElectricity.state == ON) {

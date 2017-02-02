@@ -7,6 +7,7 @@ import org.apache.commons.lang.StringUtils.*
 import org.eclipse.xtext.xbase.lib.*
 import org.openhab.model.script.actions.*
 
+
 val Functions$Function1 getCommand = [ 
 	SwitchItem item|
 	logInfo("blinds", "Iščemo ukaz za stikalo - " + item.name)
@@ -28,7 +29,7 @@ val Functions$Function1 getNameWithCommand = [
 val Functions$Function1 getNameWithOppositeCommand = [ 
 	SwitchItem item|
 	logInfo("blinds", "Iščemo nasprotno ime z ukazom")
-	if (getCommand.apply(item).toString.equals("Up")) {
+	if (item.name.substring(item.name.length - 2, item.name.length).toString.equals("Up")) {
 		return item.name.substring(3, item.name.length - 2).concat("Do")
 	} else {
 		return item.name.substring(3, item.name.length - 2).concat("Up")
@@ -36,33 +37,39 @@ val Functions$Function1 getNameWithOppositeCommand = [
 ]
 
 
-val Functions$Function1 checkSwiItem = [
-	SwitchItem item|
+val Functions$Function2 checkSwiItem = [
+	SwitchItem item,
+	int logOrSwi|
 
-	logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo - preverjam ali je stikalo vklopljeno že dalj časa " + item.name)
-	val lastUpdate = item.lastUpdate
-	if ((now.millis - lastUpdate.millis) > 600000) {
-		if (item.name.substring(item.name.length - 2, item.name.length).equals("Up")) {
-			logInfo("blinds", "Dvig žaluzij zahtevalo ročno stikalo pred več kot 10. minutami, očitno pozabili izklopiti zato ignoriram")
-			var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 2).concat("Do"))).head
-			logInfo("blinds", "Izklapljam aktuator - " + oppActItem.name)
-			activateActBlind.apply(oppActItem, 0)
-			logInfo("blinds", "Dvigam žaluzijo - " + item.name)
-			activateActBlind.apply(item, 1)
-		} else {
-			logInfo("blinds", "Spust žaluzij zahtevalo ročno stikalo pred več kot 10. minutami, očitno pozabili izklopiti zato ignoriram")
-			var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 2).concat("Up"))).head
-			logInfo("blinds", "Izklapljam aktuator - " + oppActItem.name)
-			activateActBlind.apply(oppActItem, 0)
-			logInfo("blinds", "Spuščam žaluzijo - " + item.name)
-			activateActBlind.apply(item, 1)
+	val lastUpdateTime = item.historicState(now.minusMinutes(10)).timestamp.time
+	logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo - preverjam ali je stikalo vklopljeno že dalj časa " + item.name + " ----- " + lastUpdateTime)
+	logInfo("blinds", "Trenutni čas " + "----" + now)
+	val timeDifference = now.millis - lastUpdateTime
+	if (logOrSwi == 1) {
+		if (timeDifference > 300000) {
+			if (item.name.substring(item.name.length - 2, item.name.length).equals("Up")) {
+				logInfo("blinds", "Dvig žaluzij zahtevalo ročno stikalo pred več kot 5. minutami, očitno pozabili izklopiti zato ignoriram")
+				var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 2).concat("Do"))).head
+				logInfo("blinds", "Izklapljam aktuator - " + oppActItem.name)
+				activateActBlind.apply(oppActItem, 0)
+				logInfo("blinds", "Dvigam žaluzijo - " + item.name)
+				activateActBlind.apply(item, 1)
+			} else {
+				logInfo("blinds", "Spust žaluzij zahtevalo ročno stikalo pred več kot 5. minutami, očitno pozabili izklopiti zato ignoriram")
+				var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 2).concat("Up"))).head
+				logInfo("blinds", "Izklapljam aktuator - " + oppActItem.name)
+				activateActBlind.apply(oppActItem, 0)
+				logInfo("blinds", "Spuščam žaluzijo - " + item.name)
+				activateActBlind.apply(item, 1)
+			}
+		} 
+	} else if (logOrSwi == 0) {
+		if (timeDifference <= 3000){
+			logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo ob " + (item.lastUpdate) + " in bilo je krajše od 3 sekund zato takoj izklopim")
+			activateActBlind.apply(item, 0)
 		}
-	} else {
-		logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo pred " + (now.millis - lastUpdate.millis) + ", ignoriram logični ukaz")
-		item.sendCommand(OFF)
-		return true
 	}
-	
+	true
 ]
 
 val Functions$Function2 activateActBlind = [ 
@@ -146,7 +153,7 @@ then
 			logInfo("blinds", "Preverjam obratno fizično stikalo - " + swiItem.name)
 			if (swiItem.state == OFF) {
 				logInfo("blinds", "Dvig žaluzij zahtevalo ročno stikalo - preverjam naprej!")
-				checkSwiItem.apply(swiItem)
+				checkSwiItem.apply(swiItem, 1)
 			} else {
 				logInfo("blinds", "Fizično stikalo ni vklopljeno!")
 				logInfo("blinds", "###############Spuščam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
@@ -158,7 +165,7 @@ then
 			logInfo("blinds", "Preverjam fizično stikalo - " + swiItem.name)
 			if (swiItem.state == OFF) {
 				logInfo("blinds", "Spust žaluzij zahtevalo ročno stikalo - preverjam naprej!")
-				checkSwiItem.apply(swiItem)
+				checkSwiItem.apply(swiItem, 1)
 			} else {
 				logInfo("blinds", "Fizično stikalo ni vklopljeno!")
 				logInfo("blinds", "###############Dvigam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
@@ -210,9 +217,9 @@ then
 				logInfo("blinds", "Dvig žaluzij zahtevala logika, preklicujem!")
 				logItem.sendCommand(OFF)
 				activateActBlind.apply(logItem, 0)
-				logInfo("blinds", "###############Spuščam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
-				activateActBlind.apply(swiItem, 1)
 			}
+			logInfo("blinds", "###############Spuščam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
+			activateActBlind.apply(swiItem, 1)
 		} else {
 			logInfo("blinds", "Dobil ukaz za dvig žaluzij")
 			var logItem = BlindLog.members.filter(filtItem|filtItem.name.containsIgnoreCase(getNameWithOppositeCommand.apply(swiItem))).head
@@ -221,9 +228,10 @@ then
 				logInfo("blinds", "Spust žaluzij zahtevala logika, preklicujem!")
 				logItem.sendCommand(OFF)
 				activateActBlind.apply(logItem, 0)
-				logInfo("blinds", "###############Dvigam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
-				activateActBlind.apply(swiItem, 1)
 			}
+			logInfo("blinds", "###############Dvigam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
+			activateActBlind.apply(swiItem, 1)
+			
 		}
 	]
 	//treba preverit, če se je izklopilo stikalo
@@ -239,7 +247,9 @@ then
 				logInfo("blinds", "Logično stikalo je sproženo, pustimo stat")
 			} else {
 				logInfo("blinds", "Logično stikalo ni sprožilo žaluzije, ustavimo žaluzijo")
-				activateActBlind.apply(actItem, 0)
+				logInfo("blinds", "Potrebno preveriti dolžino pritiska fizičnega stikala")
+				checkSwiItem.apply(swiItem, 0)
+//				activateActBlind.apply(actItem, 0)
 			}
 		} else {
 			logInfo("blinds", "Fizično stikalo je sproženo")

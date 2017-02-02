@@ -22,7 +22,8 @@ Switch	LogOgrevanje	"Ogrevanje logika"	<heating>	(Log)
 Switch	AlarmRaised		"Proženje alarma"
 Switch	Heating			"Ogrevanje"					<heating>
 Switch	LowElectricity	"Nizka tarifa elektrike"
-Switch	Holidays	"Dopust"
+Switch	Holidays		"Doma med tednom"
+Switch	Away			"Sploh nismo doma"
 
 Number	SetAljaz		"Nastavljena temperatura Aljaž [%.1f °C]"				<temperature>	(Set)
 Number	SetJulija		"Nastavljena temperatura Julija [%.1f °C]"				<temperature>	(Set)
