@@ -43,10 +43,15 @@ then
 			var logItem = Log.members.filter( doer | doer.name.containsIgnoreCase(name)).head
 			var mejnaTemp = setItem.state as Number
 			logInfo("heating", "3 Našli smo ventil - " + logItem.name)
+			logInfo("heating", "3.1 gledamo kakšna je nastavljena vrednost za to sobo: " + mejnaTemp)
 			logInfo("heating", "3.1 gledamo kakšna je vrednost odvoda zadnjih 15 min: " + (item.deltaSince(now.minusMinutes(15)) as Number)/30)
 			logInfo("heating", "3.1 gledamo kakšna je vrednost evolution v zadnjih 15 min: " + item.evolutionRate(now.minusMinutes(16)) as Number)
 			if (Away.state == ON && LowElectricity.state == OFF) {
 				mejnaTemp = mejnaTemp - 3
+				logInfo("heating", "3.2 Ker ni nobenega doma in ni poceni elektrika je mejna temperatura zmanjšana za 3 - " + mejnaTemp)
+			} else if (Away.state == ON && LowElectricity.state == ON) {
+				mejnaTemp = mejnaTemp - 2
+				logInfo("heating", "3.2 Ker ni nobenega doma in je poceni elektrika je mejna temperatura zmanjšana za 2 - " + mejnaTemp)
 			} else if (now.getHourOfDay > 6 && now.getHourOfDay < 14 && now.getDayOfWeek < 6 && Holidays.state == OFF) {
 				mejnaTemp = mejnaTemp - 0.2
 				logInfo("heating", "3.2 Ker je zjutraj med tednom in nismo na dopustu, se mejna temperatura spusti za 0.2 stopinje - " + mejnaTemp)
