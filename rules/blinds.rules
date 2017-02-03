@@ -41,7 +41,6 @@ val Functions$Function2 checkSwiItem = [
 	SwitchItem item,
 	int logOrSwi|
 
-<<<<<<< HEAD
 	val lastUpdateTime = item.historicState(now.minusMinutes(10)).timestamp.time
 	logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo - preverjam ali je stikalo vklopljeno že dalj časa " + item.name + " ----- " + lastUpdateTime)
 	logInfo("blinds", "Trenutni čas " + "----" + now)
@@ -69,32 +68,7 @@ val Functions$Function2 checkSwiItem = [
 			logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo ob " + (item.lastUpdate) + " in bilo je krajše od 3 sekund zato takoj izklopim")
 			activateActBlind.apply(item, 0)
 		}
-=======
-	
-	val lastUpdateState = item.historicState(now.minusMinutes(10))
-	logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo - preverjam ali je stikalo vklopljeno že dalj časa " + item.name)
-	logInfo("blinds", "Trenutni čas " + "----" + now)
-	if (item.state == lastUpdateState.state) {
-		if (item.name.substring(item.name.length - 2, item.name.length).equals("Up")) {
-			logInfo("blinds", "Dvig žaluzij zahtevalo ročno stikalo pred več kot 10. minutami, očitno pozabili izklopiti zato ignoriram")
-			var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 2).concat("Do"))).head
-			logInfo("blinds", "Izklapljam aktuator - " + oppActItem.name)
-			activateActBlind.apply(oppActItem, 0)
-			logInfo("blinds", "Dvigam žaluzijo - " + item.name)
-			activateActBlind.apply(item, 1)
-		} else {
-			logInfo("blinds", "Spust žaluzij zahtevalo ročno stikalo pred več kot 10. minutami, očitno pozabili izklopiti zato ignoriram")
-			var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 2).concat("Up"))).head
-			logInfo("blinds", "Izklapljam aktuator - " + oppActItem.name)
-			activateActBlind.apply(oppActItem, 0)
-			logInfo("blinds", "Spuščam žaluzijo - " + item.name)
-			activateActBlind.apply(item, 1)
-		}
-	} else {
-		logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo ob " + (item.lastUpdate) + ", ignoriram logični ukaz")
-		item.sendCommand(OFF)
-		return true
->>>>>>> origin/master
+		
 	}
 	true
 ]
