@@ -217,16 +217,12 @@ then
 			if (logItem.state == ON) {
 				logInfo("blinds", "Dvig žaluzij zahtevala logika, preklicujem!")
 				logItem.sendCommand(OFF)
+				//ali je to res potrebno
 				activateActBlind.apply(logItem, 0)
-<<<<<<< HEAD
-=======
 				logInfo("blinds", "###############Spuščam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
 				activateActBlind.apply(swiItem, 1)
-			} else {
-				logInfo("blinds", "###############Spuščam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
-				activateActBlind.apply(swiItem, 1)
->>>>>>> origin/master
 			}
+			logInfo("blinds", "Ni zahteve s strani logike!")
 			logInfo("blinds", "###############Spuščam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
 			activateActBlind.apply(swiItem, 1)
 		} else {
@@ -236,16 +232,12 @@ then
 			if (logItem.state == ON) {
 				logInfo("blinds", "Spust žaluzij zahtevala logika, preklicujem!")
 				logItem.sendCommand(OFF)
+				//ali je to res potrebno
 				activateActBlind.apply(logItem, 0)
-<<<<<<< HEAD
-=======
 				logInfo("blinds", "###############Dvigam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
 				activateActBlind.apply(swiItem, 1)
-			} else {
-				logInfo("blinds", "###############Dvigam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
-				activateActBlind.apply(swiItem, 1)
->>>>>>> origin/master
 			}
+			logInfo("blinds", "Ni zahteve s strani logike!")
 			logInfo("blinds", "###############Dvigam žaluzijo " + actionerName.toString.toUpperCase + "!!!!#####################")
 			activateActBlind.apply(swiItem, 1)
 			
