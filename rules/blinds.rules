@@ -42,7 +42,7 @@ val Functions$Function2 checkSwiItem = [
 	int logOrSwi|
 
 	val lastUpdateTime = item.historicState(now.minusMinutes(10)).timestamp.time
-	logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo - preverjam ali je stikalo vklopljeno že dalj časa " + item.name + " ----- " + lastUpdateTime)
+	logInfo("blinds", "Preverjam ročno stikalo ali je vklopljeno že dalj časa " + item.name + " ----- " + lastUpdateTime)
 	logInfo("blinds", "Trenutni čas " + "----" + now)
 	val timeDifference = now.millis - lastUpdateTime
 	if (logOrSwi == 1) {
@@ -62,7 +62,9 @@ val Functions$Function2 checkSwiItem = [
 				logInfo("blinds", "Spuščam žaluzijo - " + item.name)
 				activateActBlind.apply(item, 1)
 			}
-		} 
+		} else {
+			logInfo("blinds", "Ročno stikalo je bilo aktivirano manj kot 5 minut nazaj, zato pustimo stat!")
+		}
 	} else if (logOrSwi == 0) {
 		if (timeDifference <= 3000){
 			logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo ob " + (item.lastUpdate) + " in bilo je krajše od 3 sekund zato takoj izklopim")
@@ -95,7 +97,7 @@ val Functions$Function2 activateActBlind = [
 					//še ne vem ali bo rekurzija delala v lambda funkciji
 					activateActBlind.apply(oppActItem, 0)
 					activateActBlind.apply(actItem, 1)
-				}
+				} 
 			} else {
 				logInfo("blinds", "###############Dvigam žaluzijo " + actItem.name.toUpperCase + "##########################")
 //				actItem.sendCommand(ON)
