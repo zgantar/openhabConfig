@@ -54,7 +54,13 @@ Number	LumKabinet	"KabinetSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=m87" }
 Contact	MotKuhinja		"Kuhinja [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in0" }
 Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in3" }
 Contact	MotVhod			"Vetrolov [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in1" }
-Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=spm, subid=ina0" }
+Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=spm, subid=ina7" }
+
+//Contact	MotKuhinja		"Kuhinja [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="name=gibanjeKuhinja" }
+//Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjePodStopnicam" }
+//Contact	MotVhod			"Vetrolov [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
+//Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeDnevna" }
+
 //Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=soG, subid=inb7" }
 //Contact MotKopalnicaZ		"Pred kopalnico zgoraj [MAP(si.map):MOTION-%s]"	<motion>	(Mot)   { tinkerforge="uid=soG, subid=inb6" }
 //Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"         <motion>        (Mot)   { tinkerforge="name=senzorStopniceZ" }
