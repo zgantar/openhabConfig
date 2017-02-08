@@ -54,3 +54,7 @@ Switch	ManHeating		"Peč"					<heating>	(Man)
 //Žaluzije
 Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog)
 Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog)
+Switch	ZalDnevnaDesDo	"Kabinet dol"		<rollershuter>	(BlindLog)
+Switch	ZalDnevnaDesUp	"Kabinet gor"		<rollershuter>	(BlindLog)
+Switch	ZalDnevnaLevDo	"Kabinet dol"		<rollershuter>	(BlindLog)
+Switch	ZalDnevnaLevUp	"Kabinet gor"		<rollershuter>	(BlindLog)

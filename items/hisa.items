@@ -7,10 +7,20 @@ Group	BlindAct	"Aktuatorji žaluzij"
 Group	BlindSwi	"Stikala žaluzij"
 
 //Žaluzije
-Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
-Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
-Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
-Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
+Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
+Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
+Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"						(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
+Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"						(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
+
+Switch	ActDnevnaDesDo	"Dnevna desno dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa5" }	
+Switch	ActDnevnaDesUp	"Dnevna desno gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa4" }
+Switch	SwiDnevnaDesUp	"Dnevna desno stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb2" }
+Switch 	SwiDnevnaDesDo	"Dnevna desno stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb3" }
+
+Switch	ActDnevnaLevDo	"Dnevna levo dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa3" }	
+Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa2" }
+Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
+Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
 
 //Humidity
 Number	HumJulija		"JulijaVlaga [%.1f %%]"		(Hum)	{ tinkerforge="uid=qRv" }
