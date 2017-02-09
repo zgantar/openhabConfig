@@ -8,6 +8,7 @@ import org.eclipse.xtext.xbase.lib.*
 import org.openhab.model.script.actions.*
 
 val MAX_zaluzija = 58000
+val PEEK_zaluzija = 1500
 
 
 val Functions$Function1 getCommand = [ 
@@ -47,6 +48,7 @@ val Functions$Function3 activateActBlind = [
 	int finalState|
 	
 	logInfo("blinds", "Klic activateActBlind za " + item.name.toUpperCase)
+	val stateItem = State.members.filter(stateItem|stateItem.name.substring(5,stateItem.name.length - 1).containsIgnoreCase(item.name.substring(3, item.name.length - 2))).head
 	//postavimo vrednost kdaj naj se žaluzija ustavi
 	var DateTime whenToStop = null
 	if (finalState == null) {
@@ -73,6 +75,7 @@ val Functions$Function3 activateActBlind = [
 					actItem.sendCommand(OFF)
 					logInfo("blinds", "###############Dvigam žaluzijo " + actItem.name.toUpperCase + "##########################")
 					actItem.sendCommand(ON)
+					stateItem.
 					shutDownTimer = createTimer(whenToStop) [|
 						logInfo("blinds", "###############Končal dvig žaluzije " + actItem.name.toUpperCase + "##########################")
 						actItem.sendCommand(OFF)
@@ -321,4 +324,40 @@ then
 		}
 	]
 	logInfo("blinds", "###############Konec začetne nastavitve žaluzij#####################")
+end
+
+rule "All blinds peek"
+when
+	Item AllBlindsPeek changed
+then
+	BlindAct.members.forEach[item|
+		activateActBlind.apply(item, 1, PEEK_zaluzija)
+	]
+end
+
+rule "All blinds up"
+when
+	Item AllBlindsUp changed
+then
+	BlindAct.members.forEach[item|
+		activateActBlind.apply(item, 1, null)
+	]
+end
+
+rule "All blinds down"
+when
+	Item AllBlindsDown changed
+then
+	BlindAct.members.forEach[item|
+		activateActBlind.apply(item, 0, null)
+	]
+end
+
+rule "Blind peek"
+when
+	Item Peek changed
+then
+	Peek.members.filter(item|item.state == ON).forEach[item|
+		activateActBlind.apply(item, 1, PEEK_zaluzija)
+	]
 end
