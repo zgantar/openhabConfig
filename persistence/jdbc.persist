@@ -28,6 +28,7 @@ Items {
 	BlindAct* : strategy = everyChange
 	BlindSwi* : strategy = everyChange
 	BlindLog* : strategy = everyChange, restoreOnStartup
+	State* : strategy = everyChange, restoreOnStartup
 
 	Override: strategy = everyChange, restoreOnStartup
 	Heating: strategy = everyChange, restoreOnStartup

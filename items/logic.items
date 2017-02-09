@@ -2,7 +2,9 @@ Group 	Log
 Group	Set
 Group	Man
 Group	Nopen
-Group	BlindLog	
+Group	BlindLog
+Group	State
+Group	Peek
 
 //Logic
 Number	Temperature_Chart_Period	"Chart period [%s]"
@@ -52,5 +54,12 @@ Switch	ManHeating		"Peč"					<heating>	(Man)
 
 
 //Žaluzije
+Switch	AllBlindsPeek	"Vse žaluzije obrni"
+Switch	AllBlindsUp		"Vse žaluzije gor"
+Switch	AllBlindsDown	"Vse žaluzije dol"
+
 Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog)
 Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog)
+Switch	KabinetPeek		"Kabinet obrni"						(Peek)
+Number	StateKabinet	"Stanje žaluzije kabinet"			(State)
+
