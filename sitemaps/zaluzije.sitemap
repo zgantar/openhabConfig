@@ -1,10 +1,26 @@
 sitemap hisa label="Žaluzije za rezidenco Gantar" {
-	Frame label="Kabinet" icon="heating" {
-		Text item=ActKabinetDo
-		Switch item=ZalKabinetDo
-		Switch item=SwiKabinetDo
-		Text item=ActKabinetUp
-		Switch item=ZalKabinetUp
-		Switch item=SwiKabinetUp
+	Frame label="Vse žaluzije" icon="blinds" {
+		Switch item=PeekAllBlinds
+		Switch item=AllBlindsUp
+		Switch item=AllBlindsDown
 	}
+	Frame label="Kabinet" icon="blinds" {
+		Text item=StateKabinet
+		Switch item=ZalKabinetDo
+		Switch item=ZalKabinetUp
+		Switch item=PeekKabinet
+	}
+	Frame label="Dnevna desno" icon="blinds" {
+		Text item=StateDnevnaDes
+		Switch item=ZalDnevnaDesUp
+		Switch item=ZalDnevnaDesDo
+		Switch item=PeekDnevnaDesUp
+	}
+	Frame label="Dnevna levo" icon="blinds" {
+		Text item=StateDnevnaLev
+		Switch item=ZalDnevnaLevUp
+		Switch item=ZalDnevnaLevDo
+		Switch item=PeekDnevnaLevUp
+	}
+	
 }

@@ -47,7 +47,7 @@ then
 			logInfo("heating", "3.1 gledamo kakšna je vrednost odvoda zadnjih 15 min: " + (item.deltaSince(now.minusMinutes(15)) as Number)/30)
 			logInfo("heating", "3.1 gledamo kakšna je vrednost evolution v zadnjih 15 min: " + item.evolutionRate(now.minusMinutes(16)) as Number)
 			if (Away.state == ON && LowElectricity.state == OFF) {
-				mejnaTemp = mejnaTemp - 3
+				mejnaTemp = mejnaTemp - 4
 				logInfo("heating", "3.2 Ker ni nobenega doma in ni poceni elektrika je mejna temperatura zmanjšana za 3 - " + mejnaTemp)
 			} else if (Away.state == ON && LowElectricity.state == ON) {
 				mejnaTemp = mejnaTemp - 2

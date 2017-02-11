@@ -48,18 +48,28 @@ val Functions$Function3 activateActBlind = [
 	int finalState|
 	
 	logInfo("blinds", "Klic activateActBlind za " + item.name.toUpperCase)
+	var Timer shutDownTimer = null
+	val command = item.name.substring(item.name.length - 2, item.name.length)
+	val name = item.name.substring(3, item.name.length - 2)
+	val actItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 1))).head
 	val stateItem = State.members.filter(stateItem|stateItem.name.substring(5,stateItem.name.length - 1).containsIgnoreCase(item.name.substring(3, item.name.length - 2))).head
 	//postavimo vrednost kdaj naj se žaluzija ustavi
 	var DateTime whenToStop = null
 	if (finalState == null) {
 		whenToStop = now.plusMinutes(1)
+		if (command.equalsIgnoreCase("Up")) {
+			stateItem.postUpdate(60000)
+		} else {
+			stateItem.postUpdate((stateItem.state as Number) - 60000)
+		}
 	} else {
 		whenToStop = now.plusMillis(finalState)
+		if (command.equalsIgnoreCase("Up")) {
+			stateItem.postUpdate(finalState)
+		} else {
+			stateItem.postUpdate((stateItem.state as Number) - finalState)
+		}
 	}
-	var Timer shutDownTimer = null
-	val command = item.name.substring(item.name.length - 2, item.name.length)
-	val name = item.name.substring(3, item.name.length - 2)
-	val actItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 1))).head
 	logInfo("blinds", "Drugi korak v activateActBlind za " + command.toUpperCase)
 	if (on == 1) {
 		if (command.equalsIgnoreCase("Up")) {
@@ -75,7 +85,7 @@ val Functions$Function3 activateActBlind = [
 					actItem.sendCommand(OFF)
 					logInfo("blinds", "###############Dvigam žaluzijo " + actItem.name.toUpperCase + "##########################")
 					actItem.sendCommand(ON)
-					stateItem.
+					
 					shutDownTimer = createTimer(whenToStop) [|
 						logInfo("blinds", "###############Končal dvig žaluzije " + actItem.name.toUpperCase + "##########################")
 						actItem.sendCommand(OFF)

@@ -54,12 +54,21 @@ Switch	ManHeating		"Peč"					<heating>	(Man)
 
 
 //Žaluzije
-Switch	AllBlindsPeek	"Vse žaluzije obrni"
+Switch	PeekAllBlinds	"Vse žaluzije obrni"
 Switch	AllBlindsUp		"Vse žaluzije gor"
 Switch	AllBlindsDown	"Vse žaluzije dol"
 
 Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog)
 Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog)
-Switch	KabinetPeek		"Kabinet obrni"						(Peek)
+Switch	PeekKabinet		"Kabinet obrni"						(Peek)
 Number	StateKabinet	"Stanje žaluzije kabinet"			(State)
 
+Switch	ZalDnevnaDesDo	"Kabinet dol"		<rollershuter>	(BlindLog)
+Switch	ZalDnevnaDesUp	"Kabinet gor"		<rollershuter>	(BlindLog)
+Switch	PeekDnevnaDes	"Kabinet obrni"						(Peek)
+Number	StateDnevnaDes	"Stanje žaluzije dnevna desno"			(State)
+
+Switch	ZalDnevnaLevDo	"Kabinet dol"		<rollershuter>	(BlindLog)
+Switch	ZalDnevnaLevUp	"Kabinet gor"		<rollershuter>	(BlindLog)
+Switch	PeekDnevnaLev	"Kabinet obrni"						(Peek)
+Number	StateDnevnaLev	"Stanje žaluzije dnevna levo"			(State)
