@@ -5,6 +5,7 @@ Group	Mot		"Senzorji gibanja"	(Mot)
 Group	Fhs		"Ventili talnega gretja"
 Group	BlindAct	"Aktuatorji žaluzij"
 Group	BlindSwi	"Stikala žaluzij"
+Group	LowAct		"Obratna stikala"
 
 //Žaluzije
 Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
@@ -21,6 +22,11 @@ Switch	ActDnevnaLevDo	"Dnevna levo dol [MAP(si.map):SWITCH-%s]"			<rollershutter
 Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa2" }
 Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
 Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
+
+Switch	ActSpalnicaLowActDo	"Spalnica dol [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct,LowAct)	{ tinkerforge="uid=gZr, subid=out0" }	
+Switch	ActSpalnicaLowActUp	"Spalnica gor [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct,LowAct)	{ tinkerforge="uid=gZr, subid=out1" }
+Switch	SwiSpalnicaUp		"Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"						(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
+Switch 	SwiSpalnicaDo		"Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"						(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
 
 //Humidity
 Number	HumJulija		"JulijaVlaga [%.1f %%]"		(Hum)	{ tinkerforge="uid=qRv" }

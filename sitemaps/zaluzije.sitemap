@@ -14,13 +14,13 @@ sitemap hisa label="Žaluzije za rezidenco Gantar" {
 		Text item=StateDnevnaDes
 		Switch item=ZalDnevnaDesUp
 		Switch item=ZalDnevnaDesDo
-		Switch item=PeekDnevnaDesUp
+		Switch item=PeekDnevnaDes
 	}
 	Frame label="Dnevna levo" icon="blinds" {
 		Text item=StateDnevnaLev
 		Switch item=ZalDnevnaLevUp
 		Switch item=ZalDnevnaLevDo
-		Switch item=PeekDnevnaLevUp
+		Switch item=PeekDnevnaLev
 	}
 	
 }
