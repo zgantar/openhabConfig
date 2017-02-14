@@ -5,13 +5,12 @@ Group	Mot		"Senzorji gibanja"	(Mot)
 Group	Fhs		"Ventili talnega gretja"
 Group	BlindAct	"Aktuatorji žaluzij"
 Group	BlindSwi	"Stikala žaluzij"
-Group	LowAct		"Obratna stikala"
 
 //Žaluzije
-Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
-Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
-Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"						(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
-Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"						(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
+Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
+Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
+Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
+Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
 
 Switch	ActDnevnaDesDo	"Dnevna desno dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa5" }	
 Switch	ActDnevnaDesUp	"Dnevna desno gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa4" }
@@ -22,11 +21,6 @@ Switch	ActDnevnaLevDo	"Dnevna levo dol [MAP(si.map):SWITCH-%s]"			<rollershutter
 Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa2" }
 Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
 Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
-
-Switch	ActSpalnicaLowActDo	"Spalnica dol [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct,LowAct)	{ tinkerforge="uid=gZr, subid=out0" }	
-Switch	ActSpalnicaLowActUp	"Spalnica gor [MAP(si.map):SWITCH-%s]"				<rollershutter>	(BlindAct,LowAct)	{ tinkerforge="uid=gZr, subid=out1" }
-Switch	SwiSpalnicaUp		"Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"						(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
-Switch 	SwiSpalnicaDo		"Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"						(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
 
 //Humidity
 Number	HumJulija		"JulijaVlaga [%.1f %%]"		(Hum)	{ tinkerforge="uid=qRv" }
@@ -60,13 +54,7 @@ Number	LumKabinet	"KabinetSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=m87" }
 Contact	MotKuhinja		"Kuhinja [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in0" }
 Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in3" }
 Contact	MotVhod			"Vetrolov [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in1" }
-Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=spm, subid=ina7" }
-
-//Contact	MotKuhinja		"Kuhinja [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="name=gibanjeKuhinja" }
-//Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjePodStopnicam" }
-//Contact	MotVhod			"Vetrolov [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
-//Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeDnevna" }
-
+Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=spm, subid=ina0" }
 //Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=soG, subid=inb7" }
 //Contact MotKopalnicaZ		"Pred kopalnico zgoraj [MAP(si.map):MOTION-%s]"	<motion>	(Mot)   { tinkerforge="uid=soG, subid=inb6" }
 //Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"         <motion>        (Mot)   { tinkerforge="name=senzorStopniceZ" }

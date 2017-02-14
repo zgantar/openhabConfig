@@ -3,8 +3,8 @@ Group	Set
 Group	Man
 Group	Nopen
 Group	BlindLog
-Group	State
-Group	Peek
+Group	BlindState
+Group	Blinds
 
 //Logic
 Number	Temperature_Chart_Period	"Chart period [%s]"
@@ -54,26 +54,18 @@ Switch	ManHeating		"Peč"					<heating>	(Man)
 
 
 //Žaluzije
-Switch	PeekAllBlinds	"Vse žaluzije obrni"
-Switch	AllBlindsUp		"Vse žaluzije gor"
-Switch	AllBlindsDown	"Vse žaluzije dol"
+Switch	AllCompleteUp	"Vse žaluzije gor"		<rollershuter>	(Blinds)
+Switch	AllCompleteDo	"Vse žaluzije dol"		<rollershuter>	(Blinds)
+Switch	AllPeek			"Vse žaluzije premik"	<rollershuter>	(Blinds)
 
-Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog)
-Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog)
-Switch	PeekKabinet		"Kabinet obrni"						(Peek)
-Number	StateKabinet	"Stanje žaluzije kabinet"			(State)
+Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog,Blinds)
+Number	StateKabinet	"Stanje žaluzij kabinet"
 
-Switch	ZalDnevnaDesDo	"Dnevna desno dol"		<rollershuter>	(BlindLog)
-Switch	ZalDnevnaDesUp	"Dnevna desno gor"		<rollershuter>	(BlindLog)
-Switch	PeekDnevnaDes	"Dnevna desno obrni"						(Peek)
-Number	StateDnevnaDes	"Stanje žaluzije dnevna desno"			(State)
+Switch	ZalDnevnaDesDo	"Dnevna desno dol"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalDnevnaDesUp	"Dnevna desno gor"		<rollershuter>	(BlindLog,Blinds)
+Number	StateDnevnaDes	"Stanje žaluzij dnevna desno"
 
-Switch	ZalDnevnaLevDo	"Dnevna levo dol"		<rollershuter>	(BlindLog)
-Switch	ZalDnevnaLevUp	"Dnevna levo gor"		<rollershuter>	(BlindLog)
-Switch	PeekDnevnaLev	"Dnevna levo obrni"						(Peek)
-Number	StateDnevnaLev	"Stanje žaluzije dnevna levo"			(State)
-
-Switch	ZalSpalnicaDo	"Spalnica dol"		<rollershuter>	(BlindLog)
-Switch	ZalSpalnicaUp	"Spalnica gor"		<rollershuter>	(BlindLog)
-Switch	PeekSpalnica		"Spalnica obrni"						(Peek)
-Number	StateSpalnicaLowAct	"Stanje žaluzije Spalnica"			(State)
+Switch	ZalDnevnaLevDo	"Dnevna levo dol"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalDnevnaLevUp	"Dnevna levo gor"		<rollershuter>	(BlindLog,Blinds)
+Number	StateDnevnaLev	"Stanje žaluzij dnevna levo"
