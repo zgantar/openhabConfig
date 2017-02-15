@@ -12,25 +12,25 @@ val int COMPLETE = 60000
 
 val Functions$Function1 getCommand = [ 
 	SwitchItem item|
-	logInfo("blinds", "Iščemo ukaz " + item.name.substring(item.name.length - 2, item.name.length))
+//	logInfo("blinds", "Iščemo ukaz " + item.name.substring(item.name.length - 2, item.name.length))
 	return item.name.substring(item.name.length - 2, item.name.length)
 ]
 
 val Functions$Function1 getName = [ 
 	SwitchItem item|
-	logInfo("blinds", "Iščemo ime " + item.name.substring(3, item.name.length - 2))
+//	logInfo("blinds", "Iščemo ime " + item.name.substring(3, item.name.length - 2))
 	return item.name.substring(3, item.name.length - 2)
 ]
 
 val Functions$Function1 getNameWithCommand = [ 
 	SwitchItem item|
-	logInfo("blinds", "Iščemo ime z ukazom " + item.name.substring(3, item.name.length))
+//	logInfo("blinds", "Iščemo ime z ukazom " + item.name.substring(3, item.name.length))
 	return item.name.substring(3, item.name.length)
 ]
 
 val Functions$Function1 getNameWithOppositeCommand = [ 
 	SwitchItem item|
-	logInfo("blinds", "Iščemo nasprotno ime z ukazom")
+//	logInfo("blinds", "Iščemo nasprotno ime z ukazom")
 	if (item.name.substring(item.name.length - 2, item.name.length).toString.equals("Up")) {
 		logInfo("blinds", "Iščemo nasprotno ime z ukazom " + item.name.substring(3, item.name.length - 2).concat("Do"))
 		return item.name.substring(3, item.name.length - 2).concat("Do")
@@ -53,7 +53,7 @@ val Functions$Function3 activateActBlind = [
 	val lowAct = name.containsIgnoreCase("LowAct")
 	logInfo("blinds", "Ali smo našli obratno stikalo " + lowAct)
 	val actItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(item.name.substring(3, item.name.length - 1))).head
-	val stateItem = BlindState.members.filter(filtItem | filtItem.name.containsIgnoreCase(name)).head
+//	val stateItem = BlindState.members.filter(filtItem | filtItem.name.containsIgnoreCase(name)).head
 //	val stanje = stateItem.state as Number
 //	logInfo("blinds", "Stanje žaluzije - " + stanje)
 	if (on == 1) {
@@ -71,7 +71,7 @@ val Functions$Function3 activateActBlind = [
 					if (!lowAct)actItem.sendCommand(ON) else actItem.sendCommand(OFF) 
 					shutDownTimer = createTimer(now.plusMillis(timeToBeActive)) [|
 						logInfo("blinds", "###############Končal dvig žaluzije " + actItem.name.toUpperCase + "##########################")
-						stateItem.postUpdate(timeToBeActive)
+//						stateItem.postUpdate(timeToBeActive)
 //						logInfo("blinds", "Stanje žaluzije - " + stateItem.state as Number)
 						if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON) 
 						if (item.name.substring(0,2).equalsIgnoreCase("Zal")) {
@@ -85,7 +85,7 @@ val Functions$Function3 activateActBlind = [
 				if (!lowAct)actItem.sendCommand(ON) else actItem.sendCommand(OFF) 
 				shutDownTimer = createTimer(now.plusMillis(timeToBeActive)) [|
 					logInfo("blinds", "###############Končal dvig žaluzije " + actItem.name.toUpperCase + "##########################")
-					stateItem.postUpdate(timeToBeActive)
+//					stateItem.postUpdate(timeToBeActive)
 //					logInfo("blinds", "Stanje žaluzije - " + stateItem.state as Number)
 					if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON)
 					if (item.name.substring(0,2).equalsIgnoreCase("Zal")) {
@@ -107,7 +107,7 @@ val Functions$Function3 activateActBlind = [
 					if (!lowAct)actItem.sendCommand(ON) else actItem.sendCommand(OFF)
 					shutDownTimer = createTimer(now.plusMillis(timeToBeActive)) [|
 						logInfo("blinds", "###############Končal dvig žaluzije " + actItem.name.toUpperCase + "##########################")
-						stateItem.postUpdate(timeToBeActive)
+//						stateItem.postUpdate(timeToBeActive)
 //						logInfo("blinds", "Stanje žaluzije - " + stateItem.state as Number)
 						if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON)
 						if (item.name.substring(0,2).equalsIgnoreCase("Zal")) {
@@ -121,7 +121,7 @@ val Functions$Function3 activateActBlind = [
 				if (!lowAct)actItem.sendCommand(ON) else actItem.sendCommand(OFF)
 				shutDownTimer = createTimer(now.plusMillis(timeToBeActive)) [|
 					logInfo("blinds", "###############Končal spust žaluzije " + actItem.name.toUpperCase + "##########################")
-					stateItem.postUpdate(timeToBeActive)
+//					stateItem.postUpdate(timeToBeActive)
 //					logInfo("blinds", "Stanje žaluzije - " + stateItem.state as Number)
 					if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON)
 					if (item.name.substring(0,2).equalsIgnoreCase("Zal")) {
@@ -133,7 +133,7 @@ val Functions$Function3 activateActBlind = [
 		}
  	} else {
 		logInfo("blinds", "###############Končal akcijo na žaluziji " + actItem.name.toUpperCase + "#########################")
-		stateItem.postUpdate(now.millis - actItem.lastUpdate.millis)
+//		stateItem.postUpdate(now.millis - actItem.lastUpdate.millis)
 //		logInfo("blinds", "Stanje žaluzije - " + stateItem.state as Number)
 		if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON)
 	}
@@ -147,9 +147,12 @@ then
 	//getting the switch that produced the action
 	BlindLog.members.filter(log|log.state == ON).forEach[logItem|
 		val actionerName = getName.apply(logItem).toString
+		val oppActionerName = getName.apply(logItem).toString
 		logInfo("blinds", "######################Dobil ukaz logičnega stikala - " + actionerName.toUpperCase + "##########################")
 		val actionerCommandName = getCommand.apply(logItem).toString
-		val swiItem = BlindSwi.members.filter(filtItem|filtItem.name.containsIgnoreCase(getNameWithOppositeCommand.apply(logItem))).head
+		val oppSwiItem = getNameWithOppositeCommand.apply(logItem)
+		val swiItem = BlindSwi.members.filter(filtItem|filtItem.name.containsIgnoreCase(oppSwiItem)).head
+		logInfo("blinds", "Našel stikalo " + swiItem.toString)
 		val lastUpdateTime = swiItem.previousState.timestamp.time
 		logInfo("blinds", "Preverjam nasprotno fizično stikalo ali je vklopljeno in koliko časa " + swiItem.name + " ----- " + lastUpdateTime)
 		logInfo("blinds", "V našem času je to " + "----" + swiItem.lastUpdate)
@@ -165,7 +168,7 @@ then
 //				checkSwiItem.apply(swiItem, 1) treba bo kodo sem prenest
 				if (timeDifference > 300000) {
 					logInfo("blinds", "Dvig žaluzij zahtevalo ročno stikalo pred več kot 5. minutami, očitno pozabili izklopiti zato ignoriram")
-					var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(getNameWithOppositeCommand.apply(swiItem))).head
+					var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(oppActionerName)).head
 					logInfo("blinds", "Izklapljam aktuator - " + oppActItem.name)
 					activateActBlind.apply(oppActItem, 0, 0)
 					logInfo("blinds", "Dvigam žaluzijo - " + swiItem.name)
@@ -188,7 +191,7 @@ then
 //				checkSwiItem.apply(swiItem, 1)
 				if (timeDifference > 300000) {
 					logInfo("blinds", "Spust žaluzij zahtevalo ročno stikalo pred več kot 5. minutami, očitno pozabili izklopiti zato ignoriram")
-					var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(getNameWithOppositeCommand.apply(swiItem))).head
+					var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(oppActionerName)).head
 					logInfo("blinds", "Izklapljam aktuator - " + oppActItem.name)
 					activateActBlind.apply(oppActItem, 0, 0)
 					logInfo("blinds", "Spuščam žaluzijo - " + swiItem.name)
@@ -205,22 +208,25 @@ then
 		}
 	]
 	//treba preverit, če se je izklopilo stikalo
-	BlindAct.members.filter(log|log.state == ON).forEach[actItem |
-		logInfo("blinds", "Našel aktuator, ki je vklopljen - " + actItem.name)
-		val logItem = BlindLog.members.filter(filter|filter.name.equalsIgnoreCase(getNameWithCommand.apply(actItem).toString)).head
-		logInfo("blinds", "Preverimo ali je bil prožen z logičnim stikalom - " + logItem.toString)
-		if (logItem.state == OFF) {
-			logInfo("blinds", "Logično stikalo ni sprožilo žaluzije, preverjamo fizično")
-			val swiItem = BlindSwi.members.filter(filter|filter.name.equalsIgnoreCase(getNameWithCommand.apply(actItem).toString)).head
-			logInfo("blinds", "Preverimo ali je bil prožen s fizičnim stikalom - " + swiItem.toString)
-			if (swiItem.state == OFF) {
-				logInfo("blinds", "Fizično stikalo je sproženo, pustimo stat")
+	BlindAct.members.forEach[actItem |
+		val lowAct = getName.apply(actItem).toString.containsIgnoreCase("LowAct")
+		if (if(!lowAct)actItem.state == ON else actItem.state == OFF) {
+			logInfo("blinds", "Našel aktuator, ki je vklopljen - " + actItem.name)
+			val logItem = BlindLog.members.filter(filter|filter.name.equalsIgnoreCase(getNameWithCommand.apply(actItem).toString)).head
+			logInfo("blinds", "Preverimo ali je bil prožen z logičnim stikalom - " + logItem.toString)
+			if (logItem.state == OFF) {
+				logInfo("blinds", "Logično stikalo ni sprožilo žaluzije, preverjamo fizično")
+				val swiItem = BlindSwi.members.filter(filter|filter.name.equalsIgnoreCase(getNameWithCommand.apply(actItem).toString)).head
+				logInfo("blinds", "Preverimo ali je bil prožen s fizičnim stikalom - " + swiItem.toString)
+				if (swiItem.state == OFF) {
+					logInfo("blinds", "Fizično stikalo je sproženo, pustimo stat")
+				} else {
+					logInfo("blinds", "Fizično stikalo ni sprožilo žaluzije, ustavimo žaluzijo")
+					activateActBlind.apply(actItem, 0, 0)
+				}
 			} else {
-				logInfo("blinds", "Fizično stikalo ni sprožilo žaluzije, ustavimo žaluzijo")
-				activateActBlind.apply(actItem, 0, 0)
+				logInfo("blinds", "Logično stikalo je sproženo, pustimo stat")
 			}
-		} else {
-			logInfo("blinds", "Logično stikalo je sproženo, pustimo stat")
 		}
 	]
 end
@@ -274,33 +280,36 @@ then
 		}
 	]
 	//treba preverit, če se je izklopilo stikalo
-	BlindAct.members.filter(log|log.state == ON).forEach[actItem |
-		logInfo("blinds", "Našel aktuator, ki je vklopljen - " + actItem.name)
-		val swiItem = BlindSwi.members.filter(filter|filter.name.containsIgnoreCase(getNameWithCommand.apply(actItem).toString)).head
-		logInfo("blinds", "Preverimo ali je bil prožen s fizičnim stikalom - " + swiItem.toString)
-		if (swiItem.state == ON) {
-			logInfo("blinds", "Fizično stikalo ni sprožilo žaluzije, preverjamo logično")
-			val logItem = BlindLog.members.filter(filter|filter.name.containsIgnoreCase(getNameWithCommand.apply(actItem).toString)).head
-			logInfo("blinds", "Preverimo ali je bil prožen z logičnim stikalom - " + logItem.toString)
-			if (logItem.state == ON) {
-				logInfo("blinds", "Logično stikalo je sproženo, pustimo stat")
-			} else {
-				logInfo("blinds", "Logično stikalo ni sprožilo žaluzije")
-				logInfo("blinds", "Potrebno preveriti dolžino pritiska fizičnega stikala")
-				val lastUpdateTime = swiItem.previousState.timestamp.time
-				logInfo("blinds", "Preverjam nasprotno fizično stikalo ali je vklopljeno in koliko časa " + swiItem.name + " ----- " + lastUpdateTime)
-				logInfo("blinds", "V našem času je to " + "----" + swiItem.lastUpdate)
-				logInfo("blinds", "Trenutni čas " + "----" + now)
-				val timeDifference = now.millis - lastUpdateTime
-				logInfo("blinds", "Razlika je " + "----" + timeDifference)
-				if (timeDifference <= 3000){
-					logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo ob " + (swiItem.lastUpdate) + " in bilo je krajše od 3 sekund zato takoj izklopim")
-					activateActBlind.apply(swiItem, 0, 0)
-				}
+	BlindAct.members.forEach[actItem |
+		val lowAct = getName.apply(actItem).toString.containsIgnoreCase("LowAct")
+		if (if(!lowAct)actItem.state == ON else actItem.state == OFF) {
+			logInfo("blinds", "Našel aktuator, ki je vklopljen - " + actItem.name)
+			val swiItem = BlindSwi.members.filter(filter|filter.name.containsIgnoreCase(getNameWithCommand.apply(actItem).toString)).head
+			logInfo("blinds", "Preverimo ali je bil prožen s fizičnim stikalom - " + swiItem.toString)
+			if (swiItem.state == ON) {
+				logInfo("blinds", "Fizično stikalo ni sprožilo žaluzije, preverjamo logično")
+				val logItem = BlindLog.members.filter(filter|filter.name.containsIgnoreCase(getNameWithCommand.apply(actItem).toString)).head
+				logInfo("blinds", "Preverimo ali je bil prožen z logičnim stikalom - " + logItem.toString)
+				if (logItem.state == ON) {
+					logInfo("blinds", "Logično stikalo je sproženo, pustimo stat")
+				} else {
+					logInfo("blinds", "Logično stikalo ni sprožilo žaluzije")
+					logInfo("blinds", "Potrebno preveriti dolžino pritiska fizičnega stikala")
+					val lastUpdateTime = swiItem.previousState.timestamp.time
+					logInfo("blinds", "Preverjam nasprotno fizično stikalo ali je vklopljeno in koliko časa " + swiItem.name + " ----- " + lastUpdateTime)
+					logInfo("blinds", "V našem času je to " + "----" + swiItem.lastUpdate)
+					logInfo("blinds", "Trenutni čas " + "----" + now)
+					val timeDifference = now.millis - lastUpdateTime
+					logInfo("blinds", "Razlika je " + "----" + timeDifference)
+					if (timeDifference <= 3000){
+						logInfo("blinds", "Premik žaluzij zahtevalo ročno stikalo ob " + (swiItem.lastUpdate) + " in bilo je krajše od 3 sekund zato takoj izklopim")
+						activateActBlind.apply(swiItem, 0, 0)
+					}
 //				activateActBlind.apply(actItem, 0)
+				}
+			} else {
+				logInfo("blinds", "Fizično stikalo je sproženo")
 			}
-		} else {
-			logInfo("blinds", "Fizično stikalo je sproženo")
 		}
 	]
 end
@@ -309,8 +318,13 @@ rule "Set blinds up"
 when
 	System started
 then
-	Blinds.send(OFF)
 	logInfo("blinds", "###############Začetna nastavitev žaluzij#####################")
+	Blinds.members.forEach[blindsItem|
+		if ((blindsItem.state == 'Uninitialized') || (blindsItem.state == 'Undefined')) {
+			logDebug("blinds", "Našel neicializirano stanje za " + blindsItem.toString + "!!!!")
+			blindsItem.sendCommand(OFF)
+		}
+	]
 	BlindSwi.members.forEach[ swiItem |
 		logInfo("blinds", "Našel fizično stikalo " + swiItem.toString + "!!!!")
 		if (swiItem.state == OFF) {

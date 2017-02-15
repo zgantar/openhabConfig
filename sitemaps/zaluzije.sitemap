@@ -22,5 +22,10 @@ sitemap hisa label="Žaluzije za rezidenco Gantar" {
 		Text item=StateDnevnaLev
 	}
 	
+	Frame label="Spalnica" icon="blinds" {
+		Switch item=ZalSpalnicaLowActDo
+		Switch item=ZalSpalnicaLowActUp
+		Text item=StateSpalnicaLowAct
+	}
 	
 }

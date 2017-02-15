@@ -60,12 +60,16 @@ Switch	AllPeek			"Vse žaluzije premik"	<rollershuter>	(Blinds)
 
 Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog,Blinds)
-Number	StateKabinet	"Stanje žaluzij kabinet"
+Number	StateKabinet	"Stanje žaluzije kabinet"			(BlindState)
 
 Switch	ZalDnevnaDesDo	"Dnevna desno dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalDnevnaDesUp	"Dnevna desno gor"		<rollershuter>	(BlindLog,Blinds)
-Number	StateDnevnaDes	"Stanje žaluzij dnevna desno"
+Number	StateDnevnaDes	"Stanje žaluzij dnevna desno"		(BlindState)
 
 Switch	ZalDnevnaLevDo	"Dnevna levo dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalDnevnaLevUp	"Dnevna levo gor"		<rollershuter>	(BlindLog,Blinds)
-Number	StateDnevnaLev	"Stanje žaluzij dnevna levo"
+Number	StateDnevnaLev	"Stanje žaluzij dnevna levo"		(BlindState)
+
+Switch	ZalSpalnicaLowActDo	"Spalnica dol"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalSpalnicaLowActUp	"Spalnica gor"		<rollershuter>	(BlindLog,Blinds)
+Number	StateSpalnicaLowAct	"Stanje žaluzije spalnica"		(BlindState)
