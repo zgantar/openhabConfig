@@ -57,6 +57,7 @@ Switch	ManHeating		"Peč"					<heating>	(Man)
 Switch	AllCompleteUp	"Vse žaluzije gor"		<rollershuter>	(Blinds)
 Switch	AllCompleteDo	"Vse žaluzije dol"		<rollershuter>	(Blinds)
 Switch	AllPeek			"Vse žaluzije premik"	<rollershuter>	(Blinds)
+Switch	AllPeekClose	"Vse žaluzije zapret"	<rollershuter>	(Blinds)
 
 Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog,Blinds)

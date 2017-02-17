@@ -4,6 +4,7 @@ sitemap hisa label="Žaluzije za rezidenco Gantar" {
 		Switch item=AllCompleteDo
 		Switch item=AllCompleteUp
 		Switch item=AllPeek
+		Switch item=AllPeekClose
 	}
 	
 	Frame label="Kabinet" icon="blinds" {

@@ -37,7 +37,6 @@ then
 	if (Override.state == OFF) {
 		Temp.members.forEach[ item |
 			val name = item.name.substring(4)
-			//need to get living room since there is no temp sensor there
 			var setItem = Set.members.filter(setter | setter.name.containsIgnoreCase(name)).head
 			logInfo("heating", "2 Preverjamo ali je potrebno ogreti - " + setItem.name)
 			var logItem = Log.members.filter( doer | doer.name.containsIgnoreCase(name)).head
@@ -61,8 +60,7 @@ then
 			} else if (FhsHeater.state == ON) {
 				mejnaTemp = mejnaTemp + 0.1
 				logInfo("heating", "3.2 Ker se že ogreva, se mejna temperatura dvigne za 0.1 stopinje - " + mejnaTemp)
-			
-			}
+			} 
 			logInfo("heating", "3.3 Temperatura sobe je - " + item.previousState.state as Number)
 			logInfo("heating", "3.4 Temperatura sobe bi morala biti - " + mejnaTemp)
 			logInfo("heating", "3.5 If pa pride - " + ((item.previousState.state as Number) <= mejnaTemp))
@@ -94,6 +92,19 @@ then
 						logItem.sendCommand(ON)
 						logInfo("heating", "4.2.2.3 Izdan ukaz za konec ogrevanja NO sobe - " + name)
 					}
+				}
+				logInfo("heating", "Preverjamo ali je temperatura toliko previsoka, da moramo spustiti žaluzije")
+				if (((item.previousState.state as Number) <= mejnaTemp + 3) && ((OutSolarRad.previousState.state as Number) > 0)) {
+					logInfo("heating", "Temperatura je previsoka, spuščam žaluzije")
+					val roomName = item.name.substring(4, item.name.length - 1)
+					BlindLog.members.forEach[roomBlind|
+						if (roomBlind.name.containsIgnoreCase(roomName)) {
+							if (roomBlind.name.containsIgnoreCase("Do")) {
+								val lowAct = roomBlind.containsIgnoreCase("LowAct")
+								if (!lowAct) item.sendCommand(OFF) else item.sendCommand(ON)
+							} 
+						}
+					]
 				}
 			}
 		]

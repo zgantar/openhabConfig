@@ -334,6 +334,7 @@ then
 		}
 	]
 	BlindState.members.forEach[stateItem|
+		log.info("blinds", "Preverjam stanje za - " + stateItem.toString)
 		if ((stateItem.state == 'Uninitialized') || (stateItem.state == 'Undefined')) {
 			logDebug("blinds", "Našel neicializirano stanje za " + stateItem.toString + "!!!!")
 			stateItem.postUpdate(0.0)
@@ -384,6 +385,22 @@ then
 		activateActBlind.apply(actItem, 1, PEEK)
 	]
 	
-	logInfo("blinds", "###############Konec vse žaluzije gor#####################")
+	logInfo("blinds", "###############Konec vse žaluzije premakni#####################")
 	sendCommand(AllPeek, OFF)
+end
+
+rule "All blinds close peek"
+when
+	Item AllPeekClose changed to ON
+then
+	logInfo("blinds", "###############Vse žaluzije zapri#####################")
+	val collection = BlindAct.members.filter(item|item.name.containsIgnoreCase("Do"))
+	logInfo("blinds", "Imamo " + collection.size + " žaluzij")
+	collection.forEach[actItem |
+		logInfo("blinds", "Sem v zanki za aktuatorjem - " + actItem.toString)
+		activateActBlind.apply(actItem, 1, PEEK)
+	]
+	
+	logInfo("blinds", "###############Konec vse žaluzije zapri#####################")
+	sendCommand(AllPeekClose, OFF)
 end
