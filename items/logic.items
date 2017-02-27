@@ -74,3 +74,11 @@ Number	StateDnevnaLev	"Stanje žaluzij dnevna levo"		(BlindState)
 Switch	ZalSpalnicaLowActDo	"Spalnica dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalSpalnicaLowActUp	"Spalnica gor"		<rollershuter>	(BlindLog,Blinds)
 Number	StateSpalnicaLowAct	"Stanje žaluzije spalnica"		(BlindState)
+
+Switch	ZalAljazLowActDo	"Aljaž dol"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalAljazLowActUp	"Aljaž gor"		<rollershuter>	(BlindLog,Blinds)
+Number	StateAljazLowAct	"Stanje žaluzije aljaž"		(BlindState)
+
+Switch	ZalJulijaLowActDo	"Julija dol"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalJulijaLowActUp	"Julija gor"		<rollershuter>	(BlindLog,Blinds)
+Number	StateJulijaLowAct	"Stanje žaluzije Julija"		(BlindState)

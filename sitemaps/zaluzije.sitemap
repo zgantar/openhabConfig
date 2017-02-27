@@ -29,4 +29,15 @@ sitemap hisa label="Žaluzije za rezidenco Gantar" {
 		Text item=StateSpalnicaLowAct
 	}
 	
+	Frame label="Aljaž" icon="blinds" {
+		Switch item=ZalAljazLowActDo
+		Switch item=ZalAljazLowActUp
+		Text item=StateAljazLowAct
+	}
+	
+	Frame label="Julija" icon="blinds" {
+		Switch item=ZalJulijaLowActDo
+		Switch item=ZalJulijaLowActUp
+		Text item=StateJulijaLowAct
+	}
 }
