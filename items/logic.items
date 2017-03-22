@@ -1,7 +1,8 @@
 Group 	Log
+Group	LogRev
 Group	Set
 Group	Man
-Group	Nopen
+Group	ManRev
 Group	BlindLog
 Group	BlindState
 Group	Blinds
@@ -9,14 +10,14 @@ Group	Blinds
 //Logic
 Number	Temperature_Chart_Period	"Chart period [%s]"
 
-Switch	LogKopalnicaZ	"Zgornja kopalnica"	<heating>	(Log,Nopen)
+Switch	LogKopalnicaZ	"Zgornja kopalnica"	<heating>	(Log,LogRev)
 Switch	LogSpalnica		"Spalnica"			<heating>	(Log)
 Switch	LogJulija		"Julija"			<heating>	(Log)
 Switch	LogAljaz		"Aljaž"				<heating>	(Log)
 Switch	LogHodnikZ		"Hodnik zgoraj"		<heating>	(Log)
 Switch	LogHodnikS		"Hodnik spodaj"		<heating>	(Log)
-Switch	LogKopalnicaS	"Kopalnica spodaj"	<heating>	(Log,Nopen)
-Switch	LogKuhinja		"Kuhinja"			<heating>	(Log,Nopen)
+Switch	LogKopalnicaS	"Kopalnica spodaj"	<heating>	(Log,LogRev)
+Switch	LogKuhinja		"Kuhinja"			<heating>	(Log,LogRev)
 Switch	LogDnevna		"Dnevna"			<heating>	(Log)
 Switch	LogKabinet		"Kabinet"			<heating>	(Log)
 Switch	LogOgrevanje	"Ogrevanje logika"	<heating>	(Log)
@@ -40,14 +41,14 @@ Number	SetHodnikS		"Nastavljena temperatura hodnik spodaj [%.1f °C]"		<temperat
 
 //Manual
 Switch	Override		"Aktiviraj ročni način"	<heating>
-Switch	ManKopalnicaZ	"Zgornja kopalnica"		<heating>	(Man,Nopen)
+Switch	ManKopalnicaZ	"Zgornja kopalnica"		<heating>	(Man,ManRev)
 Switch	ManSpalnica		"Spalnica"				<heating>	(Man)
 Switch	ManJulija		"Julija"				<heating>	(Man)
 Switch	ManAljaz		"Aljaž"					<heating>	(Man)
 Switch	ManHodnikZ		"Hodnik zgoraj"			<heating>	(Man)
 Switch	ManHodnikS		"Hodnik spodaj"			<heating>	(Man)
-Switch	ManKopalnicaS	"Kopalnica spodaj"		<heating>	(Man,Nopen)
-Switch	ManKuhinja		"Kuhinja"				<heating>	(Man,Nopen)
+Switch	ManKopalnicaS	"Kopalnica spodaj"		<heating>	(Man,ManRev)
+Switch	ManKuhinja		"Kuhinja"				<heating>	(Man,ManRev)
 Switch	ManDnevna		"Dnevna"				<heating>	(Man)
 Switch	ManKabinet		"Kabinet"				<heating>	(Man)
 Switch	ManHeating		"Peč"					<heating>	(Man)
