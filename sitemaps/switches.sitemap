@@ -30,25 +30,26 @@ sitemap hisa label="Stikala za rezidenco Gantar" {
 	}
 		
 	Frame label="Nastavljene temperature po sobah" icon="heating" {
-		Setpoint item=SetAljaz minValue=19 maxValue=25 step=0.1
-		Text item=TempAljaz
-		Setpoint item=SetJulija minValue=19 maxValue=25 step=0.1
-		Text item=TempJulija
-		Setpoint item=SetSpalnica minValue=19 maxValue=25 step=0.1
-		Text item=TempSpalnica
-		Setpoint item=SetKopalnicaZ minValue=19 maxValue=25 step=0.1
-		Text item=TempKopalnicaZ
-		Setpoint item=SetKopalnicaS minValue=19 maxValue=25 step=0.1
-		Text item=TempKopalnicaS
-		Setpoint item=SetKuhinja minValue=19 maxValue=25 step=0.1
-		Text item=TempKuhinja
-		Setpoint item=SetDnevna minValue=19 maxValue=25 step=0.1
-		Text item=TempDnevna
-		Setpoint item=SetKabinet minValue=19 maxValue=25 step=0.1
-		Text item=TempKabinet
-		Setpoint item=SetHodnikZ minValue=19 maxValue=25 step=0.1
-		Text item=TempHodnikZ
-		Setpoint item=SetHodnikS minValue=19 maxValue=25 step=0.1
-		Text item=TempHodnikS
+		Setpoint item=SetAljaz minValue=19 maxValue=25 step=0.1 labelcolor=[DifAljaz<0="red", DifAljaz>=0="green"]
+		Text item=TempAljaz visibility=[DifAljaz<0]
+		Setpoint item=SetJulija minValue=19 maxValue=25 step=0.1 labelcolor=[DifJulija<0="red", DifJulija>=0="green"]
+		Text item=TempJulija visibility=[DifJulija<0]
+		Setpoint item=SetSpalnica minValue=19 maxValue=25 step=0.1 labelcolor=[DifSpalnica<0="red", DifSpalnica>=0="green"]
+		Text item=TempSpalnica visibility=[DifSpalnica<0]
+		Setpoint item=SetKopalnicaZ minValue=19 maxValue=25 step=0.1 labelcolor=[DifKopalnicaZ<0="red", DifKopalnicaZ>=0="green"]
+		Text item=TempKopalnicaZ visibility=[DifKopalnicaZ<0]
+		Setpoint item=SetKopalnicaS minValue=19 maxValue=25 step=0.1 labelcolor=[DifKopalnicaS<0="red", DifKopalnicaS>=0="green"]
+		Text item=TempKopalnicaS visibility=[DifKopalnicaS<0]
+		Setpoint item=SetKuhinja minValue=19 maxValue=25 step=0.1 labelcolor=[DifKuhinja<0="red", DifKuhinja>=0="green"]
+		Text item=TempKuhinja visibility=[DifKuhinja<0]
+		Setpoint item=SetDnevna minValue=19 maxValue=25 step=0.1 labelcolor=[DifDnevna<0="red", DifDnevna>=0="green"]
+		Text item=TempDnevna visibility=[DifDnevna<0]
+		Setpoint item=SetKabinet minValue=19 maxValue=25 step=0.1 labelcolor=[DifKabinet<0="red", DifKabinet>=0="green"]
+		Text item=TempKabinet visibility=[DifKabinet<0]
+		Setpoint item=SetHodnikZ minValue=19 maxValue=25 step=0.1 labelcolor=[DifHondnikZ<0="red", DifHondnikZ>=0="green"]
+		Text item=TempHodnikZ visibility=[DifHondnikZ<0]
+		Text item=DifHodnikZ visibility=[DifHondnikZ<0]
+		Setpoint item=SetHodnikS minValue=19 maxValue=25 step=0.1 labelcolor=[DifHodnikS<0="red", DifHodnikS>=0="green"]
+		Text item=TempHodnikS visibility=[DifHodnikS<0]
 	}
 }

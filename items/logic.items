@@ -1,6 +1,7 @@
 Group 	Log
 Group	LogRev
 Group	Set
+Group	Dif
 Group	Man
 Group	ManRev
 Group	BlindLog
@@ -39,6 +40,17 @@ Number	SetKabinet		"Nastavljena temperatura kabinet [%.1f °C]"				<temperature>
 Number	SetHodnikZ		"Nastavljena temperatura hodnik zgoraj [%.1f °C]"		<temperature>	(Set)
 Number	SetHodnikS		"Nastavljena temperatura hodnik spodaj [%.1f °C]"		<temperature>	(Set)
 
+Number	DifAljaz		"Razlika Aljaž [%.1f °C]"				<temperature>	(Dif)
+Number	DifJulija		"Razlika Julija [%.1f °C]"				<temperature>	(Dif)
+Number	DifSpalnica		"Razlika spalnica [%.1f °C]"			<temperature>	(Dif)
+Number	DifKopalnicaZ	"Razlika kopalnica zgoraj [%.1f °C]"	<temperature>	(Dif)
+Number	DifKopalnicaS	"Razlika kopalnica spodaj [%.1f °C]"	<temperature>	(Dif)
+Number	DifKuhinja		"Razlika kuhinja [%.1f °C]"				<temperature>	(Dif)
+Number	DifDnevna		"Razlika dnevna soba [%.1f °C]"			<temperature>	(Dif)
+Number	DifKabinet		"Razlika kabinet [%.1f °C]"				<temperature>	(Dif)
+Number	DifHodnikZ		"Razlika hodnik zgoraj [%.1f °C]"		<temperature>	(Dif)
+Number	DifHodnikS		"Razulika hodnik spodaj [%.1f °C]"		<temperature>	(Dif)
+
 //Manual
 Switch	Override		"Aktiviraj ročni način"	<heating>
 Switch	ManKopalnicaZ	"Zgornja kopalnica"		<heating>	(Man,ManRev)
@@ -51,7 +63,7 @@ Switch	ManKopalnicaS	"Kopalnica spodaj"		<heating>	(Man,ManRev)
 Switch	ManKuhinja		"Kuhinja"				<heating>	(Man,ManRev)
 Switch	ManDnevna		"Dnevna"				<heating>	(Man)
 Switch	ManKabinet		"Kabinet"				<heating>	(Man)
-Switch	ManHeating		"Peč"					<heating>	(Man)
+Switch	ManHeating		"Peč"					<heating>
 
 //Povezave na sitemape
 String	SitemapZal		"<a href='http://192.168.1.200:8080/openhab.app?sitemap=zaluzije'>Žaluzije</a>"
