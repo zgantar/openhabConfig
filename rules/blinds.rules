@@ -56,6 +56,7 @@ val Functions$Function5 executeSwiItem = [
 	logInfo("blinds", "Ime nasprotnega stikala - " + nameWithOppositeCommand)
 	//checking to see if the IO has gone bannanas
 	var swiItem = BlindSwi.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithOppositeCommand)).head
+	logInfo("blinds", "Nasprotno fizično stikalo - " + swiItem.toString)
 	if (swiItem.state == OFF) {
 		logInfo("blinds", "Očitno je vse OK")
 		var logItem = BlindLog.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithOppositeCommand)).head
@@ -230,10 +231,10 @@ val Functions$Function5 activateActBlind = [
 		if (timeDifference < 60000) {
 			if (downCommand) {
 				logInfo("blinds", "Ker je ukaz za spust prekinil ukaz za dvig, moramo stanje povečati za " + timeDifference)
-				stateItem.postUpdate(stateItem.state as Number - timeDifference)
+				stateItem.postUpdate(stateItem.state as Number + timeDifference)
 			} else {
 				logInfo("blinds", "Ker je ukaz za dvig prekinil ukaz za spust, moramo stanje zmanjšati za " + timeDifference)
-				stateItem.postUpdate(stateItem.state as Number + timeDifference)
+				stateItem.postUpdate(stateItem.state as Number - timeDifference)
 			}
 			logInfo("blinds", "Prekinjamo timer, ker smo ročno prekinili premik žaluzij!")
 			logInfo("blinds", "Iščemo timer za " + actItem.toString)
@@ -268,10 +269,10 @@ then
 	]
 	BlindState.members.forEach[stateItem|
 		logInfo("blinds", "Preverjam stanje za - " + stateItem.toString)
-//		if (stateItem.state.equals("Uninitialized")) {
+		if ((stateItem.state as Number) < 0) {
 			stateItem.postUpdate(0.0)
 			logDebug("blinds", "Stanje je " + stateItem.toString + "!!!!")
-//		}
+		}
 	]
 	if (timers == null) {
 		logInfo("blinds", "Nastavljam timerje")
