@@ -54,16 +54,21 @@ val Functions$Function5 executeSwiItem = [
 	logInfo("blinds", "################Procesiram ukaz ročnega stikala start - " + item.toString + "################")
 	val nameWithOppositeCommand = getStringFromItem.apply(item, 4).toString
 	logInfo("blinds", "Ime nasprotnega stikala - " + nameWithOppositeCommand)
-	var logItem = BlindLog.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithOppositeCommand)).head
-	logInfo("blinds", "Nasprotno logično stikalo - " + logItem.toString)
-	if (logItem.state == ON) {
-		logInfo("blinds", "Premik žaluzij zahtevala logika, preklicujem!")
-		logItem.sendCommand(OFF)
-		logInfo("blinds", "###############Konec preverjanja logičnega stikala, premikam žaluzijo " + item.toString + "#####################")
-		activateActBlind.apply(item, 1, timeToBeActive, timers, getStringFromItem)
-	} else {
-		logInfo("blinds", "###############Ni zahteve s strani logike, premikam žaluzijo " + item.toString + "#####################")
-		activateActBlind.apply(item, 1, timeToBeActive, timers, getStringFromItem)
+	//checking to see if the IO has gone bannanas
+	var swiItem = BlindSwi.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithOppositeCommand)).head
+	if (swiItem.state == OFF) {
+		logInfo("blinds", "Očitno je vse OK")
+		var logItem = BlindLog.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithOppositeCommand)).head
+		logInfo("blinds", "Nasprotno logično stikalo - " + logItem.toString)
+		if (logItem.state == ON) {
+			logInfo("blinds", "Premik žaluzij zahtevala logika, preklicujem!")
+			logItem.sendCommand(OFF)
+			logInfo("blinds", "###############Konec preverjanja logičnega stikala, premikam žaluzijo " + item.toString + "#####################")
+			activateActBlind.apply(item, 1, timeToBeActive, timers, getStringFromItem)
+		} else {
+			logInfo("blinds", "###############Ni zahteve s strani logike, premikam žaluzijo " + item.toString + "#####################")
+			activateActBlind.apply(item, 1, timeToBeActive, timers, getStringFromItem)
+		}
 	}
 	return true
 ]
