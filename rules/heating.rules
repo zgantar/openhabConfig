@@ -27,7 +27,7 @@ val Functions$Function1 filterTempValues = [
 			logInfo("heating", "3.1 gledamo kakšna je vrednost odvoda zadnjih 15 min: " + (loopItem.deltaSince(now.minusMinutes(15)) as Number))
 			logInfo("heating", "3.1 gledamo kakšna je vrednost evolution v zadnjih 15 min: " + (loopItem.evolutionRate(now.minusMinutes(16)) as Number))
 		
-			loopItem.postUpdate(loopItem.averageSince(now.minusMinutes(11)) as Number)
+			loopItem.postUpdate(-1 *  loopItem.deltaSince(now.minusMinutes(15)) as Number)
 			logInfo("heating", "Filtracija izvedena, nova vrednost - " + loopItem.toString)
 		}
 		loopItem.persist
