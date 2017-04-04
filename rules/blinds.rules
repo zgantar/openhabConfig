@@ -269,10 +269,10 @@ then
 	]
 	BlindState.members.forEach[stateItem|
 		logInfo("blinds", "Preverjam stanje za - " + stateItem.toString)
-		if ((stateItem.state as Number) < 0) {
+//		if ((stateItem.state == Uninitialized) || (stateItem.state == Undefined) || (stateItem.state as Number) < 0) {
 			stateItem.postUpdate(0.0)
 			logDebug("blinds", "Stanje je " + stateItem.toString + "!!!!")
-		}
+//		}
 	]
 	if (timers == null) {
 		logInfo("blinds", "Nastavljam timerje")
