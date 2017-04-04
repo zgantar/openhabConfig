@@ -57,7 +57,7 @@ val Functions$Function5 executeSwiItem = [
 	//checking to see if the IO has gone bannanas
 	var swiItem = BlindSwi.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithOppositeCommand)).head
 	logInfo("blinds", "Nasprotno fizično stikalo - " + swiItem.toString)
-	if (swiItem.state == OFF) {
+	if (swiItem.state == ON) {
 		logInfo("blinds", "Očitno je vse OK")
 		var logItem = BlindLog.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithOppositeCommand)).head
 		logInfo("blinds", "Nasprotno logično stikalo - " + logItem.toString)
