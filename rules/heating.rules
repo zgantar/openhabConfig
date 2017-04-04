@@ -36,6 +36,22 @@ val Functions$Function1 filterTempValues = [
 	]
 	return true
 ]
+
+val Functions$Function1 addMissingValues = [ 
+	boolean krneki|
+	
+	logInfo("heating", "Preračunavam manjkajoče vrednosti")
+	TempDnevna.postUpdate(((TempKuhinja.state as DecimalType)*0.4) + ((TempKabinet.state as DecimalType)*0.6))
+	TempDnevna.persist
+	logInfo("heating", "Dnevna - " + TempDnevna.toString)
+	TempHodnikS.postUpdate(((TempKuhinja.state as DecimalType)*0.3) + ((TempKabinet.state as DecimalType)*0.4) + ((TempKopalnicaS.state as DecimalType)*0.3))
+	TempHodnikS.persist
+	logInfo("heating", "Hodnik spodaj - " + TempHodnikS.toString)
+	TempHodnikZ.postUpdate(((TempAljaz.state as DecimalType)*0.4) + ((TempJulija.state as DecimalType)*0.4) + ((TempKopalnicaZ.state as DecimalType)*0.2))
+	TempHodnikZ.persist
+	logInfo("heating", "Hodnik zgoraj - " + TempHodnikZ.toString)
+	return true
+]
 	
 rule "Set all necessary variables for heating"
 when
@@ -70,7 +86,8 @@ then
 	logInfo("heating", "##################Preverjamo temperature#################")
 	startHeating1 = false
 	filterTempValues.apply(startHeating1)
-	callScript("missingTempSensor")
+	addMissingValues.apply(startHeating1)
+//	callScript("missingTempSensor")
 	Temp.members.forEach[ tempItem |
 		logInfo("heating", "In the loop z - " + tempItem.toString)
 //		filterTempValue.apply(tempItem)
