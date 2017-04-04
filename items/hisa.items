@@ -1,5 +1,6 @@
 Group	Temp	"Senzorji temperature"
 Group	TempRev	"Senzorji temperature NO"
+Group	TempCal	"Preračunani senzorji temperature"
 Group	Hum		"Senzorji vlažnosti"
 Group	Lum		"Senzorji svetlosti"
 Group	Mot		"Senzorji gibanja"	(Mot)
@@ -54,16 +55,16 @@ Number	HumKopalnicaZ		"KopalnicaZVlaga [%.2f %%]"	(Hum)	{ tinkerforge="uid=qVU" 
 Number	HumKopalnicaS		"KopalnicaSVlaga [%.2f %%]"	(Hum)	{ tinkerforge="uid=qWH" }
 
 //Temperature
-Number	TempJulija	"JulijaTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempjul" }
-Number	TempAljaz	"AljazTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempalj" }
-Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp)	{ tinkerforge="name=tempspal" }
-Number	TempKuhinja	"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkuh" }
-Number	TempKabinet	"KabinetTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempkab" }
+Number	TempJulija		"JulijaTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempjul" }
+Number	TempAljaz		"AljazTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempalj" }
+Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp)			{ tinkerforge="name=tempspal" }
+Number	TempKuhinja		"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkuh" }
+Number	TempKabinet		"KabinetTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempkab" }
 Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopalz" }
 Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopals" }
-Number	TempDnevna	"DnevnaTemp [%.2f °C]"		<temperature>	(Temp)
-Number	TempHodnikZ	"HodnikZTemp [%.2f °C]"		<temperature>	(Temp)
-Number	TempHodnikS	"HodnikSTemp [%.2f °C]"		<temperature>	(Temp)
+Number	TempDnevna		"DnevnaTemp [%.2f °C]"		<temperature>	(Temp,TempCal)
+Number	TempHodnikZ		"HodnikZTemp [%.2f °C]"		<temperature>	(Temp,TempCal)
+Number	TempHodnikS		"HodnikSTemp [%.2f °C]"		<temperature>	(Temp,TempCal)
 
 //Luminance
 Number	LumJulija	"JulijaSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=kYW" }
