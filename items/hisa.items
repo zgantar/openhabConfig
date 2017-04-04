@@ -1,10 +1,13 @@
 Group	Temp	"Senzorji temperature"
+Group	TempRev	"Senzorji temperature NO"
 Group	Hum		"Senzorji vlažnosti"
 Group	Lum		"Senzorji svetlosti"
 Group	Mot		"Senzorji gibanja"	(Mot)
 Group	Fhs		"Ventili talnega gretja"
+Group	FhsRev		"Ventili talnega gretja NO"
 Group	BlindAct	"Aktuatorji žaluzij"
 Group	BlindSwi	"Stikala žaluzij"
+Group	BlindRev	"Stikala obratnih žaluzij"
 
 //Žaluzije
 Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
@@ -22,8 +25,8 @@ Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter
 Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
 Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
 
-Switch	ActSpalnicaLowActDo	"Spalnica dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out0" }	
-Switch	ActSpalnicaLowActUp	"Spalnica gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out1" }
+Switch	ActSpalnicaLowActDo	"Spalnica dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="uid=gZr, subid=out0" }	
+Switch	ActSpalnicaLowActUp	"Spalnica gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="uid=gZr, subid=out1" }
 Switch	SwiSpalnicaLowActUp	"Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
 Switch 	SwiSpalnicaLowActDo	"Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
 
@@ -31,15 +34,16 @@ Switch 	SwiSpalnicaLowActDo	"Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"					(
 //Switch	ActAljazLowActUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out2" }
 //Switch	SwiAljazLowActUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
 //Switch 	SwiAljazLowActDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
-Switch	ActAljazLowActDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=aljazDoSwitch" }	
-Switch	ActAljazLowActUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=aljazUpSwitch" }
-Switch	SwiAljazLowActUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=aljazUpOrder" }
-Switch 	SwiAljazLowActDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=aljazDoOrder" }
 
-Switch	ActJulijaLowActDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaDoSwitch" }	
-Switch	ActJulijaLowActUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaUpSwitch" }
-Switch	SwiJulijaLowActUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaUpOrder" }
-Switch 	SwiJulijaLowActDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaDoOrder" }
+//Switch	ActAljazLowActDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="name=aljazDoSwitch" }	
+//Switch	ActAljazLowActUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="name=aljazUpSwitch" }
+//Switch	SwiAljazLowActUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=aljazUpOrder" }
+//Switch 	SwiAljazLowActDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=aljazDoOrder" }
+
+//Switch	ActJulijaLowActDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="name=julijaDoSwitch" }	
+//Switch	ActJulijaLowActUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="name=julijaUpSwitch" }
+//Switch	SwiJulijaLowActUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaUpOrder" }
+//Switch 	SwiJulijaLowActDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaDoOrder" }
 
 //Humidity
 Number	HumJulija		"JulijaVlaga [%.1f %%]"		(Hum)	{ tinkerforge="uid=qRv" }
@@ -54,10 +58,10 @@ Number	HumKopalnicaS		"KopalnicaSVlaga [%.2f %%]"	(Hum)	{ tinkerforge="uid=qWH" 
 Number	TempJulija	"JulijaTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempjul" }
 Number	TempAljaz	"AljazTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempalj" }
 Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp)	{ tinkerforge="name=tempspal" }
-Number	TempKuhinja	"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempkuh" }
+Number	TempKuhinja	"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkuh" }
 Number	TempKabinet	"KabinetTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempkab" }
-Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp)	{ tinkerforge="name=tempkopalz" }
-Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp)	{ tinkerforge="name=tempkopals" }
+Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopalz" }
+Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopals" }
 Number	TempDnevna	"DnevnaTemp [%.2f °C]"		<temperature>	(Temp)
 Number	TempHodnikZ	"HodnikZTemp [%.2f °C]"		<temperature>	(Temp)
 Number	TempHodnikS	"HodnikSTemp [%.2f °C]"		<temperature>	(Temp)
@@ -89,7 +93,7 @@ Switch	FhsRecuperation	"Rekuperacija"	<climate>	(Fhs)	{ tinkerforge="uid=kBH, su
 //Switch	FhsAljaz	"Aljaz"			<heating>	(Fhs)	{ tinkerforge="uid=hio, subid=out1" }
 //Switch	FhsJulija	"Julija"		<heating>	(Fhs)	{ tinkerforge="uid=hio, subid=out0" }
 //Switch	FhsHodnikZ	"Hodnik zgoraj"		<heating>	(Fhs)	{ tinkerforge="uid=hio, subid=out3" }
-Switch FhsKopalnicaZ	"Kopalnica zgoraj"      <heating>       (Fhs)   { tinkerforge="name=stikaloKopalnicaZ" }
+Switch FhsKopalnicaZ	"Kopalnica zgoraj"      <heating>       (Fhs,FhsRev)   { tinkerforge="name=stikaloKopalnicaZ" }
 Switch FhsAljaz		"Aljaz"                 <heating>       (Fhs)   { tinkerforge="name=stikaloAljaz" }
 Switch FhsJulija	"Julija"                <heating>       (Fhs)   { tinkerforge="name=stikaloJulija" }
 Switch FhsHodnikZ	"Hodnik zgoraj"         <heating>       (Fhs)   { tinkerforge="name=stikaloHodnikZ" }
@@ -100,9 +104,9 @@ Switch FhsHodnikZ	"Hodnik zgoraj"         <heating>       (Fhs)   { tinkerforge=
 //Switch	FhsDnevna2	"Dnevna soba 2"		<heating>	(Fhs)	{ tinkerforge="uid=gVG, subid=out2" }
 //Switch	FhsKuhinja1	"Kuhinja 1"		<heating>	(Fhs)	{ tinkerforge="uid=gVG, subid=out3" }
 Switch  FhsHodnikS      "Hodnik spodaj"         <heating>       (Fhs)   { tinkerforge="name=stikaloHodnikS" }
-Switch  FhsKopalnicaS   "Kopalnica spodaj"      <heating>       (Fhs)   { tinkerforge="name=stikaloKopalnicaS" }
+Switch  FhsKopalnicaS   "Kopalnica spodaj"      <heating>       (Fhs,FhsRev)   { tinkerforge="name=stikaloKopalnicaS" }
 Switch  FhsDnevna2      "Dnevna soba 2"         <heating>       (Fhs)   { tinkerforge="name=stikaloDnevna" }
-Switch  FhsKuhinja1     "Kuhinja 1"             <heating>       (Fhs)   { tinkerforge="name=stikaloKuhinja" }
+Switch  FhsKuhinja1     "Kuhinja 1"             <heating>       (Fhs,FhsRev)   { tinkerforge="name=stikaloKuhinja" }
 
 
 //Switch	FHSKopalnicaZ	"Kopalnica zgoraj gretje"	<heating>	(Fhh)	{ tinkerforge="name=io4out2"}

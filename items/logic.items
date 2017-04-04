@@ -1,7 +1,8 @@
 Group 	Log
+Group	LogRev
 Group	Set
 Group	Man
-Group	Nopen
+Group	ManRev
 Group	BlindLog
 Group	BlindState
 Group	Blinds
@@ -9,14 +10,14 @@ Group	Blinds
 //Logic
 Number	Temperature_Chart_Period	"Chart period [%s]"
 
-Switch	LogKopalnicaZ	"Zgornja kopalnica"	<heating>	(Log,Nopen)
+Switch	LogKopalnicaZ	"Zgornja kopalnica"	<heating>	(Log,LogRev)
 Switch	LogSpalnica		"Spalnica"			<heating>	(Log)
 Switch	LogJulija		"Julija"			<heating>	(Log)
 Switch	LogAljaz		"Aljaž"				<heating>	(Log)
 Switch	LogHodnikZ		"Hodnik zgoraj"		<heating>	(Log)
 Switch	LogHodnikS		"Hodnik spodaj"		<heating>	(Log)
-Switch	LogKopalnicaS	"Kopalnica spodaj"	<heating>	(Log,Nopen)
-Switch	LogKuhinja		"Kuhinja"			<heating>	(Log,Nopen)
+Switch	LogKopalnicaS	"Kopalnica spodaj"	<heating>	(Log,LogRev)
+Switch	LogKuhinja		"Kuhinja"			<heating>	(Log,LogRev)
 Switch	LogDnevna		"Dnevna"			<heating>	(Log)
 Switch	LogKabinet		"Kabinet"			<heating>	(Log)
 Switch	LogOgrevanje	"Ogrevanje logika"	<heating>	(Log)
@@ -40,18 +41,23 @@ Number	SetHodnikS		"Nastavljena temperatura hodnik spodaj [%.1f °C]"		<temperat
 
 //Manual
 Switch	Override		"Aktiviraj ročni način"	<heating>
-Switch	ManKopalnicaZ	"Zgornja kopalnica"		<heating>	(Man,Nopen)
+Switch	ManKopalnicaZ	"Zgornja kopalnica"		<heating>	(Man,ManRev)
 Switch	ManSpalnica		"Spalnica"				<heating>	(Man)
 Switch	ManJulija		"Julija"				<heating>	(Man)
 Switch	ManAljaz		"Aljaž"					<heating>	(Man)
 Switch	ManHodnikZ		"Hodnik zgoraj"			<heating>	(Man)
 Switch	ManHodnikS		"Hodnik spodaj"			<heating>	(Man)
-Switch	ManKopalnicaS	"Kopalnica spodaj"		<heating>	(Man,Nopen)
-Switch	ManKuhinja		"Kuhinja"				<heating>	(Man,Nopen)
+Switch	ManKopalnicaS	"Kopalnica spodaj"		<heating>	(Man,ManRev)
+Switch	ManKuhinja		"Kuhinja"				<heating>	(Man,ManRev)
 Switch	ManDnevna		"Dnevna"				<heating>	(Man)
 Switch	ManKabinet		"Kabinet"				<heating>	(Man)
 Switch	ManHeating		"Peč"					<heating>	(Man)
 
+//Povezave na sitemape
+String	SitemapZal		"<a href='http://192.168.1.200:8080/openhab.app?sitemap=zaluzije'>Žaluzije</a>"
+String	SitemapSwi		"<a href='http://192.168.1.200:8080/openhab.app?sitemap=switches'>Stikala</a>"
+String	SitemapZalDnevna "<a href='http://192.168.1.200:8080/openhab.app?sitemap=zaluzije_dnevna'>Žaluzije dnevna</a>"
+String	SitemapZalKabinet "<a href='http://192.168.1.200:8080/openhab.app?sitemap=zaluzije_kabinet'>Žaluzije kabinet</a>"
 
 //Žaluzije
 Switch	AllCompleteUp	"Vse žaluzije gor"		<rollershuter>	(Blinds)
@@ -61,24 +67,30 @@ Switch	AllPeekClose	"Vse žaluzije zapret"	<rollershuter>	(Blinds)
 
 Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalKabinetPeek	"Kabinet premik"	<rollershuter>	(Blinds)
 Number	StateKabinet	"Stanje žaluzije kabinet"			(BlindState)
 
 Switch	ZalDnevnaDesDo	"Dnevna desno dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalDnevnaDesUp	"Dnevna desno gor"		<rollershuter>	(BlindLog,Blinds)
-Number	StateDnevnaDes	"Stanje žaluzij dnevna desno"		(BlindState)
+Switch	ZalDnevnaDesPeek "Dnevna desno premik"		<rollershuter>	(Blinds)
+Number	StateDnevnaDes	"Stanje žaluzij dnevna desno"			(BlindState)
 
 Switch	ZalDnevnaLevDo	"Dnevna levo dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalDnevnaLevUp	"Dnevna levo gor"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalDnevnaLevPeek "Dnevna levo premik"		<rollershuter>	(Blinds)
 Number	StateDnevnaLev	"Stanje žaluzij dnevna levo"		(BlindState)
 
 Switch	ZalSpalnicaLowActDo	"Spalnica dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalSpalnicaLowActUp	"Spalnica gor"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalSpalnicaPeek 	"Spalnica levo premik"		<rollershuter>	(Blinds)
 Number	StateSpalnicaLowAct	"Stanje žaluzije spalnica"		(BlindState)
 
 Switch	ZalAljazLowActDo	"Aljaž dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalAljazLowActUp	"Aljaž gor"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalAljazPeek 		"Aljaž premik"		<rollershuter>	(Blinds)
 Number	StateAljazLowAct	"Stanje žaluzije aljaž"		(BlindState)
 
 Switch	ZalJulijaLowActDo	"Julija dol"		<rollershuter>	(BlindLog,Blinds)
 Switch	ZalJulijaLowActUp	"Julija gor"		<rollershuter>	(BlindLog,Blinds)
+Switch	ZalJulijaPeek 		"Julija premik"		<rollershuter>	(Blinds)
 Number	StateJulijaLowAct	"Stanje žaluzije Julija"		(BlindState)

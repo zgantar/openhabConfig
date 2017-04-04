@@ -36,6 +36,7 @@ then
 	callScript("missingTempSensor")
 	if (Override.state == OFF) {
 		Temp.members.forEach[ item |
+			val boolean noVent = !item.groupNames.filter(group|group.equalsIgnoreCase("TempRev")).empty
 			val name = item.name.substring(4)
 			var setItem = Set.members.filter(setter | setter.name.containsIgnoreCase(name)).head
 			logInfo("heating", "2 Preverjamo ali je potrebno ogreti - " + setItem.name)
@@ -67,7 +68,7 @@ then
 			if ((item.previousState.state as Number) <= mejnaTemp) {
 				bool = true
 				logInfo("heating", "4.1 temperatura je prenizka, stikalo " + logItem.name + " - " + logItem.state)
-				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+				if (!noVent) {
 					if (logItem.state == OFF) {
 						logItem.sendCommand(ON)
 						logInfo("heating", "4.1.1 Izdan ukaz za ogrevanje sobe - " + name)
@@ -81,7 +82,7 @@ then
 				}
 			} else {
 				logInfo("heating", "4.2 temperatura je previsoka, stikalo " + logItem.name + " - " + logItem.state)
-				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+				if (!noVent) {
 					if (logItem.state == ON) {
 						logItem.sendCommand(OFF)
 						logInfo("heating", "4.2.1 Izdan ukaz za konec ogrevanja sobe - " + name)
@@ -100,8 +101,8 @@ then
 					BlindLog.members.forEach[roomBlind|
 						if (roomBlind.name.containsIgnoreCase(roomName)) {
 							if (roomBlind.name.containsIgnoreCase("Do")) {
-								val lowAct = roomBlind.containsIgnoreCase("LowAct")
-								if (!lowAct) item.sendCommand(OFF) else item.sendCommand(ON)
+								val boolean lowAct = !roomBlind.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
+								if (!lowAct) item.sendCommand(ON) else item.sendCommand(OFF)
 							} 
 						}
 					]
@@ -129,16 +130,17 @@ then
 	logInfo("heating", "Poglejmo ali je bilo ročno proženo ali ne - " + Override.state.toString)
 	if (Override.state == OFF) {
 		Log.members.forEach[ logItem |
+			val boolean noVent = !logItem.groupNames.filter(group|group.equalsIgnoreCase("LogRev")).empty
 			val name = logItem.name.substring(3)
 			if (logItem.state == ON) {
-				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+				if (!noVent) {
 					logInfo("heating", "6.1 Našel ventil za odpret - " + logItem.name + " - " + logItem.state.toString)
 					bool = true
 				} else {
 					logInfo("heating", "6.2 Našel ventil za zapret - " + logItem.name + " - " + logItem.state.toString)
 				}
 			} else {
-				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+				if (!noVent) {
 					logInfo("heating", "6.3 Našel ventil za zapret - " + logItem.name + " - " + logItem.state.toString)
 				} else {
 					logInfo("heating", "6.4 Našel ventil za odpret - " + logItem.name + " - " + logItem.state.toString)
@@ -153,16 +155,17 @@ then
 		]
 	} else {
 		Man.members.forEach[ manItem |
+			val boolean noVent = !manItem.groupNames.filter(group|group.equalsIgnoreCase("ManRev")).empty
 			val name = manItem.name.substring(3)
 			if (manItem.state == ON) {
-				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+				if (!noVent) {
 					logInfo("heating", "8.1 Našel ventil za ročno odpret - " + manItem.name + " - " + manItem.state.toString)
 					bool = true
 				} else {
 					logInfo("heating", "8.2 Našel ventil za ročno zapret - " + manItem.name + " - " + manItem.state.toString)
 				}
 			} else {
-				if (!(name.equalsIgnoreCase("kuhinja") || name.equalsIgnoreCase("kopalnicaZ") || name.equalsIgnoreCase("kopalnicaS"))) {
+				if (!noVent) {
 					logInfo("heating", "8.3 Našel ventil za ročno zapret - " + manItem.name + " - " + manItem.state.toString)
 				} else {
 					logInfo("heating", "8.4 Našel ventil za ročno odpret - " + manItem.name + " - " + manItem.state.toString)
