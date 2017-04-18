@@ -149,6 +149,7 @@ val Functions$Function5 activateActBlind = [
 	logInfo("blinds", "Klic activateActBlind za " + item.toString)
 	val String nameWithCommand = getStringFromItem.apply(item, 3).toString
 	val actItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(nameWithCommand)).head
+	logInfo("blinds", "Dobili aktuator " + actItem.toString)
 	val boolean lowAct = !actItem.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
 	val boolean downCommand = actItem.name.substring(item.name.length - 2, item.name.length).equals("Do")
 	logInfo("blinds", "Ali smo našli obratno stikalo " + lowAct)
@@ -271,7 +272,7 @@ then
 		logInfo("blinds", "Preverjam stanje za - " + stateItem.toString)
 //		if ((stateItem.state == Uninitialized) || (stateItem.state == Undefined) || (stateItem.state as Number) < 0) {
 			stateItem.postUpdate(0.0)
-			logDebug("blinds", "Stanje je " + stateItem.toString + "!!!!")
+			logDebug("blinds", "Novo stanje je " + stateItem.toString + "!!!!")
 //		}
 	]
 	if (timers == null) {
@@ -597,7 +598,7 @@ then
 	logInfo("blinds", "###############Konec Spalnica žaluzija premik#####################")
 end
 
-/*
+
 //Aljaž
 rule "Aljaz blind close start"
 when
@@ -661,7 +662,7 @@ then
 	executeLogItem.apply(ZalAljazLowActUp, PEEK, timers, activateActBlind, getStringFromItem)
 	logInfo("blinds", "###############Konec Spalnica žaluzija premik#####################")
 end
-  
+/*  
 //Julija
 rule "Julija blind close start"
 when

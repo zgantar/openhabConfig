@@ -30,10 +30,10 @@ Switch	ActSpalnicaLowActUp	"Spalnica gor [MAP(si.map):SWITCH-%s]"			<rollershutt
 Switch	SwiSpalnicaLowActUp	"Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
 Switch 	SwiSpalnicaLowActDo	"Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
 
-//Switch	ActAljazLowActDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out3" }	
-//Switch	ActAljazLowActUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out2" }
-//Switch	SwiAljazLowActUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
-//Switch 	SwiAljazLowActDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
+Switch	ActAljazLowActDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="uid=hiu, subid=out2" }	
+Switch	ActAljazLowActUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="uid=hiu, subid=out3" }
+Switch	SwiAljazLowActUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
+Switch 	SwiAljazLowActDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
 
 //Switch	ActAljazLowActDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="name=aljazDoSwitch" }	
 //Switch	ActAljazLowActUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct,BlindRev)	{ tinkerforge="name=aljazUpSwitch" }
@@ -77,7 +77,7 @@ Number	LumKabinet	"KabinetSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=m87" }
 Contact	MotKuhinja		"Kuhinja [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in0" }
 Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in3" }
 Contact	MotVhod			"Vetrolov [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in1" }
-Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=spm, subid=ina0" }
+Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=spm, subid=ina7" }
 //Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=soG, subid=inb7" }
 //Contact MotKopalnicaZ		"Pred kopalnico zgoraj [MAP(si.map):MOTION-%s]"	<motion>	(Mot)   { tinkerforge="uid=soG, subid=inb6" }
 //Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"         <motion>        (Mot)   { tinkerforge="name=senzorStopniceZ" }
