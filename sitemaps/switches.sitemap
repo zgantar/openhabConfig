@@ -46,9 +46,8 @@ sitemap hisa label="Stikala za rezidenco Gantar" {
 		Text item=TempDnevna visibility=[DifDnevna<0]
 		Setpoint item=SetKabinet minValue=19 maxValue=25 step=0.1 labelcolor=[DifKabinet<0="red", DifKabinet>=0="green"]
 		Text item=TempKabinet visibility=[DifKabinet<0]
-		Setpoint item=SetHodnikZ minValue=19 maxValue=25 step=0.1 labelcolor=[DifHondnikZ<0="red", DifHondnikZ>=0="green"]
-		Text item=TempHodnikZ visibility=[DifHondnikZ<0]
-		Text item=DifHodnikZ visibility=[DifHondnikZ<0]
+		Setpoint item=SetHodnikZ minValue=19 maxValue=25 step=0.1 labelcolor=[DifHodnikZ<0="red", DifHodnikZ>=0="green"]
+		Text item=TempHodnikZ visibility=[DifHodnikZ<0]
 		Setpoint item=SetHodnikS minValue=19 maxValue=25 step=0.1 labelcolor=[DifHodnikS<0="red", DifHodnikS>=0="green"]
 		Text item=TempHodnikS visibility=[DifHodnikS<0]
 	}
