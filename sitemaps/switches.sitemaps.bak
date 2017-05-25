@@ -1,6 +1,0 @@
-sitemap hisa label="Stikala za rezidenco Gantar" {
-	Frame label="Ogrevanje" icon="heating" {
-		Switch item=Heating
-		Switch item=FloorHeating
-	}
-}
