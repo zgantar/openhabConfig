@@ -10,6 +10,8 @@ Group	Blinds
 Group	BlindSE		"Stikala na JV"
 Group	BlindSW		"Stikala na JZ"
 
+//Alarm
+Switch LogAlarm "Alarm"	<alarm>
 
 //Logic
 Number	Temperature_Chart_Period	"Chart period [%s]"

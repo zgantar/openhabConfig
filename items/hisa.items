@@ -4,6 +4,8 @@ Group	TempCal	"Preračunani senzorji temperature"
 Group	Hum		"Senzorji vlažnosti"
 Group	Lum		"Senzorji svetlosti"
 Group	Mot		"Senzorji gibanja"	(Mot)
+Group	MotUp		"Senzorji gibanja zgoraj"
+Group	MotDown		"Senzorji gibanja spodaj"
 Group	Fhs		"Ventili talnega gretja"
 Group	FhsRev		"Ventili talnega gretja NO"
 Group	BlindAct	"Aktuatorji žaluzij"
@@ -75,12 +77,12 @@ Number	LumKuhinja	"KuhinjaSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=mg9" }
 Number	LumKabinet	"KabinetSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=m87" }
 
 //Motion
-Contact	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ tinkerforge="name=gibanjeKuhinja" }
-Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceS" }
-Contact	MotVhod				"Vhod [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
-Contact MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeDnevna" }
-Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceZ" }
-Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
+Contact	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot,MotDown)	{ tinkerforge="name=gibanjeKuhinja" }
+Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot,MotDown)	{ tinkerforge="name=gibanjeStopniceS" }
+Contact	MotVhod				"Vhod [MAP(si.map):MOTION-%s]"				<motion>	(Mot,MotDown)	{ tinkerforge="name=gibanjeVhod" }
+Contact MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot,MotDown)   { tinkerforge="name=gibanjeDnevna" }
+Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot,MotUp)		{ tinkerforge="name=gibanjeStopniceZ" }
+Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot,MotUp)		{ tinkerforge="name=gibanjeHodnikZ" }
 
 
 Switch	FhsHeater	"Talno gretje"	<heating>	(Fhs)	{ tinkerforge="uid=kBH, subid=relay1" }

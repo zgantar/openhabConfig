@@ -8,6 +8,7 @@ rule "Set all necessary variables for alarm"
 when
 	System started
 then
-	sendCommand(LogAlarmRaised, OFF)
-	logInfo("alarm", "Nastavljene začetne vrednosti - " + LogAlarmRaised.state)
+	sendCommand(LogAlarm, OFF)
+	logInfo("alarm", "Nastavljene začetne vrednosti - " + LogAlarm.state)
 end
+
