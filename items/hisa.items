@@ -1,5 +1,6 @@
 Group	Temp	"Senzorji temperature"
 Group	TempRev	"Senzorji temperature NO"
+Group	TempCal	"Preračunani senzorji temperature"
 Group	Hum		"Senzorji vlažnosti"
 Group	Lum		"Senzorji svetlosti"
 Group	Mot		"Senzorji gibanja"	(Mot)
@@ -55,16 +56,16 @@ Number	HumKopalnicaZ		"KopalnicaZVlaga [%.2f %%]"	(Hum)	{ tinkerforge="uid=qVU" 
 Number	HumKopalnicaS		"KopalnicaSVlaga [%.2f %%]"	(Hum)	{ tinkerforge="uid=qWH" }
 
 //Temperature
-Number	TempJulija	"JulijaTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempjul" }
-Number	TempAljaz	"AljazTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempalj" }
-Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp)	{ tinkerforge="name=tempspal" }
-Number	TempKuhinja	"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkuh" }
-Number	TempKabinet	"KabinetTemp [%.2f °C]"		<temperature>	(Temp)	{ tinkerforge="name=tempkab" }
+Number	TempJulija		"JulijaTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempjul" }
+Number	TempAljaz		"AljazTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempalj" }
+Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp)			{ tinkerforge="name=tempspal" }
+Number	TempKuhinja		"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkuh" }
+Number	TempKabinet		"KabinetTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempkab" }
 Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopalz" }
 Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopals" }
-Number	TempDnevna	"DnevnaTemp [%.2f °C]"		<temperature>	(Temp)
-Number	TempHodnikZ	"HodnikZTemp [%.2f °C]"		<temperature>	(Temp)
-Number	TempHodnikS	"HodnikSTemp [%.2f °C]"		<temperature>	(Temp)
+Number	TempDnevna		"DnevnaTemp [%.2f °C]"		<temperature>	(Temp,TempCal)
+Number	TempHodnikZ		"HodnikZTemp [%.2f °C]"		<temperature>	(Temp,TempCal)
+Number	TempHodnikS		"HodnikSTemp [%.2f °C]"		<temperature>	(Temp,TempCal)
 
 //Luminance
 Number	LumJulija	"JulijaSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=kYW" }
@@ -74,14 +75,12 @@ Number	LumKuhinja	"KuhinjaSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=mg9" }
 Number	LumKabinet	"KabinetSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=m87" }
 
 //Motion
-Contact	MotKuhinja		"Kuhinja [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in0" }
-Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in3" }
-Contact	MotVhod			"Vetrolov [MAP(si.map):MOTION-%s]"		<motion>	(Mot)	{ tinkerforge="uid=h9Y, subid=in1" }
-Contact MotDnevna		"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=spm, subid=ina0" }
-//Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="uid=soG, subid=inb7" }
-//Contact MotKopalnicaZ		"Pred kopalnico zgoraj [MAP(si.map):MOTION-%s]"	<motion>	(Mot)   { tinkerforge="uid=soG, subid=inb6" }
-//Contact MotNadStopnicam		"Nad stopnicam [MAP(si.map):MOTION-%s]"         <motion>        (Mot)   { tinkerforge="name=senzorStopniceZ" }
-//Contact MotKopalnicaZ		"Pred kopalnico zgoraj [MAP(si.map):MOTION-%s]" <motion>        (Mot)   { tinkerforge="name=senzorKopalnicaZ" }
+Contact	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ tinkerforge="name=gibanjeKuhinja" }
+Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceS" }
+Contact	MotVhod				"Vhod [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
+Contact MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeDnevna" }
+Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceZ" }
+Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
 
 
 Switch	FhsHeater	"Talno gretje"	<heating>	(Fhs)	{ tinkerforge="uid=kBH, subid=relay1" }
@@ -89,31 +88,13 @@ Switch	FhsRecuperation	"Rekuperacija"	<climate>	(Fhs)	{ tinkerforge="uid=kBH, su
 //Dimmer	RecuperationAdmin	"Rekuperacija jakost"	<climate>	{ tinkerforge="" }
 
 //zgoraj
-//Switch	FhsKopalnicaZ	"Kopalnica zgoraj"	<heating>	(Fhs)	{ tinkerforge="uid=hio, subid=out2" }
-//Switch	FhsAljaz	"Aljaz"			<heating>	(Fhs)	{ tinkerforge="uid=hio, subid=out1" }
-//Switch	FhsJulija	"Julija"		<heating>	(Fhs)	{ tinkerforge="uid=hio, subid=out0" }
-//Switch	FhsHodnikZ	"Hodnik zgoraj"		<heating>	(Fhs)	{ tinkerforge="uid=hio, subid=out3" }
 Switch FhsKopalnicaZ	"Kopalnica zgoraj"      <heating>       (Fhs,FhsRev)   { tinkerforge="name=stikaloKopalnicaZ" }
 Switch FhsAljaz		"Aljaz"                 <heating>       (Fhs)   { tinkerforge="name=stikaloAljaz" }
 Switch FhsJulija	"Julija"                <heating>       (Fhs)   { tinkerforge="name=stikaloJulija" }
 Switch FhsHodnikZ	"Hodnik zgoraj"         <heating>       (Fhs)   { tinkerforge="name=stikaloHodnikZ" }
 
 //spodaj
-//Switch	FhsHodnikS	"Hodnik spodaj"		<heating>	(Fhs)	{ tinkerforge="uid=gVG, subid=out1" }
-//Switch	FhsKopalnicaS	"Kopalnica spodaj"	<heating>	(Fhs)	{ tinkerforge="uid=gVG, subid=out0" }
-//Switch	FhsDnevna2	"Dnevna soba 2"		<heating>	(Fhs)	{ tinkerforge="uid=gVG, subid=out2" }
-//Switch	FhsKuhinja1	"Kuhinja 1"		<heating>	(Fhs)	{ tinkerforge="uid=gVG, subid=out3" }
 Switch  FhsHodnikS      "Hodnik spodaj"         <heating>       (Fhs)   { tinkerforge="name=stikaloHodnikS" }
 Switch  FhsKopalnicaS   "Kopalnica spodaj"      <heating>       (Fhs,FhsRev)   { tinkerforge="name=stikaloKopalnicaS" }
 Switch  FhsDnevna2      "Dnevna soba 2"         <heating>       (Fhs)   { tinkerforge="name=stikaloDnevna" }
 Switch  FhsKuhinja1     "Kuhinja 1"             <heating>       (Fhs,FhsRev)   { tinkerforge="name=stikaloKuhinja" }
-
-
-//Switch	FHSKopalnicaZ	"Kopalnica zgoraj gretje"	<heating>	(Fhh)	{ tinkerforge="name=io4out2"}
-//Switch	FHSAljaz		"Aljaz gretje"				<heating>	(Fhh)	{ tinkerforge="name=io4out0"}
-//Switch	FHSJulija		"Julija gretje"				<heating>	(Fhh)	{ tinkerforge="name=io4out1"}
-//Switch	FHSHodnikZ		"Hodnik zgoraj gretje"		<heating>	(Fhh)	{ tinkerforge="name=io4out3"}
-//Switch	FHSHodnikS		"Hodnik spodaj gretje"		<heating>	(Fhh)	{ tinkerforge="name=io41out1"}
-//Switch	FHSKopalnicaS	"Kopalnica spodaj gretje"	<heating>	(Fhh)	{ tinkerforge="name=io41out0"}
-//Switch	FHSDnevna2		"Dnevna soba 2 gretje"		<heating>	(Fhh)	{ tinkerforge="name=io41out2"}
-//Switch	FHSKuhinja1		"Kuhinja 1 gretje"			<heating>	(Fhh)	{ tinkerforge="name=io41out3"}

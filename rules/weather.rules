@@ -1,0 +1,46 @@
+//import org.joda.time
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.*
+import org.apache.commons.lang.StringUtils.*
+
+
+val Functions$Function2 checkAndMove = [ 
+	SwitchItem item,
+	int upDown|
+	
+	logInfo("weather", "Preverjam ali moram premakniti žaluzijo - " + item.toString)
+	val blindState = item.state as Number 
+	if (blindState > 0 && upDown > 0) {
+		item.sendCommand(ON)
+	} else if (blindState)
+	
+	return true
+]
+
+
+rule "Check rain for blinds"
+
+when
+	Item OutPercipInten received update
+then
+	val currPerc = OutPercipInten.state as Number 
+	logInfo("weather", "Preverjam ali pada dež - " + OutPercipInten.toString)
+	if (currPerc > 0) {
+		val windDir = OutWindDir.state as StringType
+		if (windDir.containsIgnorCase("S")) {
+			BlindSW.members.forEach[loopBlind|
+				checkAndMove.apply(loopBlind, 0)
+			]
+			BlindSE.members.forEach[loopBlind|
+				checkAndMove.apply(loopBlind, 0)
+			]
+		} else if (windDir.containsIgnorCase("W")) {
+			BlindSW.members.forEach[loopBlind|
+				checkAndMove.apply(loopBlind, 0)
+			]
+		} else if (windDir.containsIgnorCase("E")) {
+			BlindSE.members.forEach[loopBlind|
+				checkAndMove.apply(loopBlind, 0)
+			]
+	}
+end

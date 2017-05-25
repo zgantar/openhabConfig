@@ -4,6 +4,8 @@ sitemap hisa label="Rezidenca Gantar" {
 		Text item=MotPodStopnicami
 		Text item=MotVhod
 		Text item=MotDnevna
+		Text item=MotNadStopnicami
+		Text item=MotHodnikZ
 	}
 //	Frame label="Kamere" {
 //		Video item=Nexus4 icon="video" url="http://192.168.1.56:8080/video" encoding="mjpeg"
