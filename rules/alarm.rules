@@ -12,3 +12,15 @@ then
 	logInfo("alarm", "Nastavljene začetne vrednosti - " + LogAlarm.state)
 end
 
+
+rule "Change in motion detection"
+
+when
+	Item Mot changed to ON 
+then
+	logInfo("alarm", "Zaznano je bilo gibanje - " + LogAlarm.state)
+	sendCommand(LogAlarm, OFF)
+	logInfo("alarm", "Nastavljene začetne vrednosti - " + LogAlarm.state)
+end
+
+
