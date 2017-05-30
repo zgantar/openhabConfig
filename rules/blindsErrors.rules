@@ -43,6 +43,7 @@ val Functions$Function2 checkActItem = [
 	SwitchItem item,
 	Functions$Function2 getStringFromItem|
 	
+	logInfo("blinds", "Preverjam prožitev aktuatorja - " + item.toString)
 	val boolean lowAct = !item.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
 	if (if(!lowAct)item.state == ON else item.state == OFF) {
 		val nameWithCommand = getStringFromItem.apply(item, 3).toString
@@ -58,6 +59,7 @@ val Functions$Function2 checkActItem = [
 			if (!lowAct)item.sendCommand(OFF) else item.sendCommand(ON)
 		}
 	} else {
+		logInfo("blinds", "Aktuator se je izklopil " + item.toString)
 	}
 	return true
 ]
