@@ -40,6 +40,10 @@ val Functions$Function2 getStringFromItem = [
 					returnString = item.name.substring(3, item.name.length - 2).concat("Up")
 				}
 			}
+		case 5: {
+				logInfo("blinds", "Iščem ime za peek stikalo " + item.toString)
+				returnString = item.name.substring(4, item.name.length)
+			}
 	}
 	return returnString
 ]
@@ -151,10 +155,12 @@ val Functions$Function5 activateActBlind = [
 	val actItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(nameWithCommand)).head
 	logInfo("blinds", "Dobili aktuator " + actItem.toString)
 	val boolean lowAct = !actItem.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
-	logInfo("blinds", "Ali smo našli obratno stikalo " + lowAct)
+	logInfo("blinds", "Ali imamo obratno stikalo " + lowAct)
+	val boolean logBlind = !item.groupNames.filter(group|group.equalsIgnoreCase("BlindLog")).empty
+	logInfo("blinds", "Ali imamo logično stikalo " + logBlind)
+	val peekSwitch = BlindsPeek.members.filter(filtItem | filtItem.name.containsIgnoreCase(getStringFromItem.apply(item, 2).toString)).head
 	val boolean downCommand = actItem.name.substring(item.name.length - 2, item.name.length).equals("Do")
 	logInfo("blinds", "Ali je ukaz za spust " + downCommand)
-	logInfo("blinds", "Našli aktuator " + actItem.toString)
 	var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(getStringFromItem.apply(item, 4).toString)).head
 	logInfo("blinds", "Našli nasprotni aktuator " + oppActItem.toString)
 	val stateItem = BlindState.members.filter(filtItem | filtItem.name.containsIgnoreCase(getStringFromItem.apply(item, 2))).head
@@ -176,11 +182,13 @@ val Functions$Function5 activateActBlind = [
 				if (downCommand) {
 					logInfo("blinds", "Ker je ukaz za spust prekinil ukaz za dvig, moramo stanje povečati za " + timeDifference)
 					val change = stateItem.state as Number + timeDifference
-					if (change > 0) stateItem.postUpdate(change)
+					if (change > COMPLETE) stateItem.postUpdate(COMPLETE)
+					else stateItem.postUpdate(change)
 				} else {
 					logInfo("blinds", "Ker je ukaz za dvig prekinil ukaz za spust, moramo stanje zmanjšati za " + timeDifference)
 					val change = stateItem.state as Number - timeDifference
-					if (change > 0) stateItem.postUpdate(change)
+					if (change < 0) stateItem.postUpdate(0)
+					else stateItem.postUpdate(change)
 				}
 				timer = timers.remove(getStringFromItem.apply(oppActItem, 3).toString)
 				logInfo("blinds", "Ker smo ročno prekinili premik žaluzij prekinjamo timer - " + oppActItem.toString + ", kar zmanjša mapo na " + timers.size)
@@ -194,9 +202,15 @@ val Functions$Function5 activateActBlind = [
 						if (downCommand) stateItem.postUpdate(stateItem.state as Number - timeToBeActive)
 						else stateItem.postUpdate(stateItem.state as Number + timeToBeActive)
 						logInfo("blinds", "Stanje žaluzije - " + stateItem.state as Number)
-						if (item.name.substring(0,3).equalsIgnoreCase("Zal")) {
+						if (logBlind) {
 							logInfo("blinds", "Nastavim logično stikalo na OFF")
 							item.sendCommand(OFF)
+							if (peekSwitch != null) {
+								logInfo("blinds", "Nastavim peek stikalo na OFF - " + peekSwitch.toString)
+								peekSwitch.sendCommand(OFF)
+							} else {
+								logInfo("blinds", "Ni bil prožen premik")
+							}
 						}
 					]
 				timers.put(nameWithCommand, shutDownTimer)
@@ -207,12 +221,26 @@ val Functions$Function5 activateActBlind = [
 					shutDownTimer = createTimer(now.plusMillis(timeToBeActive)) [|
 						logInfo("blinds", "---------------Končal posredovani ukaz za žaluzijo " + actItem.toString + "--------------------------")
 						if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON)
-						if (downCommand) stateItem.postUpdate(stateItem.state as Number - timeToBeActive)
-						else stateItem.postUpdate(stateItem.state as Number + timeToBeActive)
-						logInfo("blinds", "Stanje žaluzije - " + stateItem.state as Number)
-						if (item.name.substring(0,3).equalsIgnoreCase("Zal")) {
+						val timeDifference = stateItem.state as Number - timeToBeActive
+						if (downCommand) {
+							val razlika = stateItem.state as Number - timeDifference
+							if (razlika < 0) stateItem.postUpdate(0)
+							else stateItem.postUpdate(razlika) 
+						} else {
+							val vsota = stateItem.state as Number + timeDifference
+							if (vsota > COMPLETE) stateItem.postUpdate(COMPLETE)
+							else stateItem.postUpdate(vsota)
+						}
+						logInfo("blinds", "Novo stanje žaluzije je - " + stateItem.state as Number)
+						if (logBlind) {
 							logInfo("blinds", "Nastavim logično stikalo na OFF")
 							item.sendCommand(OFF)
+							if (peekSwitch != null) {
+								logInfo("blinds", "Nastavim peek stikalo na OFF - " + peekSwitch.toString)
+								peekSwitch.sendCommand(OFF)
+							} else {
+								logInfo("blinds", "Ni bil prožen premik")
+							}
 						}
 					]
 				timers.put(nameWithCommand, shutDownTimer)
@@ -230,13 +258,15 @@ val Functions$Function5 activateActBlind = [
 		val timeDifference = now.millis - lastUpdateTime
 		if (timeDifference < 60000) {
 			if (downCommand) {
-				logInfo("blinds", "Ker je ukaz za spust prekinil ukaz za dvig, moramo stanje zmanjšati za " + timeDifference)
+				logInfo("blinds", "Ker je ukaz za konec spusta, moramo stanje zmanjšati za " + timeDifference)
 				val razlika = stateItem.state as Number - timeDifference
 				if (razlika < 0) stateItem.postUpdate(0)
-				else stateItem.postUpdate(stateItem.state as Number - timeDifference)
+				else stateItem.postUpdate(razlika)
 			} else {
-				logInfo("blinds", "Ker je ukaz za dvig prekinil ukaz za spust, moramo stanje povečati za " + timeDifference)
-				stateItem.postUpdate(stateItem.state as Number + timeDifference)
+				logInfo("blinds", "Ker je ukaz za konec dviga, moramo stanje povečati za " + timeDifference)
+				val vsota = stateItem.state as Number + timeDifference
+				if (vsota > COMPLETE) stateItem.postUpdate(COMPLETE)
+				else stateItem.postUpdate(vsota)
 			}
 			logInfo("blinds", "Prekinjamo timer, ker smo ročno prekinili premik žaluzij!")
 			logInfo("blinds", "Iščemo timer za " + actItem.toString)
@@ -289,11 +319,11 @@ when
 	Item AllCompleteUp changed to ON
 then
 	logInfo("blinds", "###############Vse žaluzije gor#####################")
-	val collection = BlindAct.members.filter(item|item.name.containsIgnoreCase("Up"))
+	val collection = BlindLog.members.filter(item|item.name.containsIgnoreCase("Up"))
 	logInfo("blinds", "Imamo " + collection.size + " žaluzij")
-	collection.forEach[actItem |
-		logInfo("blinds", "Sem v zanki za aktuatorjem - " + actItem.toString)
-		activateActBlind.apply(actItem, 1, COMPLETE, timers, getStringFromItem)
+	collection.forEach[logItem |
+		logInfo("blinds", "Sem v zanki z logičnim stikalom - " + logItem.toString)
+		logItem.sendCommand(ON)
 	]
 	logInfo("blinds", "###############Konec vse žaluzije gor#####################")
 	sendCommand(AllCompleteUp, OFF)
@@ -304,10 +334,11 @@ when
 	Item AllCompleteDo changed to ON
 then
 	logInfo("blinds", "###############Vse žaluzije dol#####################")
-	val collection = BlindAct.members.filter(item|item.name.containsIgnoreCase("Do"))
-	collection.forEach[actItem |
-		logInfo("blinds", "Sem v zanki za aktuatorjem - " + actItem.toString)
-		activateActBlind.apply(actItem, 1, COMPLETE, timers, getStringFromItem)
+	val collection = BlindLog.members.filter(item|item.name.containsIgnoreCase("Do"))
+	logInfo("blinds", "Imamo " + collection.size + " žaluzij")
+	collection.forEach[logItem |
+		logInfo("blinds", "Sem v zanki za aktuatorjem - " + logItem.toString)
+		logItem.sendCommand(ON)
 	]
 	logInfo("blinds", "###############Konec vse žaluzije dol#####################")
 	sendCommand(AllCompleteDo, OFF)
@@ -318,11 +349,17 @@ when
 	Item AllPeek changed to ON
 then
 	logInfo("blinds", "###############Vse žaluzije premakni#####################")
-	val collection = BlindAct.members.filter(item|item.name.containsIgnoreCase("Up"))
+	val collection = BlindsPeek.members
 	logInfo("blinds", "Imamo " + collection.size + " žaluzij")
-	collection.forEach[actItem |
-		logInfo("blinds", "Sem v zanki za aktuatorjem - " + actItem.toString)
-		activateActBlind.apply(actItem, 1, PEEK, timers, getStringFromItem)
+	collection.forEach[peekItem |
+		peekItem.sendCommand(ON)
+		val logItem = BlindLog.members.filter(item|item.name.containsIgnoreCase(getStringFromItem.apply(peekItem, 5).toString + "Up")).head
+		if (logItem != null) {
+			logInfo("blinds", "Sem v zanki z logičnim stikalom - " + logItem.toString)
+			logItem.sendCommand(ON)
+		} else {
+			logError("blinds", "Nisem našel logičnega stikala za peek stikalo - " + peekItem.toString)
+		}
 	]
 	logInfo("blinds", "###############Konec vse žaluzije premakni#####################")
 	sendCommand(AllPeek, OFF)
@@ -333,11 +370,17 @@ when
 	Item AllPeekClose changed to ON
 then
 	logInfo("blinds", "###############Vse žaluzije zapri#####################")
-	val collection = BlindAct.members.filter(item|item.name.containsIgnoreCase("Do"))
+	val collection = BlindsPeek.members
 	logInfo("blinds", "Imamo " + collection.size + " žaluzij")
-	collection.forEach[actItem |
-		logInfo("blinds", "Sem v zanki za aktuatorjem - " + actItem.toString)
-		activateActBlind.apply(actItem, 1, PEEK, timers, getStringFromItem)
+	collection.forEach[peekItem |
+		peekItem.sendCommand(ON)
+		val logItem = BlindLog.members.filter(item|item.name.containsIgnoreCase(getStringFromItem.apply(peekItem, 5).toString + "Do")).head
+		if (logItem != null) {
+			logInfo("blinds", "Sem v zanki z logičnim stikalom - " + logItem.toString)
+			logItem.sendCommand(ON)
+		} else {
+			logError("blinds", "Nisem našel logičnega stikala za peek stikalo - " + peekItem.toString)
+		}
 	]
 	logInfo("blinds", "###############Konec vse žaluzije zapri#####################")
 	sendCommand(AllPeekClose, OFF)
@@ -385,7 +428,12 @@ when
 	Item ZalKabinetDo changed to ON
 then
 	logInfo("blinds", "###############Kabinet žaluzije dol#####################")
-	executeLogItem.apply(ZalKabinetDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	val name = getStringFromItem.apply(ZalKabinetDo, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalKabinetDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalKabinetDo, PEEK, timers, activateActBlind, getStringFromItem)
+	}
 	logInfo("blinds", "###############Konec kabinet žaluzija dol#####################")
 end
 
@@ -394,7 +442,12 @@ when
 	Item ZalKabinetUp changed to ON
 then
 	logInfo("blinds", "###############Kabinet žaluzija gor#####################")
-	executeLogItem.apply(ZalKabinetUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	val name = getStringFromItem.apply(ZalKabinetUp, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalKabinetUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalKabinetUp, PEEK, timers, activateActBlind, getStringFromItem)
+	}
 	logInfo("blinds", "###############Konec kabinet žaluzija gor#####################")
 end
 
@@ -403,9 +456,19 @@ when
 	Item ZalKabinetPeek changed to ON
 then
 	logInfo("blinds", "###############Kabinet žaluzije premik#####################")
-	executeLogItem.apply(ZalKabinetUp, PEEK, timers, activateActBlind, getStringFromItem)
+	ZalKabinetUp.sendCommand(ON)
 	logInfo("blinds", "###############Konec kabinet žaluzija premik#####################")
 end
+
+rule "Kabinet logical blind peek close"
+when
+	Item ZalKabinetPeekClose changed to ON
+then
+	logInfo("blinds", "###############Kabinet žaluzije premik#####################")
+	ZalKabinetDo.sendCommand(ON)
+	logInfo("blinds", "###############Konec kabinet žaluzija premik#####################")
+end
+
 
 //Dnevna desno
 rule "Dnevna desno blind close start"
@@ -449,7 +512,12 @@ when
 	Item ZalDnevnaDesDo changed to ON
 then
 	logInfo("blinds", "###############Dnevna desno žaluzije dol#####################")
-	executeLogItem.apply(ZalDnevnaDesDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	val name = getStringFromItem.apply(ZalDnevnaDesDo, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalDnevnaDesDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalDnevnaDesDo, PEEK, timers, activateActBlind, getStringFromItem)
+	}
 	logInfo("blinds", "###############Konec Dnevna desno desno žaluzija dol#####################")
 end
 
@@ -458,7 +526,12 @@ when
 	Item ZalDnevnaDesUp changed to ON
 then
 	logInfo("blinds", "###############Dnevna desno žaluzija gor#####################")
-	executeLogItem.apply(ZalDnevnaDesUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	val name = getStringFromItem.apply(ZalDnevnaDesUp, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalDnevnaDesUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalDnevnaDesUp, PEEK, timers, activateActBlind, getStringFromItem)
+	}
 	logInfo("blinds", "###############Konec dnevna desno žaluzija gor#####################")
 end
 
@@ -467,9 +540,19 @@ when
 	Item ZalDnevnaDesPeek changed to ON
 then
 	logInfo("blinds", "###############Dnevna desno žaluzije premik#####################")
-	executeLogItem.apply(ZalDnevnaDesUp, PEEK, timers, activateActBlind, getStringFromItem)
+	ZalDnevnaDesUp.sendCommand(ON)
 	logInfo("blinds", "###############Konec Dnevna desno žaluzija premik#####################")
 end
+
+rule "Dnevna desno logical blind peek close"
+when
+	Item ZalDnevnaDesPeekClose changed to ON
+then
+	logInfo("blinds", "###############Dnevna desno žaluzija zapri premik#####################")
+	ZalDnevnaDesDo.sendCommand(ON)
+	logInfo("blinds", "###############Konec dnevna desno žaluzija zapri premik#####################")
+end
+
 
 //Dnevna levo
 rule "Dnevna levo blind close start"
@@ -513,7 +596,12 @@ when
 	Item ZalDnevnaLevDo changed to ON
 then
 	logInfo("blinds", "###############Dnevna levo žaluzije dol#####################")
-	executeLogItem.apply(ZalDnevnaLevDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	val name = getStringFromItem.apply(ZalDnevnaLevDo, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalDnevnaLevDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalDnevnaLevDo, PEEK, timers, activateActBlind, getStringFromItem)
+	}
 	logInfo("blinds", "###############Konec Dnevna levo žaluzija dol#####################")
 end
 
@@ -522,7 +610,12 @@ when
 	Item ZalDnevnaLevUp changed to ON
 then
 	logInfo("blinds", "###############Dnevna levo žaluzija gor#####################")
-	executeLogItem.apply(ZalDnevnaLevUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	val name = getStringFromItem.apply(ZalDnevnaLevUp, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalDnevnaLevUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalDnevnaLevUp, PEEK, timers, activateActBlind, getStringFromItem)
+	}
 	logInfo("blinds", "###############Konec dnevna levo žaluzija gor#####################")
 end
 
@@ -531,9 +624,19 @@ when
 	Item ZalDnevnaLevPeek changed to ON
 then
 	logInfo("blinds", "###############Dnevna desno žaluzije premik#####################")
-	executeLogItem.apply(ZalDnevnaLevUp, PEEK, timers, activateActBlind, getStringFromItem)
+	ZalDnevnaLevUp.sendCommand(ON)
 	logInfo("blinds", "###############Konec Dnevna levo žaluzija premik#####################")
 end
+
+rule "Dnevna levo logical blind peek close"
+when
+	Item ZalDnevnaLevPeekClose changed to ON
+then
+	logInfo("blinds", "###############Dnevna desno žaluzija zapri premik#####################")
+	ZalDnevnaLevDo.sendCommand(ON)
+	logInfo("blinds", "###############Konec Dnevna levo žaluzija zapri premik#####################")
+end
+
 
 //Spalnica
 rule "Spalnica blind close start"
@@ -577,7 +680,12 @@ when
 	Item ZalSpalnicaLowActDo changed to ON
 then
 	logInfo("blinds", "###############Spalnica žaluzije dol#####################")
-	executeLogItem.apply(ZalSpalnicaLowActDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	val name = getStringFromItem.apply(ZalSpalnicaLowActDo, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalSpalnicaLowActDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalSpalnicaLowActDo, PEEK, timers, activateActBlind, getStringFromItem)
+	}
 	logInfo("blinds", "###############Konec Spalnica žaluzija dol#####################")
 end
 
@@ -586,7 +694,12 @@ when
 	Item ZalSpalnicaLowActUp changed to ON
 then
 	logInfo("blinds", "###############Spalnica žaluzija gor#####################")
-	executeLogItem.apply(ZalSpalnicaLowActUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	val name = getStringFromItem.apply(ZalSpalnicaLowActUp, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalSpalnicaLowActUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalSpalnicaLowActUp, PEEK, timers, activateActBlind, getStringFromItem)
+	}
 	logInfo("blinds", "###############Konec Spalnica žaluzija gor#####################")
 end
 
@@ -605,64 +718,85 @@ rule "Aljaz blind close start"
 when
 	Item SwiAljazLowActDo changed to OFF
 then
-	logInfo("blinds", "###############Spalnica žaluzije dol start#####################")
+	logInfo("blinds", "###############Aljaž žaluzije dol start#####################")
 	executeSwiItem.apply(SwiAljazLowActDo, COMPLETE, timers, activateActBlind, getStringFromItem)
-	logInfo("blinds", "###############Konec Spalnica žaluzija dol start#####################")
+	logInfo("blinds", "###############Konec Aljaž žaluzija dol start#####################")
 end
 
 rule "Aljaz blind close stop"
 when
 	Item SwiAljazLowActDo changed to ON
 then
-	logInfo("blinds", "###############Spalnica žaluzije dol stop#####################")
+	logInfo("blinds", "###############Aljaž žaluzije dol stop#####################")
 	stopExecuteSwiItem.apply(SwiAljazLowActDo, timers, activateActBlind, getStringFromItem)
-	logInfo("blinds", "###############Konec Spalnica žaluzija dol stop#####################")
+	logInfo("blinds", "###############Konec Aljaž žaluzija dol stop#####################")
 end
 
 rule "Aljaz blind open start"
 when
 	Item SwiAljazLowActUp changed to OFF
 then
-	logInfo("blinds", "###############Spalnica žaluzija gor start#####################")
+	logInfo("blinds", "###############Aljaž žaluzija gor start#####################")
 	executeSwiItem.apply(SwiAljazLowActUp, COMPLETE, timers, activateActBlind, getStringFromItem)
-	logInfo("blinds", "###############Konec Spalnica žaluzija gor start#####################")
+	logInfo("blinds", "###############Konec Aljaž žaluzija gor start#####################")
 end
 
 rule "Aljaz blind open stop"
 when
 	Item SwiAljazLowActUp changed to ON
 then
-	logInfo("blinds", "###############Spalnica žaluzija gor stop#####################")
+	logInfo("blinds", "###############Aljaž žaluzija gor stop#####################")
 	stopExecuteSwiItem.apply(SwiAljazLowActUp, timers, activateActBlind, getStringFromItem)
-	logInfo("blinds", "###############Konec Spalnica žaluzija gor stop#####################")
+	logInfo("blinds", "###############Konec Aljaž žaluzija gor stop#####################")
 end
 
 rule "Aljaz logical blind close"
 when
 	Item ZalAljazLowActDo changed to ON
 then
-	logInfo("blinds", "###############Spalnica žaluzije dol#####################")
-	executeLogItem.apply(ZalAljazLowActDo, COMPLETE, timers, activateActBlind, getStringFromItem)
-	logInfo("blinds", "###############Konec Spalnica žaluzija dol#####################")
+	logInfo("blinds", "###############Aljaž žaluzije dol#####################")
+	val name = getStringFromItem.apply(ZalAljazLowActDo, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalAljazLowActDo, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalAljazLowActDo, PEEK, timers, activateActBlind, getStringFromItem)
+	}
+	logInfo("blinds", "###############Konec Aljaž žaluzija dol#####################")
 end
 
 rule "Aljaz logical blind open"
 when
 	Item ZalAljazLowActUp changed to ON
 then
-	logInfo("blinds", "###############Spalnica žaluzija gor#####################")
-	executeLogItem.apply(ZalAljazLowActUp, COMPLETE, timers, activateActBlind, getStringFromItem)
-	logInfo("blinds", "###############Konec Spalnica žaluzija gor#####################")
+	logInfo("blinds", "###############Aljaž žaluzija gor#####################")
+	val name = getStringFromItem.apply(ZalAljazLowActUp, 2)
+	if (BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).empty){
+		executeLogItem.apply(ZalAljazLowActUp, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		executeLogItem.apply(ZalAljazLowActUp, PEEK, timers, activateActBlind, getStringFromItem)
+	}
+	logInfo("blinds", "###############Konec Aljaž žaluzija gor#####################")
 end
 
 rule "Aljaz logical blind peek"
 when
 	Item ZalAljazPeek changed to ON
 then
-	logInfo("blinds", "###############Spalnica žaluzije premik#####################")
-	executeLogItem.apply(ZalAljazLowActUp, PEEK, timers, activateActBlind, getStringFromItem)
-	logInfo("blinds", "###############Konec Spalnica žaluzija premik#####################")
+	logInfo("blinds", "###############Aljaž žaluzije premik gor#####################")
+	ZalAljazLowActUp.sendCommand(ON)
+	logInfo("blinds", "###############Konec Spalnica žaluzija premik gor#####################")
 end
+
+rule "Aljaz logical blind peek close"
+when
+	Item ZalAljazPeekClose changed to ON
+then
+	logInfo("blinds", "###############Aljaž žaluzije premik dol#####################")
+	ZalAljazLowActDo.sendCommand(ON)
+	logInfo("blinds", "###############Konec Aljaž žaluzija premik dol#####################")
+end
+
+
 /*  
 //Julija
 rule "Julija blind close start"

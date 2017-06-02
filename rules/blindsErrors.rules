@@ -44,15 +44,28 @@ val Functions$Function2 checkActItem = [
 	Functions$Function2 getStringFromItem|
 	
 	logInfo("blinds", "Preverjam prožitev aktuatorja - " + item.toString)
+	var boolean orderedMove = false
 	val boolean lowAct = !item.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
 	if (if(!lowAct)item.state == ON else item.state == OFF) {
 		val nameWithCommand = getStringFromItem.apply(item, 3).toString
 		var swiItem = BlindSwi.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithCommand)).head
-		logInfo("blinds", "Ime fizičnega stikala za ta aktuator je - " + swiItem)
+		if (swiItem != null && swiItem.state == OFF) {
+			orderedMove = true
+			logInfo("blinds", "Ime fizičnega stikala za ta aktuator je - " + swiItem.toString)
+		}
 		var logItem = BlindLog.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithCommand)).head
-		logInfo("blinds", "Ime logičnega stikala za ta aktuator je - " + logItem.toString)
+		if (logItem != null && logItem.state == ON) {
+			orderedMove = true
+			logInfo("blinds", "Ime logičnega stikala za ta aktuator je - " + logItem.toString)
+		}
+		var peekItem = BlindsPeek.members.filter(filtItem|filtItem.name.containsIgnoreCase(getStringFromItem.apply(item, 2))).head
+		if (peekItem != null && peekItem.state == ON) {
+			orderedMove = true
+			logInfo("blinds", "Ime logičnega premik stikala za ta aktuator je - " + peekItem.toString)
+			
+		}
 		//checking to see if the IO has gone bannanas
-		if (logItem.state == ON || swiItem.state == OFF) {
+		if (orderedMove) {
 			logInfo("blinds", "Ukaz za premik žaluzij je bil izdan, zato pustmo stat!")
 		} else {
 			logInfo("blinds", "Ukaz za premik žaluzij ni bil izdan, zato preklicujem premik žaluzij!")
