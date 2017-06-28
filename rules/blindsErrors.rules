@@ -138,57 +138,56 @@ end
 //Spalnica
 rule "Spalnica blind close check"
 when
-	Item ActSpalnicaLowActDo changed
+	Item ActSpalnicaDo changed
 then
 	logInfo("blinds", "###############Spalnica žaluzije dol preverjam ali napaka#####################")
-	checkActItem.apply(ActSpalnicaLowActDo,getStringFromItem)
+	checkActItem.apply(ActSpalnicaDo,getStringFromItem)
 	logInfo("blinds", "###############Konec spalnica žaluzije dol preverjam ali napaka#####################")
 end
 
 rule "Spalnica blind open check"
 when
-	Item ActSpalnicaLowActUp changed
+	Item ActSpalnicaUp changed
 then
 	logInfo("blinds", "###############Spalnica žaluzije gor preverjam ali napaka#####################")
-	checkActItem.apply(ActSpalnicaLowActUp,getStringFromItem)
+	checkActItem.apply(ActSpalnicaUp,getStringFromItem)
 	logInfo("blinds", "###############Konec spalnica žaluzije gor preverjam ali napaka#####################")
 end
 
 //Aljaž
 rule "Aljaz blind close check"
 when
-	Item ActAljazLowActDo changed
+	Item ActAljazDo changed
 then
 	logInfo("blinds", "###############Aljaž žaluzije dol preverjam ali napaka#####################")
-	checkActItem.apply(ActAljazLowActDo,getStringFromItem)
+	checkActItem.apply(ActAljazDo,getStringFromItem)
 	logInfo("blinds", "###############Konec Aljaž žaluzije dol preverjam ali napaka#####################")
 end
 
 rule "Aljaz blind open check"
 when
-	Item ActAljazLowActUp changed
+	Item ActAljazUp changed
 then
 	logInfo("blinds", "###############Julija žaluzije gor preverjam ali napaka#####################")
-	checkActItem.apply(ActAljazLowActUp,getStringFromItem)
+	checkActItem.apply(ActAljazUp,getStringFromItem)
 	logInfo("blinds", "###############Konec Aljaž žaluzije gor preverjam ali napaka#####################")
 end
-/*  
+
 //Julija
 rule "Julija blind close check"
 when
-	Item ActJulijaLowActDo changed
+	Item ActJulijaDo changed
 then
 	logInfo("blinds", "###############Julija žaluzije dol preverjam ali napaka#####################")
-	checkActItem.apply(ActJulijaLowActDo,getStringFromItem)
+	checkActItem.apply(ActJulijaDo,getStringFromItem)
 	logInfo("blinds", "###############Konec Julija žaluzije dol preverjam ali napaka#####################")
 end
 
 rule "Julija blind open check"
 when
-	Item ActJulijaLowActUp changed
+	Item ActJulijaUp changed
 then
 	logInfo("blinds", "###############Julija žaluzije gor preverjam ali napaka#####################")
-	checkActItem.apply(ActJulijaLowActUp,getStringFromItem)
+	checkActItem.apply(ActJulijaUp,getStringFromItem)
 	logInfo("blinds", "###############Konec Julija žaluzije gor preverjam ali napaka#####################")
 end
-*/
