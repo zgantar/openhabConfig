@@ -28,18 +28,18 @@ then
 	if (currPerc > 0) {
 		val windDir = OutWindDir.state as StringType
 		if (windDir.containsIgnorCase("S")) {
-			BlindSW.members.forEach[loopBlind|
+			blindsSW.members.forEach[loopBlind|
 				checkAndMove.apply(loopBlind, 0)
 			]
-			BlindSE.members.forEach[loopBlind|
+			blindsSE.members.forEach[loopBlind|
 				checkAndMove.apply(loopBlind, 0)
 			]
 		} else if (windDir.containsIgnorCase("W")) {
-			BlindSW.members.forEach[loopBlind|
+			blindsSW.members.forEach[loopBlind|
 				checkAndMove.apply(loopBlind, 0)
 			]
 		} else if (windDir.containsIgnorCase("E")) {
-			BlindSE.members.forEach[loopBlind|
+			blindsSE.members.forEach[loopBlind|
 				checkAndMove.apply(loopBlind, 0)
 			]
 	}

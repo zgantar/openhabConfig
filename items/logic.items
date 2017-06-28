@@ -8,8 +8,8 @@ Group	BlindLog
 Group	BlindState
 Group	Blinds
 Group	BlindsPeek
-Group	BlindSE		"Stikala na JV"
-Group	BlindSW		"Stikala na JZ"
+Group	BlindsSE		"Stikala na JV"
+Group	BlindsSW		"Stikala na JZ"
 
 
 //Logic
@@ -81,32 +81,32 @@ Switch	AllCompleteDo	"Vse žaluzije dol"		<rollershuter>	(Blinds)
 Switch	AllPeek			"Vse žaluzije premik"	<rollershuter>	(Blinds)
 Switch	AllPeekClose	"Vse žaluzije zapret"	<rollershuter>	(Blinds)
 
-Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog,Blinds,BlindSW)
-Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog,Blinds,BlindSW)
+Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
+Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
 Switch	ZalKabinetPeek	"Kabinet premik"	<rollershuter>	(Blinds,BlindsPeek)
 Number	StateKabinet	"Stanje žaluzije kabinet [%.1f]"			(BlindState)
 
-Switch	ZalDnevnaDesDo	"Dnevna desno dol"		<rollershuter>	(BlindLog,Blinds,BlindSW)
-Switch	ZalDnevnaDesUp	"Dnevna desno gor"		<rollershuter>	(BlindLog,Blinds,BlindSW)
+Switch	ZalDnevnaDesDo	"Dnevna desno dol"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
+Switch	ZalDnevnaDesUp	"Dnevna desno gor"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
 Switch	ZalDnevnaDesPeek "Dnevna desno premik"		<rollershuter>	(Blinds,BlindsPeek)
 Number	StateDnevnaDes	"Stanje žaluzij dnevna desno [%.1f]"		(BlindState)
 
-Switch	ZalDnevnaLevDo	"Dnevna levo dol"		<rollershuter>	(BlindLog,Blinds,BlindSW)
-Switch	ZalDnevnaLevUp	"Dnevna levo gor"		<rollershuter>	(BlindLog,Blinds,BlindSW)
+Switch	ZalDnevnaLevDo	"Dnevna levo dol"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
+Switch	ZalDnevnaLevUp	"Dnevna levo gor"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
 Switch	ZalDnevnaLevPeek "Dnevna levo premik"		<rollershuter>	(Blinds,BlindsPeek)
 Number	StateDnevnaLev	"Stanje žaluzij dnevna levo [%.1f]"		(BlindState)
 
-Switch	ZalSpalnicaLowActDo	"Spalnica dol"		<rollershuter>	(BlindLog,Blinds,BlindSE)
-Switch	ZalSpalnicaLowActUp	"Spalnica gor"		<rollershuter>	(BlindLog,Blinds,BlindSE)
+Switch	ZalSpalnicaLowActDo	"Spalnica dol"		<rollershuter>	(BlindLog,Blinds,BlindsSE)
+Switch	ZalSpalnicaLowActUp	"Spalnica gor"		<rollershuter>	(BlindLog,Blinds,BlindsSE)
 Switch	ZalSpalnicaPeek 	"Spalnica levo premik"		<rollershuter>	(Blinds,BlindsPeek)
 Number	StateSpalnicaLowAct	"Stanje žaluzije spalnica [%.1f]"		(BlindState)
 
-Switch	ZalAljazLowActDo	"Aljaž dol"		<rollershuter>	(BlindLog,Blinds,BlindSE)
-Switch	ZalAljazLowActUp	"Aljaž gor"		<rollershuter>	(BlindLog,Blinds,BlindSE)
+Switch	ZalAljazLowActDo	"Aljaž dol"		<rollershuter>	(BlindLog,Blinds,BlindsSE)
+Switch	ZalAljazLowActUp	"Aljaž gor"		<rollershuter>	(BlindLog,Blinds,BlindsSE)
 Switch	ZalAljazPeek 		"Aljaž premik"		<rollershuter>	(Blinds,BlindsPeek)
 Number	StateAljazLowAct	"Stanje žaluzije aljaž [%.1f]"		(BlindState)
 
-Switch	ZalJulijaLowActDo	"Julija dol"		<rollershuter>	(BlindLog,Blinds,BlindSE)
-Switch	ZalJulijaLowActUp	"Julija gor"		<rollershuter>	(BlindLog,Blinds,BlindSE)
-Switch	ZalJulijaPeek 		"Julija premik"		<rollershuter>	(Blinds,BlindsPeek)
+Switch	ZalJulijaLowActDo	"Julija dol"		<rollershuter>	(BlindLog,blinds,blindsSE)
+Switch	ZalJulijaLowActUp	"Julija gor"		<rollershuter>	(BlindLog,blinds,blindsSE)
+Switch	ZalJulijaPeek 		"Julija premik"		<rollershuter>	(blinds,blindsPeek)
 Number	StateJulijaLowAct	"Stanje žaluzije Julija [%.1f]"		(BlindState)
