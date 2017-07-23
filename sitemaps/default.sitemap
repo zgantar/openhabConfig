@@ -7,6 +7,11 @@ sitemap hisa label="Rezidenca Gantar" {
 		Text item=MotNadStopnicami
 		Text item=MotHodnikZ
 	}
+	Frame label="Povezave" icon="link" {
+		Text item=SitemapZal
+		Text item=SitemapSwi
+		
+	}
 //	Frame label="Kamere" {
 //		Video item=Nexus4 icon="video" url="http://192.168.1.56:8080/video" encoding="mjpeg"
 //		Image item=Nexus4 icon=image url="http://192.168.1.56:8080/shot.jpg" label="Nexus4" refresh=10000
