@@ -1,6 +1,0 @@
-TempDnevna.evo
-
-TempDnevna.postUpdate(((TempKuhinja.state as org.openhab.core.library.types.DecimalType)*0.4) + ((TempKabinet.state as org.openhab.core.library.types.DecimalType)*0.6)) 
-//TempHodnikS.postUpdate(((TempKuhinja.state as org.openhab.core.library.types.DecimalType)*0.3) + ((TempKabinet.state as org.openhab.core.library.types.DecimalType)*0.4) + ((TempKopalnicaS.state as org.openhab.core.library.types.DecimalType)*0.3))
-//TempHodnikZ.postUpdate(((TempAljaz.state as org.openhab.core.library.types.DecimalType)*0.4) + ((TempJulija.state as org.openhab.core.library.types.DecimalType)*0.4) + ((TempKopalnicaZ.state as org.openhab.core.library.types.DecimalType)*0.2))
-return null
