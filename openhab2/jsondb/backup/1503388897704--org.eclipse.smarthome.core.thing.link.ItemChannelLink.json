@@ -1,0 +1,30 @@
+{
+  "OutTemp_ExitValue -\u003e exec:command:79f3e398:exit": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "79f3e398",
+          "exit"
+        ]
+      },
+      "itemName": "OutTemp_ExitValue"
+    }
+  },
+  "OutTemp_Output -\u003e exec:command:79f3e398:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "79f3e398",
+          "output"
+        ]
+      },
+      "itemName": "OutTemp_Output"
+    }
+  }
+}
