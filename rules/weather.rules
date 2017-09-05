@@ -1,5 +1,4 @@
 //import org.joda.time
-import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.apache.commons.lang.StringUtils.*
 
