@@ -7,6 +7,11 @@ sitemap hisa label="Žaluzije za rezidenco Gantar" {
 		Switch item=AllPeekClose
 	}
 	
+	Frame label="Povezave" {
+		Text item=SitemapZalDnevna
+		Text item=SitemapZalKabinet
+	}
+	
 	Frame label="Kabinet" icon="blinds" {
 		Switch item=ZalKabinetDo
 		Switch item=ZalKabinetUp

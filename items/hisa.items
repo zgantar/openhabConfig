@@ -36,10 +36,10 @@ Switch	ActAljazUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindA
 Switch	SwiAljazUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
 Switch 	SwiAljazDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
 
-Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out1" }	
-Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out0" }
-Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in2" }
-Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in3" }
+Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hfc, subid=out1" }	
+Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hfc, subid=out0" }
+Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hfc, subid=in2" }
+Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hfc, subid=in3" }
 
 //Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaDoSwitch" }	
 //Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaUpSwitch" }

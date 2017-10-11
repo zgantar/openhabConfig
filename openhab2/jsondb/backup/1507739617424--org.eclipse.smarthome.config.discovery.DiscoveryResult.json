@@ -1,0 +1,101 @@
+{
+  "mihome:gateway:286c0788c0ee": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "thingUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "gateway"
+        ]
+      },
+      "properties": {
+        "itemId": "286c0788c0ee"
+      },
+      "representationProperty": "itemId",
+      "flag": "NEW",
+      "label": "Xiaomi Mi Smart Home Gateway",
+      "timestamp": 1507739616923,
+      "timeToLive": -1
+    }
+  },
+  "mihome:sensor_switch:158d00016d77ce": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "thingUID": {
+        "segments": [
+          "mihome",
+          "sensor_switch",
+          "158d00016d77ce"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_switch"
+        ]
+      },
+      "properties": {
+        "itemId": "158d00016d77ce"
+      },
+      "representationProperty": "itemId",
+      "flag": "NEW",
+      "label": "Xiaomi Mi Wireless Switch",
+      "timestamp": 1507739610685,
+      "timeToLive": -1
+    }
+  },
+  "mihome:sensor_magnet:158d0001a5f10d": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "thingUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet"
+        ]
+      },
+      "properties": {
+        "itemId": "158d0001a5f10d"
+      },
+      "representationProperty": "itemId",
+      "flag": "NEW",
+      "label": "Xiaomi Door/Window Sensor",
+      "timestamp": 1507739610688,
+      "timeToLive": -1
+    }
+  }
+}

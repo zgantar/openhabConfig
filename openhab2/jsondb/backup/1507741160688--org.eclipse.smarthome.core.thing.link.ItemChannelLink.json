@@ -1,0 +1,184 @@
+{
+  "OutFeelTemp -\u003e exec:command:67207586:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "67207586",
+          "output"
+        ]
+      },
+      "itemName": "OutFeelTemp"
+    }
+  },
+  "OutPercipToday -\u003e exec:command:16daa665:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "16daa665",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipToday"
+    }
+  },
+  "XiaomiIlluminance -\u003e mihome:gateway:286c0788c0ee:illumination": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "illumination"
+        ]
+      },
+      "itemName": "XiaomiIlluminance"
+    }
+  },
+  "OutWindDir -\u003e exec:command:928e8aea:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "928e8aea",
+          "output"
+        ]
+      },
+      "itemName": "OutWindDir"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Color -\u003e mihome:gateway:286c0788c0ee:color": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "color"
+        ]
+      },
+      "itemName": "XiaomiMiSmartHomeGateway_Color"
+    }
+  },
+  "XiaomiDoorWindowSensor_OpenStatus -\u003e mihome:sensor_magnet:158d0001a5f10d:isOpen": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d",
+          "isOpen"
+        ]
+      },
+      "itemName": "XiaomiDoorWindowSensor_OpenStatus"
+    }
+  },
+  "XiaomiDoorWindowSensor_BatteryLevel -\u003e mihome:sensor_magnet:158d0001a5f10d:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d",
+          "batteryLevel"
+        ]
+      },
+      "itemName": "XiaomiDoorWindowSensor_BatteryLevel"
+    }
+  },
+  "OutHum -\u003e exec:command:714c315a:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "714c315a",
+          "output"
+        ]
+      },
+      "itemName": "OutHum"
+    }
+  },
+  "OutPressure -\u003e exec:command:6effd09f:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "6effd09f",
+          "output"
+        ]
+      },
+      "itemName": "OutPressure"
+    }
+  },
+  "OutTemp -\u003e exec:command:79f3e398:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "79f3e398",
+          "output"
+        ]
+      },
+      "itemName": "OutTemp"
+    }
+  },
+  "OutWindSpeed -\u003e exec:command:b15d1702:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "b15d1702",
+          "output"
+        ]
+      },
+      "itemName": "OutWindSpeed"
+    }
+  },
+  "OutPercipInten -\u003e exec:command:5da38ecd:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "5da38ecd",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipInten"
+    }
+  },
+  "OutSolarRad -\u003e exec:command:1fb12767:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "1fb12767",
+          "output"
+        ]
+      },
+      "itemName": "OutSolarRad"
+    }
+  }
+}

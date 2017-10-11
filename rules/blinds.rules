@@ -1,11 +1,10 @@
 import org.joda.time.*
-import org.openhab.model.script.actions.*
 import org.apache.commons.lang.StringUtils.*
 import org.eclipse.xtext.xbase.lib.*
-import org.openhab.model.script.actions.*
 import java.util.Map
 
 val int PEEK = 1000
+val int DIMM = 1900
 val int COMPLETE = 60000
 var Map<String, Timer> timers 
 
@@ -38,7 +37,7 @@ val Functions$Function2 getStringFromItem = [
 				}
 			}
 		case 5: {
-				logInfo("blinds", "getStringFromItem - Iščem ime za peek stikalo " + item.toString)
+				logInfo("blinds", "getStringFromItem - Iščem ime za peek/dimm stikalo " + item.toString)
 				returnString = item.name.substring(0, item.name.length-4)
 			}
 	}
@@ -310,20 +309,14 @@ when
 	System started
 then
 	logInfo("blinds", "Set blinds up - ###############Začetna nastavitev žaluzij#####################")
-	Blinds.members.forEach[blindsItem|
+/*	Blinds.members.forEach[blindsItem|
 		if ( blindsItem.state == NULL ) {
 			logDebug("blinds", "Set blinds up - Našel neicializirano stanje za " + blindsItem.toString + "!!!!")
 			blindsItem.sendCommand(OFF)
 		}
 	]
-	BlindSwi.members.forEach[ swiItem |
-		logInfo("blinds", "Set blinds up - Našel fizično stikalo " + swiItem.toString + "!!!!")
-		if (swiItem.state == OFF) {
-			activateActBlind.apply(swiItem, 1, COMPLETE, timers, getStringFromItem)
-		} else {
-			activateActBlind.apply(swiItem, 0, 0, timers, getStringFromItem)
-		}
-	]
+	* 
+	*/
 	BlindState.members.forEach[stateItem|
 		logInfo("blinds", "Set blinds up - Preverjam stanje za - " + stateItem.toString)
 		if ( stateItem.state == NULL ) {
@@ -336,7 +329,18 @@ then
 		timers = newHashMap
 		logInfo("blinds", "Set blinds up - Timerji so veliki - " +timers.size)
 	}
+	BlindSwi.members.forEach[ swiItem |
+		logInfo("blinds", "Set blinds up - Našel fizično stikalo " + swiItem.toString + "!!!!")
+		if (swiItem.state == OFF) {
+			activateActBlind.apply(swiItem, 1, COMPLETE, timers, getStringFromItem)
+		} else {
+			activateActBlind.apply(swiItem, 0, 0, timers, getStringFromItem)
+		}
+	]
 	BlindsPeek.members.forEach[blindsItem|
+		blindsItem.sendCommand(OFF)
+	]
+	BlindsDimm.members.forEach[blindsItem|
 		blindsItem.sendCommand(OFF)
 	]
 	
@@ -416,6 +420,77 @@ then
 	logInfo("blinds", "All blinds close peek - ###############Konec vse žaluzije zapri#####################")
 	sendCommand(AllPeekClose, OFF)
 end
+
+rule "All blinds dimm"
+when
+	Item AllDimm changed
+then
+	logInfo("blinds", "All blinds dimm - ###############Vse žaluzije zatemni#####################")
+	val currState = AllDimm.state as Number
+	val prevState = AllDimm.previousState.state as Number
+	val upDown = if (currState > prevState) true else false
+	val timeToBeActive = (AllDimm.state as Number) * DIMM
+	BlindsDimm.members.forEach[dimmItem|
+		logInfo("blinds", "All blinds dimm - Sem v zanki z zatemnilnim stikalom - " + dimmItem.toString)
+		var SwitchItem logItem 
+		if (upDown) {
+			logItem = BlindLog.members.filter(item|item.name.containsIgnoreCase(getStringFromItem.apply(dimmItem, 5).toString + "Up")).head as SwitchItem
+		} else {
+			logItem = BlindLog.members.filter(item|item.name.containsIgnoreCase(getStringFromItem.apply(dimmItem, 5).toString + "Do")).head as SwitchItem
+		}
+		if (logItem != null) {
+			logInfo("blinds", "All blinds dimm - Sem v zanki z logičnim stikalom - " + logItem.toString)
+			executeLogItem.apply(logItem, timeToBeActive, timers, activateActBlind, getStringFromItem)
+		} else {
+			logError("blinds", "All blinds dimm - Nisem našel logičnega stikala za dimm stikalo - " + dimmItem.toString)
+		}
+	]
+	logInfo("blinds", "All blinds dimm - ###############Konec vse žaluzije zatemni#####################")
+end
+
+rule "Test Zal rule"
+when
+	Item BlindLog changed
+then
+	logInfo("blinds", "Test Zal rule - ###############Sprožilo logično stikalo#####################")
+	val logItem = BlindLog.members.sortBy[lastUpdate].last
+	logInfo("blinds", "Test Zal rule - Logično stikalo je - " + logItem.toString)
+	val name = getStringFromItem.apply(logItem, 2)
+	if (logItem.state == ON) {
+		logInfo("blinds", "Test Zal rule - Stikalo je ON")
+		val peek = BlindsPeek.members.filter(item|item.name.containsIgnoreCase(name)).head
+		logInfo("blinds", "Test Zal rule - Peek je nastavljen na - " + peek.toString)
+		if (peek.state == OFF){
+			
+//			executeLogItem.apply(logItem, COMPLETE, timers, activateActBlind, getStringFromItem)
+		} else {
+//			executeLogItem.apply(logItem, PEEK, timers, activateActBlind, getStringFromItem)
+		}
+	} else {
+		logInfo("blinds", "Test Zal rule - Stikalo je OFF")
+//		stopExecuteLogItem.apply(logItem, timers, activateActBlind, getStringFromItem)
+	}
+	logInfo("blinds", "Test Zal rule - ###############Konce sprožilo logično stikalo#####################")
+end
+		 
+
+rule "Test Swi rule"
+when
+	Item BlindSwi changed
+then
+	logInfo("blinds", "Test Swi rule - ###############Sprožilo fizično stikalo#####################")
+	val swiItem = BlindSwi.members.sortBy[lastUpdate].last
+	logInfo("blinds", "Test Swi rule - Fizično stikalo je - " + swiItem.toString)
+	if (swiItem.state == OFF) {
+		logInfo("blinds", "Test Zal rule - Stikalo je OFF")
+//		executeSwiItem.apply(swiItem, COMPLETE, timers, activateActBlind, getStringFromItem)
+	} else {
+		logInfo("blinds", "Test Swi rule - Stikalo je ON")
+//		stopExecuteSwiItem.apply(swiItem, timers, activateActBlind, getStringFromItem)
+	}
+	logInfo("blinds", "Test Swi rule - ###############Konce sprožilo fizično stikalo#####################")
+end
+
 
 //Kabinet
 rule "Kabinet blind close start"
