@@ -148,20 +148,20 @@ then
 					logInfo("heating", "4.2.1 Izdan ukaz za konec ogrevanja sobe - " + name)
 				}
 				logInfo("heating", "Preverjamo ali je temperatura toliko previsoka, da moramo spustiti žaluzije")
-				if ((difTemp > 3) && ((OutSolarRad.previousState.state as Number) > 0)) {
+//				if ((difTemp > 3) && (Integer.parseInt((OutSolarRad.previousState.state as StringType).toString).intValue > 0)) {
 //					val roomName = tempItem.name.substring(4, tempItem.name.length - 1)
-					logInfo("heating", "Temperatura je previsoka, spuščam žaluzije " + name)
-					BlindLog.members.forEach[roomBlind|
-						if (roomBlind.name.containsIgnoreCase(name)) {
-							logInfo("heating", "Našel stikalo " + roomBlind.toString)
-							if (roomBlind.name.containsIgnoreCase("Do")) {
+//					logInfo("heating", "Temperatura je previsoka, spuščam žaluzije " + name)
+//					BlindLog.members.forEach[roomBlind|
+//						if (roomBlind.name.containsIgnoreCase(name)) {
+//							logInfo("heating", "Našel stikalo " + roomBlind.toString)
+//							if (roomBlind.name.containsIgnoreCase("Do")) {
 //								val boolean lowAct = !roomBlind.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
-								roomBlind.sendCommand(ON)
-								logInfo("heating", "Poslal ukaz za spust žaluzij " + roomBlind.toString)
-							} 
-						}
-					]
-				}
+//								roomBlind.sendCommand(ON)
+//								logInfo("heating", "Poslal ukaz za spust žaluzij " + roomBlind.toString)
+//							} 
+//						}
+//					]
+//				}
 			}
 		} else {
 			logInfo("heating", "Ročni override zato ignoriral temperature!")

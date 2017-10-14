@@ -124,9 +124,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar windDir",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
@@ -270,9 +270,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar feelTemp",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
@@ -416,9 +416,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar temp",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
@@ -562,9 +562,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar hum",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
@@ -708,9 +708,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar percipToday",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
@@ -854,9 +854,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar press",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
@@ -1201,9 +1201,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar windSpeed",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
@@ -1651,9 +1651,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar percipInten",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
@@ -1797,9 +1797,9 @@
         "properties": {
           "transform": "REGEX((.*))",
           "autorun": false,
-          "interval": 300.0,
+          "interval": 300,
           "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar solarRad",
-          "timeout": 15.0
+          "timeout": 15
         }
       },
       "properties": {},
