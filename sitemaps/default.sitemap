@@ -10,8 +10,6 @@ sitemap hisa label="Rezidenca Gantar" {
 	Frame label="Povezave" icon="link" {
 		Text item=SitemapZal
 		Text item=SitemapSwi
-		Text item=SitemapZalDnevna
-		Text item=SitemapZalKabinet
 		
 	}
 //	Frame label="Kamere" {

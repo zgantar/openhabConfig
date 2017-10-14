@@ -1,17 +1,7 @@
 import org.joda.time.*
-import org.openhab.core.library.types.*
-import org.openhab.core.persistence.*
-import org.openhab.model.script.actions.*
-import org.apache.commons.lang.StringUtils.*
-import java.util.HashSet
-import java.util.List
-import java.util.Set
-import org.openhab.core.library.items.*
-import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 import org.apache.commons.lang.StringUtils.*
 import org.eclipse.xtext.xbase.lib.*
-import org.openhab.model.script.actions.*
 
 
 var boolean startHeating1
@@ -80,10 +70,10 @@ then
 	Fhs.sendCommand(OFF)
 	//setting up desired values for rooms
 	Set.members.forEach[ item |
-		if ((item.state == 'Uninitialized') || (item.state == 'Undefined')) item.postUpdate(20.0)
+		if (item.state == NULL) item.postUpdate(20.0)
 	]
 	Dif.members.forEach[ item |
-		if ((item.state == 'Uninitialized') || (item.state == 'Undefined')) item.postUpdate(0)
+		if (item.state == NULL) item.postUpdate(0)
 	]
 	
 	logInfo("heating", "1 Nastavljene začetne vrednosti!")
@@ -114,8 +104,10 @@ then
 			logInfo("heating", "Dobil setter - " + setItem.toString)
 			val difItem = Dif.members.filter(setter | setter.name.containsIgnoreCase(name)).head
 			logInfo("heating", "Dobil differ - " + difItem.toString)
-			val currentTemp = tempItem.state as Number
-			var mejnaTemp = setItem.state as Number
+			var Number currentTemp = 0
+			if (tempItem.state != NULL) currentTemp = tempItem.state as Number 
+			var Number mejnaTemp = 0
+			if (setItem.state != NULL) mejnaTemp = setItem.state as Number
 			logInfo("heating", "2 Preverjam ali je potrebno ogreti - " + setItem.toString)
 			var logItem = Log.members.filter( doer | doer.name.containsIgnoreCase(name)).head
 			logInfo("heating", "3 Našli smo ventil - " + logItem.toString)
@@ -156,20 +148,20 @@ then
 					logInfo("heating", "4.2.1 Izdan ukaz za konec ogrevanja sobe - " + name)
 				}
 				logInfo("heating", "Preverjamo ali je temperatura toliko previsoka, da moramo spustiti žaluzije")
-				if ((difTemp > 4) && ((OutSolarRad.previousState.state as Number) > 0)) {
+//				if ((difTemp > 3) && (Integer.parseInt((OutSolarRad.previousState.state as StringType).toString).intValue > 0)) {
 //					val roomName = tempItem.name.substring(4, tempItem.name.length - 1)
-					logInfo("heating", "Temperatura je previsoka, spuščam žaluzije " + name)
-					BlindLog.members.forEach[roomBlind|
-						if (roomBlind.name.containsIgnoreCase(name)) {
-							logInfo("heating", "Našel stikalo " + roomBlind.toString)
-							if (roomBlind.name.containsIgnoreCase("Do")) {
+//					logInfo("heating", "Temperatura je previsoka, spuščam žaluzije " + name)
+//					BlindLog.members.forEach[roomBlind|
+//						if (roomBlind.name.containsIgnoreCase(name)) {
+//							logInfo("heating", "Našel stikalo " + roomBlind.toString)
+//							if (roomBlind.name.containsIgnoreCase("Do")) {
 //								val boolean lowAct = !roomBlind.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
 //								roomBlind.sendCommand(ON)
-								logInfo("heating", "Poslal ukaz za spust žaluzij " + roomBlind.toString)
-							} 
-						}
-					]
-				}
+//								logInfo("heating", "Poslal ukaz za spust žaluzij " + roomBlind.toString)
+//							} 
+//						}
+//					]
+//				}
 			}
 		} else {
 			logInfo("heating", "Ročni override zato ignoriral temperature!")
@@ -220,8 +212,8 @@ then
 			val boolean noVent = !logItem.groupNames.filter(group|group.equalsIgnoreCase("LogRev")).empty
 			val name = logItem.name.substring(3)
 			val valve = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
-			logInfo("heating", "Našel ventil za logično stikalo " + valve.toString)
 			if (valve != null) {
+				logInfo("heating", "Našel ventil za logično stikalo " + valve.toString)
 				if (logItem.state == ON) {
 					startHeating2 = true
 					if (!noVent) {
