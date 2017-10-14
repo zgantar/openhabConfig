@@ -1,4 +1,4 @@
-sitemap hisa label="Grafi ogrevanja za rezidenco Gantar" {
+sitemap switches_charts label="Grafi ogrevanja za rezidenco Gantar" {
 	Frame label="Ogrevanje" icon="heating" {
 		Text label="Talno gretje"
 		Chart item=FhsHeater period=D refresh=900000 

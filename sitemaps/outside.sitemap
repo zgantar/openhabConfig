@@ -1,4 +1,4 @@
-sitemap hisa label="Zunanji podatki" {
+sitemap outside label="Zunanji podatki" {
 	Frame label="Zunanje razmere" icon="heating" {
 		Text item=OutTemp
 		Text item=OutFeelTemp
