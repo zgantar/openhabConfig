@@ -115,6 +115,6 @@ Number	StateAljaz		"Stanje žaluzije aljaž [%.1f]"		(BlindState)
 
 Switch	ZalJulijaDo		"Julija dol"		<rollershuter>	(BlindLog,blinds,blindsSE)
 Switch	ZalJulijaUp		"Julija gor"		<rollershuter>	(BlindLog,blinds,blindsSE)
-Switch	ZalJulijaPeek	"Julija premik"		<rollershuter>	(blinds,blindsPeek)
+Switch	ZalJulijaPeek	"Julija premik"		<rollershuter>	(blinds,BlindsPeek)
 Dimmer	ZalJulijaDimm	"Julija žaluzije zatemni"	<blinds>		(BlindsDimm)
 Number	StateJulija		"Stanje žaluzije Julija [%.1f]"		(BlindState)
