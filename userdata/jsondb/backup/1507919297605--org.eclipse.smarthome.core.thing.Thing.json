@@ -1,0 +1,1821 @@
+{
+  "exec:command:928e8aea": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutwindDir",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "interval": 300.0,
+          "command": "/usr/local/java/jdk1.8.0_144/bin/java -jar /etc/openhab2/scripts/ZevsParser.jar windDir",
+          "timeout": 15.0,
+          "autorun": false
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "928e8aea"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "exec:command:67207586": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutFeelTemp",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar feelTemp",
+          "timeout": 15
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "67207586"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "exec:command:79f3e398": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutTemp",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "/usr/local/java/jdk1.8.0_144/bin/java -jar /etc/openhab2/scripts/ZevsParser.jar temp",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "79f3e398"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "exec:command:714c315a": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutHum",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar hum",
+          "timeout": 15
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "714c315a"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "exec:command:16daa665": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutPercipToday",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar percipToday",
+          "timeout": 15
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "16daa665"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "exec:command:6effd09f": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutPress",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar press",
+          "timeout": 15
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "6effd09f"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "mihome:gateway:286c0788c0ee": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Smart Home Gateway",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "brightness"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "brightness"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": [
+            "Lighting"
+          ]
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "illumination"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "illumination"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Color",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "color"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "color"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": [
+            "Lighting"
+          ]
+        },
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "colorTemperature"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "colorTemperature"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": [
+            "ColorTemperature"
+          ]
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "enableSound"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "enableSound"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "sound"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "sound"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "volume"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "volume"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "286c0788c0ee"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "gateway"
+        ]
+      }
+    }
+  },
+  "exec:command:b15d1702": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutWindSpeed",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "interval": 300.0,
+          "command": "/usr/local/java/jdk1.8.0_144/bin/java -jar /etc/openhab2/scripts/ZevsParser.jar windSpeed",
+          "timeout": 15.0,
+          "autorun": false
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "b15d1702"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_magnet:158d0001a5f10d": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Door/Window Sensor",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Contact",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "isOpen"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpen"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "lastOpened"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "lastOpened"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "isOpenAlarmTimer"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpenAlarmTimer"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "isOpenAlarm"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpenAlarm"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001a5f10d"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_switch:158d00016d77ce": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Wireless Switch",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_switch",
+              "158d00016d77ce",
+              "button"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "button"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_switch",
+              "158d00016d77ce",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_switch",
+              "158d00016d77ce",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d00016d77ce"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_switch",
+          "158d00016d77ce"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_switch"
+        ]
+      }
+    }
+  },
+  "mihome:bridge:286c0788c0ee": {
+    "class": "org.eclipse.smarthome.core.thing.internal.BridgeImpl",
+    "value": {
+      "label": "Xiaomi Gateway",
+      "channels": [],
+      "configuration": {
+        "properties": {
+          "ipAddress": "192.168.1.102",
+          "serialNumber": "286c0788c0ee",
+          "port": 9898.0,
+          "key": "ujwvgyrfm64jr6bx"
+        }
+      },
+      "properties": {
+        "vendor": "Xiaomi"
+      },
+      "uid": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "bridge"
+        ]
+      }
+    }
+  },
+  "exec:command:5da38ecd": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutPercipInten",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar percipInten",
+          "timeout": 15
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "5da38ecd"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "exec:command:1fb12767": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutSolarRad",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "interval": 300.0,
+          "command": "/usr/local/java/jdk1.8.0_144/bin/java -jar /etc/openhab2/scripts/ZevsParser.jar solarRad",
+          "timeout": 15.0,
+          "autorun": false
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "1fb12767"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  }
+}

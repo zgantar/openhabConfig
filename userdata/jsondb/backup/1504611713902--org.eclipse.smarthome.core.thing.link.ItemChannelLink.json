@@ -1,0 +1,114 @@
+{
+  "OutHum -\u003e exec:command:714c315a:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "714c315a",
+          "output"
+        ]
+      },
+      "itemName": "OutHum"
+    }
+  },
+  "OutFeelTemp -\u003e exec:command:67207586:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "67207586",
+          "output"
+        ]
+      },
+      "itemName": "OutFeelTemp"
+    }
+  },
+  "OutPercipToday -\u003e exec:command:16daa665:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "16daa665",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipToday"
+    }
+  },
+  "OutWindDir -\u003e exec:command:928e8aea:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "928e8aea",
+          "output"
+        ]
+      },
+      "itemName": "OutWindDir"
+    }
+  },
+  "OutPressure -\u003e exec:command:6effd09f:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "6effd09f",
+          "output"
+        ]
+      },
+      "itemName": "OutPressure"
+    }
+  },
+  "OutWindSpeed -\u003e exec:command:b15d1702:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "b15d1702",
+          "output"
+        ]
+      },
+      "itemName": "OutWindSpeed"
+    }
+  },
+  "OutPercipInten -\u003e exec:command:5da38ecd:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "5da38ecd",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipInten"
+    }
+  },
+  "OutSolarRad -\u003e exec:command:1fb12767:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "1fb12767",
+          "output"
+        ]
+      },
+      "itemName": "OutSolarRad"
+    }
+  }
+}

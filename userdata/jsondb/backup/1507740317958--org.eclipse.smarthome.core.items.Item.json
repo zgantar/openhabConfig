@@ -1,0 +1,31 @@
+{
+  "OutTemp_Output": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Output"
+    }
+  },
+  "XiaomiIlluminance": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Illumination",
+      "category": "Illumination"
+    }
+  },
+  "XiaomiDoorWindowSensor_OpenStatus": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Contact",
+      "tags": [],
+      "label": "Open Status",
+      "category": "Contact"
+    }
+  }
+}

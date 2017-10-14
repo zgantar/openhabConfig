@@ -1,0 +1,61 @@
+{
+  "XiaomiMiSmartHomeGateway_Color": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Color",
+      "tags": [],
+      "label": "Color",
+      "category": "ColorLight"
+    }
+  },
+  "XiaomiIlluminance": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Illumination",
+      "category": "Illumination"
+    }
+  },
+  "XiaomiDoorWindowSensor_OpenStatus": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Contact",
+      "tags": [],
+      "label": "Open Status",
+      "category": "Contact"
+    }
+  },
+  "OutTemp_Output": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Output"
+    }
+  },
+  "XiaomiDoorWindowSensor_BatteryLevel": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Brightness": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Dimmer",
+      "tags": [],
+      "label": "Brightness",
+      "category": "DimmableLight"
+    }
+  }
+}
