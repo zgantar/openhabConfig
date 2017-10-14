@@ -1,4 +1,4 @@
-sitemap hisa label="Stikala za rezidenco Gantar" {
+sitemap switches label="Stikala za rezidenco Gantar" {
 	Frame label="Ogrevanje" icon="heating" {
 		Switch item=FhsHeater
 	}
