@@ -1,10 +1,15 @@
-sitemap hisa label="Žaluzije za rezidenco Gantar" {
+sitemap zaluzije label="Žaluzije za rezidenco Gantar" {
 
 	Frame label="Vse žaluzije" icon="blinds" {
 		Switch item=AllCompleteDo
 		Switch item=AllCompleteUp
 		Switch item=AllPeek
 		Switch item=AllPeekClose
+	}
+	
+	Frame label="Povezave" {
+		Text item=SitemapZalDnevna
+		Text item=SitemapZalKabinet
 	}
 	
 	Frame label="Kabinet" icon="blinds" {
