@@ -1,0 +1,233 @@
+{
+  "DnevnaDviDrsBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Color": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Color",
+      "tags": [],
+      "label": "Color",
+      "category": "ColorLight"
+    }
+  },
+  "OpenDoor": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "baseItemType": "Contact",
+      "groupNames": [],
+      "itemType": "Group",
+      "tags": [],
+      "label": "Door sensors",
+      "category": "Contact",
+      "functionName": "AND",
+      "functionParams": [
+        "CLOSED",
+        "OPEN"
+      ]
+    }
+  },
+  "DnevnaNagDrsOpenXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "OpenDoor"
+      ],
+      "itemType": "Contact",
+      "tags": [],
+      "label": "Open Status",
+      "category": "Contact"
+    }
+  },
+  "HodnikZTempXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Temperature",
+      "category": "Temperature"
+    }
+  },
+  "DnevnaNagDrsLowBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "DnevnaDviDrsLowBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "XiaomiIlluminance": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Illumination",
+      "category": "Illumination"
+    }
+  },
+  "HodnikZBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "LowBatteryXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "HodnikZHumXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Humidity",
+      "category": "Humidity"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Brightness": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Dimmer",
+      "tags": [],
+      "label": "Brightness",
+      "category": "DimmableLight"
+    }
+  },
+  "DnevnaTempXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Temperatura dnevna",
+      "category": "Temperature"
+    }
+  },
+  "DnevnaBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "HodnikZLowBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "DnevnaDviDrsOpenXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "OpenDoor"
+      ],
+      "itemType": "Contact",
+      "tags": [],
+      "label": "Open Status",
+      "category": "Contact"
+    }
+  },
+  "VhodBatLowXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "VhodOpenXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "OpenDoor"
+      ],
+      "itemType": "Contact",
+      "tags": [],
+      "label": "Open Status",
+      "category": "Contact"
+    }
+  },
+  "VhodBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "DnevnaHumXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Humidity",
+      "category": "Humidity"
+    }
+  },
+  "OutTemp_Output": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Output"
+    }
+  },
+  "DnevnaNagDrsBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  }
+}

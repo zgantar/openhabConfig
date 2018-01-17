@@ -5,6 +5,90 @@ rule "Set all necessary variables for alarm"
 when
 	System started
 then
-	sendCommand(LogAlarmRaised, OFF)
-	logInfo("alarm", "Nastavljene začetne vrednosti - " + LogAlarmRaised.state)
+	logInfo("alarm", "###########################Set all necessary variables for alarm##############################")
+//	logInfo("alarm", "Nastavljene začetne vrednosti - " + LogAlarmRaised.state)
+	logInfo("alarm", "AlarmLightRaised - " + AlarmLightRaised.state)
+//	sendCommand(LogAlarmRaised, OFF)
+	sendCommand(AlarmLightRaised, OFF)
+	logInfo("alarm", "END ###########################Set all necessary variables for alarm##############################")
+end
+
+rule "Turning on light"
+
+when
+	Item AlarmLightRaised changed
+then
+	logInfo("alarm", "###########################Turning " + AlarmLightRaised.state + " light##############################")
+	if (AlarmLightRaised.state == ON) {
+		logInfo("alarm", "Dobil obvestilo za prižgati luč - " + AlarmLightRaised.state)
+		sendCommand(XiaomiMiSmartHomeGateway_Color, new HSBType("0,100,100"))
+		sendCommand(XiaomiMiSmartHomeGateway_Brightness, 20.0)
+	} else {
+		logInfo("alarm", "Dobil obvestilo za ugasniti luč - " + AlarmLightRaised.state)
+		sendCommand(XiaomiMiSmartHomeGateway_Brightness, 0)
+	}
+	logInfo("alarm", "END ###########################Turning " + AlarmLightRaised.state + " light##############################")
+end
+
+rule "Door sensors group value changed"
+
+when
+	Item DnevnaDviDrsOpenXiaomi changed to OPEN or
+	Item DnevnaNagDrsOpenXiaomi changed to OPEN or
+	Item VhodOpenXiaomi changed to OPEN
+
+then
+	logInfo("alarm", "###########################Door sensors group value changed##############################")
+	sendCommand(AlarmLightRaised, OFF)
+	logInfo("alarm", "Zaznal sem odprta vrata, preverjam ali že gori luč!! - " + AlarmLightRaised.state.toString)
+	logInfo("alarm", "Preverjam katera vrata so se odprla - " + DnevnaDviDrsOpenXiaomi.state.toString + DnevnaNagDrsOpenXiaomi.state.toString + VhodOpenXiaomi.state.toString)
+	if (AlarmLightRaised.state == OFF) {
+		AlarmLightRaised.sendCommand(ON)
+	}
+	logInfo("alarm", "END ###########################Door sensors group value changed##############################")
+end
+
+rule "Door sensors group value changed to close"
+
+when
+	Item DnevnaDviDrsOpenXiaomi changed to CLOSED or
+	Item DnevnaNagDrsOpenXiaomi changed to CLOSED or
+	Item VhodOpenXiaomi changed to CLOSED
+then
+	logInfo("alarm", "###########################Door sensors group value changed to close##############################")
+	logInfo("alarm", "Zaznal sem zapiranje vrat, preverjam če so katera vrata ostala odprta!!" + DnevnaDviDrsOpenXiaomi.state + DnevnaNagDrsOpenXiaomi.state + VhodOpenXiaomi.state)
+	if (DnevnaDviDrsOpenXiaomi.state !== OPEN) {
+		logInfo("alarm", "Prvo preverjanje - " + DnevnaDviDrsOpenXiaomi.toString)
+		logInfo("alarm", "Pred drugim preverjanjem - " + DnevnaNagDrsOpenXiaomi.toString)
+		if (DnevnaNagDrsOpenXiaomi.state !== OPEN) {
+			logInfo("alarm", "Drugo preverjanje - " + DnevnaNagDrsOpenXiaomi.toString)
+			logInfo("alarm", "Pred tretjim preverjanjem - " + VhodOpenXiaomi.toString)
+			if (VhodOpenXiaomi.state !== OPEN) {
+				logInfo("alarm", "Tretje preverjanje - " + VhodOpenXiaomi.toString)
+				logInfo("alarm", "Vsa vrata so zaprta zato ugašam luč!!")
+				AlarmLightRaised.sendCommand(OFF)
+			} else {
+				logInfo("alarm", "Tretje else preverjanje - " + VhodOpenXiaomi.toString)
+			}
+		} else {
+			logInfo("alarm", "Drugo else preverjanje - " + DnevnaNagDrsOpenXiaomi.toString)
+		}
+	} else {
+		logInfo("alarm", "Prvo else preverjanje - " + DnevnaDviDrsOpenXiaomi.toString)
+	}
+	logInfo("alarm", "END ###########################Door sensors group value changed to close##############################")
+end
+
+rule "Check how long has the door been open"
+
+when
+	Time cron "0 */5 * * * ?"
+then
+	logInfo("alarm", "###########################Check how long has the door been open##############################")
+	logInfo("alarm", "Preverjam koliko časa je alarm za odprta vrata že aktiven - " + AlarmLightRaised.toString)
+	logInfo("alarm", "Preverjam koliko časa je alarm za odprta vrata že aktiven - " + AlarmLightRaised.previousState.toString)
+	val lastChangeTime = AlarmLightRaised.previousState.timeStamp.time
+	val timeDifference = now.millis - lastChangeTime
+	logInfo("alarm", "Alarm je aktive že od" + timeDifference)
+	logInfo("alarm", "END #######################Check how long has the door been open##############################")
 end

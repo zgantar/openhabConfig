@@ -300,7 +300,13 @@ val Functions$Function5 activateActBlind = [
 		}
 		//nadaljujmo
 	}
-	logInfo("blinds", "activateActBlind - Trenutna velikost mape je - " + timers.size)
+	logInfo("blinds", "activateActBlind - Mapa je - " + timers)
+	if (timers != null) {
+		logInfo("blinds", "activateActBlind - Trenutna velikost mape je - " + timers.size)
+	} else {
+		logInfo("blinds", "activateActBlind - Trenutna velikost mape je - 0")
+	}
+
 	return true
 ]
 
@@ -311,7 +317,7 @@ then
 	logInfo("blinds", "Set blinds up - ###############Začetna nastavitev žaluzij#####################")
 /*	Blinds.members.forEach[blindsItem|
 		if ( blindsItem.state == NULL ) {
-			logDebug("blinds", "Set blinds up - Našel neicializirano stanje za " + blindsItem.toString + "!!!!")
+			logInfo("blinds", "Set blinds up - Našel neicializirano stanje za " + blindsItem.toString + "!!!!")
 			blindsItem.sendCommand(OFF)
 		}
 	]
@@ -321,13 +327,13 @@ then
 		logInfo("blinds", "Set blinds up - Preverjam stanje za - " + stateItem.toString)
 		if ( stateItem.state == NULL ) {
 			stateItem.postUpdate(0.0)
-			logDebug("blinds", "Set blinds up - Novo stanje je " + stateItem.toString + "!!!!")
+			logInfo("blinds", "Set blinds up - Novo stanje je " + stateItem.toString + "!!!!")
 		}
 	]
 	if (timers == null) {
 		logInfo("blinds", "Set blinds up - Nastavljam timerje")
 		timers = newHashMap
-		logInfo("blinds", "Set blinds up - Timerji so veliki - " +timers.size)
+		logInfo("blinds", "Set blinds up - Timerji so veliki - " + timers.size)
 	}
 	BlindSwi.members.forEach[ swiItem |
 		logInfo("blinds", "Set blinds up - Našel fizično stikalo " + swiItem.toString + "!!!!")

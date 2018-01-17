@@ -1,0 +1,11 @@
+{
+    //On-site settings
+    //"openhab.host":"192.168.1.200",
+    //"openhab.port": 8080,
+    //"openhab.lspPort": 5007,
+    "openhab.host":"localhost",
+    "openhab.port": 9000,
+    "openhab.lspPort": 9003,
+    "workbench.colorTheme": "Solarized Dark"
+    //Off-site settings 
+}

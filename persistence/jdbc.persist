@@ -25,6 +25,8 @@ Items {
 	Set* : strategy = everyChange, restoreOnStartup
 	Out* : strategy = everyFiveMinutes, restoreOnStartup
 	Man* : strategy = everyChange, restoreOnStartup
+	Alarm* : strategy = everyChange, restoreOnStartup
+	OpenDoor* : strategy = everyChange, restoreOnStartup
 	BlindAct* : strategy = everyChange
 	BlindSwi* : strategy = everyChange
 	BlindLog* : strategy = everyChange, restoreOnStartup

@@ -1,0 +1,2 @@
+Bridge mihome:bridge:286c0788c0ee "Xiaomi Gateway" [ serialNumber="286c0788c0ee", ipAddress="192.168.1.102", port=9898, key="7j427x5auhe49ku2", pollingInterval=6000 ] {
+    Thing mihome:gateway:286c0788c0ee "Xiaomi Mi Smart Home Gateway" [itemId="286c0788c0ee"]
