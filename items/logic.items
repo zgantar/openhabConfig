@@ -12,7 +12,20 @@ Group	BlindsDimm
 Group	BlindsSE		"Stikala na JV"
 Group	BlindsSW		"Stikala na JZ"
 Group   Alarm
+Group   CalcConsHour
+Group   CalcConsDay
 
+Number  Plug1DayCons "Dnevna poraba vtičnica 1" (CalcConsDay)
+Number  Plug2DayCons "Dnevna poraba vtičnica 2" (CalcConsDay)
+Number  Plug3DayCons "Dnevna poraba Xiaomi 1" (CalcConsDay)
+Number  Plug4DayCons "Dnevna poraba Xiaomi 2" (CalcConsDay)
+
+Number  Plug1HourCons "Urna poraba vtičnica 1" (CalcConsHour)
+Number  Plug2HourCons "Urna poraba vtičnica 2" (CalcConsHour)
+Number  Plug3HourCons "Urna poraba Xiaomi 1" (CalcConsHour)
+Number  Plug4HourCons "Urna poraba Xiaomi 2" (CalcConsHour)
+
+Switch Trigger
 
 Switch  AlarmLightRaised "Proženje lučke za alarm"      (Alarm)
 Number	Temperature_Chart_Period	"Chart period [%s]"

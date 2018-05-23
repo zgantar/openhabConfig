@@ -3,7 +3,7 @@ when
 	Time cron "0 0 22 ? * MON-FRI"
 then
 	sendCommand(LowElectricity, ON)
-	logInfo("heating", "Začetek poceni elektrike - " + LowElectricity.state)
+	logInfo("electricity", "Začetek poceni elektrike - " + LowElectricity.state)
 end	
 
 rule "Time of lower price electricity end weekdays"
@@ -11,7 +11,7 @@ when
 	Time cron "0 0 6 ? * MON-FRI"
 then
 	sendCommand(LowElectricity, OFF)
-	logInfo("heating", "Konec poceni elektrike - " + LowElectricity.state)
+	logInfo("electricity", "Konec poceni elektrike - " + LowElectricity.state)
 end
  
 rule "Set things up"
@@ -25,4 +25,66 @@ then
 		sendCommand(LowElectricity, ON)
 		logInfo("electricity", "Je poceni elektrika - " + LowElectricity.state)
 	} 
+end
+
+rule "Calculate hourly electricity consumption"
+when
+	Time cron "1 0 * * * ?"
+then
+	logInfo("electricity", "#####################Starting calculations for hourly electricity consumption values")
+	Consumption.members.forEach[ loopCons |
+		logInfo("electricity", "Calculating consumption for " + loopCons.toString)
+		val calcCons = CalcConsHour.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(0,5))).head
+		if (calcCons !== null) {
+			logInfo("electricity", "The calculated item is " + calcCons.toString)
+			val time = now.minusHours(1)
+			logInfo("electricity", "Calculating from " + time)
+			val tempCons = loopCons.deltaSince(now.minusHours(1)) as Number
+			logInfo("electricity", "The calculated consumption is " + tempCons)
+			if (tempCons == null) tempCons = 0
+			postUpdate(calcCons, tempCons)
+			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
+		}
+	]
+	logInfo("electricity", "#####################Ended calculations for hourly electricity consumption values")
+end
+
+rule "Calculate daily electricity consumption"
+when
+	Time cron "1 0 0 * * ?"
+then
+	logInfo("electricity", "#####################Starting calculations for daily electricity consumption values")
+	Consumption.members.forEach[ loopCons |
+		logInfo("electricity", "Calculating consumption for " + loopCons.toString)
+		val calcCons = CalcConsDay.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(0,5))).head
+		if (calcCons !== null) {
+			logInfo("electricity", "The calculated item is " + calcCons.toString)
+			val time = now.minusDays(1)
+			logInfo("electricity", "Calculating from " + time)
+			val tempCons = loopCons.deltaSince(now.minusDays(1)) as Number
+			logInfo("electricity", "The calculated consumption is " + tempCons)
+			if (tempCons == null) tempCons = 0
+			postUpdate(calcCons, tempCons)
+			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
+		}
+	]
+	logInfo("electricity", "#####################Ended calculations for daily electricity consumption values")
+end
+
+rule "Set all necessary variables for electricity"
+when
+	System started
+then
+	logDebug("electricity", "Setting up all needed variables!")
+	CalcConsDay.members.forEach[ item |
+		logDebug("electricity", "Setting up item " + item)
+		if (item.state == NULL) item.postUpdate(0.0)
+		logDebug("electricity", "Item set up " + item.toString)
+	]
+	CalcConsHour.members.forEach[ item |
+		logDebug("electricity", "Setting up item " + item)
+		if (item.state == NULL) item.postUpdate(0.0)
+		logDebug("electricity", "Item set up " + item.toString)
+	]
+	logDebug("electricity", "Needed variables all set up")
 end
