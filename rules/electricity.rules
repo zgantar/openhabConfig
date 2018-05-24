@@ -29,7 +29,8 @@ end
 
 rule "Calculate hourly electricity consumption"
 when
-	Time cron "1 0 * * * ?"
+	Item Trigger changed
+	//Time cron "5 0 * * * ?"
 then
 	logInfo("electricity", "#####################Starting calculations for hourly electricity consumption values")
 	Consumption.members.forEach[ loopCons |
@@ -37,10 +38,10 @@ then
 		val calcCons = CalcConsHour.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(0,5))).head
 		if (calcCons !== null) {
 			logInfo("electricity", "The calculated item is " + calcCons.toString)
-			val time = now.minusHours(1)
+			var time = now.minusHours(1)
 			logInfo("electricity", "Calculating from " + time)
-			val tempCons = loopCons.deltaSince(now.minusHours(1)) as Number
-			logInfo("electricity", "The calculated consumption is " + tempCons)
+			var tempCons = loopCons.deltaSince(now.minusHours(1).minusSeconds(6)) as Number
+			logInfo("electricity", "The delta consumption is " + tempCons)
 			if (tempCons == null) tempCons = 0
 			postUpdate(calcCons, tempCons)
 			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
@@ -51,7 +52,7 @@ end
 
 rule "Calculate daily electricity consumption"
 when
-	Time cron "1 0 0 * * ?"
+	Time cron "5 0 0 * * ?"
 then
 	logInfo("electricity", "#####################Starting calculations for daily electricity consumption values")
 	Consumption.members.forEach[ loopCons |
@@ -59,9 +60,9 @@ then
 		val calcCons = CalcConsDay.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(0,5))).head
 		if (calcCons !== null) {
 			logInfo("electricity", "The calculated item is " + calcCons.toString)
-			val time = now.minusDays(1)
+			var time = now.minusDays(1)
 			logInfo("electricity", "Calculating from " + time)
-			val tempCons = loopCons.deltaSince(now.minusDays(1)) as Number
+			var tempCons = loopCons.deltaSince(now.minusDays(1).minusSeconds(6)) as Number
 			logInfo("electricity", "The calculated consumption is " + tempCons)
 			if (tempCons == null) tempCons = 0
 			postUpdate(calcCons, tempCons)

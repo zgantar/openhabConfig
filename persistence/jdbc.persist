@@ -20,17 +20,36 @@ Items {
 	Hum* : strategy = everyFiveMinutes, restoreOnStartup
 	Lum* : strategy = everyFiveMinutes, restoreOnStartup
 	Mot* : strategy = everyChange, restoreOnStartup
+	
+	//ogrevanje
 	Log* : strategy = everyChange, restoreOnStartup
 	Fhs* : strategy = everyChange, restoreOnStartup
 	Set* : strategy = everyChange, restoreOnStartup
-	Out* : strategy = everyFiveMinutes, restoreOnStartup
+	Dif* : strategy = everyChange, restoreOnStartup	
 	Man* : strategy = everyChange, restoreOnStartup
+
+	//zunanji podatki
+	Out* : strategy = everyFiveMinutes, restoreOnStartup
+	
+	//vrata in alarm
 	Alarm* : strategy = everyChange, restoreOnStartup
-	OpenDoor* : strategy = everyChange, restoreOnStartup
+	OpenDoor* : strategy = everyCourter, restoreOnStartup
+
+	//elektrika
+	Power* : strategy = everyFiveMinutes, restoreOnStartup
+	Consumption* : strategy = everyCourterHour, restoreOnStartup
+	CalcConsHour* : strategy = everyCourterHour, restoreOnStartup
+	CalcConsDay* : strategy = everyCourterHour, restoreOnStartup
+
+	//žaluzije
 	BlindAct* : strategy = everyChange
 	BlindSwi* : strategy = everyChange
 	BlindLog* : strategy = everyChange, restoreOnStartup
-	BlindState* : strategy = everyChange, restoreOnStartup
+	BlindState* : strategy = everyChange
+	
+	//dodatne
+	Away : strategy = everyChange, restoreOnStartup
+	Holidays : strategy = everyChange, restoreOnStartup
 	All* : strategy = everyChange, restoreOnStartup
 
 	Override: strategy = everyChange, restoreOnStartup
