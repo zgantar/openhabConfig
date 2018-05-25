@@ -38,8 +38,8 @@ Items {
 	//elektrika
 	Power* : strategy = everyFiveMinutes, restoreOnStartup
 	Consumption* : strategy = everyCourterHour, restoreOnStartup
-	CalcConsHour* : strategy = everyCourterHour, restoreOnStartup
-	CalcConsDay* : strategy = everyCourterHour, restoreOnStartup
+//	CalcConsHour* : strategy = everyHour, restoreOnStartup
+//	CalcConsDay* : strategy = everyDay, restoreOnStartup
 
 	//žaluzije
 	BlindAct* : strategy = everyChange

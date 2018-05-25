@@ -29,8 +29,8 @@ end
 
 rule "Calculate hourly electricity consumption"
 when
-	Item Trigger changed
-	//Time cron "5 0 * * * ?"
+	//Item Trigger changed
+	Time cron "5 0 * * * ?"
 then
 	logInfo("electricity", "#####################Starting calculations for hourly electricity consumption values")
 	Consumption.members.forEach[ loopCons |
@@ -44,6 +44,7 @@ then
 			logInfo("electricity", "The delta consumption is " + tempCons)
 			if (tempCons == null) tempCons = 0
 			postUpdate(calcCons, tempCons)
+			calcCons.persist
 			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
 		}
 	]
@@ -66,6 +67,7 @@ then
 			logInfo("electricity", "The calculated consumption is " + tempCons)
 			if (tempCons == null) tempCons = 0
 			postUpdate(calcCons, tempCons)
+			calcCons.persist
 			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
 		}
 	]

@@ -9,6 +9,8 @@ Group	FhsRev		"Ventili talnega gretja NO"
 Group	BlindAct	"Aktuatorji žaluzij"
 Group	BlindSwi	"Stikala žaluzij"
 Group	BlindRev	"Stikala obratnih žaluzij"
+Group   Power       "Trenutna priključna moč"
+Group   Consumption "Poraba"
 
 //Žaluzije
 Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
@@ -67,7 +69,7 @@ Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{
 Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopals" }
 Number	TempDnevna		"DnevnaTemp [%.2f °C]"		<temperature>	(Temp)
 Number	TempHodnikZ		"HodnikZTemp [%.2f °C]"		<temperature>	(Temp)
-Number	TempHodnikS		"HodnikSTemp [%.2f °C]"		<temperature>	(Temp,TempCal)
+Number	TempHodnikS		"HodnikSTemp [%.2f °C]"		<temperature>	(Temp)
 
 //Luminance
 Number	LumJulija	"JulijaSvetlost [%.1f lx]"	    (Lum)	{ tinkerforge="uid=kYW" }
