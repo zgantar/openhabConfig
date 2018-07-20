@@ -1,12 +1,12 @@
 Group	Out
 
 //Humidity
-String	OutTemp			"Zunanja temperatura [%s °C]"			<temperature>	(Out)	{exec="<[java -jar /etc/openhab2/scripts/ZevsParser.jar temp:300000:]"}
-String	OutFeelTemp		"Zunanja občutena temperatura [%s °C]"	<temperature>	(Out)	{exec="<[java@@-jar@@/etc/openhab2/scripts/ZevsParser.jar@@feelTemp:300000:]"}
-String	OutHum			"Zunanja vlažnost [%s %%]"					(Out)	{exec="<[java@@-jar@@/etc/openhab2/scripts/ZevsParser.jar@@hum:300000:]"}
-String	OutWindDir		"Smer vetra [%s]"						(Out)	{exec="<[java@@-jar@@/etc/openhab2/scripts/ZevsParser.jar@@windDir:300000:]"}
-String	OutWindSpeed		"Hitrost vetra [%s km/h]"					(Out)	{exec="<[java@@-jar@@/etc/openhab2/scripts/ZevsParser.jar@@windSpeed:300000:]"}
-String	OutPressure		"Zunanji zračni pritisk [%s hPa]"				(Out)	{exec="<[java@@-jar@@/etc/openhab2/scripts/ZevsParser.jar@@press:300000:]"}
-String	OutPercipInten		"Trenutna intenziteta padavin [%s l/m2]"			(Out)	{exec="<[java@@-jar@@/etc/openhab2/scripts/ZevsParser.jar@@percipInten:300000:]"}
-String	OutPercipToday		"Današnja količina padavin [%s l/m2]"				(Out)	{exec="<[java@@-jar@@/etc/openhab2/scripts/ZevsParser.jar@@percipToday:300000:]"}
-String	OutSolarRad		"Sočno sevanje [%s W/m2]"					(Out)	{exec="<[java@@-jar@@/etc/openhab2/scripts/ZevsParser.jar@@solarRad:300000:]"}
+String	OutTemp			"Zunanja temperatura [%s °C]"			    <temperature>	(Out)	{channel="exec:command:outTemp:output"}
+String	OutFeelTemp		"Zunanja občutena temperatura [%s °C]"	    <temperature>	(Out)	{channel="exec:command:outFeelTemp:output"}
+String	OutHum			"Zunanja vlažnost [%s %%]"				    <humidity>      (Out)	{channel="exec:command:outHum:output"}
+String	OutWindDir		"Smer vetra [%s]"						    <wind>          (Out)	{channel="exec:command:outWindDir:output"}
+String	OutWindSpeed	"Hitrost vetra [%s km/h]"           	    <wind>			(Out)	{channel="exec:command:outWindSpeed:output"}
+String	OutPressure		"Zunanji zračni pritisk [%s hPa]"	        <pressure>		(Out)	{channel="exec:command:outPress:output"}
+String	OutPercipInten	"Trenutna intenziteta padavin [%s l/m2]"    <rain>    		(Out)	{channel="exec:command:outPercipInten:output"}
+String	OutPercipToday	"Današnja količina padavin [%s l/m2]"		<rain>	    	(Out)	{channel="exec:command:outPercipToday:output"}
+String	OutSolarRad		"Sočno sevanje [%s W/m2]"					<sun>           (Out)	{channel="exec:command:outSolarRad:output"}

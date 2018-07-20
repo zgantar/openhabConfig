@@ -16,12 +16,14 @@ Strategies {
  * item (excl. the group item itself).
  */
 Items {
-	Temp* : strategy = restoreOnStartup
+	Temp* : strategy = everyFiveMinutes, restoreOnStartup
 	Hum* : strategy = everyFiveMinutes, restoreOnStartup
-	Lum* : strategy = everyFiveMinutes, restoreOnStartup
-	Mot* : strategy = everyChange, restoreOnStartup
+	// Lum* : strategy = everyFiveMinutes, restoreOnStartup
+	// Mot* : strategy = everyChange, restoreOnStartup
 	
 	//ogrevanje
+	Override: strategy = everyChange, restoreOnStartup
+	Heating: strategy = everyChange, restoreOnStartup
 	Log* : strategy = everyChange, restoreOnStartup
 	Fhs* : strategy = everyChange, restoreOnStartup
 	Set* : strategy = everyChange, restoreOnStartup
@@ -33,28 +35,29 @@ Items {
 	
 	//vrata in alarm
 	Alarm* : strategy = everyChange, restoreOnStartup
-	OpenDoor* : strategy = everyCourter, restoreOnStartup
+	Door* : strategy = everyChange, restoreOnStartup
 
 	//elektrika
+	LowElectricity: strategy = everyChange, restoreOnStartup
 	Power* : strategy = everyFiveMinutes, restoreOnStartup
 	Consumption* : strategy = everyCourterHour, restoreOnStartup
-//	CalcConsHour* : strategy = everyHour, restoreOnStartup
-//	CalcConsDay* : strategy = everyDay, restoreOnStartup
+	InUse* : strategy = everyChange, restoreOnStartup
+	CalcConsHour* : strategy = everyHour, restoreOnStartup
+	CalcConsDay* : strategy = everyDay, restoreOnStartup
 
+	//smoke
+	Smoke :	strategy = everyChange, restoreOnStartup
 	//žaluzije
-	BlindAct* : strategy = everyChange
-	BlindSwi* : strategy = everyChange
-	BlindLog* : strategy = everyChange, restoreOnStartup
-	BlindState* : strategy = everyChange
+	// BlindAct* : strategy = everyChange
+	// BlindSwi* : strategy = everyChange
+	// BlindLog* : strategy = everyChange, restoreOnStartup
+	// BlindState* : strategy = everyChange
 	
 	//dodatne
 	Away : strategy = everyChange, restoreOnStartup
 	Holidays : strategy = everyChange, restoreOnStartup
 	All* : strategy = everyChange, restoreOnStartup
+	TimeSetter* : strategy = everyChange, restoreOnStartup
 
-	Override: strategy = everyChange, restoreOnStartup
-	Heating: strategy = everyChange, restoreOnStartup
-	LowElectricity: strategy = everyChange, restoreOnStartup
-	
 	undefined : strategy = everyFiveMinutes, restoreOnStartup
 }

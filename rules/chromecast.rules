@@ -1,0 +1,6 @@
+rule "Chromecast audio 1"
+when
+    Item Trigger changed
+then
+    logInfo("chromecast", "Dolgi pritisk, vtičnica v dnevni je - " + LivingRoomSpeaker_PlayURI.toString)
+end

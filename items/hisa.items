@@ -1,116 +1,220 @@
 Group	Temp	"Senzorji temperature"
 Group	TempRev	"Senzorji temperature NO"
-Group	TempCal	"Preračunani senzorji temperature"
+// Group	TempCal	"Preračunani senzorji temperature"
 Group	Hum		"Senzorji vlažnosti"
-Group	Lum		"Senzorji svetlosti"
-Group	Mot		"Senzorji gibanja"	(Mot)
+Group   Door    "Odprta vrata"
+// Group	Lum		"Senzorji svetlosti"
+// Group	Mot		"Senzorji gibanja"	(Mot)
 Group	Fhs		"Ventili talnega gretja"
 Group	FhsRev		"Ventili talnega gretja NO"
-Group	BlindAct	"Aktuatorji žaluzij"
-Group	BlindSwi	"Stikala žaluzij"
-Group	BlindRev	"Stikala obratnih žaluzij"
+// Group	BlindAct	"Aktuatorji žaluzij"
+// Group	BlindSwi	"Stikala žaluzij"
+// Group	BlindRev	"Stikala obratnih žaluzij"
 Group   Power       "Trenutna priključna moč"
 Group   Consumption "Poraba"
+Group   InUse       "V uporabi"
+
+Group   Smoke   "Senzor za dim"
+
+Group   Battery  "Baterije"
+Group:Switch:AND(OFF,ON)  BatteryLow  "Opozorilo za slabo baterijo"
+
 
 //Žaluzije
-Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
-Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
-Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
-Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
+// Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
+// Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
+// Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
+// Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
 
-Switch	ActDnevnaDesDo	"Dnevna desno dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa5" }	
-Switch	ActDnevnaDesUp	"Dnevna desno gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa4" }
-Switch	SwiDnevnaDesUp	"Dnevna desno stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb2" }
-Switch 	SwiDnevnaDesDo	"Dnevna desno stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb3" }
+// Switch	ActDnevnaDesDo	"Dnevna desno dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa5" }	
+// Switch	ActDnevnaDesUp	"Dnevna desno gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa4" }
+// Switch	SwiDnevnaDesUp	"Dnevna desno stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb2" }
+// Switch 	SwiDnevnaDesDo	"Dnevna desno stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb3" }
 
-Switch	ActDnevnaLevDo	"Dnevna levo dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa3" }	
-Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa2" }
-Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
-Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
+// Switch	ActDnevnaLevDo	"Dnevna levo dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa3" }	
+// Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa2" }
+// Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
+// Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
 
-Switch	ActSpalnicaDo   "Spalnica dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out0" }	
-Switch	ActSpalnicaUp   "Spalnica gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out1" }
-Switch	SwiSpalnicaUp   "Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
-Switch 	SwiSpalnicaDo   "Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
+// Switch	ActSpalnicaDo   "Spalnica dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out0" }	
+// Switch	ActSpalnicaUp   "Spalnica gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out1" }
+// Switch	SwiSpalnicaUp   "Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
+// Switch 	SwiSpalnicaDo   "Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
 
-Switch	ActAljazDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out2" }	
-Switch	ActAljazUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out3" }
-Switch	SwiAljazUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
-Switch 	SwiAljazDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
+// Switch	ActAljazDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out2" }	
+// Switch	ActAljazUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out3" }
+// Switch	SwiAljazUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
+// Switch 	SwiAljazDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
 
-Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out1" }	
-Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out0" }
-Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in2" }
-Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in3" }
+// Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out1" }	
+// Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out0" }
+// Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in2" }
+// Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in3" }
 
-//Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaDoSwitch" }	
-//Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaUpSwitch" }
-//Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaUpOrder" }
-//Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaDoOrder" }
+// //Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaDoSwitch" }	
+// //Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaUpSwitch" }
+// //Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaUpOrder" }
+// //Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaDoOrder" }
+
 
 //Humidity
-Number	HumJulija		"JulijaVlaga [%.1f %%]"		(Hum)	{ tinkerforge="uid=qRv" }
-Number	HumAljaz		"AljazVlaga [%.1f %%]"		(Hum)	{ tinkerforge="uid=qW5" }
-Number	HumSpalnica		"SpalnicaVlaga [%.1f %%]"	(Hum)	{ tinkerforge="uid=kc4" }
-Number	HumKuhinja		"KuhinjaVlaga [%.1f %%]"	(Hum)	{ tinkerforge="uid=qWX" }
-Number	HumKabinet		"KabinetVlaga [%.2f %%]"	(Hum)	{ tinkerforge="uid=qVG" }
-Number	HumKopalnicaZ	"KopalnicaZVlaga [%.2f %%]"	(Hum)	{ tinkerforge="uid=qVU" }
-Number	HumKopalnicaS	"KopalnicaSVlaga [%.2f %%]"	(Hum)	{ tinkerforge="uid=qWH" }
-Number	HumHodnikZ		"HodnikZVlaga [%.2f %%]"	(Hum)
-Number	HumDnevna		"DnevnaVlaga [%.2f %%]"	(Hum)
+Number	HumJulija		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead97:humidity" }
+Number	HumAljaz		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead94:humidity" }
+Number	HumSpalnica		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000210a5ec:humidity" }
+// Number	HumKuhinja		"Vlažnost [%.1f %%]"             <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead97:humidity" }
+Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000222654d:humidity" }
+Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00022264c9:humidity" }
+Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mihome:sensor_ht:158d0002226539:humidity" }
+Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001f58033:humidity" }
+Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001e89688:humidity" }
+Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001c14e34:humidity" }
+Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001e89694:humidity" }
+Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001f54681:humidity" }
 
 //Temperature
-Number	TempJulija		"JulijaTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempjul" }
-Number	TempAljaz		"AljazTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempalj" }
-Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp)			{ tinkerforge="name=tempspal" }
-Number	TempKuhinja		"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkuh" }
-Number	TempKabinet		"KabinetTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempkab" }
-Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopalz" }
-Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopals" }
-Number	TempDnevna		"DnevnaTemp [%.2f °C]"		<temperature>	(Temp)
-Number	TempHodnikZ		"HodnikZTemp [%.2f °C]"		<temperature>	(Temp)
-Number	TempHodnikS		"HodnikSTemp [%.2f °C]"		<temperature>	(Temp)
+Number	TempJulija	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
+Number	TempAljaz	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead94:temperature" }
+Number	TempSpalnica        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000210a5ec:temperature" }
+// Number	TempKuhinja		"Kuhinja [%.2f °C]"             <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
+Number	TempKabinet	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000222654d:temperature" }
+Number	TempKopalnicaZ      "Temperatura [%.2f °C]"	<temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00022264c9:temperature" }
+Number	TempKopalnicaS      "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d0002226539:temperature" }
+Number	TempHodnikZ	        "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f58033:temperature" }
+Number	TempHodnikS	        "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89688:temperature" }
+Number	TempDnevna		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001c14e34:temperature" }
+Number	TempCumnata		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89694:temperature" }
+Number	TempRekuperacija    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
 
-//Luminance
-Number	LumJulija	"JulijaSvetlost [%.1f lx]"	    (Lum)	{ tinkerforge="uid=kYW" }
-Number	LumAljaz	"AljazSvetlost [%.1f lx]"	    (Lum)	{ tinkerforge="uid=mbu" }
-Number	LumSpalnica	"SpalnicaSvetlost [%.1f lx]"	(Lum)	{ tinkerforge="uid=mip" }
-Number	LumKuhinja	"KuhinjaSvetlost [%.1f lx]"	    (Lum)	{ tinkerforge="uid=mg9" }
-Number	LumKabinet	"KabinetSvetlost [%.1f lx]"	    (Lum)	{ tinkerforge="uid=m87" }
+//Plugs
+Switch  PlugSusiSwitch      "Vklopljena"    <switch>                        { channel="mihome:sensor_plug:158d0001a4afdc:power" }
+Switch  PlugSusiActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a4afdc:inUse" }
+Number  PlugSusiPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a4afdc:loadPower" }
+Number  PlugSusiConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a4afdc:powerConsumed" }
 
-//Motion
-Contact	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ tinkerforge="name=gibanjeKuhinja" }
-Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceS" }
-Contact	MotVhod				"Vhod [MAP(si.map):MOTION-%s]"  			<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
-Contact MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeDnevna" }
-Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceZ" }
-Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
+Switch  PlugTinkSwitch      "Vklopljena"    <switch>                        { channel="mihome:sensor_plug:158d0001a68c94:power" }
+Switch  PlugTinkActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a68c94:inUse" }
+Number  PlugTinkPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a68c94:loadPower" }
+Number  PlugTinkConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a68c94:powerConsumed" }
+
+Switch  PlugDnevSwitch      "Vklopljena"    <switch>                        { channel="mihome:sensor_plug:158d0002372e50:power" }
+Switch  PlugDnevActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0002372e50:inUse" }
+Number  PlugDnevPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0002372e50:loadPower" }
+Number  PlugDnevConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0002372e50:powerConsumed" }
+
+Switch  PlugPralSwitch      "Vklopljena"    <switch>                        { channel="mihome:sensor_plug:158d000237314e:power" }
+Switch  PlugPralActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d000237314e:inUse" }
+Number  PlugPralPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d000237314e:loadPower" }
+Number  PlugPralConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d000237314e:powerConsumed" }
+
+//In-wall plugs
+// Switch  PlugInWallLivingSwitch      "Vklopljena"    <switch>        { channel="zwave:device:16426e8f78a:node4:switch_binary" }
+// Switch  PlugInWallLivingPowerFactor "Faktor"        <switch>        { channel="zwave:device:16426e8f78a:node4:meter_powerfactor" }
+// Number  PlugInWallLivingPower       "Trenutna moč"  <energy>        { channel="zwave:device:16426e8f78a:node4:meter_watts" }
+// Number  PlugInWallLivingConsumption "Poraba"        <line-incline>  { channel="zwave:device:16426e8f78a:node4:meter_kwh" }
+// Number  PlugInWallLivingVoltage     "Napetost"      <line-incline>  { channel="zwave:device:16426e8f78a:node4:meter_voltage" }
+// Number  PlugInWallLivingCurrent     "Tok"           <line-incline>  { channel="zwave:device:16426e8f78a:node4:meter_current" }
+
+//Door
+Contact DoorDvigStatus  "Status"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
+Contact DoorNagibStatus "Status"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5f10d:isOpen" }
+Contact DoorVhodStatus  "Status"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eff5:isOpen" }
+
+//Smoke
+Number  SmokeCumnataDensity     "Gostota"       <smoke>     (Smoke)     { channel="mihome:smoke:158d0001b76b9c:density" }
+Switch  SmokeCumnataAlarm       "Alarm"         <alarm>     (Smoke)    { channel="mihome:smoke:158d0001b76b9c:alarm" }
+String  SmokeCumnataStatus      "Status"        <status>    (Smoke)    { channel="mihome:smoke:158d0001b76b9c:status" }
+
+//Batteries
+Number JulijaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020ead97:batteryLevel" }
+Switch JulijaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020ead97:lowBattery" }
+Number AljazBattery             "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020ead94:batteryLevel" }
+Switch AljazBatteryLow          "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020ead94:lowBattery" }
+Number SpalnicaBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000210a5ec:batteryLevel" }
+Switch SpalnicaBatteryLow       "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000210a5ec:lowBattery" }
+// Number KuhinjaBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:<ID>:batteryLevel" }
+// Switch KuhinjaBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:<ID>:lowBattery" }
+Number KabinetBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000222654d:batteryLevel" }
+Switch KabinetBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000222654d:lowBattery" }
+Number KopalnicaZBattery        "Baterija"      <battery>   (Battery)        { channel="mihome:sensor_ht:158d00022264c9:batteryLevel" }
+Switch KopalnicaZBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00022264c9:lowBattery" }
+Number KopalnicaSBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0002226539:batteryLevel" }
+Switch KopalnicaSBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0002226539:lowBattery" }
+Number HodnikZBattery           "Baterija"      <battery>   (Battery)        { channel="mihome:sensor_ht:158d0001f58033:batteryLevel" }
+Switch HodnikZBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f58033:lowBattery" }
+Number HodnikSBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89688:batteryLevel" }
+Switch HodnikSBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89688:lowBattery" }
+Number DnevnaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001c14e34:batteryLevel" }
+Switch DnevnaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001c14e34:lowBattery" }
+Number CumnataBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89694:batteryLevel" }
+Switch CumnataBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89694:lowBattery" }
+Number RekuperacijaBattery      "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f54681:batteryLevel" }
+Switch RekuperacijaBatteryLow   "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f54681:lowBattery" }
+   
+
+Number DoorDvigBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel" }
+Switch DoorDvigBatteryLow       "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5eaf2:lowBattery" }
+
+Number DoorNagibBattery         "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5f10d:batteryLevel" }
+Switch DoorNagibBatteryLow      "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5f10d:lowBattery" }
+
+Number DoorVhodBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eff5:batteryLevel" }
+Switch DoorVhodBatteryLow       "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5eff5:lowBattery" }
+
+Number  SwitchDnevnaBattery     "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_switch:158d00016d77ce:batteryLevel" }
+Switch  SwitchDnevnaBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_switch:158d00016d77ce:lowBattery" }
+
+Number  SmokeCumnataBattery     "Baterija"      <battery>   (Battery)       { channel="mihome:smoke:158d0001b76b9c:batteryLevel" }
+Switch  SmokeCumnataBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:smoke:158d0001b76b9c:lowBattery" }
+
+//Gateway
+Switch  GatewayAddDevice        "Nova naprava"                          { channel="mihome:gateway:286c0788c0ee:joinPermission" }
+Switch  GatewayLightSwitch      "Sveti"             <light>             { channel="mihome:gateway:286c0788c0ee:brightness" }
+Dimmer  GatewayBrightness       "Svetlost luči"     <dimmablelight>     { channel="mihome:gateway:286c0788c0ee:brightness" }
+Color   GatewayColor            "Barva"             <rgb>               { channel="mihome:gateway:286c0788c0ee:color" }
+Dimmer  GatewayColorTemperature "Temperatura barve" <heating>           { channel="mihome:gateway:286c0788c0ee:colorTemperature" }
+Number  GatewayAmbientLight     "Svetlost sobe"     <sun>               { channel="mihome:gateway:286c0788c0ee:illumination" }
+Number  GatewaySound            "Zvok"              <soundvolume-0>     { channel="mihome:gateway:286c0788c0ee:sound" }
+Switch  GatewaySoundSwitch      "Stikalo zvoka"     <soundvolume_mute>  { channel="mihome:gateway:286c0788c0ee:enableSound" }
+Dimmer  GatewaySoundVolume      "Jakost zvoka"      <soundvolume>       { channel="mihome:gateway:286c0788c0ee:volume" }
+
+// Number	TempJulija		"JulijaTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempjul" }
+// Number	TempAljaz		"AljazTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempalj" }
+// Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp)			{ tinkerforge="name=tempspal" }
+// Number	TempKuhinja		"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkuh" }
+// Number	TempKabinet		"KabinetTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempkab" }
+// Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopalz" }
+// Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopals" }
+// Number	TempDnevna		"DnevnaTemp [%.2f °C]"		<temperature>	(Temp)
+// Number	TempHodnikZ		"HodnikZTemp [%.2f °C]"		<temperature>	(Temp)
+// Number	TempHodnikS		"HodnikSTemp [%.2f °C]"		<temperature>	(Temp)
 
 
-Switch	FhsHeater	    "Talno gretje"	<heating>	(Fhs)	{ tinkerforge="uid=kBH, subid=relay1" }
-Switch	FhsRecuperation	"Rekuperacija"	<climate>	(Fhs)	{ tinkerforge="uid=kBH, subid=relay2" }
-//Dimmer	RecuperationAdmin	"Rekuperacija jakost"	<climate>	{ tinkerforge="" }
+// //Motion
+// Contact	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ tinkerforge="name=gibanjeKuhinja" }
+// Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceS" }
+// Contact	MotVhod				"Vhod [MAP(si.map):MOTION-%s]"  			<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
+// Contact MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeDnevna" }
+// Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceZ" }
+// Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
+// 
 
-//zgoraj
-Switch FhsKopalnicaZ    "Kopalnica zgoraj"      <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaZ" }
-Switch FhsAljaz		    "Aljaz"                 <heating>       (Fhs)           { tinkerforge="name=stikaloAljaz" }
-Switch FhsJulija	    "Julija"                <heating>       (Fhs)           { tinkerforge="name=stikaloJulija" }
-Switch FhsHodnikZ	    "Hodnik zgoraj"         <heating>       (Fhs)           { tinkerforge="name=stikaloHodnikZ" }
-Switch FhsSpalnica	    "Spalnica"              <heating>       (Fhs)           { tinkerforge="name=stikaloSpalnica" }
+// 
+// //Stikala za ogrevanje
+// Switch	FhsHeater	    "Talno gretje"	<heating>	(Fhs)	{ tinkerforge="uid=kBH, subid=relay1" }
+// Switch	FhsRecuperation	"Rekuperacija"	<climate>	(Fhs)	{ tinkerforge="uid=kBH, subid=relay2" }
+// //Dimmer	RecuperationAdmin	"Rekuperacija jakost"	<climate>	{ tinkerforge="" }
 
-//spodaj
-Switch  FhsHodnikS      "Hodnik spodaj"     <heating>       (Fhs)           { tinkerforge="name=stikaloHodnikS" }
-Switch  FhsKopalnicaS   "Kopalnica spodaj"  <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaS" }
-Switch  FhsDnevna2      "Dnevna soba"       <heating>       (Fhs)           { tinkerforge="name=stikaloDnevna" }
-Switch  FhsKuhinja1     "Kuhinja"           <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKuhinja" }
-Switch  FhsKabinet      "Kabinet"           <heating>       (Fhs)           { tinkerforge="name=stikaloKabinet" }
+// //zgoraj
+// Switch FhsKopalnicaZ    "Kopalnica zgoraj"      <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaZ" }
+// Switch FhsAljaz		    "Aljaz"                 <heating>       (Fhs)           { tinkerforge="name=stikaloAljaz" }
+// Switch FhsJulija	    "Julija"                <heating>       (Fhs)           { tinkerforge="name=stikaloJulija" }
+// Switch FhsHodnikZ	    "Hodnik zgoraj"         <heating>       (Fhs)           { tinkerforge="name=stikaloHodnikZ" }
+// Switch FhsSpalnica	    "Spalnica"              <heating>       (Fhs)           { tinkerforge="name=stikaloSpalnica" }
 
-//Xiaomi
-//Switch Gateway_LightSwitch <light> { channel="mihome:gateway:286c0788c0ee:brightness" }
-//Dimmer Gateway_Brightness <dimmablelight> { channel="mihome:gateway:286c0788c0ee:brightness" }
-//Color Gateway_Color <rgb> { channel="mihome:gateway:286c0788c0ee:color" }
-//Dimmer Gateway_ColorTemperature <heating> { channel="mihome:gateway:286c0788c0ee:colorTemperature" }
-//Number Gateway_AmbientLight <sun> { channel="mihome:gateway:286c0788c0ee:illumination" }
-//Number Gateway_Sound <soundvolume-0> { channel="mihome:gateway:286c0788c0ee:sound" }
-//Switch Gateway_SoundSwitch <soundvolume_mute> { channel="mihome:gateway:286c0788c0ee:enableSound" }
-//Dimmer Gateway_SoundVolume <soundvolume> { channel="mihome:gateway:286c0788c0ee:volume" }
+// //spodaj
+// Switch  FhsHodnikS      "Hodnik spodaj"     <heating>       (Fhs)           { tinkerforge="name=stikaloHodnikS" }
+// Switch  FhsKopalnicaS   "Kopalnica spodaj"  <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaS" }
+// Switch  FhsDnevna2      "Dnevna soba"       <heating>       (Fhs)           { tinkerforge="name=stikaloDnevna" }
+// Switch  FhsKuhinja1     "Kuhinja"           <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKuhinja" }
+// Switch  FhsKabinet      "Kabinet"           <heating>       (Fhs)           { tinkerforge="name=stikaloKabinet" }
+// 

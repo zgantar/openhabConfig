@@ -172,18 +172,20 @@ val Functions$Function5 activateActBlind = [
 	var Timer shutDownTimer = null
 	logInfo("blinds", "activateActBlind - Klic activateActBlind za " + item.toString)
 	val String nameWithCommand = getStringFromItem.apply(item, 3).toString
+	val String justName = getStringFromItem.apply(item, 2).toString
+	val String oppName = getStringFromItem.apply(item, 4).toString
 	val actItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(nameWithCommand)).head
 	logInfo("blinds", "activateActBlind - Dobili aktuator " + actItem.toString)
 	val boolean lowAct = !actItem.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
 	logInfo("blinds", "activateActBlind - Ali imamo obratno stikalo " + lowAct + actItem.toString)
 	val boolean logBlind = !item.groupNames.filter(group|group.equalsIgnoreCase("BlindLog")).empty
 	logInfo("blinds", "activateActBlind - Ali imamo logično stikalo " + logBlind)
-	val peekSwitch = BlindsPeek.members.filter(filtItem | filtItem.name.containsIgnoreCase(getStringFromItem.apply(item, 2).toString)).head
+	val peekSwitch = BlindsPeek.members.filter(filtItem | filtItem.name.containsIgnoreCase(justName)).head
 	val boolean downCommand = actItem.name.substring(item.name.length - 2, item.name.length).equals("Do")
 	logInfo("blinds", "activateActBlind - Ali je ukaz za spust " + downCommand)
-	var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(getStringFromItem.apply(item, 4).toString)).head
+	var oppActItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(oppName)).head
 	logInfo("blinds", "activateActBlind - Našli nasprotni aktuator " + oppActItem.toString)
-	val stateItem = BlindState.members.filter(filtItem | filtItem.name.containsIgnoreCase(getStringFromItem.apply(item, 2))).head
+	val stateItem = BlindState.members.filter(filtItem | filtItem.name.containsIgnoreCase(justName)).head
 	logInfo("blinds", "activateActBlind - Našli stanje " + stateItem.toString)
 	val stanje = stateItem.state as Number
 	logInfo("blinds", "activateActBlind - Stanje žaluzije - " + stanje)
@@ -335,14 +337,23 @@ then
 		timers = newHashMap
 		logInfo("blinds", "Set blinds up - Timerji so veliki - " + timers.size)
 	}
-	BlindSwi.members.forEach[ swiItem |
-		logInfo("blinds", "Set blinds up - Našel fizično stikalo " + swiItem.toString + "!!!!")
-		if (swiItem.state == OFF) {
-			activateActBlind.apply(swiItem, 1, COMPLETE, timers, getStringFromItem)
-		} else {
-			activateActBlind.apply(swiItem, 0, 0, timers, getStringFromItem)
-		}
+//	BlindSwi.members.forEach[ swiItem |
+//		logInfo("blinds", "Set blinds up - Našel fizično stikalo " + swiItem.toString + "!!!!")
+//		if (swiItem.state == OFF) {
+//			activateActBlind.apply(swiItem, 1, COMPLETE, timers, getStringFromItem)
+//		} else {
+//			activateActBlind.apply(swiItem, 0, 0, timers, getStringFromItem)
+//		}
+//	]
+	// BlindLog.members.forEach[ logItem |
+	// 	logInfo("blinds", "Set blinds up - logična stikala " + logItem.toString + "!!!!")
+	// 	logItem.sendCommand(OFF)
+	// ]
+	BlindAct.members.forEach[blindsItem|
+		blindsItem.sendCommand(OFF)
 	]
+
+
 	BlindsPeek.members.forEach[blindsItem|
 		blindsItem.sendCommand(OFF)
 	]

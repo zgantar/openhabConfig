@@ -1695,8 +1695,7 @@
           "chromecast",
           "audio"
         ]
-      },
-      "location": "Dnevna"
+      }
     }
   },
   "exec:command:6effd09f": {
@@ -2216,112 +2215,6 @@
         "segments": [
           "mihome",
           "sensor_magnet"
-        ]
-      }
-    }
-  },
-  "mihome:sensor_switch:158d00016d77ce": {
-    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
-    "value": {
-      "label": "Xiaomi Mi Wireless Switch",
-      "bridgeUID": {
-        "segments": [
-          "mihome",
-          "bridge",
-          "286c0788c0ee"
-        ]
-      },
-      "channels": [
-        {
-          "kind": "TRIGGER",
-          "uid": {
-            "segments": [
-              "mihome",
-              "sensor_switch",
-              "158d00016d77ce",
-              "button"
-            ]
-          },
-          "channelTypeUID": {
-            "segments": [
-              "mihome",
-              "button"
-            ]
-          },
-          "label": "Button Event",
-          "description": "Fires when the button is pressed, double pressed or pressed for a long time (press/release)",
-          "configuration": {
-            "properties": {}
-          },
-          "properties": {},
-          "defaultTags": []
-        },
-        {
-          "acceptedItemType": "Number",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mihome",
-              "sensor_switch",
-              "158d00016d77ce",
-              "batteryLevel"
-            ]
-          },
-          "channelTypeUID": {
-            "segments": [
-              "system",
-              "battery-level"
-            ]
-          },
-          "label": "Battery Level",
-          "configuration": {
-            "properties": {}
-          },
-          "properties": {},
-          "defaultTags": []
-        },
-        {
-          "acceptedItemType": "Switch",
-          "kind": "STATE",
-          "uid": {
-            "segments": [
-              "mihome",
-              "sensor_switch",
-              "158d00016d77ce",
-              "lowBattery"
-            ]
-          },
-          "channelTypeUID": {
-            "segments": [
-              "system",
-              "low-battery"
-            ]
-          },
-          "label": "Low Battery",
-          "configuration": {
-            "properties": {}
-          },
-          "properties": {},
-          "defaultTags": []
-        }
-      ],
-      "configuration": {
-        "properties": {
-          "itemId": "158d00016d77ce"
-        }
-      },
-      "properties": {},
-      "uid": {
-        "segments": [
-          "mihome",
-          "sensor_switch",
-          "158d00016d77ce"
-        ]
-      },
-      "thingTypeUID": {
-        "segments": [
-          "mihome",
-          "sensor_switch"
         ]
       }
     }
@@ -5663,8 +5556,7 @@
           "chromecast",
           "chromecast"
         ]
-      },
-      "location": "Dnevna"
+      }
     }
   }
 }

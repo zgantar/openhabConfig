@@ -1,0 +1,33 @@
+rule "Xiaomi Switch 1"
+when
+    Channel "mihome:sensor_switch:158d00016d77ce:button" triggered LONG_PRESSED
+then
+    logInfo("Xiaomi", "Dolgi pritisk, vtičnica v dnevni je - " + PlugDnevSwitch.state)
+    if (PlugDnevSwitch.state == ON) {
+        PlugDnevSwitch.send(OFF)
+    } else {
+        PlugDnevSwitch.send(ON)
+    }
+    logInfo("Xiaomi", "Vtičnica v dnevni je - " + PlugDnevSwitch.state)
+end
+
+rule "Xiaomi Switch 1 short press"
+when
+    Channel "mihome:sensor_switch:158d00016d77ce:button" triggered SHORT_PRESSED
+then
+    logInfo("Xiaomi", "Kratek pritisk")
+end
+
+rule "Xiaomi Switch 1 double press"
+when
+    Channel "mihome:sensor_switch:158d00016d77ce:button" triggered DOUBLE_PRESSED
+then
+    logInfo("Xiaomi", "Dvojni pritisk")
+end
+
+rule "Xiaomi Switch 1 long released"
+when
+    Channel "mihome:sensor_switch:158d00016d77ce:button" triggered LONG_PRESSED
+then
+    logInfo("Xiaomi", "Dolgi spust")
+end

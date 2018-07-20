@@ -1,0 +1,35 @@
+Bridge  mihome:bridge:286c0788c0ee "Xiaomi Gateway" @ "Dnevna" [ serialNumber="286c0788c0ee", ipAddress="192.168.1.102", port=9898, key="7j427x5auhe49ku2", pollingInterval=6000 ] {
+
+    //Gateway
+    Thing   mihome:gateway:286c0788c0ee "Xiaomi Mi Smart Home Gateway" @ "Kuhinja" [itemId="286c0788c0ee"]
+
+    //Temp&Hum
+    Thing   mihome:sensor_ht:158d0001f54681 "Rekuperacija" @ "Temp" [itemId="158d0001f54681"]
+    Thing   mihome:sensor_ht:158d00020ead97 "Julija" @ "Temp" [itemId="158d00020ead97"]
+    Thing   mihome:sensor_ht:158d0001e89694 "Čumnata" @ "Temp" [itemId="158d0001e89694"]
+    Thing   mihome:sensor_ht:158d0002226539 "Kopalnica spodaj" @ "Temp" [itemId="158d0002226539"]
+    Thing   mihome:sensor_ht:158d000210a5ec "Spalnica" @ "Temp" [itemId="158d000210a5ec"]
+    Thing   mihome:sensor_ht:158d0001f58033 "Hodnik zgoraj" @ "Temp" [itemId="158d0001f58033"]
+    Thing   mihome:sensor_ht:158d00022264c9 "Kopalnica zgoraj" @ "Temp" [itemId="158d00022264c9"]
+    Thing   mihome:sensor_ht:158d000222654d "Kabinet" @ "Temp" [itemId="158d000222654d"]
+    Thing   mihome:sensor_ht:158d0001e89688 "Hodnik spodaj" @ "Temp" [itemId="158d0001e89688"]
+    Thing   mihome:sensor_ht:158d00020ead94 "Aljaž" @ "Temp" [itemId="158d00020ead94"]
+    Thing   mihome:sensor_ht:158d0001c14e34 "Dnevna" @ "Temp" [itemId="158d0001c14e34"]
+
+    //Plug
+    Thing   mihome:sensor_plug:158d0001a4afdc "Sušilec" @ "Zgornja kopalnica" [itemId="158d0001a4afdc"]
+    Thing   mihome:sensor_plug:158d0001a68c94 "Tinkerforge" @ "Kabinet" [itemId="158d0001a68c94"]
+    Thing   mihome:sensor_plug:158d0002372e50 "TV&HiFi" @ "Dnevna" [itemId="158d0002372e50"]
+    Thing   mihome:sensor_plug:158d000237314e "Pralni stroj" @ "Zgornja kopalnica" [itemId="158d000237314e"]
+
+    //Door
+    Thing   mihome:sensor_magnet:158d0001a5eff5 "Vhodna" @ "Hodnik" [itemId="158d0001a5eff5"]
+    Thing   mihome:sensor_magnet:158d0001a5eaf2 "Dvižno drsna" @ "Kuhinja" [itemId="158d0001a5eaf2"]
+    Thing   mihome:sensor_magnet:158d0001a5f10d "Nagibno drsna" @ "Dnevna" [itemId="158d0001a5f10d"]
+
+    //Switch
+    Thing   mihome:sensor_switch:158d00016d77ce "Stikalo" @ "Dnevna" [itemId="158d00016d77ce"]
+
+    //Smoke
+    Thing   mihome:smoke:158d0001b76b9c "Dim" @ "Čumnata" [itemId="158d0001b76b9c"]
+}

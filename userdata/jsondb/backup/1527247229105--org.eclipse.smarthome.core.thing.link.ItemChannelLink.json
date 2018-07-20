@@ -476,23 +476,6 @@
       "itemName": "XiaomiMiSmartHomeGateway_SoundSelector"
     }
   },
-  "XiaomiMiWirelessSwitch_BatteryLevel -\u003e mihome:sensor_switch:158d00016d77ce:batteryLevel": {
-    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "mihome",
-          "sensor_switch",
-          "158d00016d77ce",
-          "batteryLevel"
-        ]
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "XiaomiMiWirelessSwitch_BatteryLevel"
-    }
-  },
   "TempDnevna -\u003e mihome:sensor_ht:158d0001c14e34:temperature": {
     "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
     "value": {

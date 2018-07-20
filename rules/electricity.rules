@@ -18,24 +18,24 @@ rule "Set things up"
 when
 	System started
 then
-	if (now.getHourOfDay > 6 && now.getHourOfDay < 22) {
+	//setting the price of electricity
+	logInfo("electricity", "Ura je - " + now.toString)
+	if (now.getHourOfDay > 6 && now.getHourOfDay < 22 && (now.getDayOfWeek != 6 && now.getDayOfWeek != 7)) {
 		sendCommand(LowElectricity, OFF)
-		logInfo("electricity", "Ni poceni elektrika - " + LowElectricity.state)
 	} else {
 		sendCommand(LowElectricity, ON)
-		logInfo("electricity", "Je poceni elektrika - " + LowElectricity.state)
-	} 
+	}
+	logInfo("electricity", "Poceni elektrika je - " + LowElectricity.state)
 end
 
 rule "Calculate hourly electricity consumption"
 when
-	//Item Trigger changed
 	Time cron "5 0 * * * ?"
 then
 	logInfo("electricity", "#####################Starting calculations for hourly electricity consumption values")
 	Consumption.members.forEach[ loopCons |
 		logInfo("electricity", "Calculating consumption for " + loopCons.toString)
-		val calcCons = CalcConsHour.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(0,5))).head
+		val calcCons = CalcConsHour.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(4,7))).head
 		if (calcCons !== null) {
 			logInfo("electricity", "The calculated item is " + calcCons.toString)
 			var time = now.minusHours(1)
@@ -58,7 +58,7 @@ then
 	logInfo("electricity", "#####################Starting calculations for daily electricity consumption values")
 	Consumption.members.forEach[ loopCons |
 		logInfo("electricity", "Calculating consumption for " + loopCons.toString)
-		val calcCons = CalcConsDay.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(0,5))).head
+		val calcCons = CalcConsDay.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(4,7))).head
 		if (calcCons !== null) {
 			logInfo("electricity", "The calculated item is " + calcCons.toString)
 			var time = now.minusDays(1)

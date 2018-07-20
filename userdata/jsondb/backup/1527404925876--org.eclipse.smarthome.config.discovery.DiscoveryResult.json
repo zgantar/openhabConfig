@@ -1,0 +1,35 @@
+{
+  "mihome:sensor_switch:158d00016d77ce": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "thingUID": {
+        "segments": [
+          "mihome",
+          "sensor_switch",
+          "158d00016d77ce"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_switch"
+        ]
+      },
+      "properties": {
+        "itemId": "158d00016d77ce"
+      },
+      "representationProperty": "itemId",
+      "flag": "NEW",
+      "label": "Xiaomi Mi Wireless Switch",
+      "timestamp": 1527404925375,
+      "timeToLive": -1
+    }
+  }
+}

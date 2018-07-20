@@ -1,0 +1,44 @@
+rule "Check heater plug on startup"
+when
+	System started
+then
+	logInfo("plug", "#####################Setting up heater state#####################")
+	val Number startHour = HoursStartSetter.state as Number
+	val Number startMinutes = MinutesStartSetter.state as Number
+	logInfo("plug", "Start time is set to - " + startHour + ":" + startMinutes)
+	val Number stopHour = HoursStopSetter.state as Number
+	val Number stopMinutes = MinutesStopSetter.state as Number
+	logInfo("plug", "Stop time is set to - " + stopHour + ":" + stopMinutes)
+	
+	//check start first
+	if ((now.getHourOfDay == startHour && now.getMinuteOfHour >= startMinutes) 
+		|| (now.getHourOfDay > startHour && now.getHourOfDay < stopHour) 
+		|| (now.getHourOfDay == stopHour && now.getMinuteOfHour < startMinutes)
+	) {
+		if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
+	} else {
+		if (PlugHeatSwitch.state == ON) PlugHeatSwitch.sendCommand(OFF)
+	}
+	logInfo("plug", "#####################End of setting up heater state#####################")
+end
+
+rule "Check heater plug"
+when
+	Time cron "0 */5 * * * ?"
+then
+	logInfo("plug", "#####################Checking if we need to change heater state#####################")
+	val Number startHour = HoursStartSetter.state as Number
+	val Number startMinutes = MinutesStartSetter.state as Number
+	logInfo("plug", "Start time is set to - " + startHour + ":" + startMinutes)
+	val Number stopHour = HoursStopSetter.state as Number
+	val Number stopMinutes = MinutesStopSetter.state as Number
+	logInfo("plug", "Stop time is set to - " + stopHour + ":" + stopMinutes)
+	//check start first
+	if (now.getHourOfDay == startHour && now.getMinuteOfHour == startMinutes) {
+		if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
+	} else if (now.getHourOfDay == stopHour && now.getMinuteOfHour == stopMinutes) {
+		if (PlugHeatSwitch.state == ON) PlugHeatSwitch.sendCommand(OFF)
+	}
+	logInfo("plug", "#####################End of heater state check#####################")
+end
+

@@ -1695,8 +1695,7 @@
           "chromecast",
           "audio"
         ]
-      },
-      "location": "Dnevna"
+      }
     }
   },
   "exec:command:6effd09f": {
@@ -5663,8 +5662,7 @@
           "chromecast",
           "chromecast"
         ]
-      },
-      "location": "Dnevna"
+      }
     }
   }
 }

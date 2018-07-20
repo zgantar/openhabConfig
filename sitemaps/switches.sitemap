@@ -14,6 +14,7 @@ sitemap switches label="Stikala za rezidenco Gantar" {
 		Switch item=FhsDnevna2
 		Switch item=LowElectricity
 		Switch item=Holidays
+		Switch item=Away
 	}
 
 	Frame label="Ročne nastavitve ogrevanja" icon="heating" {

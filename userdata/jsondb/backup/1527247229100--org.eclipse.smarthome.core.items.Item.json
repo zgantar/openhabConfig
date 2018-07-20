@@ -647,16 +647,6 @@
       "category": "Door"
     }
   },
-  "XiaomiMiWirelessSwitch_BatteryLevel": {
-    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [],
-      "itemType": "Number",
-      "tags": [],
-      "label": "Battery Level",
-      "category": "Battery"
-    }
-  },
   "LivingRoomTV_Volume": {
     "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
     "value": {

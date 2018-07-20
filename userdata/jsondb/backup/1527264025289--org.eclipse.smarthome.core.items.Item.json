@@ -1,14 +1,4 @@
 {
-  "XiaomiMiTemperatureHumiditySensorRekuperacija_BatteryLevel": {
-    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [],
-      "itemType": "Number",
-      "tags": [],
-      "label": "Battery Level",
-      "category": "Battery"
-    }
-  },
   "PowerPlug2_Switch": {
     "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -17,6 +7,16 @@
       "tags": [],
       "label": "Switch",
       "category": "Switch"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_BatteryLevel": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
     }
   },
   "XiaomiMiSmartSocketPlugBojler_InUse": {
@@ -182,6 +182,17 @@
       "category": "PowerOutlet"
     }
   },
+  "XiaomiMiSmartSocketPlugBojler_ProvidedPower": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Power"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Trenutna moč skrinja"
+    }
+  },
   "Plug4_kWh": {
     "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
     "value": {
@@ -192,17 +203,6 @@
       "tags": [],
       "label": "Poraba sušilec",
       "category": "Energy"
-    }
-  },
-  "XiaomiMiSmartSocketPlugBojler_ProvidedPower": {
-    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [
-        "Power"
-      ],
-      "itemType": "Number",
-      "tags": [],
-      "label": "Trenutna moč skrinja"
     }
   },
   "XiaomiMiSmartHomeGateway_Color": {
@@ -645,16 +645,6 @@
       "tags": [],
       "label": "Alarm (power)",
       "category": "Door"
-    }
-  },
-  "XiaomiMiWirelessSwitch_BatteryLevel": {
-    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
-    "value": {
-      "groupNames": [],
-      "itemType": "Number",
-      "tags": [],
-      "label": "Battery Level",
-      "category": "Battery"
     }
   },
   "LivingRoomTV_Volume": {

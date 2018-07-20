@@ -476,23 +476,6 @@
       "itemName": "XiaomiMiSmartHomeGateway_SoundSelector"
     }
   },
-  "XiaomiMiWirelessSwitch_BatteryLevel -\u003e mihome:sensor_switch:158d00016d77ce:batteryLevel": {
-    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "mihome",
-          "sensor_switch",
-          "158d00016d77ce",
-          "batteryLevel"
-        ]
-      },
-      "configuration": {
-        "properties": {}
-      },
-      "itemName": "XiaomiMiWirelessSwitch_BatteryLevel"
-    }
-  },
   "TempDnevna -\u003e mihome:sensor_ht:158d0001c14e34:temperature": {
     "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
     "value": {
@@ -562,20 +545,6 @@
       "itemName": "PowerPlug2_AlarmPower"
     }
   },
-  "OutPercipToday -\u003e exec:command:16daa665:output": {
-    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
-    "value": {
-      "channelUID": {
-        "segments": [
-          "exec",
-          "command",
-          "16daa665",
-          "output"
-        ]
-      },
-      "itemName": "OutPercipToday"
-    }
-  },
   "OutFeelTemp -\u003e exec:command:67207586:output": {
     "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
     "value": {
@@ -588,6 +557,20 @@
         ]
       },
       "itemName": "OutFeelTemp"
+    }
+  },
+  "OutPercipToday -\u003e exec:command:16daa665:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "16daa665",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipToday"
     }
   },
   "XiaomiMiSmartHomeGateway_Brightness -\u003e mihome:gateway:286c0788c0ee:brightness": {

@@ -1,0 +1,9 @@
+rule "Temp rule"
+
+when
+	Item Trigger changed
+then
+	logInfo("mail", "###########################Mail starting to send##############################")
+	sendMail("zgantar@yahoo.com", "Test", "Da vidmo a tola sploh dela!")
+	logInfo("mail", "###########################Mail stoped sending##############################")
+end
