@@ -13,6 +13,7 @@ Group	FhsRev		"Ventili talnega gretja NO"
 Group   Power       "Trenutna priključna moč"
 Group   Consumption "Poraba"
 Group   InUse       "V uporabi"
+Group   PlugSwitch	"Stikalo za vtičnico"
 
 Group   Smoke   "Senzor za dim"
 
@@ -61,7 +62,7 @@ Group:Switch:AND(OFF,ON)  BatteryLow  "Opozorilo za slabo baterijo"
 Number	HumJulija		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead97:humidity" }
 Number	HumAljaz		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead94:humidity" }
 Number	HumSpalnica		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000210a5ec:humidity" }
-// Number	HumKuhinja		"Vlažnost [%.1f %%]"             <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead97:humidity" }
+Number	HumKuhinja		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00023792d1:humidity" }
 Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000222654d:humidity" }
 Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00022264c9:humidity" }
 Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mihome:sensor_ht:158d0002226539:humidity" }
@@ -75,7 +76,7 @@ Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="m
 Number	TempJulija	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
 Number	TempAljaz	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead94:temperature" }
 Number	TempSpalnica        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000210a5ec:temperature" }
-// Number	TempKuhinja		"Kuhinja [%.2f °C]"             <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
+Number	TempKuhinja         "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00023792d1:temperature" }
 Number	TempKabinet	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000222654d:temperature" }
 Number	TempKopalnicaZ      "Temperatura [%.2f °C]"	<temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00022264c9:temperature" }
 Number	TempKopalnicaS      "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d0002226539:temperature" }
@@ -86,28 +87,37 @@ Number	TempCumnata		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { chann
 Number	TempRekuperacija    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
 
 //Plugs
-Switch  PlugSusiSwitch      "Vklopljena"    <switch>                        { channel="mihome:sensor_plug:158d0001a4afdc:power" }
-Switch  PlugSusiActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a4afdc:inUse" }
-Number  PlugSusiPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a4afdc:loadPower" }
-Number  PlugSusiConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a4afdc:powerConsumed" }
+Switch  PlugSusiSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node4:switch_binary" }
+Number  PlugSusiPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node4:meter_watts" }
+Number  PlugSusiConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node4:meter_kwh" }
 
-Switch  PlugTinkSwitch      "Vklopljena"    <switch>                        { channel="mihome:sensor_plug:158d0001a68c94:power" }
+Switch  PlugTinkSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0001a68c94:power" }
 Switch  PlugTinkActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a68c94:inUse" }
 Number  PlugTinkPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a68c94:loadPower" }
 Number  PlugTinkConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a68c94:powerConsumed" }
 
-Switch  PlugDnevSwitch      "Vklopljena"    <switch>                        { channel="mihome:sensor_plug:158d0002372e50:power" }
+Switch  PlugRekuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0001a4afdc:power" }
+Switch  PlugRekuActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a4afdc:inUse" }
+Number  PlugRekuPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a4afdc:loadPower" }
+Number  PlugRekuConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a4afdc:powerConsumed" }
+
+Switch  PlugDnevSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0002372e50:power" }
 Switch  PlugDnevActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0002372e50:inUse" }
 Number  PlugDnevPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0002372e50:loadPower" }
 Number  PlugDnevConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0002372e50:powerConsumed" }
 
-Switch  PlugPralSwitch      "Vklopljena"    <switch>                        { channel="mihome:sensor_plug:158d000237314e:power" }
-Switch  PlugPralActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d000237314e:inUse" }
-Number  PlugPralPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d000237314e:loadPower" }
-Number  PlugPralConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d000237314e:powerConsumed" }
+Switch  PlugPralSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node3:switch_binary" }
+Number  PlugPralPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node3:meter_watts" }
+Number  PlugPralConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node3:meter_kwh" }
+
+Switch  PlugHeatSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node5:switch_binary" }
+Number  PlugHeatPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node5:meter_watts" }
+Number  PlugHeatConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node5:meter_kwh" }
+
+Switch  PlugVacuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="miio:basic:034BA5C5:power" }
 
 //In-wall plugs
-// Switch  PlugInWallLivingSwitch      "Vklopljena"    <switch>        { channel="zwave:device:16426e8f78a:node4:switch_binary" }
+//Switch  PlugHeatSwitch      "Vklopljena"    <switch>        { channel="zwave:device:16426e8f78a:node4:switch_binary" }
 // Switch  PlugInWallLivingPowerFactor "Faktor"        <switch>        { channel="zwave:device:16426e8f78a:node4:meter_powerfactor" }
 // Number  PlugInWallLivingPower       "Trenutna moč"  <energy>        { channel="zwave:device:16426e8f78a:node4:meter_watts" }
 // Number  PlugInWallLivingConsumption "Poraba"        <line-incline>  { channel="zwave:device:16426e8f78a:node4:meter_kwh" }
@@ -131,15 +141,15 @@ Number AljazBattery             "Baterija"      <battery>   (Battery)       { ch
 Switch AljazBatteryLow          "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020ead94:lowBattery" }
 Number SpalnicaBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000210a5ec:batteryLevel" }
 Switch SpalnicaBatteryLow       "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000210a5ec:lowBattery" }
-// Number KuhinjaBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:<ID>:batteryLevel" }
-// Switch KuhinjaBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:<ID>:lowBattery" }
+Number KuhinjaBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00023792d1:batteryLevel" }
+Switch KuhinjaBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00023792d1:lowBattery" }
 Number KabinetBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000222654d:batteryLevel" }
 Switch KabinetBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000222654d:lowBattery" }
-Number KopalnicaZBattery        "Baterija"      <battery>   (Battery)        { channel="mihome:sensor_ht:158d00022264c9:batteryLevel" }
+Number KopalnicaZBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00022264c9:batteryLevel" }
 Switch KopalnicaZBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00022264c9:lowBattery" }
 Number KopalnicaSBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0002226539:batteryLevel" }
 Switch KopalnicaSBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0002226539:lowBattery" }
-Number HodnikZBattery           "Baterija"      <battery>   (Battery)        { channel="mihome:sensor_ht:158d0001f58033:batteryLevel" }
+Number HodnikZBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f58033:batteryLevel" }
 Switch HodnikZBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f58033:lowBattery" }
 Number HodnikSBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89688:batteryLevel" }
 Switch HodnikSBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89688:lowBattery" }

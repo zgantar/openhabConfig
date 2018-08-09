@@ -3,7 +3,10 @@ rule "Temp rule"
 when
 	Item Trigger changed
 then
-	logInfo("mail", "###########################Mail starting to send##############################")
-	sendMail("zgantar@yahoo.com", "Test", "Da vidmo a tola sploh dela!")
-	logInfo("mail", "###########################Mail stoped sending##############################")
+	logInfo("temp", "###########################Trigger started##############################")
+	val previousStateTimestamp = PlugHeatSwitch.previousState.timestamp.time
+	logInfo("temp", "PreviousTimestamp millis - " + previousStateTimestamp)
+	val lastUpdateTime = PlugHeatSwitch.lastUpdate.millis
+	logInfo("temp", "LastUpdate millis - " + lastUpdateTime)
+	logInfo("temp", "###########################Trigger stoped##############################")
 end

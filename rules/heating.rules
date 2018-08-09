@@ -7,7 +7,7 @@ import org.eclipse.xtext.xbase.lib.*
 var boolean startHeating1
 var boolean startHeating2
 
-val Functions$Function1 filterTempValues = [ 
+val Functions$Function1<Boolean, Boolean> filterTempValues = [ 
 	boolean krneki|
 	
 	logDebug("heating", "Preverjam ali je potrebno filtrirati vrednosti")
@@ -30,15 +30,15 @@ val Functions$Function1 filterTempValues = [
 	return true
 ]
 
-val Functions$Function1 addMissingValues = [ 
+val Functions$Function1<Boolean, Boolean> addMissingValues = [ 
 	boolean krneki|
 	
 	logDebug("heating", "Preračunavam manjkajoče vrednosti")
 //	TempDnevna.postUpdate(((TempKuhinja.state as DecimalType)*0.4) + ((TempKabinet.state as DecimalType)*0.6))
 //	TempDnevna.persist
 	logDebug("heating", "Dnevna - " + TempDnevna.toString)
-	TempHodnikS.postUpdate(((TempKuhinja.state as DecimalType)*0.3) + ((TempKabinet.state as DecimalType)*0.4) + ((TempKopalnicaS.state as DecimalType)*0.3))
-	TempHodnikS.persist
+	// TempHodnikS.postUpdate(((TempKuhinja.state as DecimalType)*0.3) + ((TempKabinet.state as DecimalType)*0.4) + ((TempKopalnicaS.state as DecimalType)*0.3))
+	// TempHodnikS.persist
 	logDebug("heating", "Hodnik spodaj - " + TempHodnikS.toString)
 //	TempHodnikZ.postUpdate(((TempAljaz.state as DecimalType)*0.4) + ((TempJulija.state as DecimalType)*0.4) + ((TempKopalnicaZ.state as DecimalType)*0.2))
 //	TempHodnikZ.persist
@@ -46,7 +46,7 @@ val Functions$Function1 addMissingValues = [
 	return true
 ]
 
-val Functions$Function1 showFhsValues = [ 
+val Functions$Function1<Boolean, Boolean> showFhsValues = [ 
 	boolean krneki|
 
 	logDebug("heating", "################Klic Log for FHS items################")
@@ -103,7 +103,7 @@ then
 			val name = tempItem.name.substring(4)
 			logDebug("heating", "Preverjam sobo - " + name)
 			var setItem = Set.members.filter(setter | setter.name.containsIgnoreCase(name)).head
-			if (setItem != null) {
+			if (setItem !== null) {
 				logDebug("heating", "Dobil setter - " + setItem.toString)
 				val difItem = Dif.members.filter(setter | setter.name.containsIgnoreCase(name)).head
 				logDebug("heating", "Dobil differ - " + difItem.toString)
@@ -195,7 +195,7 @@ then
 		val name = manItem.name.substring(3)
 		val boolean noVent = !manItem.groupNames.filter(group|group.equalsIgnoreCase("ManRev")).empty
 		val valve = Fhs.members.filter(fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
-		if (valve != null) {
+		if (valve !== null) {
 			logDebug("heating", "Na vrednost ventila - " + valve.toString)
 			if (valve.state == ON) { 
 				if (!noVent) manItem.sendCommand(ON) else manItem.sendCommand(OFF) 
@@ -238,7 +238,7 @@ then
 			val boolean noVent = !logItem.groupNames.filter(group|group.equalsIgnoreCase("LogRev")).empty
 			val name = logItem.name.substring(3)
 			val valve = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
-			if (valve != null) {
+			if (valve !== null) {
 				logDebug("heating", "Našel ventil za logično stikalo " + valve.toString)
 				if (logItem.state == ON) {
 					startHeating2 = true
@@ -280,7 +280,7 @@ then
 			val name = manItem.name.substring(3)
 			val valve = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
 			logDebug("heating", "Našel ventil za ročno stikalo " + valve.toString)
-			if (valve != null) {
+			if (valve !== null) {
 				val difItem = Dif.members.filter(setter | setter.name.containsIgnoreCase(name)).head
 				logDebug("heating", "Dobil differ - " + difItem.toString)
 				val Number difTemp = difItem.state as Number

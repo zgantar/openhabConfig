@@ -1,44 +1,73 @@
-rule "Check heater plug on startup"
-when
-	System started
-then
-	logInfo("plug", "#####################Setting up heater state#####################")
-	val Number startHour = HoursStartSetter.state as Number
-	val Number startMinutes = MinutesStartSetter.state as Number
-	logInfo("plug", "Start time is set to - " + startHour + ":" + startMinutes)
-	val Number stopHour = HoursStopSetter.state as Number
-	val Number stopMinutes = MinutesStopSetter.state as Number
-	logInfo("plug", "Stop time is set to - " + stopHour + ":" + stopMinutes)
-	
-	//check start first
-	if ((now.getHourOfDay == startHour && now.getMinuteOfHour >= startMinutes) 
-		|| (now.getHourOfDay > startHour && now.getHourOfDay < stopHour) 
-		|| (now.getHourOfDay == stopHour && now.getMinuteOfHour < startMinutes)
-	) {
-		if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
-	} else {
-		if (PlugHeatSwitch.state == ON) PlugHeatSwitch.sendCommand(OFF)
-	}
-	logInfo("plug", "#####################End of setting up heater state#####################")
-end
-
 rule "Check heater plug"
 when
 	Time cron "0 */5 * * * ?"
 then
-	logInfo("plug", "#####################Checking if we need to change heater state#####################")
+	logDebug("plug", "#####################Checking if we need to change heater state#####################")
 	val Number startHour = HoursStartSetter.state as Number
 	val Number startMinutes = MinutesStartSetter.state as Number
-	logInfo("plug", "Start time is set to - " + startHour + ":" + startMinutes)
+	logDebug("plug", "Start time is set to - " + startHour + ":" + startMinutes)
 	val Number stopHour = HoursStopSetter.state as Number
 	val Number stopMinutes = MinutesStopSetter.state as Number
-	logInfo("plug", "Stop time is set to - " + stopHour + ":" + stopMinutes)
+	logDebug("plug", "Stop time is set to - " + stopHour + ":" + stopMinutes)
 	//check start first
 	if (now.getHourOfDay == startHour && now.getMinuteOfHour == startMinutes) {
-		if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
+		logDebug("plug", "Ura je primerna za vžig bojlerja")
+		if (Away.state == OFF) {
+			logDebug("plug", "Nismo na dopustu tako da prižigam bojler")
+			if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
+		} else {
+			logDebug("plug", "Smo na dopustu, tako da preverjam ali je že minilo več kot 5 dni od zadnjega prižiga")
+			if (AwayOn.state != ON || AwayOn.state != OFF) {
+				AwayOn.sendCommand(OFF)
+			}
+			val lastUpdateTime = PlugHeatSwitch.lastUpdate.millis		
+			val timeDifference = now.millis - lastUpdateTime
+			if (timeDifference > 432000000) {
+				logDebug("plug", "Je že minilo več kot 5 dni od zadnjega prižiga zato prižigam")
+				if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
+			} else if (AwayOn.state == ON && timeDifference > 7200000) {
+				logDebug("plug", "Proti legionarsko ogrevanje je končano")
+				PlugHeatSwitch.sendCommand(OFF)
+				AwayOn.sendCommand(OFF)
+			}
+		}
 	} else if (now.getHourOfDay == stopHour && now.getMinuteOfHour == stopMinutes) {
+		logDebug("plug", "Ura ni primerna za vžig bojlerja, ugašam, če je prižgan")
 		if (PlugHeatSwitch.state == ON) PlugHeatSwitch.sendCommand(OFF)
 	}
-	logInfo("plug", "#####################End of heater state check#####################")
+	logDebug("plug", "#####################End of heater state check#####################")
 end
 
+rule "Check vacuum plug"
+when
+	Item Sesalec_Battery changed
+then
+	logDebug("plug", "#####################Checking if we need to change vacuum plug state#####################")
+	logDebug("plug", "Sesalec je napolnjen " + Sesalec_Battery.state)
+	if (Sesalec_Stanje.state == 'Charging') {
+		if (Sesalec_Battery.state > 85) {
+			if (PlugVacuSwitch.state == ON) {
+				logDebug("plug", "Sesalec je napolnjen prek 85% zato ugašam vtičnico")
+				PlugVacuSwitch.sendCommand(OFF)
+			}
+		} else if (Sesalec_Battery.state < 20) {
+			if (PlugVacuSwitch.state == OFF) {
+				logDebug("plug", "Sesalec je napolnjen pod 20% zato vklapljam vtičnico")
+				PlugVacuSwitch.sendCommand(ON)
+			}
+		} else {
+			if (PlugVacuSwitch.state == ON) {
+				logDebug("plug", "Sesalec se polni in je napolnjen med 20% in 85% zato pustimo vtičnico kot je")
+			} else {
+				logDebug("plug", "Sesalec se ne polni vendar je napolnjen med 20% in 85% zato pustimo vtičnico kot je")
+			}
+		}
+	} else {
+		logDebug("plug", "Sesalec ni priklopljen zato preverimo stanje vtičnice")
+		if (PlugVacuSwitch.state == OFF) {
+				logDebug("plug", "Vtičnica je izklopljena zato jo vklopimo, da bo sesalec našel nazaj domov")
+				PlugVacuSwitch.sendCommand(ON)
+		}
+	}
+	logDebug("plug", "#####################End of vacuum plug state check#####################")
+end

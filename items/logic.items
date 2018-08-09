@@ -15,6 +15,7 @@ Group   Alarm
 Group   CalcConsHour
 Group   CalcConsDay
 Group   TimeSetter
+Group   Other
 
 Number      HoursStartSetter    "Ura"           (TimeSetter)
 Number      MinutesStartSetter  "Minute"        (TimeSetter)
@@ -56,8 +57,9 @@ Switch	LogOgrevanje	"Ogrevanje logika"	<heating>
 Switch	AlarmRaised		"Proženje alarma"               (Alarm)
 Switch	Heating			"Ogrevanje"					<heating>
 Switch	LowElectricity	"Nizka tarifa elektrike"
-Switch	Holidays		"Doma med tednom"
-Switch	Away			"Sploh nismo doma"
+Switch	Holidays		"Doma med tednom"               (Other)
+Switch	Away			"Sploh nismo doma"              (Other)
+Switch  AwayOn          "Vklop ko nismo doma"           (Other)
 
 Number	SetAljaz		"Nastavljena temperatura Aljaž [%.1f °C]"				<temperature>	(Set)
 Number	SetJulija		"Nastavljena temperatura Julija [%.1f °C]"				<temperature>	(Set)

@@ -44,6 +44,7 @@ Items {
 	InUse* : strategy = everyChange, restoreOnStartup
 	CalcConsHour* : strategy = everyHour, restoreOnStartup
 	CalcConsDay* : strategy = everyDay, restoreOnStartup
+	PlugSwitch* : strategy = everyChange, restoreOnStartup
 
 	//smoke
 	Smoke :	strategy = everyChange, restoreOnStartup
@@ -54,8 +55,7 @@ Items {
 	// BlindState* : strategy = everyChange
 	
 	//dodatne
-	Away : strategy = everyChange, restoreOnStartup
-	Holidays : strategy = everyChange, restoreOnStartup
+	Other* : strategy = everyChange, restoreOnStartup
 	All* : strategy = everyChange, restoreOnStartup
 	TimeSetter* : strategy = everyChange, restoreOnStartup
 
