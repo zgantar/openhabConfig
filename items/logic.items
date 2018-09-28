@@ -28,13 +28,13 @@ Number  PlugSusiDayCons "Dnevna poraba sušilec [%.2f kWh]"         <line-inclin
 Number  PlugTinkDayCons "Dnevna poraba Tinkerfoge [%.2f kWh]"      <line-incline>  (CalcConsDay)
 Number  PlugDnevDayCons "Dnevna poraba dnevna [%.2f kWh]"          <line-incline>  (CalcConsDay)
 Number  PlugPralDayCons "Dnevna poraba pralni stroj [%.2f kWh]"    <line-incline>  (CalcConsDay)
-Number  PlugWallDayCons "Dnevna poraba bojler [%.2f kWh]"          <line-incline>  (CalcConsDay)
+Number  PlugHeatDayCons "Dnevna poraba bojler [%.2f kWh]"          <line-incline>  (CalcConsDay)
 
 Number  PlugSusiHourCons "Urna poraba sušilec [%.2f kWh]"          <line-incline>  (CalcConsHour)
 Number  PlugTinkHourCons "Urna poraba Tinkerforge [%.2f kWh]"      <line-incline>  (CalcConsHour)
 Number  PlugDnevHourCons "Urna poraba dnevna [%.2f kWh]"           <line-incline>  (CalcConsHour)
 Number  PlugPralHourCons "Urna poraba pralni stroj [%.2f kWh]"     <line-incline>  (CalcConsHour)
-Number  PlugWallHourCons "Urna poraba bojler [%.2f kWh]"           <line-incline>  (CalcConsHour)
+Number  PlugHeatHourCons "Urna poraba bojler [%.2f kWh]"           <line-incline>  (CalcConsHour)
 
 Switch Trigger
 

@@ -44,30 +44,30 @@ when
 then
 	logDebug("plug", "#####################Checking if we need to change vacuum plug state#####################")
 	logDebug("plug", "Sesalec je napolnjen " + Sesalec_Battery.state)
-	if (Sesalec_Stanje.state == 'Charging') {
-		if (Sesalec_Battery.state > 85) {
-			if (PlugVacuSwitch.state == ON) {
-				logDebug("plug", "Sesalec je napolnjen prek 85% zato ugašam vtičnico")
-				PlugVacuSwitch.sendCommand(OFF)
-			}
-		} else if (Sesalec_Battery.state < 20) {
-			if (PlugVacuSwitch.state == OFF) {
-				logDebug("plug", "Sesalec je napolnjen pod 20% zato vklapljam vtičnico")
-				PlugVacuSwitch.sendCommand(ON)
-			}
-		} else {
-			if (PlugVacuSwitch.state == ON) {
-				logDebug("plug", "Sesalec se polni in je napolnjen med 20% in 85% zato pustimo vtičnico kot je")
-			} else {
-				logDebug("plug", "Sesalec se ne polni vendar je napolnjen med 20% in 85% zato pustimo vtičnico kot je")
-			}
-		}
-	} else {
-		logDebug("plug", "Sesalec ni priklopljen zato preverimo stanje vtičnice")
+	// if (Sesalec_Stanje.state == 'Charging' || Sesalec_Stanje.state == 'Idle' || Sesalec_Stanje.state == 'Sleeping') {
+	if (Sesalec_Stanje.state == 'Cleaning'){
+		logDebug("plug", "Sesalec trenutno sesa zato preverimo stanje vtičnice")
 		if (PlugVacuSwitch.state == OFF) {
 				logDebug("plug", "Vtičnica je izklopljena zato jo vklopimo, da bo sesalec našel nazaj domov")
 				PlugVacuSwitch.sendCommand(ON)
 		}
+	} else if (Sesalec_Battery.state > 85) {
+		if (PlugVacuSwitch.state == ON) {
+			logDebug("plug", "Sesalec je napolnjen prek 85% zato ugašam vtičnico")
+			PlugVacuSwitch.sendCommand(OFF)
+		}
+	} else if (Sesalec_Battery.state < 20) {
+		if (PlugVacuSwitch.state == OFF) {
+			logDebug("plug", "Sesalec je napolnjen pod 20% zato vklapljam vtičnico")
+			PlugVacuSwitch.sendCommand(ON)
+		}
+	} else {
+		if (PlugVacuSwitch.state == ON && Sesalec_Stanje.state == 'Charging') {
+			logDebug("plug", "Sesalec se polni in je napolnjen med 20% in 85% zato pustimo vtičnico kot je")
+		} else {
+			logDebug("plug", "Sesalec se ne polni vendar je napolnjen med 20% in 85% zato pustimo vtičnico kot je")
+		}
 	}
+	// } else
 	logDebug("plug", "#####################End of vacuum plug state check#####################")
 end

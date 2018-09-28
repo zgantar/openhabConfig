@@ -18,7 +18,7 @@ Group   PlugSwitch	"Stikalo za vtičnico"
 Group   Smoke   "Senzor za dim"
 
 Group   Battery  "Baterije"
-Group:Switch:AND(OFF,ON)  BatteryLow  "Opozorilo za slabo baterijo"
+Group:Switch:OR(ON,OFF)  BatteryLow  "Opozorilo za slabo baterijo"
 
 
 //Žaluzije
@@ -71,6 +71,7 @@ Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)   { channel="mihome:s
 Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001c14e34:humidity" }
 Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001e89694:humidity" }
 Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001f54681:humidity" }
+Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d00020db6d4:humidity" }
 
 //Temperature
 Number	TempJulija	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
@@ -85,6 +86,8 @@ Number	TempHodnikS	        "Temperatura [%.2f °C]" <temperature>   (Temp)  { ch
 Number	TempDnevna		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001c14e34:temperature" }
 Number	TempCumnata		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89694:temperature" }
 Number	TempRekuperacija    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
+Number	TempEnergetski      "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d00020db6d4:temperature" }
+
 
 //Plugs
 Switch  PlugSusiSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node4:switch_binary" }
@@ -110,9 +113,13 @@ Switch  PlugPralSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ chann
 Number  PlugPralPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node3:meter_watts" }
 Number  PlugPralConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node3:meter_kwh" }
 
-Switch  PlugHeatSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node5:switch_binary" }
-Number  PlugHeatPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node5:meter_watts" }
-Number  PlugHeatConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node5:meter_kwh" }
+Switch  PlugHeatSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node2:switch_binary" }
+Number  PlugHeatPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node2:meter_watts" }
+Number  PlugHeatConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node2:meter_kwh" }
+
+Switch  PlugIronSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node5:switch_binary" }
+Number  PlugIronPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node5:meter_watts" }
+Number  PlugIronConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node5:meter_kwh" }
 
 Switch  PlugVacuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="miio:basic:034BA5C5:power" }
 
@@ -159,6 +166,8 @@ Number CumnataBattery           "Baterija"      <battery>   (Battery)       { ch
 Switch CumnataBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89694:lowBattery" }
 Number RekuperacijaBattery      "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f54681:batteryLevel" }
 Switch RekuperacijaBatteryLow   "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f54681:lowBattery" }
+Number EnergetskiBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020db6d4:batteryLevel" }
+Switch EnergetskiBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020db6d4:lowBattery" }
    
 
 Number DoorDvigBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel" }
@@ -170,8 +179,10 @@ Switch DoorNagibBatteryLow      "Baterija peša" <energy>    (BatteryLow)    { c
 Number DoorVhodBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eff5:batteryLevel" }
 Switch DoorVhodBatteryLow       "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5eff5:lowBattery" }
 
+
 Number  SwitchDnevnaBattery     "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_switch:158d00016d77ce:batteryLevel" }
 Switch  SwitchDnevnaBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_switch:158d00016d77ce:lowBattery" }
+
 
 Number  SmokeCumnataBattery     "Baterija"      <battery>   (Battery)       { channel="mihome:smoke:158d0001b76b9c:batteryLevel" }
 Switch  SmokeCumnataBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:smoke:158d0001b76b9c:lowBattery" }
@@ -186,17 +197,6 @@ Number  GatewayAmbientLight     "Svetlost sobe"     <sun>               { channe
 Number  GatewaySound            "Zvok"              <soundvolume-0>     { channel="mihome:gateway:286c0788c0ee:sound" }
 Switch  GatewaySoundSwitch      "Stikalo zvoka"     <soundvolume_mute>  { channel="mihome:gateway:286c0788c0ee:enableSound" }
 Dimmer  GatewaySoundVolume      "Jakost zvoka"      <soundvolume>       { channel="mihome:gateway:286c0788c0ee:volume" }
-
-// Number	TempJulija		"JulijaTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempjul" }
-// Number	TempAljaz		"AljazTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempalj" }
-// Number	TempSpalnica	"SpalnicaTemp [%.2f °C]"	<temperature>	(Temp)			{ tinkerforge="name=tempspal" }
-// Number	TempKuhinja		"KuhinjaTemp [%.2f °C]"		<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkuh" }
-// Number	TempKabinet		"KabinetTemp [%.2f °C]"		<temperature>	(Temp)			{ tinkerforge="name=tempkab" }
-// Number	TempKopalnicaZ	"KopalnicaZTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopalz" }
-// Number	TempKopalnicaS	"KopalnicaSTemp [%.2f °C]"	<temperature>	(Temp,TempRev)	{ tinkerforge="name=tempkopals" }
-// Number	TempDnevna		"DnevnaTemp [%.2f °C]"		<temperature>	(Temp)
-// Number	TempHodnikZ		"HodnikZTemp [%.2f °C]"		<temperature>	(Temp)
-// Number	TempHodnikS		"HodnikSTemp [%.2f °C]"		<temperature>	(Temp)
 
 
 // //Motion

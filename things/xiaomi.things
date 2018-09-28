@@ -16,6 +16,7 @@ Bridge  mihome:bridge:286c0788c0ee "Xiaomi Gateway" @ "Dnevna" [ serialNumber="2
     Thing   mihome:sensor_ht:158d00020ead94 "Aljaž" @ "Temp" [itemId="158d00020ead94"]
     Thing   mihome:sensor_ht:158d0001c14e34 "Dnevna" @ "Temp" [itemId="158d0001c14e34"]
     Thing   mihome:sensor_ht:158d00023792d1 "Kuhinja" @ "Temp" [itemId="158d00023792d1"]
+    Thing   mihome:sensor_ht:158d00020db6d4 "Energetski prostor" @ "Temp" [itemId="158d00020db6d4"]
 
     //Plug
     Thing   mihome:sensor_plug:158d0001a4afdc "Rekuperacija" @ "Energetski prostor" [itemId="158d0001a4afdc"]
