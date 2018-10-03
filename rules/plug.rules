@@ -1,3 +1,50 @@
+
+val Functions$Function2<NumberItem, NumberItem, Boolean> deductMinutes = [ 
+	NumberItem HoursStartSetter,
+	NumberItem MinutesStartSetter|
+	
+	logInfo("plug", "Potrebno je premakniti uro nazaj")
+	var Number minutes = MinutesStartSetter.state as Number
+	var Number hours = HoursStartSetter.state as Number
+	logInfo("plug", "Trenutno je ura nastavljena na - " + hours + ":" + minutes)
+	if (minutes == 0) {
+		logInfo("plug", "Ker so minute na 0 moram prestaviti uro")
+		hours = hours-1
+		minutes = 55
+		HoursStartSetter.postUpdate(hours)
+		MinutesStartSetter.postUpdate(minutes)
+	} else {
+		minutes = minutes - 5
+		MinutesStartSetter.postUpdate(minutes)
+	}
+	logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
+	return true
+]
+
+val Functions$Function2<NumberItem, NumberItem, Boolean> addMinutes = [ 
+	NumberItem HoursStartSetter,
+	NumberItem MinutesStartSetter|
+	
+	logInfo("plug", "Potrebno je premakniti uro naprej")
+	var Number minutes = MinutesStartSetter.state as Number
+	var Number hours = HoursStartSetter.state as Number
+	logInfo("plug", "Trenutno je ura nastavljena na - " + hours + ":" + minutes)
+	if (minutes == 55) {
+		logInfo("plug", "Ker so minute na 55 moram prestaviti uro")
+		hours = hours + 1
+		minutes = 0
+		HoursStartSetter.postUpdate(hours)
+		MinutesStartSetter.postUpdate(minutes)
+	} else {
+		minutes = minutes + 5
+		MinutesStartSetter.postUpdate(minutes)
+	}
+	logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
+	return true
+]
+
+
+
 rule "Check heater plug"
 when
 	Time cron "0 */5 * * * ?"
@@ -11,7 +58,7 @@ then
 	logDebug("plug", "Stop time is set to - " + stopHour + ":" + stopMinutes)
 	//check start first
 	if (now.getHourOfDay == startHour && now.getMinuteOfHour == startMinutes) {
-		logDebug("plug", "Ura je primerna za vžig bojlerja")
+		logDebug("plug", "Prišla je ura za vžig bojlerja")
 		if (Away.state == OFF) {
 			logDebug("plug", "Nismo na dopustu tako da prižigam bojler")
 			if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
@@ -32,8 +79,17 @@ then
 			}
 		}
 	} else if (now.getHourOfDay == stopHour && now.getMinuteOfHour == stopMinutes) {
-		logDebug("plug", "Ura ni primerna za vžig bojlerja, ugašam, če je prižgan")
-		if (PlugHeatSwitch.state == ON) PlugHeatSwitch.sendCommand(OFF)
+		logDebug("plug", "Prišla je ura za ugašanje bojlerja, ugašam, če je prižgan")
+		if (PlugHeatSwitch.state == ON) {
+			if (PlugHeatPower.state > 0) {
+				logInfo("plug", "Ker bojler še vedno ogreva vodo, premaknem uro prižiga 5 min nazaj")
+				deductMinutes.apply(HoursStartSetter, MinutesStartSetter)
+			} else {
+				logInfo("plug", "Ker bojler ne ogreva več vode, premaknem uro prižiga 5 min naprej")
+				addMinutes.apply(HoursStartSetter, MinutesStartSetter)
+			}
+			PlugHeatSwitch.sendCommand(OFF)
+		}
 	}
 	logDebug("plug", "#####################End of heater state check#####################")
 end
