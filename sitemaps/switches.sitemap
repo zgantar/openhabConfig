@@ -5,13 +5,15 @@ sitemap switches label="Stikala za rezidenco Gantar" {
 
 	Frame label="Ogrevanje po sobah" icon="heating" {
 		Switch item=FhsKopalnicaZ
+		Switch item=FhsSpalnica
 		Switch item=FhsJulija
 		Switch item=FhsAljaz
 		Switch item=FhsHodnikZ
 		Switch item=FhsHodnikS
 		Switch item=FhsKopalnicaS
-		Switch item=FhsKuhinja1
-		Switch item=FhsDnevna2
+		Switch item=FhsKuhinja
+		Switch item=FhsDnevna
+		Switch item=FhsKabinet
 		Switch item=LowElectricity
 		Switch item=Holidays
 		Switch item=Away
@@ -21,6 +23,7 @@ sitemap switches label="Stikala za rezidenco Gantar" {
 		Switch item=Override
 		Switch item=ManHeating visibility=[Override==ON]
 		Switch item=ManKopalnicaZ visibility=[Override==ON]
+		Switch item=ManSpalnica visibility=[Override==ON]
 		Switch item=ManJulija visibility=[Override==ON]
 		Switch item=ManAljaz visibility=[Override==ON]
 		Switch item=ManHodnikZ visibility=[Override==ON]
@@ -28,17 +31,22 @@ sitemap switches label="Stikala za rezidenco Gantar" {
 		Switch item=ManKopalnicaS visibility=[Override==ON]
 		Switch item=ManKuhinja visibility=[Override==ON]
 		Switch item=ManDnevna visibility=[Override==ON]
+		Switch item=ManKabinet visibility=[Override==ON]
 	}
 		
 	Frame label="Nastavljene temperature po sobah" icon="heating" {
-		Setpoint item=SetAljaz minValue=19 maxValue=25 step=0.1 labelcolor=[DifAljaz<0="red", DifAljaz>=0="green"]
-		Text item=TempAljaz visibility=[DifAljaz<0]
-		Setpoint item=SetJulija minValue=19 maxValue=25 step=0.1 labelcolor=[DifJulija<0="red", DifJulija>=0="green"]
-		Text item=TempJulija visibility=[DifJulija<0]
-		Setpoint item=SetSpalnica minValue=19 maxValue=25 step=0.1 labelcolor=[DifSpalnica<0="red", DifSpalnica>=0="green"]
-		Text item=TempSpalnica visibility=[DifSpalnica<0]
 		Setpoint item=SetKopalnicaZ minValue=19 maxValue=25 step=0.1 labelcolor=[DifKopalnicaZ<0="red", DifKopalnicaZ>=0="green"]
 		Text item=TempKopalnicaZ visibility=[DifKopalnicaZ<0]
+		Setpoint item=SetSpalnica minValue=19 maxValue=25 step=0.1 labelcolor=[DifSpalnica<0="red", DifSpalnica>=0="green"]
+		Text item=TempSpalnica visibility=[DifSpalnica<0]
+		Setpoint item=SetJulija minValue=19 maxValue=25 step=0.1 labelcolor=[DifJulija<0="red", DifJulija>=0="green"]
+		Text item=TempJulija visibility=[DifJulija<0]
+		Setpoint item=SetAljaz minValue=19 maxValue=25 step=0.1 labelcolor=[DifAljaz<0="red", DifAljaz>=0="green"]
+		Text item=TempAljaz visibility=[DifAljaz<0]
+		Setpoint item=SetHodnikZ minValue=19 maxValue=25 step=0.1 labelcolor=[DifHodnikZ<0="red", DifHodnikZ>=0="green"]
+		Text item=TempHodnikZ visibility=[DifHodnikZ<0]
+		Setpoint item=SetHodnikS minValue=19 maxValue=25 step=0.1 labelcolor=[DifHodnikS<0="red", DifHodnikS>=0="green"]
+		Text item=TempHodnikS visibility=[DifHodnikS<0]
 		Setpoint item=SetKopalnicaS minValue=19 maxValue=25 step=0.1 labelcolor=[DifKopalnicaS<0="red", DifKopalnicaS>=0="green"]
 		Text item=TempKopalnicaS visibility=[DifKopalnicaS<0]
 		Setpoint item=SetKuhinja minValue=19 maxValue=25 step=0.1 labelcolor=[DifKuhinja<0="red", DifKuhinja>=0="green"]
@@ -47,9 +55,5 @@ sitemap switches label="Stikala za rezidenco Gantar" {
 		Text item=TempDnevna visibility=[DifDnevna<0]
 		Setpoint item=SetKabinet minValue=19 maxValue=25 step=0.1 labelcolor=[DifKabinet<0="red", DifKabinet>=0="green"]
 		Text item=TempKabinet visibility=[DifKabinet<0]
-		Setpoint item=SetHodnikZ minValue=19 maxValue=25 step=0.1 labelcolor=[DifHodnikZ<0="red", DifHodnikZ>=0="green"]
-		Text item=TempHodnikZ visibility=[DifHodnikZ<0]
-		Setpoint item=SetHodnikS minValue=19 maxValue=25 step=0.1 labelcolor=[DifHodnikS<0="red", DifHodnikS>=0="green"]
-		Text item=TempHodnikS visibility=[DifHodnikS<0]
 	}
 }
