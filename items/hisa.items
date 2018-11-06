@@ -72,6 +72,7 @@ Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome
 Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001e89694:humidity" }
 Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001f54681:humidity" }
 Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d00020db6d4:humidity" }
+Number	HumLopa1         "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d000241bdac:humidity" }
 
 //Temperature
 Number	TempJulija	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
@@ -87,6 +88,7 @@ Number	TempDnevna		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channe
 Number	TempCumnata		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89694:temperature" }
 Number	TempRekuperacija    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
 Number	TempEnergetski      "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d00020db6d4:temperature" }
+Number	TempLopa1            "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d000241bdac:temperature" }
 
 
 //Plugs
@@ -132,9 +134,9 @@ Switch  PlugVacuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ chann
 // Number  PlugInWallLivingCurrent     "Tok"           <line-incline>  { channel="zwave:device:16426e8f78a:node4:meter_current" }
 
 //Door
-Contact DoorDvigStatus  "Status"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
-Contact DoorNagibStatus "Status"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5f10d:isOpen" }
-Contact DoorVhodStatus  "Status"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eff5:isOpen" }
+Contact DoorDvigStatus  "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
+Contact DoorNagibStatus "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5f10d:isOpen" }
+Contact DoorVhodStatus  "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eff5:isOpen" }
 
 //Smoke
 Number  SmokeCumnataDensity     "Gostota"       <smoke>     (Smoke)     { channel="mihome:smoke:158d0001b76b9c:density" }
@@ -168,7 +170,9 @@ Number RekuperacijaBattery      "Baterija"      <battery>   (Battery)       { ch
 Switch RekuperacijaBatteryLow   "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f54681:lowBattery" }
 Number EnergetskiBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020db6d4:batteryLevel" }
 Switch EnergetskiBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020db6d4:lowBattery" }
-   
+Number Lopa1Battery              "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000241bdac:batteryLevel" }
+Switch Lopa1BatteryLow           "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000241bdac:lowBattery" }
+
 
 Number DoorDvigBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel" }
 Switch DoorDvigBatteryLow       "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5eaf2:lowBattery" }
@@ -199,13 +203,13 @@ Switch  GatewaySoundSwitch      "Stikalo zvoka"     <soundvolume_mute>  { channe
 Dimmer  GatewaySoundVolume      "Jakost zvoka"      <soundvolume>       { channel="mihome:gateway:286c0788c0ee:volume" }
 
 
-// //Motion
+//Motion
 // Contact	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ tinkerforge="name=gibanjeKuhinja" }
 // Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceS" }
 // Contact	MotVhod				"Vhod [MAP(si.map):MOTION-%s]"  			<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
 // Contact MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeDnevna" }
-// Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceZ" }
-// Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
+Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceZ" }
+Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
 // 
 
 // 
