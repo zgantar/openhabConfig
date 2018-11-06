@@ -143,7 +143,7 @@ then
 						logItem.sendCommand(ON)
 						logInfo("heating", "4.1.1 Izdan ukaz za ogrevanje sobe - " + name)
 					}
-				} else if (difPredTemp <= 0) {
+				} else if (difPredTemp <= 0 && now.getHourOfDay < 5) {
 					startHeating1 = true
 					logInfo("heating", "4.2 temperatura bo prenizka čez uro in pol, stikalo " + logItem.toString)
 					if (logItem.state == OFF) {
