@@ -17,6 +17,9 @@ Group   CalcConsDay
 Group   TimeSetter
 Group   Other
 
+String  Vacuum_Zone               "Cona [%s]"
+String  Vacuum_Control            "Ukaz"
+
 Number      HoursStartSetter    "Ura"           (TimeSetter)
 Number      MinutesStartSetter  "Minute"        (TimeSetter)
 Number      HoursStopSetter     "Ura"           (TimeSetter)
