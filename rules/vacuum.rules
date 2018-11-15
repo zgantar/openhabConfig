@@ -1,0 +1,93 @@
+import org.joda.time.*
+import org.openhab.model.script.actions.*
+import org.apache.commons.lang.StringUtils.*
+import org.eclipse.xtext.xbase.lib.*
+
+
+// Logging name tag
+val logName = "Vacuum"
+
+///////////////////////////////////////////////////////////////////////////////
+// Function
+///////////////////////////////////////////////////////////////////////////////
+
+val Functions$Function1<String, String> getZoneCoordinates = [ String zone |
+  var parameters = zone.split(',')
+  
+  // Docking point start position
+  val double x = 25500.0;
+  val double y = 25500.0;
+  // Bottom (y) left (x)
+  val double b = Double::parseDouble(parameters.get(0)) * 1000.0 + x
+  val double l = Double::parseDouble(parameters.get(1)) * 1000.0 + y
+  // Top (y) right (x)
+  val double t = b + Double::parseDouble(parameters.get(2)) * 1000.0
+  val double r = l + Double::parseDouble(parameters.get(3)) * 1000.0
+  // Build zone coordinates (and number of times to scan)
+  val coordinates = String::format("[%.0f,%.0f,%.0f,%.0f,%s]", b, l, t, r, parameters.get(4));
+  logInfo(logName, "Koordinate cone, ki jo mora sesalec posesati so: ", coordinates)
+  coordinates
+]
+
+///////////////////////////////////////////////////////////////////////////////
+// Rule
+///////////////////////////////////////////////////////////////////////////////
+
+rule "Vacuum control"
+when
+  Item Vacuum_Control received command
+then
+  logInfo(logName, "Vacuum command: {}, for zone {}", receivedCommand.toString, Vacuum_Zone.state.toString)
+  if ((receivedCommand.toString == "vacuum" || receivedCommand.toString == "mop") && Vacuum_Zone.state != null) {
+    // The final command send to the vacuum
+    var String command = ""
+    // Get zone coordinates
+    switch Vacuum_Zone {
+      case Vacuum_Zone.state.toString.equals("0"): command = "[19000,29600,30000,30100,1]"
+      case Vacuum_Zone.state.toString.equals("1"): command = "[21100,27500,30400,31400,1]"
+      case Vacuum_Zone.state.toString.equals("2"): command = "[17800,24800,27100,31400,1]"
+      case Vacuum_Zone.state.toString.equals("3"): command = "[16900,27800,27700,27800,1]"
+      case Vacuum_Zone.state.toString.equals("4"): command = "[15100,25100,27300,28000,1]"
+      case Vacuum_Zone.state.toString.equals("5"): command = "[26500,26100,27800,28200,1]"
+      case Vacuum_Zone.state.toString.equals("6"): command = "[[19000,29600,30000,30100,1],[21100,27500,30400,31400,1],[17800,24800,27100,31400,1],[26500,26100,27800,28200,1]]"
+      case Vacuum_Zone.state.toString.equals("7"): command = "[[19000,29600,30000,30100,1],[21100,27500,30400,31400,1],[17800,24800,27100,31400,1],[26500,26100,27800,28200,1],[15100,25100,27300,28000,1]]"
+    }
+    // var zone = transform("MAP", "zones.map", Vacuum_Zone.state.toString)
+    // logInfo(logName, "Cona je: ", zone)
+    // We still don't know if this is single or multiple zone
+//    var parameters = zone.split(';')
+//    logInfo(logName, "Parameters je: ", parameters.get(0))
+    // try {
+    //   // Single zone only have numbers
+    //   logInfo(logName, "Preverjam ali je ena cona.")
+    //   val double temp = Double::parseDouble(parameters.get(0))
+    //   logInfo(logName, "Po parsanju parametrov! ", temp)
+    //   command = getZoneCoordinates.apply(zone)
+    // } catch (Throwable t) {
+    //   // This is multi zone
+    //   logInfo(logName, "Očitno je več con!")
+    //   parameters.forEach[String z|
+    //     logInfo(logName, "Prva cona je: ", z)
+    //     var String tempZone = transform("MAP", "zones.map", z)
+    //     command = command + getZoneCoordinates.apply(tempZone) + ","
+    //   ]
+    //   // Remove last ','
+    //   command = command.substring(0, command.length - 1)
+    // }
+    command = String::format("[%s]", command)
+    logInfo(logName, "Clean {} zone coordinates {}", receivedCommand.toString, command)
+    if (receivedCommand.toString == "mop") {
+        logInfo(logName, "Imamo ukaz za pomivanje tal!")
+        //Sesalec_Actions_ExecuteCommand.sendCommand('actionFan' + 105)
+        logInfo(logName, "Trenutno nastavljena moč sesanja je: ", Sesalec_NastaviMocSesanja.state.toString)
+        Sesalec_NastaviMocSesanja.sendCommand(105)
+        logInfo(logName, "Ali je nastavljena moč sesanja na pomivanje: ", Sesalec_NastaviMocSesanja.state.toString)
+    }
+    Sesalec_Actions_ExecuteCommand.sendCommand('app_zoned_clean' + command)
+    Vacuum_Zone.postUpdate("")
+  } else {
+      logInfo(logName, "Navadni ukaz {} zato ignoriramo cone", receivedCommand.toString)
+      Sesalec_Control.sendCommand(receivedCommand.toString)
+  }
+  logInfo (logName, "Sesalec je vrnil odgovor: {}", Sesalec_Actions_ExecuteCommand.state.toString)
+end

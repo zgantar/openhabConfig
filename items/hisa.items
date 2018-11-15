@@ -231,3 +231,19 @@ Switch  FhsKopalnicaS   "Kopalnica spodaj"  <heating>       (Fhs,FhsRev)    { ti
 Switch  FhsDnevna      "Dnevna soba"       <heating>       (Fhs)           { tinkerforge="name=stikaloDnevna" }
 Switch  FhsKuhinja     "Kuhinja"           <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKuhinja" }
 Switch  FhsKabinet      "Kabinet"           <heating>       (Fhs)           { tinkerforge="name=stikaloKabinet" }
+
+//Chromecast
+//Audio
+Dimmer  VolumeAudio     "Glasnost"       { channel="chromecast:audio:AudioCC:volume" }
+Player  ControlAudio    "Upravljanje"    { channel="chromecast:audio:AudioCC:control" }
+Switch  MuteAudio       "Utišaj"         { channel="chromecast:audio:AudioCC:mute" }
+String  PlayURIAudio    "Naslov"         { channel="chromecast:audio:AudioCC:playuri" }
+String  StatusURIAudio  "Naslov"         { channel="chromecast:audio:AudioCC:statustext" }
+Switch  IdlingAudio     "Pripravljen"    { channel="chromecast:audio:AudioCC:idling" }
+//Video
+Dimmer  VolumeVideo     "Glasnost"       { channel="chromecast:chromecast:TVCC:volume" }
+Player  ControlVideo    "Upravljanje"    { channel="chromecast:chromecast:TVCC:control" }
+Switch  MuteVideo       "Utišaj"         { channel="chromecast:chromecast:TVCC:mute" }
+String  PlayURIVideo    "Naslov"         { channel="chromecast:chromecast:TVCC:playuri" }
+String  StatusURIVideo  "Naslov"         { channel="chromecast:chromecast:TVCC:statustext" }
+Switch  IdlingVideo     "Pripravljen"    { channel="chromecast:chromecast:TVCC:idling" }
