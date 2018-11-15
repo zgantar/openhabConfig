@@ -1,0 +1,40 @@
+{
+  "XiaomiMiSmartHomeGateway_Color": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Color",
+      "tags": [],
+      "label": "Color",
+      "category": "ColorLight"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Illumination": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Illumination"
+    }
+  },
+  "OutTemp_Output": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Output"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Brightness": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Dimmer",
+      "tags": [],
+      "label": "Brightness",
+      "category": "DimmableLight"
+    }
+  }
+}

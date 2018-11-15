@@ -1,0 +1,527 @@
+{
+  "HumDnevna -\u003e mihome:sensor_ht:158d0001c14e34:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumDnevna"
+    }
+  },
+  "DnevnaNagDrsLowBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5f10d:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaNagDrsLowBatXiaomi"
+    }
+  },
+  "TempDnevna -\u003e mihome:sensor_ht:158d0001c14e34:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempDnevna"
+    }
+  },
+  "HodnikZHumXiaomi -\u003e mihome:sensor_ht:158d0001f58033:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HodnikZHumXiaomi"
+    }
+  },
+  "OutSolarRad -\u003e exec:command:1fb12767:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "1fb12767",
+          "output"
+        ]
+      },
+      "itemName": "OutSolarRad"
+    }
+  },
+  "DnevnaDviDrsLowBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5eaf2:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eaf2",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaDviDrsLowBatXiaomi"
+    }
+  },
+  "OutFeelTemp -\u003e exec:command:67207586:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "67207586",
+          "output"
+        ]
+      },
+      "itemName": "OutFeelTemp"
+    }
+  },
+  "OutPercipToday -\u003e exec:command:16daa665:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "16daa665",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipToday"
+    }
+  },
+  "XiaomiIlluminance -\u003e mihome:gateway:286c0788c0ee:illumination": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "illumination"
+        ]
+      },
+      "itemName": "XiaomiIlluminance"
+    }
+  },
+  "OutWindDir -\u003e exec:command:928e8aea:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "928e8aea",
+          "output"
+        ]
+      },
+      "itemName": "OutWindDir"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Brightness -\u003e mihome:gateway:286c0788c0ee:brightness": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "brightness"
+        ]
+      },
+      "itemName": "XiaomiMiSmartHomeGateway_Brightness"
+    }
+  },
+  "HodnikZBatXiaomi -\u003e mihome:sensor_ht:158d0001f58033:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HodnikZBatXiaomi"
+    }
+  },
+  "OutHum -\u003e exec:command:714c315a:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "714c315a",
+          "output"
+        ]
+      },
+      "itemName": "OutHum"
+    }
+  },
+  "LowBatteryXiaomi -\u003e mihome:sensor_ht:158d0001c14e34:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LowBatteryXiaomi"
+    }
+  },
+  "DnevnaTempXiaomi -\u003e mihome:sensor_ht:158d0001c14e34:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaTempXiaomi"
+    }
+  },
+  "DnevnaDviDrsBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5eaf2:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eaf2",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaDviDrsBatXiaomi"
+    }
+  },
+  "VhodBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5eff5:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eff5",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VhodBatXiaomi"
+    }
+  },
+  "DnevnaNagDrsBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5f10d:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaNagDrsBatXiaomi"
+    }
+  },
+  "DnevnaBatXiaomi -\u003e mihome:sensor_ht:158d0001c14e34:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaBatXiaomi"
+    }
+  },
+  "HodnikZTempXiaomi -\u003e mihome:sensor_ht:158d0001f58033:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HodnikZTempXiaomi"
+    }
+  },
+  "VhodBatLowXiaomi -\u003e mihome:sensor_magnet:158d0001a5eff5:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eff5",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VhodBatLowXiaomi"
+    }
+  },
+  "TempHodnikZ -\u003e mihome:sensor_ht:158d0001f58033:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempHodnikZ"
+    }
+  },
+  "DnevnaDviDrsOpenXiaomi -\u003e mihome:sensor_magnet:158d0001a5eaf2:isOpen": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eaf2",
+          "isOpen"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaDviDrsOpenXiaomi"
+    }
+  },
+  "DnevnaHumXiaomi -\u003e mihome:sensor_ht:158d0001c14e34:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaHumXiaomi"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Color -\u003e mihome:gateway:286c0788c0ee:color": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "color"
+        ]
+      },
+      "itemName": "XiaomiMiSmartHomeGateway_Color"
+    }
+  },
+  "HumHodnikZ -\u003e mihome:sensor_ht:158d0001f58033:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumHodnikZ"
+    }
+  },
+  "VhodOpenXiaomi -\u003e mihome:sensor_magnet:158d0001a5eff5:isOpen": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eff5",
+          "isOpen"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VhodOpenXiaomi"
+    }
+  },
+  "HodnikZLowBatXiaomi -\u003e mihome:sensor_ht:158d0001f58033:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HodnikZLowBatXiaomi"
+    }
+  },
+  "DnevnaNagDrsOpenXiaomi -\u003e mihome:sensor_magnet:158d0001a5f10d:isOpen": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d",
+          "isOpen"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaNagDrsOpenXiaomi"
+    }
+  },
+  "OutPressure -\u003e exec:command:6effd09f:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "6effd09f",
+          "output"
+        ]
+      },
+      "itemName": "OutPressure"
+    }
+  },
+  "OutTemp -\u003e exec:command:79f3e398:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "79f3e398",
+          "output"
+        ]
+      },
+      "itemName": "OutTemp"
+    }
+  },
+  "OutWindSpeed -\u003e exec:command:b15d1702:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "b15d1702",
+          "output"
+        ]
+      },
+      "itemName": "OutWindSpeed"
+    }
+  },
+  "OutPercipInten -\u003e exec:command:5da38ecd:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "5da38ecd",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipInten"
+    }
+  }
+}

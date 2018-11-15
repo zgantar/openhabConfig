@@ -1,0 +1,5670 @@
+{
+  "mihome:sensor_magnet:158d0001a5eff5": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Door/Window Sensor Vhod",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Contact",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eff5",
+              "isOpen"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpen"
+            ]
+          },
+          "label": "Open Status",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eff5",
+              "lastOpened"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "lastOpened"
+            ]
+          },
+          "label": "Last Time Opened (Date/Time)",
+          "description": "Date/time when window was last opened",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eff5",
+              "isOpenAlarmTimer"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpenAlarmTimer"
+            ]
+          },
+          "label": "Alarm Timer",
+          "description": "Time in seconds, after which ALARM event is triggered, when window is open (Default 300 sec, Min 30 sec)",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eff5",
+              "isOpenAlarm"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpenAlarm"
+            ]
+          },
+          "label": "Opened window alarm",
+          "description": "Triggers ALARM event, when window sensor is not getting \"closed\" for configured amount of time",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eff5",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eff5",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001a5eff5"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eff5"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet"
+        ]
+      }
+    }
+  },
+  "zwave:serial_zstick:a0231353": {
+    "class": "org.eclipse.smarthome.core.thing.internal.BridgeImpl",
+    "value": {
+      "label": "Z-Wave Serial Controller",
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "serial_zstick",
+              "a0231353",
+              "serial_sof"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "serial_sof"
+            ]
+          },
+          "label": "Start Frames",
+          "description": "Counter tracking the number of SOF bytes received",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "serial_zstick",
+              "a0231353",
+              "serial_ack"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "serial_ack"
+            ]
+          },
+          "label": "Frames Acknowledged",
+          "description": "Counter tracking the number of frames acknowldeged by the controller",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "serial_zstick",
+              "a0231353",
+              "serial_nak"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "serial_nak"
+            ]
+          },
+          "label": "Frames Rejected",
+          "description": "Counter tracking the number of frames rejected by the controller",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "serial_zstick",
+              "a0231353",
+              "serial_can"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "serial_can"
+            ]
+          },
+          "label": "Frames Cancelled",
+          "description": "Counter tracking the number of frames cancelled by the controller",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "serial_zstick",
+              "a0231353",
+              "serial_oof"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "serial_oof"
+            ]
+          },
+          "label": "OOF Bytes Received",
+          "description": "Counter tracking the number of out of flow bytes received",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "controller_softreset": false,
+          "security_networkkey": "8B 9D EB 90 79 ED 61 D7 6B 96 AA 53 68 CA EF 11",
+          "security_inclusionmode": 0,
+          "controller_suc": false,
+          "controller_sync": false,
+          "port": "/dev/ttyACM0",
+          "controller_master": true,
+          "inclusion_mode": 2,
+          "controller_wakeupperiod": 3600,
+          "heal_time": 2,
+          "controller_exclude": false,
+          "controller_inclusiontimeout": 30,
+          "controller_hardreset": false
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "zwave",
+          "serial_zstick",
+          "a0231353"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "zwave",
+          "serial_zstick"
+        ]
+      }
+    }
+  },
+  "exec:command:928e8aea": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutwindDir",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "928e8aea",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar windDir",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "928e8aea"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_ht:158d0001c14e34": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Temperature \u0026 Humidity Sensor Dnevna",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001c14e34",
+              "temperature"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "temperature"
+            ]
+          },
+          "label": "Temperature",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001c14e34",
+              "humidity"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "humidity"
+            ]
+          },
+          "label": "Humidity",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001c14e34",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001c14e34",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001c14e34"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht"
+        ]
+      }
+    }
+  },
+  "exec:command:79f3e398": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutTemp",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "79f3e398",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar temp",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "79f3e398"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "mihome:smoke:158d0001b76b9c": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mijia Honeywell Fire Alarm Detector",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "smoke",
+              "158d0001b76b9c",
+              "density"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "density"
+            ]
+          },
+          "label": "Particle Density",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "smoke",
+              "158d0001b76b9c",
+              "alarm"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "smoke_alarm"
+            ]
+          },
+          "label": "Smoke detected",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "smoke",
+              "158d0001b76b9c",
+              "status"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "status"
+            ]
+          },
+          "label": "Status",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "smoke",
+              "158d0001b76b9c",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "smoke",
+              "158d0001b76b9c",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001b76b9c"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "smoke",
+          "158d0001b76b9c"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "smoke"
+        ]
+      }
+    }
+  },
+  "chromecast:audio:b7693ed57925d303904f1662ae824ed7": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Living Room speaker",
+      "channels": [
+        {
+          "acceptedItemType": "Player",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "control"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "control"
+            ]
+          },
+          "label": "Control",
+          "description": "Player control",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "volume"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "volume"
+            ]
+          },
+          "label": "Volume",
+          "description": "the sound volume of the device",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "mute"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "mute"
+            ]
+          },
+          "label": "Mute",
+          "description": "Set or get the mute state of the device",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "playuri"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "playuri"
+            ]
+          },
+          "label": "Play URI",
+          "description": "Plays a given URI",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "appName"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "appName"
+            ]
+          },
+          "label": "App",
+          "description": "Name of the currently running application",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "appId"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "appId"
+            ]
+          },
+          "label": "App Id",
+          "description": "Id of the currently running application",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "idling"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "idling"
+            ]
+          },
+          "label": "Idling",
+          "description": "Is Chromecast active or idling",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "statustext"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "statustext"
+            ]
+          },
+          "label": "App Status",
+          "description": "Status reported by the current application",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "currentTime"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "currentTime"
+            ]
+          },
+          "label": "Current Time",
+          "description": "Current time (in seconds) of currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "duration"
+            ]
+          },
+          "label": "Duration",
+          "description": "Length of currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "metadataType"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "metadataType"
+            ]
+          },
+          "label": "Media Type",
+          "description": "The type of the currently playing media. One of GENERIC, MOVIE, TV_SHOW, AUDIO_TRACK, PHOTO",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "albumArtist"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "albumArtist"
+            ]
+          },
+          "label": "Album Artist",
+          "description": "The name of the album\u0027s artist",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "albumName"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "albumName"
+            ]
+          },
+          "label": "Album Name",
+          "description": "The name of the album",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "artist"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "artist"
+            ]
+          },
+          "label": "Artist",
+          "description": "The name of the artist",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "broadcastDate"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "broadcastDate"
+            ]
+          },
+          "label": "Broadcast Date",
+          "description": "The broadcast date of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "composer"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "composer"
+            ]
+          },
+          "label": "Composer",
+          "description": "The composer of the current track",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "creationDate"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "creationDate"
+            ]
+          },
+          "label": "Creation Date",
+          "description": "The creation date of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "discNumber"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "discNumber"
+            ]
+          },
+          "label": "Disc Number",
+          "description": "The disc number of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "episodeNumber"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "episodeNumber"
+            ]
+          },
+          "label": "Episode Number",
+          "description": "The episode number of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Image",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "image"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "image"
+            ]
+          },
+          "label": "Image",
+          "description": "The image that represents this media. Normally cover-art or scene from a movie",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "imageSrc"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "imageSrc"
+            ]
+          },
+          "label": "Image URL",
+          "description": "The image URL that represents this media. Normally cover-art or scene from a movie",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "locationName"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "locationName"
+            ]
+          },
+          "label": "Location Name",
+          "description": "The location of where the current media was taken",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Location",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "location"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "location"
+            ]
+          },
+          "label": "Location",
+          "description": "The location of where the current media was taken",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "releaseDate"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "releaseDate"
+            ]
+          },
+          "label": "Release Date",
+          "description": "The release date of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "seasonNumber"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "seasonNumber"
+            ]
+          },
+          "label": "Season Number",
+          "description": "The season number of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "seriesTitle"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "seriesTitle"
+            ]
+          },
+          "label": "Series Title",
+          "description": "The series title of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "studio"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "studio"
+            ]
+          },
+          "label": "Studio",
+          "description": "The studio of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "subtitle"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "subtitle"
+            ]
+          },
+          "label": "Subtitle",
+          "description": "The subtitle of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "title"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "title"
+            ]
+          },
+          "label": "Title",
+          "description": "The title of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "audio",
+              "b7693ed57925d303904f1662ae824ed7",
+              "trackNumber"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "trackNumber"
+            ]
+          },
+          "label": "Track Number",
+          "description": "The track number of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "ipAddress": "192.168.1.122",
+          "port": 8009,
+          "refreshRate": 10
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "chromecast",
+          "audio"
+        ]
+      },
+      "location": "Dnevna"
+    }
+  },
+  "exec:command:6effd09f": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutPress",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "6effd09f",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar press",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "6effd09f"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "miio:unsupported:031D3F73": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "lumi-gateway-v3_miio52248435",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "miio",
+              "unsupported",
+              "031D3F73",
+              "network#ssid"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "miio",
+              "ssid"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "miio",
+              "unsupported",
+              "031D3F73",
+              "network#bssid"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "miio",
+              "bssid"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "miio",
+              "unsupported",
+              "031D3F73",
+              "network#rssi"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "miio",
+              "rssi"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "miio",
+              "unsupported",
+              "031D3F73",
+              "network#life"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "miio",
+              "life"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "miio",
+              "unsupported",
+              "031D3F73",
+              "actions#power"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "miio",
+              "power"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "miio",
+              "unsupported",
+              "031D3F73",
+              "actions#commands"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "miio",
+              "commands"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "miio",
+              "unsupported",
+              "031D3F73",
+              "actions#testcommands"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "miio",
+              "testcommands"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "host": "192.168.1.102",
+          "model": "",
+          "deviceId": "031D3F73",
+          "refreshInterval": 30,
+          "timeout": 10000,
+          "token": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+        }
+      },
+      "properties": {
+        "vendor": "Xiaomi"
+      },
+      "uid": {
+        "segments": [
+          "miio",
+          "unsupported",
+          "031D3F73"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "miio",
+          "unsupported"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_magnet:158d0001a5f10d": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Door/Window Sensor Dnevna nagibno drsna",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Contact",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "isOpen"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpen"
+            ]
+          },
+          "label": "Open Status",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "lastOpened"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "lastOpened"
+            ]
+          },
+          "label": "Last Time Opened (Date/Time)",
+          "description": "Date/time when window was last opened",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "isOpenAlarmTimer"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpenAlarmTimer"
+            ]
+          },
+          "label": "Alarm Timer",
+          "description": "Time in seconds, after which ALARM event is triggered, when window is open (Default 300 sec, Min 30 sec)",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "isOpenAlarm"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpenAlarm"
+            ]
+          },
+          "label": "Opened window alarm",
+          "description": "Triggers ALARM event, when window sensor is not getting \"closed\" for configured amount of time",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5f10d",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001a5f10d"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_switch:158d00016d77ce": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Wireless Switch",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_switch",
+              "158d00016d77ce",
+              "button"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "button"
+            ]
+          },
+          "label": "Button Event",
+          "description": "Fires when the button is pressed, double pressed or pressed for a long time (press/release)",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_switch",
+              "158d00016d77ce",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_switch",
+              "158d00016d77ce",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d00016d77ce"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_switch",
+          "158d00016d77ce"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_switch"
+        ]
+      }
+    }
+  },
+  "mihome:bridge:286c0788c0ee": {
+    "class": "org.eclipse.smarthome.core.thing.internal.BridgeImpl",
+    "value": {
+      "label": "Xiaomi Gateway",
+      "channels": [],
+      "configuration": {
+        "properties": {
+          "ipAddress": "192.168.1.102",
+          "serialNumber": "286c0788c0ee",
+          "port": 9898,
+          "key": "7j427x5auhe49ku2"
+        }
+      },
+      "properties": {
+        "vendor": "Xiaomi"
+      },
+      "uid": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "bridge"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_ht:158d0001e89688": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Temperature \u0026 Humidity Sensor hodnik spodaj",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001e89688",
+              "temperature"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "temperature"
+            ]
+          },
+          "label": "Temperature",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001e89688",
+              "humidity"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "humidity"
+            ]
+          },
+          "label": "Humidity",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001e89688",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001e89688",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001e89688"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89688"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht"
+        ]
+      }
+    }
+  },
+  "zwave:device:a0231353:node2": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "PowerPlug1",
+      "bridgeUID": {
+        "segments": [
+          "zwave",
+          "serial_zstick",
+          "a0231353"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node2",
+              "switch_binary"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "switch_binary"
+            ]
+          },
+          "label": "Switch",
+          "description": "Switch the power on and off",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:OnOffType": "SWITCH_BINARY,BASIC"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node2",
+              "meter_current"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "meter_current"
+            ]
+          },
+          "label": "Electric meter (amps)",
+          "description": "Indicates the instantaneous current consumption",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:DecimalType": "METER;type\u003dE_A"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node2",
+              "meter_kwh"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "meter_kwh"
+            ]
+          },
+          "label": "Electric meter (kWh)",
+          "description": "Indicates the energy consumption (kWh)",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:DecimalType": "METER;type\u003dE_KWh"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node2",
+              "meter_watts"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "meter_watts"
+            ]
+          },
+          "label": "Electric meter (watts)",
+          "description": "Indicates the instantaneous power consumption",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:DecimalType": "METER;type\u003dE_W"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node2",
+              "meter_voltage"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "meter_voltage"
+            ]
+          },
+          "label": "Electric meter (volts)",
+          "description": "Indicates the instantaneous voltage",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:DecimalType": "METER;type\u003dE_V"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node2",
+              "alarm_power"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "alarm_power"
+            ]
+          },
+          "label": "Alarm (power)",
+          "description": "Indicates if a power alarm is triggered",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:OnOffType": "ALARM;type\u003dPOWER_MANAGEMENT"
+          },
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "config_10_1": 1,
+          "action_failed": false,
+          "powerlevel_level": 0,
+          "group_1": [
+            "node_188_0",
+            "node_0_0"
+          ],
+          "action_remove": false,
+          "group_3": [
+            "node_190_0",
+            "node_0_0"
+          ],
+          "binding_pollperiod": 600,
+          "group_2": [
+            "node_188_0",
+            "node_0_0"
+          ],
+          "action_heal": false,
+          "config_1_1": 1,
+          "switchall_mode": 0,
+          "action_reinit": false,
+          "config_7_1": 1,
+          "config_8_1": 0,
+          "powerlevel_timeout": 0,
+          "config_9_2": 150,
+          "config_2_2": 300,
+          "config_3_1": 13,
+          "config_4_1": 12,
+          "config_5_1": 1,
+          "config_6_1": 5
+        }
+      },
+      "properties": {
+        "zwave_class_basic": "ROUTING_SLAVE",
+        "zwave_class_generic": "BINARY_SWITCH",
+        "zwave_frequent": "false",
+        "zwave_neighbours": "",
+        "zwave_version": "3.94",
+        "zwave_listening": "true",
+        "zwave_plus_devicetype": "ON_OFF_POWER_SWITCH",
+        "zwave_deviceid": "4231",
+        "zwave_nodeid": "2",
+        "zwave_routing": "true",
+        "zwave_beaming": "true",
+        "zwave_class_specific": "POWER_SWITCH_BINARY",
+        "zwave_manufacturer": "600",
+        "zwave_devicetype": "3"
+      },
+      "uid": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node2"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "zwave",
+          "shenzhen_powerplug_00_000"
+        ]
+      },
+      "location": "Energetski prostor"
+    }
+  },
+  "exec:command:5da38ecd": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutPercipInten",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "5da38ecd",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar percipInten",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "5da38ecd"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "exec:command:1fb12767": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutSolarRad",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "1fb12767",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar solarRad",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "1fb12767"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "zwave:device:a0231353:node3": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "PowerPlug2",
+      "bridgeUID": {
+        "segments": [
+          "zwave",
+          "serial_zstick",
+          "a0231353"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node3",
+              "switch_binary"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "switch_binary"
+            ]
+          },
+          "label": "Switch",
+          "description": "Switch the power on and off",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:OnOffType": "SWITCH_BINARY,BASIC"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node3",
+              "meter_current"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "meter_current"
+            ]
+          },
+          "label": "Electric meter (amps)",
+          "description": "Indicates the instantaneous current consumption",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:DecimalType": "METER;type\u003dE_A"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node3",
+              "meter_kwh"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "meter_kwh"
+            ]
+          },
+          "label": "Electric meter (kWh)",
+          "description": "Indicates the energy consumption (kWh)",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:DecimalType": "METER;type\u003dE_KWh"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node3",
+              "meter_watts"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "meter_watts"
+            ]
+          },
+          "label": "Electric meter (watts)",
+          "description": "Indicates the instantaneous power consumption",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:DecimalType": "METER;type\u003dE_W"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node3",
+              "meter_voltage"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "meter_voltage"
+            ]
+          },
+          "label": "Electric meter (volts)",
+          "description": "Indicates the instantaneous voltage",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:DecimalType": "METER;type\u003dE_V"
+          },
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "zwave",
+              "device",
+              "a0231353",
+              "node3",
+              "alarm_power"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "zwave",
+              "alarm_power"
+            ]
+          },
+          "label": "Alarm (power)",
+          "description": "Indicates if a power alarm is triggered",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {
+            "binding:*:OnOffType": "ALARM;type\u003dPOWER_MANAGEMENT"
+          },
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "config_10_1": 1,
+          "powerlevel_level": 0,
+          "group_1": [
+            "node_1_0",
+            "node_195_0",
+            "node_0_0"
+          ],
+          "group_3": [
+            "node_196_0",
+            "node_0_0"
+          ],
+          "binding_pollperiod": 600,
+          "group_2": [
+            "node_195_0",
+            "node_0_0"
+          ],
+          "config_1_1": 1,
+          "switchall_mode": 0,
+          "config_7_1": 1,
+          "config_8_1": 0,
+          "powerlevel_timeout": 0,
+          "config_9_2": 150,
+          "config_2_2": 300,
+          "config_3_1": 13,
+          "config_4_1": 12,
+          "config_5_1": 1,
+          "config_6_1": 5
+        }
+      },
+      "properties": {
+        "zwave_class_basic": "ROUTING_SLAVE",
+        "zwave_class_generic": "BINARY_SWITCH",
+        "zwave_frequent": "false",
+        "zwave_neighbours": "",
+        "zwave_version": "3.94",
+        "zwave_listening": "true",
+        "zwave_plus_devicetype": "ON_OFF_POWER_SWITCH",
+        "zwave_deviceid": "4231",
+        "zwave_nodeid": "3",
+        "zwave_routing": "true",
+        "zwave_beaming": "true",
+        "zwave_class_specific": "POWER_SWITCH_BINARY",
+        "zwave_manufacturer": "600",
+        "zwave_devicetype": "3"
+      },
+      "uid": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node3"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "zwave",
+          "shenzhen_powerplug_00_000"
+        ]
+      },
+      "location": "Dnevna"
+    }
+  },
+  "mihome:sensor_plug:158d0001a4afdc": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Smart Socket Plug Sušilec",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_plug",
+              "158d0001a4afdc",
+              "power"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "power"
+            ]
+          },
+          "label": "Power",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_plug",
+              "158d0001a4afdc",
+              "inUse"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "inUse"
+            ]
+          },
+          "label": "In Use",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_plug",
+              "158d0001a4afdc",
+              "loadPower"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "loadPower"
+            ]
+          },
+          "label": "Provided Power",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_plug",
+              "158d0001a4afdc",
+              "powerConsumed"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "powerConsumed"
+            ]
+          },
+          "label": "Power Consumed",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001a4afdc"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a4afdc"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_ht:158d0001f54681": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Temperature \u0026 Humidity Sensor rekuperacija",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001f54681",
+              "temperature"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "temperature"
+            ]
+          },
+          "label": "Temperature",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001f54681",
+              "humidity"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "humidity"
+            ]
+          },
+          "label": "Humidity",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001f54681",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001f54681",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001f54681"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f54681"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_plug:158d0001a68c94": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Smart Socket Plug skrinja",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_plug",
+              "158d0001a68c94",
+              "power"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "power"
+            ]
+          },
+          "label": "Power",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_plug",
+              "158d0001a68c94",
+              "inUse"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "inUse"
+            ]
+          },
+          "label": "In Use",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_plug",
+              "158d0001a68c94",
+              "loadPower"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "loadPower"
+            ]
+          },
+          "label": "Provided Power",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_plug",
+              "158d0001a68c94",
+              "powerConsumed"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "powerConsumed"
+            ]
+          },
+          "label": "Power Consumed",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001a68c94"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a68c94"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_magnet:158d0001a5eaf2": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Door/Window Sensor Dnevna dvižno drsna",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Contact",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eaf2",
+              "isOpen"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpen"
+            ]
+          },
+          "label": "Open Status",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eaf2",
+              "lastOpened"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "lastOpened"
+            ]
+          },
+          "label": "Last Time Opened (Date/Time)",
+          "description": "Date/time when window was last opened",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eaf2",
+              "isOpenAlarmTimer"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpenAlarmTimer"
+            ]
+          },
+          "label": "Alarm Timer",
+          "description": "Time in seconds, after which ALARM event is triggered, when window is open (Default 300 sec, Min 30 sec)",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eaf2",
+              "isOpenAlarm"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "isOpenAlarm"
+            ]
+          },
+          "label": "Opened window alarm",
+          "description": "Triggers ALARM event, when window sensor is not getting \"closed\" for configured amount of time",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eaf2",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_magnet",
+              "158d0001a5eaf2",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001a5eaf2"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eaf2"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet"
+        ]
+      }
+    }
+  },
+  "exec:command:67207586": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutFeelTemp",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "67207586",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar feelTemp",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "67207586"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_ht:158d0001e89694": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Temperature \u0026 Humidity Sensor čumnata",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001e89694",
+              "temperature"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "temperature"
+            ]
+          },
+          "label": "Temperature",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001e89694",
+              "humidity"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "humidity"
+            ]
+          },
+          "label": "Humidity",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001e89694",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001e89694",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001e89694"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89694"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht"
+        ]
+      }
+    }
+  },
+  "exec:command:714c315a": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutHum",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "714c315a",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar hum",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "714c315a"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "exec:command:16daa665": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutPercipToday",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "16daa665",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar percipToday",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "16daa665"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "mihome:sensor_ht:158d0001f58033": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Temperature \u0026 Humidity Sensor Hodnik Zgoraj",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001f58033",
+              "temperature"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "temperature"
+            ]
+          },
+          "label": "Temperature",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001f58033",
+              "humidity"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "humidity"
+            ]
+          },
+          "label": "Humidity",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001f58033",
+              "batteryLevel"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "battery-level"
+            ]
+          },
+          "label": "Battery Level",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "sensor_ht",
+              "158d0001f58033",
+              "lowBattery"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "system",
+              "low-battery"
+            ]
+          },
+          "label": "Low Battery",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "158d0001f58033"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht"
+        ]
+      }
+    }
+  },
+  "mihome:gateway:286c0788c0ee": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Xiaomi Mi Smart Home Gateway",
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "brightness"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "brightness"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": [
+            "Lighting"
+          ]
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "illumination"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "illumination"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Color",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "color"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "color"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": [
+            "Lighting"
+          ]
+        },
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "colorTemperature"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "colorTemperature"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": [
+            "ColorTemperature"
+          ]
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "enableSound"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "enableSound"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "sound"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "sound"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mihome",
+              "gateway",
+              "286c0788c0ee",
+              "volume"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mihome",
+              "volume"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "itemId": "286c0788c0ee"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "gateway"
+        ]
+      }
+    }
+  },
+  "exec:command:b15d1702": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "OutWindSpeed",
+      "channels": [
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "output"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "output"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "input"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "input"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "exit"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "exit"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "run"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "run"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "exec",
+              "command",
+              "b15d1702",
+              "lastexecution"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "exec",
+              "lastexecution"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "transform": "REGEX((.*))",
+          "autorun": false,
+          "interval": 300.0,
+          "command": "java -jar /etc/openhab2/scripts/ZevsParser.jar windSpeed",
+          "timeout": 15.0
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "exec",
+          "command",
+          "b15d1702"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "exec",
+          "command"
+        ]
+      }
+    }
+  },
+  "chromecast:chromecast:6d2598bc4e820c6f33a505c1d6f5ffd3": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Living Room TV",
+      "channels": [
+        {
+          "acceptedItemType": "Player",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "control"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "control"
+            ]
+          },
+          "label": "Control",
+          "description": "Player control",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Dimmer",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "volume"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "volume"
+            ]
+          },
+          "label": "Volume",
+          "description": "the sound volume of the device",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "mute"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "mute"
+            ]
+          },
+          "label": "Mute",
+          "description": "Set or get the mute state of the device",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "playuri"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "playuri"
+            ]
+          },
+          "label": "Play URI",
+          "description": "Plays a given URI",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "appName"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "appName"
+            ]
+          },
+          "label": "App",
+          "description": "Name of the currently running application",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "appId"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "appId"
+            ]
+          },
+          "label": "App Id",
+          "description": "Id of the currently running application",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "idling"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "idling"
+            ]
+          },
+          "label": "Idling",
+          "description": "Is Chromecast active or idling",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "statustext"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "statustext"
+            ]
+          },
+          "label": "App Status",
+          "description": "Status reported by the current application",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "currentTime"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "currentTime"
+            ]
+          },
+          "label": "Current Time",
+          "description": "Current time (in seconds) of currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "duration"
+            ]
+          },
+          "label": "Duration",
+          "description": "Length of currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "metadataType"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "metadataType"
+            ]
+          },
+          "label": "Media Type",
+          "description": "The type of the currently playing media. One of GENERIC, MOVIE, TV_SHOW, AUDIO_TRACK, PHOTO",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "albumArtist"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "albumArtist"
+            ]
+          },
+          "label": "Album Artist",
+          "description": "The name of the album\u0027s artist",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "albumName"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "albumName"
+            ]
+          },
+          "label": "Album Name",
+          "description": "The name of the album",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "artist"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "artist"
+            ]
+          },
+          "label": "Artist",
+          "description": "The name of the artist",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "broadcastDate"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "broadcastDate"
+            ]
+          },
+          "label": "Broadcast Date",
+          "description": "The broadcast date of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "composer"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "composer"
+            ]
+          },
+          "label": "Composer",
+          "description": "The composer of the current track",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "creationDate"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "creationDate"
+            ]
+          },
+          "label": "Creation Date",
+          "description": "The creation date of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "discNumber"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "discNumber"
+            ]
+          },
+          "label": "Disc Number",
+          "description": "The disc number of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "episodeNumber"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "episodeNumber"
+            ]
+          },
+          "label": "Episode Number",
+          "description": "The episode number of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Image",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "image"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "image"
+            ]
+          },
+          "label": "Image",
+          "description": "The image that represents this media. Normally cover-art or scene from a movie",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "imageSrc"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "imageSrc"
+            ]
+          },
+          "label": "Image URL",
+          "description": "The image URL that represents this media. Normally cover-art or scene from a movie",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "locationName"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "locationName"
+            ]
+          },
+          "label": "Location Name",
+          "description": "The location of where the current media was taken",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Location",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "location"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "location"
+            ]
+          },
+          "label": "Location",
+          "description": "The location of where the current media was taken",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "releaseDate"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "releaseDate"
+            ]
+          },
+          "label": "Release Date",
+          "description": "The release date of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "seasonNumber"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "seasonNumber"
+            ]
+          },
+          "label": "Season Number",
+          "description": "The season number of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "seriesTitle"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "seriesTitle"
+            ]
+          },
+          "label": "Series Title",
+          "description": "The series title of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "studio"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "studio"
+            ]
+          },
+          "label": "Studio",
+          "description": "The studio of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "subtitle"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "subtitle"
+            ]
+          },
+          "label": "Subtitle",
+          "description": "The subtitle of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "title"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "title"
+            ]
+          },
+          "label": "Title",
+          "description": "The title of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "chromecast",
+              "chromecast",
+              "6d2598bc4e820c6f33a505c1d6f5ffd3",
+              "trackNumber"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "chromecast",
+              "trackNumber"
+            ]
+          },
+          "label": "Track Number",
+          "description": "The track number of the currently playing media",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "ipAddress": "192.168.1.108",
+          "port": 8009,
+          "refreshRate": 10
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "chromecast",
+          "chromecast",
+          "6d2598bc4e820c6f33a505c1d6f5ffd3"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "chromecast",
+          "chromecast"
+        ]
+      },
+      "location": "Dnevna"
+    }
+  }
+}

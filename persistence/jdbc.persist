@@ -3,8 +3,8 @@ Strategies {
 	everyFiveMinutes	: "0 */5 * * * ?"
 	everyTenMinutes		: "0 */10 * * * ?"
 	everyCourterHour	: "0 */15 * * * ?"
-	everyHour			: "0 0 * * * ?"
-	everyDay			: "0 0 0 * * ?"
+	everyHour		: "0 0 * * * ?"
+	everyDay		: "0 0 0 * * ?"
 
 	// If no strategy is specified for an item entry below, the default list will be used.
 	default = everyChange 
@@ -16,24 +16,48 @@ Strategies {
  * item (excl. the group item itself).
  */
 Items {
-	Temp* : strategy = restoreOnStartup
+	Temp* : strategy = everyFiveMinutes, restoreOnStartup
 	Hum* : strategy = everyFiveMinutes, restoreOnStartup
-	Lum* : strategy = everyFiveMinutes, restoreOnStartup
-	Mot* : strategy = everyChange, restoreOnStartup
+	// Lum* : strategy = everyFiveMinutes, restoreOnStartup
+	// Mot* : strategy = everyChange, restoreOnStartup
+	
+	//ogrevanje
+	Override: strategy = everyChange, restoreOnStartup
+	Heating: strategy = everyChange, restoreOnStartup
 	Log* : strategy = everyChange, restoreOnStartup
 	Fhs* : strategy = everyChange, restoreOnStartup
 	Set* : strategy = everyChange, restoreOnStartup
-	Out* : strategy = everyFiveMinutes, restoreOnStartup
+	Dif* : strategy = everyChange, restoreOnStartup	
 	Man* : strategy = everyChange, restoreOnStartup
-	BlindAct* : strategy = everyChange
-	BlindSwi* : strategy = everyChange
-	BlindLog* : strategy = everyChange, restoreOnStartup
-	State* : strategy = everyChange, restoreOnStartup
-	All* : strategy = everyChange, restoreOnStartup
 
-	Override: strategy = everyChange, restoreOnStartup
-	Heating: strategy = everyChange, restoreOnStartup
-	LowElectricity: strategy = everyChange, restoreOnStartup
+	//zunanji podatki
+	Out* : strategy = everyFiveMinutes, restoreOnStartup
 	
+	//vrata in alarm
+	Alarm* : strategy = everyChange, restoreOnStartup
+	Door* : strategy = everyChange, restoreOnStartup
+
+	//elektrika
+	LowElectricity: strategy = everyChange, restoreOnStartup
+	Power* : strategy = everyFiveMinutes, restoreOnStartup
+	Consumption* : strategy = everyCourterHour, restoreOnStartup
+	InUse* : strategy = everyChange, restoreOnStartup
+	CalcConsHour* : strategy = everyHour, restoreOnStartup
+	CalcConsDay* : strategy = everyDay, restoreOnStartup
+	PlugSwitch* : strategy = everyChange, restoreOnStartup
+
+	//smoke
+	Smoke :	strategy = everyChange, restoreOnStartup
+	//žaluzije
+	// BlindAct* : strategy = everyChange
+	// BlindSwi* : strategy = everyChange
+	// BlindLog* : strategy = everyChange, restoreOnStartup
+	// BlindState* : strategy = everyChange
+	
+	//dodatne
+	Other* : strategy = everyChange, restoreOnStartup
+	All* : strategy = everyChange, restoreOnStartup
+	TimeSetter* : strategy = everyChange, restoreOnStartup
+
 	undefined : strategy = everyFiveMinutes, restoreOnStartup
 }

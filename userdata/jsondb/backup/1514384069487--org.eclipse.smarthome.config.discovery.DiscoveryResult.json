@@ -1,0 +1,35 @@
+{
+  "mihome:sensor_magnet:158d0001a5eff5": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "286c0788c0ee"
+        ]
+      },
+      "thingUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eff5"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet"
+        ]
+      },
+      "properties": {
+        "itemId": "158d0001a5eff5"
+      },
+      "representationProperty": "itemId",
+      "flag": "NEW",
+      "label": "Xiaomi Door/Window Sensor",
+      "timestamp": 1514384069486,
+      "timeToLive": -1
+    }
+  }
+}

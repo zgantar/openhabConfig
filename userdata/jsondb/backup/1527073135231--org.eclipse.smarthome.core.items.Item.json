@@ -1,0 +1,879 @@
+{
+  "PowerPlug2_Switch": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Switch",
+      "category": "Switch"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_BatteryLevel": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "XiaomiMiSmartSocketPlugBojler_InUse": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "In Use"
+    }
+  },
+  "XiaomiMiSmartSocketPlugSusilec_InUse": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "In Use"
+    }
+  },
+  "LivingRoomSpeaker_Artist": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Artist"
+    }
+  },
+  "HodnikZHumXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Humidity",
+      "category": "Humidity"
+    }
+  },
+  "LivingRoomSpeaker_Volume": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Dimmer",
+      "tags": [],
+      "label": "Volume",
+      "category": "SoundVolume"
+    }
+  },
+  "PowerPlug1_Switch": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Switch",
+      "category": "Switch"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorCumnata_LowBattery": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "LivingRoomSpeaker_MediaType": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Media Type"
+    }
+  },
+  "PowerPlug2_ElectricMeterKWh": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Electric meter (kWh)",
+      "category": "Energy"
+    }
+  },
+  "VhodBatLowXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "LivingRoomSpeaker_Image": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Image",
+      "tags": [],
+      "label": "Image"
+    }
+  },
+  "PowerPlug2_AlarmPower": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Alarm (power)",
+      "category": "Door"
+    }
+  },
+  "DnevnaHumXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Humidity",
+      "category": "Humidity"
+    }
+  },
+  "TempCumnata": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Čumnata temperatura",
+      "category": "Temperature"
+    }
+  },
+  "TempRekuperacija": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Rekuperacija temperatura",
+      "category": "Temperature"
+    }
+  },
+  "XiaomiMiSmartSocketPlugSusilec_PowerConsumed": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Poraba sušilec",
+      "category": "PowerOutlet"
+    }
+  },
+  "XiaomiMiSmartSocketPlugBojler_ProvidedPower": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Power"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Trenutna moč skrinja"
+    }
+  },
+  "Plug4_kWh": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Poraba sušilec",
+      "category": "Energy"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Color": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Color",
+      "tags": [],
+      "label": "Color",
+      "category": "ColorLight"
+    }
+  },
+  "LivingRoomSpeaker_AlbumName": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Album Name"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_Status": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Status"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_LowBattery": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "XiaomiMiSmartSocketPlugSusilec_ProvidedPower": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Power"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Trenutna priključna moč sušilec",
+      "category": "PowerOutlet"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_LowBattery": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "LivingRoomTV_Control": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Player",
+      "tags": [],
+      "label": "Control"
+    }
+  },
+  "LivingRoomSpeaker_Subtitle": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Subtitle"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_ParticleDensity": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Particle Density"
+    }
+  },
+  "Plug2_kWh": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Poraba dnevna",
+      "category": "Energy"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_Temperature": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Temperature",
+      "category": "Temperature"
+    }
+  },
+  "DnevnaNagDrsBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "DnevnaDviDrsBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "HumRekuperacija": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Hum"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Rekuperacija vlažnost",
+      "category": "Humidity"
+    }
+  },
+  "LivingRoomSpeaker_App": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "App"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_SoundSelector": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Sound Selector",
+      "category": "Speaker"
+    }
+  },
+  "OpenDoor": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "baseItemType": "Contact",
+      "groupNames": [],
+      "itemType": "Group",
+      "tags": [],
+      "label": "Door sensors",
+      "category": "Contact",
+      "functionName": "AND",
+      "functionParams": [
+        "CLOSED",
+        "OPEN"
+      ]
+    }
+  },
+  "XiaomiMiSmartSocketPlugBojler_Power": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Stikalo skrinja",
+      "category": "Switch"
+    }
+  },
+  "DnevnaDviDrsLowBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "TestZaluzije": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Rollershutter",
+      "tags": [],
+      "label": "Test Žaluzije",
+      "category": "Rollershutter"
+    }
+  },
+  "LivingRoomSpeaker_AppStatus": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "App Status"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_LowBattery": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "LivingRoomSpeaker_AlbumArtist": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Album Artist"
+    }
+  },
+  "PowerPlug1_ElectricMeterWatts": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Power"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Electric meter (watts)",
+      "category": "Energy"
+    }
+  },
+  "LowBatteryXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "PowerPlug1_ElectricMeterKWh": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Electric meter (kWh)",
+      "category": "Energy"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_SmokeDetected": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Smoke detected",
+      "category": "Smoke"
+    }
+  },
+  "XiaomiMiSmartSocketPlugSusilec_Power": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Stikalo sušilec",
+      "category": "Switch"
+    }
+  },
+  "Plug1_kWh": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Poraba bojler",
+      "category": "Energy"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Brightness": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Dimmer",
+      "tags": [],
+      "label": "Brightness",
+      "category": "DimmableLight"
+    }
+  },
+  "DnevnaTempXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Temperatura dnevna",
+      "category": "Temperature"
+    }
+  },
+  "DnevnaBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "HodnikZLowBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "LivingRoomSpeaker_Title": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Title"
+    }
+  },
+  "HumHodnikS": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Hum"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Hodnik spodaj vlažnost",
+      "category": "Humidity"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_Humidity": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Humidity",
+      "category": "Humidity"
+    }
+  },
+  "PowerPlug2_ElectricMeterAmps": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Electric meter (amps)",
+      "category": "Energy"
+    }
+  },
+  "VhodOpenXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "OpenDoor"
+      ],
+      "itemType": "Contact",
+      "tags": [],
+      "label": "Open Status",
+      "category": "Contact"
+    }
+  },
+  "VhodBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorCumnata_BatteryLevel": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "OutTemp_Output": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Output"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_Temperature": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Temperature",
+      "category": "Temperature"
+    }
+  },
+  "PowerPlug1_AlarmPower": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Alarm (power)",
+      "category": "Door"
+    }
+  },
+  "LivingRoomTV_Volume": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Dimmer",
+      "tags": [],
+      "label": "Volume",
+      "category": "SoundVolume"
+    }
+  },
+  "DnevnaNagDrsOpenXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "OpenDoor"
+      ],
+      "itemType": "Contact",
+      "tags": [],
+      "label": "Open Status",
+      "category": "Contact"
+    }
+  },
+  "HodnikZTempXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Temperatura hodnik zgoraj",
+      "category": "Temperature"
+    }
+  },
+  "DnevnaNagDrsLowBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Low Battery",
+      "category": "Battery"
+    }
+  },
+  "XiaomiIlluminance": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Illumination",
+      "category": "Illumination"
+    }
+  },
+  "LivingRoomSpeaker_Control": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Player",
+      "tags": [],
+      "label": "Control"
+    }
+  },
+  "HodnikZBatXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_BatteryLevel": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "PowerPlug2_ElectricMeterWatts": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Power"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Electric meter (watts)",
+      "category": "Energy"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_SoundVolume": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Dimmer",
+      "tags": [],
+      "label": "Sound Volume",
+      "category": "SoundVolume"
+    }
+  },
+  "XiaomiMiSmartSocketPlugBojler_PowerConsumed": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Poraba skrinja",
+      "category": "PowerOutlet"
+    }
+  },
+  "PowerPlug1_ElectricMeterAmps": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Electric meter (amps)",
+      "category": "Energy"
+    }
+  },
+  "LivingRoomSpeaker_PlayURI": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Play URI"
+    }
+  },
+  "DnevnaDviDrsOpenXiaomi": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "OpenDoor"
+      ],
+      "itemType": "Contact",
+      "tags": [],
+      "label": "Open Status",
+      "category": "Contact"
+    }
+  },
+  "RockRadioSI_URL": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "RockRadioSI",
+      "category": "URL"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_BatteryLevel": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "HumCumnata": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Hum"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Čumnata vlažnost",
+      "category": "Humidity"
+    }
+  },
+  "LivingRoomSpeaker_Mute": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "tags": [],
+      "label": "Mute"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorCumnata_Humidity": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Humidity",
+      "category": "Humidity"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_Humidity": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Humidity",
+      "category": "Humidity"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorCumnata_Temperature": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Temperature",
+      "category": "Temperature"
+    }
+  },
+  "Plug3_kWh": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Poraba avtomatika",
+      "category": "Energy"
+    }
+  }
+}

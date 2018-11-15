@@ -1,0 +1,20 @@
+{
+  "XiaomiMiSmartHomeGateway_Illumination": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Illumination"
+    }
+  },
+  "OutTemp_Output": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "tags": [],
+      "label": "Output"
+    }
+  }
+}

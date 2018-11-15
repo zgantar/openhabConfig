@@ -1,10 +1,15 @@
-sitemap hisa label="Žaluzije za rezidenco Gantar" {
+sitemap zaluzije label="Žaluzije za rezidenco Gantar" {
 
 	Frame label="Vse žaluzije" icon="blinds" {
 		Switch item=AllCompleteDo
 		Switch item=AllCompleteUp
 		Switch item=AllPeek
 		Switch item=AllPeekClose
+	}
+	
+	Frame label="Povezave" {
+		Text item=SitemapZalDnevna
+		Text item=SitemapZalKabinet
 	}
 	
 	Frame label="Kabinet" icon="blinds" {
@@ -24,20 +29,20 @@ sitemap hisa label="Žaluzije za rezidenco Gantar" {
 	}
 	
 	Frame label="Spalnica" icon="blinds" {
-		Switch item=ZalSpalnicaLowActDo
-		Switch item=ZalSpalnicaLowActUp
-		Text item=StateSpalnicaLowAct
+		Switch item=ZalSpalnicaDo
+		Switch item=ZalSpalnicaUp
+		Text item=StateSpalnica
 	}
 	
 	Frame label="Aljaž" icon="blinds" {
-		Switch item=ZalAljazLowActDo
-		Switch item=ZalAljazLowActUp
-		Text item=StateAljazLowAct
+		Switch item=ZalAljazDo
+		Switch item=ZalAljazUp
+		Text item=StateAljaz
 	}
 	
 	Frame label="Julija" icon="blinds" {
-		Switch item=ZalJulijaLowActDo
-		Switch item=ZalJulijaLowActUp
-		Text item=StateJulijaLowAct
+		Switch item=ZalJulijaDo
+		Switch item=ZalJulijaUp
+		Text item=StateJulija
 	}
 }

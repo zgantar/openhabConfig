@@ -1,0 +1,186 @@
+import org.eclipse.xtext.xbase.lib.*
+
+val Functions$Function2 getStringFromItem = [ 
+	SwitchItem item,
+	int whatToGet|
+	
+	var String returnString = null
+	switch whatToGet{
+		case 1: {
+				logInfo("blinds", "Iščemo ukaz " + item.name.substring(item.name.length - 2, item.name.length))
+				returnString = item.name.substring(item.name.length - 2, item.name.length)
+			}
+		case 2: {
+				logInfo("blinds", "Iščemo ime " + item.name.substring(3, item.name.length - 2))
+				returnString = item.name.substring(3, item.name.length - 2)
+			}
+		case 3: {
+				logInfo("blinds", "Iščemo ime z ukazom " + item.name.substring(3, item.name.length))
+				returnString = item.name.substring(3, item.name.length)
+			}
+		case 4: {
+				logInfo("blinds", "Iščemo nasprotno ime z ukazom")
+				if (item.name.substring(item.name.length - 2, item.name.length).toString.equals("Up")) {
+					logInfo("blinds", "Iščemo nasprotno ime z ukazom " + item.name.substring(3, item.name.length - 2).concat("Do"))
+					returnString = item.name.substring(3, item.name.length - 2).concat("Do")
+				} else {
+					logInfo("blinds", "Iščemo nasprotno ime z ukazom " + item.name.substring(3, item.name.length - 2).concat("Up"))
+					returnString = item.name.substring(3, item.name.length - 2).concat("Up")
+				}
+			}
+	}
+	return returnString
+]
+
+val Functions$Function2 checkActItem = [
+	SwitchItem item,
+	Functions$Function2 getStringFromItem|
+	
+	logInfo("blinds", "Preverjam prožitev aktuatorja - " + item.toString)
+	var boolean orderedMove = false
+	val boolean lowAct = !item.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
+	if (if(!lowAct)item.state == ON else item.state == OFF) {
+		val nameWithCommand = getStringFromItem.apply(item, 3).toString
+		var swiItem = BlindSwi.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithCommand)).head
+		if (swiItem != null && swiItem.state == OFF) {
+			orderedMove = true
+			logInfo("blinds", "Ime fizičnega stikala za ta aktuator je - " + swiItem.toString)
+		}
+		var logItem = BlindLog.members.filter(filtItem|filtItem.name.containsIgnoreCase(nameWithCommand)).head
+		if (logItem != null && logItem.state == ON) {
+			orderedMove = true
+			logInfo("blinds", "Ime logičnega stikala za ta aktuator je - " + logItem.toString)
+		}
+		var peekItem = BlindsPeek.members.filter(filtItem|filtItem.name.containsIgnoreCase(getStringFromItem.apply(item, 2))).head
+		if (peekItem != null && peekItem.state == ON) {
+			orderedMove = true
+			logInfo("blinds", "Ime logičnega premik stikala za ta aktuator je - " + peekItem.toString)
+			
+		}
+		//checking to see if the IO has gone bannanas
+		if (orderedMove) {
+			logInfo("blinds", "Ukaz za premik žaluzij je bil izdan, zato pustmo stat!")
+		} else {
+			logInfo("blinds", "Ukaz za premik žaluzij ni bil izdan, zato preklicujem premik žaluzij!")
+			if (!lowAct)item.sendCommand(OFF) else item.sendCommand(ON)
+		}
+	} else {
+		logInfo("blinds", "Aktuator se je izklopil " + item.toString)
+	}
+	return true
+]
+
+
+//Kabinet
+rule "Kabinet blind close check"
+when
+	Item ActKabinetDo changed
+then
+	logInfo("blinds", "###############Kabinet žaluzije dol preverjam ali napaka#####################")
+	checkActItem.apply(ActKabinetDo,getStringFromItem)
+	logInfo("blinds", "###############Konec kabinet žaluzije dol preverjam ali napaka#####################")
+end
+
+rule "Kabinet blind open check"
+when
+	Item ActKabinetUp changed
+then
+	logInfo("blinds", "###############Kabinet žaluzije gor preverjam ali napaka#####################")
+	checkActItem.apply(ActKabinetUp,getStringFromItem)
+	logInfo("blinds", "###############Konec kabinet žaluzije gor preverjam ali napaka#####################")
+end
+
+//Dnevna desno
+rule "Dnevna desno blind close check"
+when
+	Item ActDnevnaDesDo changed
+then
+	logInfo("blinds", "###############Dnevna desno žaluzije dol preverjam ali napaka#####################")
+	checkActItem.apply(ActDnevnaDesDo,getStringFromItem)
+	logInfo("blinds", "###############Konec dnevna desno žaluzije dol preverjam ali napaka#####################")
+end
+
+rule "Dnevna desno blind open check"
+when
+	Item ActDnevnaDesUp changed
+then
+	logInfo("blinds", "###############Dnevna desno žaluzije gor preverjam ali napaka#####################")
+	checkActItem.apply(ActDnevnaDesUp,getStringFromItem)
+	logInfo("blinds", "###############Konec dnevna desno žaluzije gor preverjam ali napaka#####################")
+end
+
+//Dnevna levo
+rule "Dnevna levo blind close check"
+when
+	Item ActDnevnaLevDo changed
+then
+	logInfo("blinds", "###############Dnevna levo žaluzije dol preverjam ali napaka#####################")
+	checkActItem.apply(ActDnevnaLevDo,getStringFromItem)
+	logInfo("blinds", "###############Konec dnevna levo žaluzije dol preverjam ali napaka#####################")
+end
+
+rule "Dnevna levo blind open check"
+when
+	Item ActDnevnaLevUp changed
+then
+	logInfo("blinds", "###############Dnevna levo žaluzije gor preverjam ali napaka#####################")
+	checkActItem.apply(ActDnevnaLevUp,getStringFromItem)
+	logInfo("blinds", "###############Konec dnevna levo žaluzije gor preverjam ali napaka#####################")
+end
+
+//Spalnica
+rule "Spalnica blind close check"
+when
+	Item ActSpalnicaDo changed
+then
+	logInfo("blinds", "###############Spalnica žaluzije dol preverjam ali napaka#####################")
+	checkActItem.apply(ActSpalnicaDo,getStringFromItem)
+	logInfo("blinds", "###############Konec spalnica žaluzije dol preverjam ali napaka#####################")
+end
+
+rule "Spalnica blind open check"
+when
+	Item ActSpalnicaUp changed
+then
+	logInfo("blinds", "###############Spalnica žaluzije gor preverjam ali napaka#####################")
+	checkActItem.apply(ActSpalnicaUp,getStringFromItem)
+	logInfo("blinds", "###############Konec spalnica žaluzije gor preverjam ali napaka#####################")
+end
+
+//Aljaž
+rule "Aljaz blind close check"
+when
+	Item ActAljazDo changed
+then
+	logInfo("blinds", "###############Aljaž žaluzije dol preverjam ali napaka#####################")
+	checkActItem.apply(ActAljazDo,getStringFromItem)
+	logInfo("blinds", "###############Konec Aljaž žaluzije dol preverjam ali napaka#####################")
+end
+
+rule "Aljaz blind open check"
+when
+	Item ActAljazUp changed
+then
+	logInfo("blinds", "###############Julija žaluzije gor preverjam ali napaka#####################")
+	checkActItem.apply(ActAljazUp,getStringFromItem)
+	logInfo("blinds", "###############Konec Aljaž žaluzije gor preverjam ali napaka#####################")
+end
+
+//Julija
+rule "Julija blind close check"
+when
+	Item ActJulijaDo changed
+then
+	logInfo("blinds", "###############Julija žaluzije dol preverjam ali napaka#####################")
+	checkActItem.apply(ActJulijaDo,getStringFromItem)
+	logInfo("blinds", "###############Konec Julija žaluzije dol preverjam ali napaka#####################")
+end
+
+rule "Julija blind open check"
+when
+	Item ActJulijaUp changed
+then
+	logInfo("blinds", "###############Julija žaluzije gor preverjam ali napaka#####################")
+	checkActItem.apply(ActJulijaUp,getStringFromItem)
+	logInfo("blinds", "###############Konec Julija žaluzije gor preverjam ali napaka#####################")
+end

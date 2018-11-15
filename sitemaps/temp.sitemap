@@ -1,0 +1,5 @@
+sitemap temp label="Trenutni prožilci" {
+	Frame label="Krneki" icon="switch" {
+		Switch item=Trigger
+	}
+}

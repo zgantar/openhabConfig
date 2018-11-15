@@ -1,0 +1,11 @@
+
+*.txt
+
+openhab2/cache/
+
+openhab2/tmp/
+
+userdata/cache/
+
+userdata/tmp/
+scripts/TinkerforgeDS.jar

@@ -1,0 +1,1593 @@
+{
+  "Plug3_kWh -\u003e mihome:sensor_plug:158d0001a68c94:powerConsumed": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a68c94",
+          "powerConsumed"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Plug3_kWh"
+    }
+  },
+  "HumDnevna -\u003e mihome:sensor_ht:158d0001c14e34:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumDnevna"
+    }
+  },
+  "DnevnaNagDrsLowBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5f10d:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaNagDrsLowBatXiaomi"
+    }
+  },
+  "DnevnaDviDrsLowBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5eaf2:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eaf2",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaDviDrsLowBatXiaomi"
+    }
+  },
+  "OutSolarRad -\u003e exec:command:1fb12767:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "1fb12767",
+          "output"
+        ]
+      },
+      "itemName": "OutSolarRad"
+    }
+  },
+  "XiaomiIlluminance -\u003e mihome:gateway:286c0788c0ee:illumination": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "illumination"
+        ]
+      },
+      "itemName": "XiaomiIlluminance"
+    }
+  },
+  "OutWindDir -\u003e exec:command:928e8aea:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "928e8aea",
+          "output"
+        ]
+      },
+      "itemName": "OutWindDir"
+    }
+  },
+  "HodnikZBatXiaomi -\u003e mihome:sensor_ht:158d0001f58033:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HodnikZBatXiaomi"
+    }
+  },
+  "TempRekuperacija -\u003e mihome:sensor_ht:158d0001f54681:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f54681",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempRekuperacija"
+    }
+  },
+  "DnevnaDviDrsBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5eaf2:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eaf2",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaDviDrsBatXiaomi"
+    }
+  },
+  "TempCumnata -\u003e mihome:sensor_ht:158d0001e89694:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89694",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempCumnata"
+    }
+  },
+  "LivingRoomSpeaker_AppStatus -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:statustext": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "statustext"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_AppStatus"
+    }
+  },
+  "HodnikZTempXiaomi -\u003e mihome:sensor_ht:158d0001f58033:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HodnikZTempXiaomi"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorCumnata_LowBattery -\u003e mihome:sensor_ht:158d0001e89694:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89694",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorCumnata_LowBattery"
+    }
+  },
+  "XiaomiMiSmartSocketPlugSusilec_InUse -\u003e mihome:sensor_plug:158d0001a4afdc:inUse": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a4afdc",
+          "inUse"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartSocketPlugSusilec_InUse"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_BatteryLevel -\u003e mihome:smoke:158d0001b76b9c:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "smoke",
+          "158d0001b76b9c",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMijiaHoneywellFireAlarmDetector_BatteryLevel"
+    }
+  },
+  "LivingRoomSpeaker_App -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:appName": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "appName"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_App"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_LowBattery -\u003e mihome:sensor_ht:158d0001e89688:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89688",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_LowBattery"
+    }
+  },
+  "DnevnaHumXiaomi -\u003e mihome:sensor_ht:158d0001c14e34:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaHumXiaomi"
+    }
+  },
+  "VhodOpenXiaomi -\u003e mihome:sensor_magnet:158d0001a5eff5:isOpen": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eff5",
+          "isOpen"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VhodOpenXiaomi"
+    }
+  },
+  "OutPressure -\u003e exec:command:6effd09f:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "6effd09f",
+          "output"
+        ]
+      },
+      "itemName": "OutPressure"
+    }
+  },
+  "OutTemp -\u003e exec:command:79f3e398:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "79f3e398",
+          "output"
+        ]
+      },
+      "itemName": "OutTemp"
+    }
+  },
+  "LivingRoomSpeaker_AlbumName -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:albumName": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "albumName"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_AlbumName"
+    }
+  },
+  "OutWindSpeed -\u003e exec:command:b15d1702:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "b15d1702",
+          "output"
+        ]
+      },
+      "itemName": "OutWindSpeed"
+    }
+  },
+  "PowerPlug2_ElectricMeterWatts -\u003e zwave:device:a0231353:node3:meter_watts": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node3",
+          "meter_watts"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug2_ElectricMeterWatts"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_Status -\u003e mihome:smoke:158d0001b76b9c:status": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "smoke",
+          "158d0001b76b9c",
+          "status"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMijiaHoneywellFireAlarmDetector_Status"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_ParticleDensity -\u003e mihome:smoke:158d0001b76b9c:density": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "smoke",
+          "158d0001b76b9c",
+          "density"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMijiaHoneywellFireAlarmDetector_ParticleDensity"
+    }
+  },
+  "PowerPlug1_Switch -\u003e zwave:device:a0231353:node2:switch_binary": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node2",
+          "switch_binary"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug1_Switch"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_SoundSelector -\u003e mihome:gateway:286c0788c0ee:sound": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "sound"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartHomeGateway_SoundSelector"
+    }
+  },
+  "TempDnevna -\u003e mihome:sensor_ht:158d0001c14e34:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempDnevna"
+    }
+  },
+  "LivingRoomSpeaker_AlbumArtist -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:albumArtist": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "albumArtist"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_AlbumArtist"
+    }
+  },
+  "HodnikZHumXiaomi -\u003e mihome:sensor_ht:158d0001f58033:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HodnikZHumXiaomi"
+    }
+  },
+  "PowerPlug2_AlarmPower -\u003e zwave:device:a0231353:node3:alarm_power": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node3",
+          "alarm_power"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug2_AlarmPower"
+    }
+  },
+  "OutFeelTemp -\u003e exec:command:67207586:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "67207586",
+          "output"
+        ]
+      },
+      "itemName": "OutFeelTemp"
+    }
+  },
+  "OutPercipToday -\u003e exec:command:16daa665:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "16daa665",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipToday"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Brightness -\u003e mihome:gateway:286c0788c0ee:brightness": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "brightness"
+        ]
+      },
+      "itemName": "XiaomiMiSmartHomeGateway_Brightness"
+    }
+  },
+  "LivingRoomSpeaker_Volume -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:volume": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "volume"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_Volume"
+    }
+  },
+  "LivingRoomTV_Volume -\u003e chromecast:chromecast:6d2598bc4e820c6f33a505c1d6f5ffd3:volume": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "chromecast",
+          "6d2598bc4e820c6f33a505c1d6f5ffd3",
+          "volume"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomTV_Volume"
+    }
+  },
+  "XiaomiMiSmartSocketPlugBojler_ProvidedPower -\u003e mihome:sensor_plug:158d0001a68c94:loadPower": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a68c94",
+          "loadPower"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartSocketPlugBojler_ProvidedPower"
+    }
+  },
+  "PowerPlug1_AlarmPower -\u003e zwave:device:a0231353:node2:alarm_power": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node2",
+          "alarm_power"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug1_AlarmPower"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_Humidity -\u003e mihome:sensor_ht:158d0001f54681:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f54681",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorRekuperacija_Humidity"
+    }
+  },
+  "XiaomiMiSmartSocketPlugSusilec_Power -\u003e mihome:sensor_plug:158d0001a4afdc:power": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a4afdc",
+          "power"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartSocketPlugSusilec_Power"
+    }
+  },
+  "DnevnaNagDrsBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5f10d:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaNagDrsBatXiaomi"
+    }
+  },
+  "LivingRoomSpeaker_Subtitle -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:subtitle": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "subtitle"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_Subtitle"
+    }
+  },
+  "DnevnaDviDrsOpenXiaomi -\u003e mihome:sensor_magnet:158d0001a5eaf2:isOpen": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eaf2",
+          "isOpen"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaDviDrsOpenXiaomi"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_LowBattery -\u003e mihome:sensor_ht:158d0001f54681:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f54681",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorRekuperacija_LowBattery"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_Temperature -\u003e mihome:sensor_ht:158d0001f54681:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f54681",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorRekuperacija_Temperature"
+    }
+  },
+  "HumHodnikS -\u003e mihome:sensor_ht:158d0001e89688:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89688",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumHodnikS"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_LowBattery -\u003e mihome:smoke:158d0001b76b9c:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "smoke",
+          "158d0001b76b9c",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMijiaHoneywellFireAlarmDetector_LowBattery"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_Color -\u003e mihome:gateway:286c0788c0ee:color": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "color"
+        ]
+      },
+      "itemName": "XiaomiMiSmartHomeGateway_Color"
+    }
+  },
+  "Plug2_kWh -\u003e zwave:device:a0231353:node3:meter_kwh": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node3",
+          "meter_kwh"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Plug2_kWh"
+    }
+  },
+  "PowerPlug1_ElectricMeterKWh -\u003e zwave:device:a0231353:node2:meter_kwh": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node2",
+          "meter_kwh"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug1_ElectricMeterKWh"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_Temperature -\u003e mihome:sensor_ht:158d0001e89688:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89688",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_Temperature"
+    }
+  },
+  "HumCumnata -\u003e mihome:sensor_ht:158d0001e89694:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89694",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumCumnata"
+    }
+  },
+  "LivingRoomSpeaker_Image -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:image": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "image"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_Image"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorRekuperacija_BatteryLevel -\u003e mihome:sensor_ht:158d0001f54681:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f54681",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorRekuperacija_BatteryLevel"
+    }
+  },
+  "HumRekuperacija -\u003e mihome:sensor_ht:158d0001f54681:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f54681",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumRekuperacija"
+    }
+  },
+  "PowerPlug1_ElectricMeterWatts -\u003e zwave:device:a0231353:node2:meter_watts": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node2",
+          "meter_watts"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug1_ElectricMeterWatts"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorCumnata_Temperature -\u003e mihome:sensor_ht:158d0001e89694:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89694",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorCumnata_Temperature"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_BatteryLevel -\u003e mihome:sensor_ht:158d0001e89688:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89688",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_BatteryLevel"
+    }
+  },
+  "LivingRoomSpeaker_Control -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:control": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "control"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_Control"
+    }
+  },
+  "LivingRoomSpeaker_Location -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:location": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "location"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_Location"
+    }
+  },
+  "VhodBatXiaomi -\u003e mihome:sensor_magnet:158d0001a5eff5:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eff5",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VhodBatXiaomi"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorCumnata_Humidity -\u003e mihome:sensor_ht:158d0001e89694:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89694",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorCumnata_Humidity"
+    }
+  },
+  "PowerPlug1_ElectricMeterAmps -\u003e zwave:device:a0231353:node2:meter_current": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node2",
+          "meter_current"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug1_ElectricMeterAmps"
+    }
+  },
+  "XiaomiMiSmartSocketPlugSusilec_PowerConsumed -\u003e mihome:sensor_plug:158d0001a4afdc:powerConsumed": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a4afdc",
+          "powerConsumed"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartSocketPlugSusilec_PowerConsumed"
+    }
+  },
+  "TempHodnikZ -\u003e mihome:sensor_ht:158d0001f58033:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempHodnikZ"
+    }
+  },
+  "XiaomiMiSmartHomeGateway_SoundVolume -\u003e mihome:gateway:286c0788c0ee:volume": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee",
+          "volume"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartHomeGateway_SoundVolume"
+    }
+  },
+  "PowerPlug2_Switch -\u003e zwave:device:a0231353:node3:switch_binary": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node3",
+          "switch_binary"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug2_Switch"
+    }
+  },
+  "HodnikZLowBatXiaomi -\u003e mihome:sensor_ht:158d0001f58033:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HodnikZLowBatXiaomi"
+    }
+  },
+  "DnevnaNagDrsOpenXiaomi -\u003e mihome:sensor_magnet:158d0001a5f10d:isOpen": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5f10d",
+          "isOpen"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaNagDrsOpenXiaomi"
+    }
+  },
+  "LivingRoomSpeaker_Title -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:title": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "title"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_Title"
+    }
+  },
+  "LivingRoomSpeaker_Artist -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:artist": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "artist"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_Artist"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorCumnata_BatteryLevel -\u003e mihome:sensor_ht:158d0001e89694:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89694",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorCumnata_BatteryLevel"
+    }
+  },
+  "XiaomiMiSmartSocketPlugBojler_Power -\u003e mihome:sensor_plug:158d0001a68c94:power": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a68c94",
+          "power"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartSocketPlugBojler_Power"
+    }
+  },
+  "OutPercipInten -\u003e exec:command:5da38ecd:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "5da38ecd",
+          "output"
+        ]
+      },
+      "itemName": "OutPercipInten"
+    }
+  },
+  "XiaomiMiSmartSocketPlugBojler_PowerConsumed -\u003e mihome:sensor_plug:158d0001a68c94:powerConsumed": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a68c94",
+          "powerConsumed"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartSocketPlugBojler_PowerConsumed"
+    }
+  },
+  "LivingRoomSpeaker_Mute -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:mute": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "mute"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_Mute"
+    }
+  },
+  "OutHum -\u003e exec:command:714c315a:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "714c315a",
+          "output"
+        ]
+      },
+      "itemName": "OutHum"
+    }
+  },
+  "Plug1_kWh -\u003e zwave:device:a0231353:node2:meter_kwh": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node2",
+          "meter_kwh"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Plug1_kWh"
+    }
+  },
+  "LowBatteryXiaomi -\u003e mihome:sensor_ht:158d0001c14e34:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LowBatteryXiaomi"
+    }
+  },
+  "DnevnaTempXiaomi -\u003e mihome:sensor_ht:158d0001c14e34:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaTempXiaomi"
+    }
+  },
+  "TempHodnikS -\u003e mihome:sensor_ht:158d0001e89688:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89688",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempHodnikS"
+    }
+  },
+  "DnevnaBatXiaomi -\u003e mihome:sensor_ht:158d0001c14e34:batteryLevel": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001c14e34",
+          "batteryLevel"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "DnevnaBatXiaomi"
+    }
+  },
+  "VhodBatLowXiaomi -\u003e mihome:sensor_magnet:158d0001a5eff5:lowBattery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_magnet",
+          "158d0001a5eff5",
+          "lowBattery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VhodBatLowXiaomi"
+    }
+  },
+  "Plug4_kWh -\u003e mihome:sensor_plug:158d0001a4afdc:powerConsumed": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a4afdc",
+          "powerConsumed"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Plug4_kWh"
+    }
+  },
+  "XiaomiMiSmartSocketPlugSusilec_ProvidedPower -\u003e mihome:sensor_plug:158d0001a4afdc:loadPower": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a4afdc",
+          "loadPower"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartSocketPlugSusilec_ProvidedPower"
+    }
+  },
+  "XiaomiMiSmartSocketPlugBojler_InUse -\u003e mihome:sensor_plug:158d0001a68c94:inUse": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d0001a68c94",
+          "inUse"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiSmartSocketPlugBojler_InUse"
+    }
+  },
+  "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_Humidity -\u003e mihome:sensor_ht:158d0001e89688:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001e89688",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMiTemperatureHumiditySensorHodnikSpodaj_Humidity"
+    }
+  },
+  "PowerPlug2_ElectricMeterAmps -\u003e zwave:device:a0231353:node3:meter_current": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node3",
+          "meter_current"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug2_ElectricMeterAmps"
+    }
+  },
+  "HumHodnikZ -\u003e mihome:sensor_ht:158d0001f58033:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_ht",
+          "158d0001f58033",
+          "humidity"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumHodnikZ"
+    }
+  },
+  "LivingRoomSpeaker_PlayURI -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:playuri": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "playuri"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomSpeaker_PlayURI"
+    }
+  },
+  "PowerPlug2_ElectricMeterKWh -\u003e zwave:device:a0231353:node3:meter_kwh": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "a0231353",
+          "node3",
+          "meter_kwh"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PowerPlug2_ElectricMeterKWh"
+    }
+  },
+  "XiaomiMijiaHoneywellFireAlarmDetector_SmokeDetected -\u003e mihome:smoke:158d0001b76b9c:alarm": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "smoke",
+          "158d0001b76b9c",
+          "alarm"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "XiaomiMijiaHoneywellFireAlarmDetector_SmokeDetected"
+    }
+  },
+  "LivingRoomTV_Control -\u003e chromecast:chromecast:6d2598bc4e820c6f33a505c1d6f5ffd3:control": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "chromecast",
+          "6d2598bc4e820c6f33a505c1d6f5ffd3",
+          "control"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "LivingRoomTV_Control"
+    }
+  }
+}

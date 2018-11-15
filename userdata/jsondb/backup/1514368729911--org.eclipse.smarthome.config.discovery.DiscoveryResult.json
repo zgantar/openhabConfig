@@ -1,0 +1,35 @@
+{
+  "mihome:gateway:286c0788c0ee": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "bridgeUID": {
+        "segments": [
+          "mihome",
+          "bridge",
+          "f323b557"
+        ]
+      },
+      "thingUID": {
+        "segments": [
+          "mihome",
+          "gateway",
+          "286c0788c0ee"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mihome",
+          "gateway"
+        ]
+      },
+      "properties": {
+        "itemId": "286c0788c0ee"
+      },
+      "representationProperty": "itemId",
+      "flag": "NEW",
+      "label": "Xiaomi Mi Smart Home Gateway",
+      "timestamp": 1514368729185,
+      "timeToLive": -1
+    }
+  }
+}
