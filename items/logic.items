@@ -15,12 +15,19 @@ Group   Alarm
 Group   CalcConsHour
 Group   CalcConsDay
 Group   TimeSetter
+Group   Boiler
 Group   Other
 
-Number      HoursStartSetter    "Ura"           (TimeSetter)
-Number      MinutesStartSetter  "Minute"        (TimeSetter)
-Number      HoursStopSetter     "Ura"           (TimeSetter)
-Number      MinutesStopSetter   "Minute"        (TimeSetter)
+Number      HoursStartSetter    "Ura"           (TimeSetter,Boiler)
+Number      MinutesStartSetter  "Minute"        (TimeSetter,Boiler)
+Number      HoursStopSetter     "Ura"           (TimeSetter,Boiler)
+Number      MinutesStopSetter   "Minute"        (TimeSetter,Boiler)
+Number      HoursStartSetter2   "Ura"           (TimeSetter,Boiler)
+Number      MinutesStartSetter2 "Minute"        (TimeSetter,Boiler)
+Number      HoursStopSetter2    "Ura"           (TimeSetter,Boiler)
+Number      MinutesStopSetter2  "Minute"        (TimeSetter,Boiler)
+
+
 
 Switch  TimeSetterSaver "Shrani uro"    
 

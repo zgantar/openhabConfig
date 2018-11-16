@@ -49,49 +49,74 @@ rule "Check heater plug"
 when
 	Time cron "0 */5 * * * ?"
 then
-	logDebug("plug", "#####################Checking if we need to change heater state#####################")
-	val Number startHour = HoursStartSetter.state as Number
-	val Number startMinutes = MinutesStartSetter.state as Number
-	logDebug("plug", "Start time is set to - " + startHour + ":" + startMinutes)
-	val Number stopHour = HoursStopSetter.state as Number
-	val Number stopMinutes = MinutesStopSetter.state as Number
-	logDebug("plug", "Stop time is set to - " + stopHour + ":" + stopMinutes)
-	//check start first
-	if (now.getHourOfDay == startHour && now.getMinuteOfHour == startMinutes) {
-		logDebug("plug", "Prišla je ura za vžig bojlerja")
-		if (Away.state == OFF) {
-			logDebug("plug", "Nismo na dopustu tako da prižigam bojler")
-			if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
-		} else {
-			logDebug("plug", "Smo na dopustu, tako da preverjam ali je že minilo več kot 5 dni od zadnjega prižiga")
-			if (AwayOn.state != ON || AwayOn.state != OFF) {
-				AwayOn.sendCommand(OFF)
-			}
-			val lastUpdateTime = PlugHeatSwitch.lastUpdate.millis		
-			val timeDifference = now.millis - lastUpdateTime
-			if (timeDifference > 432000000) {
-				logDebug("plug", "Je že minilo več kot 5 dni od zadnjega prižiga zato prižigam")
-				if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
-			} else if (AwayOn.state == ON && timeDifference > 7200000) {
-				logDebug("plug", "Proti legionarsko ogrevanje je končano")
-				PlugHeatSwitch.sendCommand(OFF)
-				AwayOn.sendCommand(OFF)
+	logInfo("plug", "#####################Checking if we need to change heater state#####################")
+	TimeSetter.members.forEach[ timeSetter |
+		logInfo("plug", "Pregledujem setter: ", timeSetter.toString)
+		//check if it is for water hater
+		if (!timeSetter.groupNames.filter(group|group.equalsIgnoreCase("Boiler")).empty) {
+			//check to see if it is a starter 
+			if (timeSetter.name.contains("Start")) {
+				var Number startHour = 0
+				var Number startMinutes = 0
+				//check if it is for hours
+				if (timeSetter.name.contains("Hours")) {
+					startHour = timeSetter.state as Number
+				//check if it is for minutes
+				} else {
+					startMinutes = timeSetter.state as Number
+				}
+				logInfo("plug", "Start time is set to - " + startHour + ":" + startMinutes)
+				if (now.getHourOfDay == startHour && now.getMinuteOfHour == startMinutes) {
+					logInfo("plug", "Prišla je ura za vžig bojlerja")
+					if (Away.state == OFF) {
+						logInfo("plug", "Nismo na dopustu tako da prižigam bojler")
+						if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
+					} else {
+						logInfo("plug", "Smo na dopustu, tako da preverjam ali je že minilo več kot 5 dni od zadnjega prižiga")
+						if (AwayOn.state != ON || AwayOn.state != OFF) {
+							AwayOn.sendCommand(OFF)
+						}
+						val lastUpdateTime = PlugHeatSwitch.lastUpdate.millis		
+						val timeDifference = now.millis - lastUpdateTime
+						if (timeDifference > 432000000) {
+							logInfo("plug", "Je že minilo več kot 5 dni od zadnjega prižiga zato prižigam")
+							if (PlugHeatSwitch.state == OFF) PlugHeatSwitch.sendCommand(ON)
+						} else if (AwayOn.state == ON && timeDifference > 7200000) {
+							logInfo("plug", "Proti legionarsko ogrevanje je končano")
+							PlugHeatSwitch.sendCommand(OFF)
+							AwayOn.sendCommand(OFF)
+						}
+					}
+				}
+			//check to see if it is a stoper 
+			} else if (timeSetter.name.contains("Stop")) {
+				var Number stopHour = 0
+				var Number stopMinutes = 0
+				//check if it is for hours
+				if (timeSetter.name.contains("Hours")) {
+					stopHour = timeSetter.state as Number
+				//check if it is for minutes
+				} else {
+					stopMinutes = timeSetter.state as Number
+				}
+				logInfo("plug", "Stop time is set to - " + stopHour + ":" + stopMinutes)
+				if (now.getHourOfDay == stopHour && now.getMinuteOfHour == stopMinutes) {
+					logInfo("plug", "Prišla je ura za ugašanje bojlerja, ugašam, če je prižgan")
+					if (PlugHeatSwitch.state == ON) {
+						if (PlugHeatPower.state > 0) {
+							logInfo("plug", "Ker bojler še vedno ogreva vodo, premaknem uro prižiga 5 min nazaj")
+							deductMinutes.apply(HoursStartSetter, MinutesStartSetter)
+						} else {
+							logInfo("plug", "Ker bojler ne ogreva več vode, premaknem uro prižiga 5 min naprej")
+							addMinutes.apply(HoursStartSetter, MinutesStartSetter)
+						}
+						PlugHeatSwitch.sendCommand(OFF)
+					}
+				}
 			}
 		}
-	} else if (now.getHourOfDay == stopHour && now.getMinuteOfHour == stopMinutes) {
-		logDebug("plug", "Prišla je ura za ugašanje bojlerja, ugašam, če je prižgan")
-		if (PlugHeatSwitch.state == ON) {
-			if (PlugHeatPower.state > 0) {
-				logInfo("plug", "Ker bojler še vedno ogreva vodo, premaknem uro prižiga 5 min nazaj")
-				deductMinutes.apply(HoursStartSetter, MinutesStartSetter)
-			} else {
-				logInfo("plug", "Ker bojler ne ogreva več vode, premaknem uro prižiga 5 min naprej")
-				addMinutes.apply(HoursStartSetter, MinutesStartSetter)
-			}
-			PlugHeatSwitch.sendCommand(OFF)
-		}
-	}
-	logDebug("plug", "#####################End of heater state check#####################")
+ 	]
+	logInfo("plug", "#####################End of heater state check#####################")
 end
 
 rule "Check vacuum plug"
