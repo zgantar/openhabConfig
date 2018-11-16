@@ -18,6 +18,10 @@ Group   TimeSetter
 Group   Boiler
 Group   Other
 
+
+String  Vacuum_Zone               "Cona [%s]"
+String  Vacuum_Control            "Ukaz"
+
 Number      HoursStartSetter    "Ura"           (TimeSetter,Boiler)
 Number      MinutesStartSetter  "Minute"        (TimeSetter,Boiler)
 Number      HoursStopSetter     "Ura"           (TimeSetter,Boiler)
@@ -26,8 +30,6 @@ Number      HoursStartSetter2   "Ura"           (TimeSetter,Boiler)
 Number      MinutesStartSetter2 "Minute"        (TimeSetter,Boiler)
 Number      HoursStopSetter2    "Ura"           (TimeSetter,Boiler)
 Number      MinutesStopSetter2  "Minute"        (TimeSetter,Boiler)
-
-
 
 Switch  TimeSetterSaver "Shrani uro"    
 
