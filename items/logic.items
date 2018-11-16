@@ -1,21 +1,21 @@
-Group 	Log
-Group	LogRev
-Group	Set
-Group	Dif
-Group	Man
-Group	ManRev
-Group	BlindLog
-Group	BlindState
-Group	Blinds
-Group	BlindsPeek
-Group	BlindsDimm
-Group	BlindsSE		"Stikala na JV"
-Group	BlindsSW		"Stikala na JZ"
-Group   Alarm
-Group   CalcConsHour
-Group   CalcConsDay
-Group   TimeSetter
-Group   Other
+Group:Switch:OR(ON,OFF) Log
+Group:Switch            LogRev
+Group:Number            Set
+Group:Number            Dif
+Group:Switch            Man
+Group:Switch            ManRev
+// Group                   BlindLog
+// Group                   BlindState
+// Group                   Blinds
+// Group                   BlindsPeek
+// Group                   BlindsDimm
+// Group                   BlindsSE    "Stikala na JV"
+// Group                   BlindsSW    "Stikala na JZ"
+Group                   Alarm
+Group:Number            CalcConsHour
+Group:Number            CalcConsDay
+Group:Number            TimeSetter
+Group                   Other
 
 String  Vacuum_Zone               "Cona [%s]"
 String  Vacuum_Control            "Ukaz"
