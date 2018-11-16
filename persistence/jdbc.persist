@@ -16,7 +16,7 @@ Strategies {
  * item (excl. the group item itself).
  */
 Items {
-	Temp* : strategy = everyFiveMinutes, restoreOnStartup
+	Temp* : strategy = restoreOnStartup
 	Hum* : strategy = everyFiveMinutes, restoreOnStartup
 	// Lum* : strategy = everyFiveMinutes, restoreOnStartup
 	// Mot* : strategy = everyChange, restoreOnStartup
