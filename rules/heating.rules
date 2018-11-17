@@ -10,38 +10,60 @@ var boolean startHeating2
 val Functions$Function1<Boolean, Boolean> filterTempValues = [ 
 	boolean krneki|
 	
-	logInfo("heating", "Preverjam ali je potrebno filtrirati vrednosti")
+	logDebug("heating", "Preverjam ali je potrebno filtrirati vrednosti")
 	Temp.members.forEach[loopItem |
-		logInfo("heating", "Preverjam za sobo - " + loopItem.toString)
-		if (loopItem.groupNames.filter(group|group.equalsIgnoreCase("TempCal")).empty) {
-			var Number temp = 18
-			if (loopItem.state != NULL) temp = loopItem.state as Number
-			if (temp <= 10 || temp >= 35) {
-				logInfo("heating", "3.1 gledamo kakšna je vrednost odvoda zadnjih 15 min: " + (loopItem.deltaSince(now.minusMinutes(15)) as Number))
-				logInfo("heating", "3.1 gledamo kakšna je vrednost evolution v zadnjih 15 min: " + (loopItem.evolutionRate(now.minusMinutes(16)) as Number))
-				val historicState = loopItem.previousState
-				loopItem.postUpdate(historicState.state)
-				logInfo("heating", "Filtracija izvedena, nova vrednost - " + loopItem.toString)
-			}
-			
+		logDebug("heating", "Preverjam za sobo - " + loopItem.toString)
+		var Number temp = 18
+		if (loopItem.state != NULL) temp = loopItem.state as Number
+		if (temp <= 10 || temp >= 35) {
+			temp = loopItem.previousState.state as Number
+			logDebug("heating", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Filtracija izvedena, nova vrednost za je {} !!!!!!!!!!!!!!!!!!!!!!!!!!!", loopItem.toString)
 		}
+		logDebug("heating", "Saving the value {} to the item {}", temp, loopItem.toString)
+		loopItem.persist
 	]
 	return true
 ]
-
-val Functions$Function1<NumberItem, Number> checkTrend = [ 
-	NumberItem tempItem|
+//checkTrend is used to calculate the trend for the temperature for a given:
+//	*	NumberItem	-	for which the trend needs to be calculated
+//	*	Number		-	time in minutes for when the trend needs to be calculated
+//return value:
+//	*	Number		-	the calculated temperature for the given item and time
+val Functions$Function2<NumberItem, Number, Number> checkTrend = [ 
+	NumberItem tempItem,
+	Number time|
 	
-	logInfo("heating", "Preverjam temperaturni trend za - " + tempItem.toString)
+	logDebug("heating", "Preverjam temperaturni trend za - " + tempItem.toString)
 	val Number temp = tempItem.state as Number
 	val Number delta = tempItem.deltaSince(now.minusMinutes(30)) as Number
-	logInfo("heating", "Delta je - " + delta)
+	logDebug("heating", "Delta je - " + delta)
 	val Number deviation = delta/30
-	logInfo("heating", "Deviation je - " + deviation)
-	val Number prediction = deviation * 90 + temp
-	logInfo("heating", "Prediction je - " + prediction)
+	logDebug("heating", "Deviation je - " + deviation)
+	val Number prediction = deviation * time + temp
+	logDebug("heating", "Prediction je - " + prediction)
 	return prediction
 ]
+
+val Functions$Function2<SwitchItem,Number, Boolean> turnHeating4RoomOn = [ 
+	SwitchItem item,
+	Number on|
+
+	logInfo("heating", "################Klic turnHeating4RoomOn################")
+	if (on > 0) {
+		if (item.state == OFF) {
+			item.sendCommand(ON)
+			logInfo("heating", "Izdan ukaz za ogrevanje sobe - " + item.toString)
+		}
+	} else {
+		if (item.state == ON) {
+			item.sendCommand(OFF)
+			logInfo("heating", "Izdan ukaz za konec ogrevanja sobe - " + item.toString)
+		}
+	}
+	logInfo("heating", "################Konec Log for FHS items################")		
+	return true
+]
+
 
 val Functions$Function1<Boolean, Boolean> showFhsValues = [ 
 	boolean krneki|
@@ -54,7 +76,7 @@ val Functions$Function1<Boolean, Boolean> showFhsValues = [
 	return true
 ]
 
-	
+
 rule "Set all necessary variables for heating"
 when
 	System started
@@ -62,15 +84,15 @@ then
 	sendCommand(Heating, OFF)
 	sendCommand(Override, OFF)
 	Log.members.forEach[item |
-		logInfo("heating", "Zapiram ventil " + item.toString)
+		logDebug("heating", "Zapiram ventil " + item.toString)
 		if (item == NULL) item.sendCommand(OFF)
 	]
 	Man.members.forEach[item | 
-		logInfo("heating", "Zapiram ventil " + item.toString)
+		logDebug("heating", "Zapiram ventil " + item.toString)
 		if (item == NULL ) item.sendCommand(OFF)
 	]
 	Fhs.members.forEach[item | 
-		logInfo("heating", "Zapiram ventil " + item.toString)
+		logDebug("heating", "Zapiram ventil " + item.toString)
 		if (item == NULL) item.sendCommand(OFF)
 	]
 	//setting up desired values for rooms
@@ -81,7 +103,7 @@ then
 		if (item.state == NULL) item.postUpdate(0)
 	]
 	
-	logInfo("heating", "1 Nastavljene začetne vrednosti!")
+	logDebug("heating", "1 Nastavljene začetne vrednosti!")
 end
 
 //checking to see if any of the rooms needs heating
@@ -91,10 +113,9 @@ when
 	Item Set changed 
 then
 	logInfo("heating", "##################Preverjamo temperature#################")
-	startHeating1 = false
 	filterTempValues.apply(startHeating1)
+	val Number timeTill18 = Minutes::minutesBetween(now, now.withHourOfDay(18).withMinuteOfHour(00)).getMinutes
 	Temp.members.forEach[ tempItem |
-		logInfo("heating", "In the loop z - " + tempItem.toString)
 		val name = tempItem.name.substring(4)
 		logInfo("heating", "Preverjam sobo - " + name)
 		var setItem = Set.members.filter(setter | setter.name.containsIgnoreCase(name)).head
@@ -105,85 +126,83 @@ then
 			var Number currentTemp = 0
 			if (tempItem.state != NULL) currentTemp = tempItem.state as Number 
 			var Number mejnaTemp = 0
+			var Number calcMejnaTemp = 0
+			var Number timeTillStop = 0
 			if (setItem.state != NULL) mejnaTemp = setItem.state as Number
-			logInfo("heating", "2 Preverjam ali je potrebno ogreti - " + setItem.toString)
+			logInfo("heating", "Nastavljena temperatura za sobo {} je {} ", name, setItem.state.toString)
 			var logItem = Log.members.filter( doer | doer.name.containsIgnoreCase(name)).head
-			logInfo("heating", "3 Našli smo ventil - " + logItem.toString)
-			logInfo("heating", "3.1 gledamo kakšna je nastavljena vrednost za to sobo: " + mejnaTemp)
-			val Number predTemp = checkTrend.apply(tempItem)
-			logInfo("heating", "Gledamo kakšna je pričakovana temperatura za to sobo čez uro in pol: " + predTemp)
-			if (Away.state == ON && LowElectricity.state == OFF) {
-				mejnaTemp = mejnaTemp - 3
-				logInfo("heating", "3.2 Ker ni nobenega doma in ni poceni elektrika je mejna temperatura zmanjšana za 3 - " + mejnaTemp)
-			} else if (Away.state == ON && LowElectricity.state == ON) {
-				mejnaTemp = mejnaTemp - 2
-				logInfo("heating", "3.2 Ker ni nobenega doma in je poceni elektrika je mejna temperatura zmanjšana za 2 - " + mejnaTemp)
-			} else if (now.getHourOfDay > 6 && now.getHourOfDay < 14 && now.getDayOfWeek < 6 && Holidays.state == OFF) {
-				mejnaTemp = mejnaTemp - 0.2
-				logInfo("heating", "3.2 Ker je zjutraj med tednom in nismo na dopustu, se mejna temperatura spusti za 0.2 stopinje - " + mejnaTemp)
-			} else if (FhsHeater.state == ON && LowElectricity.state == ON) {
-				mejnaTemp = mejnaTemp + 0.3
-				logInfo("heating", "3.2 Ker se že ogreva in je nizka cena elektrike, se mejna temperatura dvigne za 0.3 stopinje - " + mejnaTemp)
-			} else if (FhsHeater.state == ON) {
-				mejnaTemp = mejnaTemp + 0.1
-				logInfo("heating", "3.2 Ker se že ogreva, se mejna temperatura dvigne za 0.1 stopinje - " + mejnaTemp)
-			} 
-			val difTemp = currentTemp - mejnaTemp
-			val difPredTemp = predTemp - setItem.state as Number
-			difItem.postUpdate(difTemp)
-			if (Override.state == OFF) {
-				logInfo("heating", "3.3 Temperatura sobe je - " + currentTemp)
-				logInfo("heating", "3.4 Temperatura sobe bi morala biti - " + mejnaTemp)
-				logInfo("heating", "3.5 Temperatura sobe čez uro in pol naj bi bila - " + predTemp)
-				logInfo("heating", "3.6 If pa pride - " + (difTemp <= 0))
-				if (difTemp <= 0) {
-					startHeating1 = true
-					logInfo("heating", "4.1 temperatura je prenizka, stikalo " + logItem.toString)
-					if (logItem.state == OFF) {
-						logItem.sendCommand(ON)
-						logInfo("heating", "4.1.1 Izdan ukaz za ogrevanje sobe - " + name)
+			if (logItem !== null) {
+				logInfo("heating", "Našel sem logični ventil - " + logItem.toString)
+				var Number predTemp = 0 
+				if (Away.state == ON && LowElectricity.state == OFF) {
+					mejnaTemp = mejnaTemp - 3
+					logInfo("heating", "Ker ni nobenega doma in ni poceni elektrika je mejna temperatura zmanjšana za 3 - " + mejnaTemp)
+				} else if (Away.state == ON && LowElectricity.state == ON) {
+					mejnaTemp = mejnaTemp - 2
+					logInfo("heating", "Ker ni nobenega doma in je poceni elektrika je mejna temperatura zmanjšana za 2 - " + mejnaTemp)
+				//Lets check the trends
+				} else if (LowElectricity.state == ON) {
+					if (now.getHourOfDay < 6 && now.getDayOfWeek() < 6) {
+						logInfo("heating", "Zgodaj zjutraj med tednom")
+						timeTillStop = Minutes::minutesBetween(now, now.withHourOfDay(6).withMinuteOfHour(00)).getMinutes
+						predTemp = checkTrend.apply(tempItem as NumberItem, timeTillStop)
+					} else if (now.getDayOfWeek() < 6) {
+						logInfo("heating", "Zvečer po 22. med tednom")
+						timeTillStop = Minutes::minutesBetween(now, now.plusDays(1).withHourOfDay(6).withMinuteOfHour(00)).getMinutes
+						predTemp = checkTrend.apply(tempItem as NumberItem, timeTillStop)
+					//weekend
+					} else if (now.getDayOfWeek() >= 6) {
+						logInfo("heating", "Konec tedna")
+						if (FhsHeater.state == ON && currentTemp <= mejnaTemp + 0.1) mejnaTemp = mejnaTemp + 0.1
+					} //calculating the differences to predicted temp
+					if (predTemp > 0) {
+						logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTillStop, predTemp)
+						if (predTemp < mejnaTemp - 0.2) calcMejnaTemp = mejnaTemp - 0.2
+						else if (FhsHeater.state == ON && predTemp < mejnaTemp + 0.3) calcMejnaTemp = mejnaTemp + 0.3
+					//calculating the differences to set temperatures
 					}
-				} else if (difPredTemp <= 0 && now.getHourOfDay < 5) {
-					startHeating1 = true
-					logInfo("heating", "4.2 temperatura bo prenizka čez uro in pol, stikalo " + logItem.toString)
-					if (logItem.state == OFF) {
-						logItem.sendCommand(ON)
-						logInfo("heating", "4.2.1 Izdan ukaz za ogrevanje sobe - " + name)
+				//High electricity price
+				} else {
+					logInfo("heating", "Delovni dan")
+					if (now.getHourOfDay() < 18) {
+						logInfo("heating", "Pred 18. uro")
+						predTemp = checkTrend.apply(tempItem as NumberItem, timeTill18)
+						logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTill18, predTemp)
+						if (timeTill18 <= 90 && predTemp <= mejnaTemp - 0.1) calcMejnaTemp = mejnaTemp - 0.1
+						else if (FhsHeater.state == ON && predTemp <= mejnaTemp) calcMejnaTemp = mejnaTemp + 0.1
+					} else {
+						mejnaTemp = mejnaTemp - 0.3
+					}
+					
+				}
+				//ending with thrends and looking at the hard values
+				val Number difTemp = currentTemp - mejnaTemp
+				var Number predDifTemp = currentTemp - calcMejnaTemp
+				difItem.postUpdate(difTemp)
+				if (Override.state == OFF) {
+					logInfo("heating", "Temperatura sobe je - " + currentTemp)
+					logInfo("heating", "Temperatura sobe bi morala biti - " + mejnaTemp)
+					logInfo("heating", "Normalni diff je {} medtem ko prediktivni diff pride {}!", difTemp, predDifTemp)
+					if (difTemp < 0 || predDifTemp < 0) {
+						logInfo("heating", "Temperatura je prenizka, stikalo " + logItem.toString)
+						turnHeating4RoomOn.apply(logItem as SwitchItem, 1)
+					} else if (difTemp > 0 && predDifTemp > 0) {
+						logInfo("heating", "Temperatura je previsoka, stikalo " + logItem.toString)
+						turnHeating4RoomOn.apply(logItem as SwitchItem, -1)
 					}
 				} else {
-					logInfo("heating", "4.3 temperatura je previsoka, stikalo " + logItem.toString)
-					if (logItem.state == ON) {
-						logItem.sendCommand(OFF)
-						logInfo("heating", "4.3.1 Izdan ukaz za konec ogrevanja sobe - " + name)
-					}
-//						logInfo("heating", "Preverjamo ali je temperatura toliko previsoka, da moramo spustiti žaluzije")
-//					if ((difTemp > 3) && (Integer.parseInt((OutSolarRad.previousState.state as StringType).toString).intValue > 0)) {
-//						val roomName = tempItem.name.substring(4, tempItem.name.length - 1)
-//						logInfo("heating", "Temperatura je previsoka, spuščam žaluzije " + name)
-//						BlindLog.members.forEach[roomBlind|
-//							if (roomBlind.name.containsIgnoreCase(name)) {
-//								logInfo("heating", "Našel stikalo " + roomBlind.toString)
-//								if (roomBlind.name.containsIgnoreCase("Do")) {
-//									val boolean lowAct = !roomBlind.groupNames.filter(group|group.equalsIgnoreCase("BlindRev")).empty
-//									roomBlind.sendCommand(ON)
-//									logInfo("heating", "Poslal ukaz za spust žaluzij " + roomBlind.toString)
-//								} 
-//							}
-//						]
-//					}
+					logInfo("heating", "Ročni override zato ignoriral preračune!")
 				}
-			} else {
-				logInfo("heating", "Ročni override zato ignoriral preračune!")
 			}
 		}
 	]
-//	showFhsValues.apply(startHeating1)
-	if (startHeating1) {
-		logInfo("heating", "5.1 Poslal ukaz za ogrevanje")
+	logInfo("heating", "LogOgrevanje je {}, Log pa je {}", LogOgrevanje.state, Log.state)
+	if (LogOgrevanje.state == OFF && Log.state == ON) {
+		logInfo("heating", "Poslal ukaz za ogrevanje")
 		sendCommand(LogOgrevanje, ON)
-	} else if (!startHeating1 && FhsHeater.state == ON) {
+	} else if (LogOgrevanje.state == ON && Log.state == OFF) {
 		sendCommand(LogOgrevanje, OFF)
-		logInfo("heating", "5.2 Poslal ukaz za konec ogrevanja")
+		logInfo("heating", "Poslal ukaz za konec ogrevanja")
 	} if (Override.state == ON) {
 		sendCommand(ManOgrevanje, ON);
 	}
@@ -237,44 +256,46 @@ then
 	startHeating2 = false
 	logInfo("heating", "Poglejmo ali je bilo ročno proženo ali ne - " + Override.toString)
 	if (Override.state == OFF) {
-		logInfo("heating", "Ogrevanje ni proženo ročno!")
-		Log.members.forEach[ logItem |
-			logInfo("heating", "Preverjamo za logično stikalo " + logItem.toString)
-			val boolean noVent = !logItem.groupNames.filter(group|group.equalsIgnoreCase("LogRev")).empty
-			val name = logItem.name.substring(3)
-			val valve = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
-			if (valve !== null) {
-				logInfo("heating", "Našel ventil za logično stikalo " + valve.toString)
-				if (logItem.state == ON) {
-					startHeating2 = true
-					if (!noVent) {
-						if (valve.state == OFF) {
-							valve.sendCommand(ON)
-							logInfo("heating", "8.1 Našel normalen ventil za ročno odpret - " + valve.toString)
+		if (LogOgrevanje.state == ON) {
+			logInfo("heating", "Ogrevanje ni proženo ročno!")
+			Log.members.forEach[ logItem |
+				logInfo("heating", "Preverjamo za logično stikalo " + logItem.toString)
+				val boolean noVent = !logItem.groupNames.filter(group|group.equalsIgnoreCase("LogRev")).empty
+				val name = logItem.name.substring(3)
+				val valve = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
+				if (valve !== null) {
+					logInfo("heating", "Našel ventil za logično stikalo " + valve.toString)
+					if (logItem.state == ON) {
+						startHeating2 = true
+						if (!noVent) {
+							if (valve.state == OFF) {
+								valve.sendCommand(ON)
+								logInfo("heating", "8.1 Našel normalen ventil za ročno odpret - " + valve.toString)
+							}
+						} else {
+							if (valve.state == ON) {
+								valve.sendCommand(OFF)
+								logInfo("heating", "8.2 Našel NO ventil za ročno odpret - " + valve.toString)
+							}
 						}
 					} else {
-						if (valve.state == ON) {
-							valve.sendCommand(OFF)
-							logInfo("heating", "8.2 Našel NO ventil za ročno odpret - " + valve.toString)
+						if (!noVent) {
+							if (valve.state == ON) {
+								valve.sendCommand(OFF)
+								logInfo("heating", "8.3 Našel normalen ventil za ročno zapret - " + valve.toString)
+							}
+						} else {
+							if (valve.state == OFF && LogOgrevanje.state == ON) {
+								valve.sendCommand(ON)
+								logInfo("heating", "8.4 Našel NO ventil za ročno zapret - " + valve.toString)
+							}
 						}
 					}
 				} else {
-					if (!noVent) {
-						if (valve.state == ON) {
-							valve.sendCommand(OFF)
-							logInfo("heating", "8.3 Našel normalen ventil za ročno zapret - " + valve.toString)
-						}
-					} else {
-						if (valve.state == OFF && LogOgrevanje.state == ON) {
-							valve.sendCommand(ON)
-							logInfo("heating", "8.4 Našel NO ventil za ročno zapret - " + valve.toString)
-						}
-					}
+					logWarn("heating", "Nisem našel ventila za ročno stikalo - " + name)
 				}
-			} else {
-				logWarn("heating", "Nisem našel ventila za ročno stikalo - " + name)
-			}
-		]
+			]
+		}
 	} else {
 		logInfo("heating", "Ogrevanje je proženo ročno!")
 //		val manItem = Man.members.sortBy[lastUpdate].last
