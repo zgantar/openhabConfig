@@ -219,17 +219,17 @@ Switch	FhsRecuperation	"Rekuperacija"	<climate>	(Fhs)	{ tinkerforge="uid=kBH, su
 //Dimmer	RecuperationAdmin	"Rekuperacija jakost"	<climate>	{ tinkerforge="" }
 
 //zgoraj
-Switch FhsKopalnicaZ    "Kopalnica zgoraj"      <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaZ" }
-Switch FhsAljaz		    "Aljaz"                 <heating>       (Fhs)           { tinkerforge="name=stikaloAljaz" }
-Switch FhsJulija	    "Julija"                <heating>       (Fhs)           { tinkerforge="name=stikaloJulija" }
-Switch FhsHodnikZ	    "Hodnik zgoraj"         <heating>       (Fhs)           { tinkerforge="name=stikaloHodnikZ" }
-Switch FhsSpalnica	    "Spalnica"              <heating>       (Fhs)           { tinkerforge="name=stikaloSpalnica" }
+Switch FhsKopalnicaZ    "Kopalnica zgoraj"  <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaZ" }
+Switch FhsAljaz		    "Aljaz"             <heating>       (Fhs)           { tinkerforge="name=stikaloAljaz" }
+Switch FhsJulija	    "Julija"            <heating>       (Fhs)           { tinkerforge="name=stikaloJulija" }
+Switch FhsHodnikZ	    "Hodnik zgoraj"     <heating>       (Fhs)           { tinkerforge="name=stikaloHodnikZ" }
+Switch FhsSpalnica	    "Spalnica"          <heating>       (Fhs)           { tinkerforge="name=stikaloSpalnica" }
 
 //spodaj
 Switch  FhsHodnikS      "Hodnik spodaj"     <heating>       (Fhs)           { tinkerforge="name=stikaloHodnikS" }
 Switch  FhsKopalnicaS   "Kopalnica spodaj"  <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaS" }
-Switch  FhsDnevna      "Dnevna soba"       <heating>       (Fhs)           { tinkerforge="name=stikaloDnevna" }
-Switch  FhsKuhinja     "Kuhinja"           <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKuhinja" }
+Switch  FhsDnevna       "Dnevna soba"       <heating>       (Fhs)           { tinkerforge="name=stikaloDnevna" }
+Switch  FhsKuhinja      "Kuhinja"           <heating>       (Fhs,FhsRev)    { tinkerforge="name=stikaloKuhinja" }
 Switch  FhsKabinet      "Kabinet"           <heating>       (Fhs)           { tinkerforge="name=stikaloKabinet" }
 
 //Chromecast

@@ -48,6 +48,7 @@ Items {
 
 	//smoke
 	Smoke :	strategy = everyChange, restoreOnStartup
+	
 	//žaluzije
 	// BlindAct* : strategy = everyChange
 	// BlindSwi* : strategy = everyChange

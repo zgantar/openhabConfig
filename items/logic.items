@@ -2,7 +2,7 @@ Group:Switch:OR(ON,OFF) Log
 Group:Switch            LogRev
 Group:Number            Set
 Group:Number            Dif
-Group:Switch            Man
+Group:Switch:OR(ON,OFF) Man
 Group:Switch            ManRev
 // Group                   BlindLog
 // Group                   BlindState
@@ -102,7 +102,7 @@ Switch	ManKopalnicaS	"Kopalnica spodaj"		<heating>	(Man,ManRev)
 Switch	ManKuhinja		"Kuhinja"				<heating>	(Man,ManRev)
 Switch	ManDnevna		"Dnevna"				<heating>	(Man)
 Switch	ManKabinet		"Kabinet"				<heating>	(Man)
-Switch	ManHeating		"Peč"					<heating>
+// Switch	ManHeating		"Peč"					<heating>
 Switch	ManOgrevanje	"Ogrevanje ročno"		<heating>
 
 //Žaluzije
