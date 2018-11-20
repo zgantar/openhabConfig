@@ -214,8 +214,8 @@ Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   {
 
 // 
 //Stikala za ogrevanje
-Switch	FhsHeater	    "Talno gretje"	<heating>	(Fhs)	{ tinkerforge="uid=kBH, subid=relay1" }
-Switch	FhsRecuperation	"Rekuperacija"	<climate>	(Fhs)	{ tinkerforge="uid=kBH, subid=relay2" }
+Switch	FhsHeater	    "Talno gretje"	<heating>	{ tinkerforge="uid=kBH, subid=relay1" }
+Switch	FhsRecuperation	"Rekuperacija"	<climate>	{ tinkerforge="uid=kBH, subid=relay2" }
 //Dimmer	RecuperationAdmin	"Rekuperacija jakost"	<climate>	{ tinkerforge="" }
 
 //zgoraj
