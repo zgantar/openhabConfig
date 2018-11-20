@@ -103,7 +103,7 @@ then
 		stopBoiler.apply(HoursStopSetter, MinutesStopSetter)
 	}
 	//pregledujem drugi start timer
-	if (now.getHourOfDay == HoursStartSetter2.state as Number && now.getMinuteOfHour == HoursStartSetter2.state as Number) {
+	if (now.getHourOfDay == HoursStartSetter2.state as Number && now.getMinuteOfHour == MinutesStartSetter2.state as Number) {
 		logInfo("plug", "Prišla je ura za vžig bojlerja, kličem start lambda")
 		startBoiler.apply(true)
 	}
