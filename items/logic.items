@@ -18,6 +18,8 @@ Group:Number            TimeSetter
 Group                   Other
 
 
+Number  RadioStationURL  "Naslov radio toka :)"
+
 String  Vacuum_Zone               "Cona [%s]"
 String  Vacuum_Control            "Ukaz"
 

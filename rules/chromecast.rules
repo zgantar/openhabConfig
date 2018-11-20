@@ -1,6 +1,16 @@
-rule "Chromecast audio 1"
+rule "Chromecast audio"
 when
-    Item Trigger changed
+    Item IdlingAudio changed to ON
 then
-    logInfo("chromecast", "Dolgi pritisk, vtičnica v dnevni je - " + LivingRoomSpeaker_PlayURI.toString)
+    logInfo("chromecast", "Chromecast je na čakanju: ", IdlingAudio.state.toString)
+    PlayURIAudio.sendCommand("http://stream.rockradio.si:9034/;stream/1")
+end
+
+
+rule "Chromecast video"
+when
+    Item IdlingVideo changed to ON
+then
+    logInfo("chromecast", "Chromecast je na čakanju: ", IdlingVideo.state.toString)
+
 end
