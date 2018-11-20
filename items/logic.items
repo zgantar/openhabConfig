@@ -1,22 +1,21 @@
-Group 	Log
-Group	LogRev
-Group	Set
-Group	Dif
-Group	Man
-Group	ManRev
-Group	BlindLog
-Group	BlindState
-Group	Blinds
-Group	BlindsPeek
-Group	BlindsDimm
-Group	BlindsSE		"Stikala na JV"
-Group	BlindsSW		"Stikala na JZ"
-Group   Alarm
-Group   CalcConsHour
-Group   CalcConsDay
-Group   TimeSetter
-Group   Boiler
-Group   Other
+Group:Switch:OR(ON,OFF) Log
+Group:Switch            LogRev
+Group:Number            Set
+Group:Number            Dif
+Group:Switch:OR(ON,OFF) Man
+Group:Switch            ManRev
+// Group                   BlindLog
+// Group                   BlindState
+// Group                   Blinds
+// Group                   BlindsPeek
+// Group                   BlindsDimm
+// Group                   BlindsSE    "Stikala na JV"
+// Group                   BlindsSW    "Stikala na JZ"
+Group                   Alarm
+Group:Number            CalcConsHour
+Group:Number            CalcConsDay
+Group:Number            TimeSetter
+Group                   Other
 
 
 String  Vacuum_Zone               "Cona [%s]"
@@ -108,7 +107,7 @@ Switch	ManKopalnicaS	"Kopalnica spodaj"		<heating>	(Man,ManRev)
 Switch	ManKuhinja		"Kuhinja"				<heating>	(Man,ManRev)
 Switch	ManDnevna		"Dnevna"				<heating>	(Man)
 Switch	ManKabinet		"Kabinet"				<heating>	(Man)
-Switch	ManHeating		"Peč"					<heating>
+// Switch	ManHeating		"Peč"					<heating>
 Switch	ManOgrevanje	"Ogrevanje ročno"		<heating>
 
 //Žaluzije

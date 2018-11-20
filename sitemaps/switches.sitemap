@@ -21,7 +21,6 @@ sitemap switches label="Stikala za rezidenco Gantar" {
 
 	Frame label="Ročne nastavitve ogrevanja" icon="heating" {
 		Switch item=Override
-		Switch item=ManHeating visibility=[Override==ON]
 		Switch item=ManKopalnicaZ visibility=[Override==ON]
 		Switch item=ManSpalnica visibility=[Override==ON]
 		Switch item=ManJulija visibility=[Override==ON]
