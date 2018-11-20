@@ -206,7 +206,7 @@ rule "Override is turned on"
 when
 	Item Override changed to ON
 then
-	logInfo("heating", "Ročno proženo upravljnanje z ogrevanjem {}", Override.toString)
+	logInfo("heating", "************************Ročno proženo upravljnanje z ogrevanjem {}**********************", Override.toString)
 	Man.members.forEach[manItem|
 		logInfo("heating", "Nastavljamo ročno stikalo {}", manItem.toString)
 		val name = manItem.name.substring(3)
@@ -227,17 +227,17 @@ then
 	logInfo("heating", "Nastavimo logična stikala na OFF")
 	Log.sendCommand(OFF)
 	LogOgrevanje.sendCommand(OFF)
-	logInfo("heating", "Konec Ročno proženo upravljnanje z ogrevanjem {}", Override.toString)
+	logInfo("heating", "********************Konec Ročno proženo upravljnanje z ogrevanjem {}*****************", Override.toString)
 end
 
 rule "ManOgrevanje is turned off"
 when
 	Item Override changed to OFF
 then
-	logInfo("heating", "Ročno izklopljeno upravljnanje z ogrevanjem {}", ManOgrevanje.toString)
+	logInfo("heating", "***************************Ročno izklopljeno upravljnanje z ogrevanjem {}***************************", ManOgrevanje.toString)
 	ManOgrevanje.sendCommand(OFF)
 	Man.sendCommand(OFF)
-	logInfo("heating", "Zato ugašam vse ročne ventile {}", Man.toString)
+	logInfo("heating", "***************Zato ugašam vse ročne ventile {}********************", Man.toString)
 end
 
 rule "heating of a room was requested by logic"
@@ -248,13 +248,14 @@ then
 	logInfo("heating", "*************************Pregled in vklop zahtevanih ventilov**************************")
 	startHeating2 = false
 	Fhs.members.forEach[fhsItem |
-		logInfo("heating", "Preverimo začetno stanje ventila {}", fhsItem.toString)
+		logInfo("heating", "#####################Preverimo začetno stanje ventila {}", fhsItem.toString)
 		val boolean noVent = !fhsItem.groupNames.filter(group|group.equalsIgnoreCase("FhsRev")).empty
 		logInfo("heating", "Ali je NO ventil {}", noVent)
 		val name = fhsItem.name.substring(3)
 		if (Override.state == ON) {
 			logInfo("heating", "Ročno ogrevanje je aktivno")
 			val difItem = Dif.members.filter(differ | differ.name.containsIgnoreCase(name)).head
+			logInfo("heating", "Našel dif {}", difItem)
 			val Number difTemp = difItem.state as Number
 			val manValve = Man.members.filter( manTmpItem | manTmpItem.name.containsIgnoreCase(name)).head
 			if (manValve !== null) {
@@ -263,7 +264,7 @@ then
 					startHeating2 = true
 					logInfo("heating", "Ročni ventil je odprt in temperatura {} je nižja od nastavljene", difTemp)
 					if (!noVent) fhsItem.sendCommand(ON) else fhsItem.sendCommand(OFF)
-				} else if (manItem.state == OFF || difTemp > 0) {
+				} else if (manValve.state == OFF || difTemp > 0) {
 					logInfo("heating", "Ali je ročni ventil zaprt ali pa je temperatura {} višja od nastavljene", difTemp)
 					if (!noVent) fhsItem.sendCommand(OFF) else if (Man.state == ON)fhsItem.sendCommand(ON)
 				}
