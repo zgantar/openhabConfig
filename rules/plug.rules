@@ -93,21 +93,25 @@ when
 then
 	logInfo("plug", "#####################Checking if we need to change heater state#####################")
 	//pregledujem prvi start timer
-	if (now.getHourOfDay == HoursStartSetter.state as Number && now.getMinuteOfHour == HoursStartSetter.state as Number) {
+	logDebug("plug", "Prvi start timer je nastavljen na {}:{}", HoursStartSetter.state, MinutesStartSetter.state)
+	if (now.getHourOfDay == HoursStartSetter.state as Number && now.getMinuteOfHour == MinutesStartSetter.state as Number) {
 		logInfo("plug", "Prišla je ura za vžig bojlerja, kličem start lambda")
 		startBoiler.apply(true)
 	}
 	//pregledujem prvi stop timer
+	logDebug("plug", "Prvi stop timer je nastavljen na {}:{}", HoursStopSetter.state, MinutesStopSetter.state)
 	if (now.getHourOfDay == HoursStopSetter.state as Number && now.getMinuteOfHour == MinutesStopSetter.state as Number) {
 		logInfo("plug", "Prišla je ura za ugašanje bojlerja, ugašam, če je prižgan")
 		stopBoiler.apply(HoursStopSetter, MinutesStopSetter)
 	}
 	//pregledujem drugi start timer
-if (now.getHourOfDay == HoursStartSetter2.state as Number && now.getMinuteOfHour == MinutesStartSetter2.state as Number) {
+	logDebug("plug", "Prvi start timer je nastavljen na {}:{}", HoursStartSetter2.state, MinutesStartSetter2.state)
+	if (now.getHourOfDay == HoursStartSetter2.state as Number && now.getMinuteOfHour == MinutesStartSetter2.state as Number) {
 		logInfo("plug", "Prišla je ura za vžig bojlerja, kličem start lambda")
 		startBoiler.apply(true)
 	}
 	//pregledujem drugi stop timer
+	logDebug("plug", "Prvi stop timer je nastavljen na {}:{}", HoursStopSetter2.state, MinutesStopSetter2.state)
 	if (now.getHourOfDay == HoursStopSetter2.state as Number && now.getMinuteOfHour == MinutesStopSetter2.state as Number) {
 		logInfo("plug", "Prišla je ura za ugašanje bojlerja, ugašam, če je prižgan")
 		stopBoiler.apply(HoursStopSetter2, MinutesStopSetter2)
