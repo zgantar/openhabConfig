@@ -73,12 +73,15 @@ val Functions$Function2<NumberItem, NumberItem, Boolean> stopBoiler = [
 	NumberItem minuteItem|
 
 	if (PlugHeatSwitch.state == ON) {
-		if (PlugHeatPower.state > 0) {
-			logInfo("plug", "Ker bojler še vedno ogreva vodo, premaknem uro prižiga 5 min nazaj")
-			deductMinutes.apply(hourItem, minuteItem)
-		} else {
-			logInfo("plug", "Ker bojler ne ogreva več vode, premaknem uro prižiga 5 min naprej")
-			addMinutes.apply(hourItem, minuteItem)
+		// preverim ali je jutranji vžig
+		if (hourItem.name.substring(hourItem.name.length - 1, hourItem.name.length).equals("r")) {
+			if (PlugHeatPower.state > 0) {
+				logInfo("plug", "Ker bojler še vedno ogreva vodo, premaknem uro prižiga 5 min nazaj")
+				deductMinutes.apply(hourItem, minuteItem)
+			} else {
+				logInfo("plug", "Ker bojler ne ogreva več vode, premaknem uro prižiga 5 min naprej")
+				addMinutes.apply(hourItem, minuteItem)
+			}
 		}
 		PlugHeatSwitch.sendCommand(OFF)
 	}

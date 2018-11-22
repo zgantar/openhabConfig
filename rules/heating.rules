@@ -38,7 +38,7 @@ val Functions$Function2<NumberItem, Number, Number> checkTrend = [
 	val Number delta = tempItem.deltaSince(now.minusMinutes(30)) as Number
 	logDebug("heating", "Delta je {}", delta)
 	val Number deviation = delta/30
-	logDebug("heating", "Deviation je {}", deviation)
+	logInfo("heating", "Deviation je {}", deviation)
 	val Number prediction = deviation * time + temp
 	logDebug("heating", "Prediction je {}", prediction)
 	return prediction
@@ -140,13 +140,15 @@ then
 						logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTillStop, predTemp)
 						if (predTemp < mejnaTemp) calcMejnaTemp = predTemp - mejnaTemp
 						else if (FhsHeater.state == ON && predTemp < mejnaTemp + 0.3) calcMejnaTemp = predTemp - mejnaTemp + 0.3
+						else if (FhsHeater.state == ON && currentTemp < mejnaTemp + 0.3) mejnaTemp = mejnaTemp + 0.3
 					} else if (now.getDayOfWeek() < 6) {
 						logInfo("heating", "Zvečer po 22. med tednom")
 						timeTillStop = Minutes::minutesBetween(now, now.plusDays(1).withHourOfDay(6).withMinuteOfHour(00)).getMinutes
 						predTemp = checkTrend.apply(tempItem as NumberItem, timeTillStop)
 						logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTillStop, predTemp)
-						if (predTemp < mejnaTemp) calcMejnaTemp = predTemp - mejnaTemp
-						else if (FhsHeater.state == ON && predTemp < mejnaTemp + 0.1) calcMejnaTemp = predTemp - mejnaTemp + 0.1
+						if (predTemp < mejnaTemp - 0.5) calcMejnaTemp = predTemp - mejnaTemp - 0.5
+						else if (FhsHeater.state == ON && predTemp < mejnaTemp) calcMejnaTemp = predTemp - mejnaTemp
+						else if (FhsHeater.state == ON && currentTemp < mejnaTemp - 0.3) mejnaTemp = mejnaTemp -0.3
 					//weekend
 					} else if (now.getDayOfWeek() >= 6) {
 						logInfo("heating", "Konec tedna")
@@ -161,7 +163,8 @@ then
 						predTemp = checkTrend.apply(tempItem as NumberItem, timeTill18)
 						logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTill18, predTemp)
 						if (timeTill18 <= 120 && predTemp < mejnaTemp) calcMejnaTemp = predTemp - mejnaTemp
-						else if (FhsHeater.state == ON && predTemp <= mejnaTemp) calcMejnaTemp = predTemp - mejnaTemp + 0.1
+						else if (FhsHeater.state == ON && predTemp < mejnaTemp) calcMejnaTemp = predTemp - mejnaTemp + 0.1
+						else if (FhsHeater.state == ON && currentTemp < mejnaTemp) mejnaTemp = mejnaTemp + 0.1
 						else mejnaTemp = mejnaTemp - 0.3
 					} else {
 						mejnaTemp = mejnaTemp - 0.3
@@ -175,7 +178,7 @@ then
 					difTemp = currentTemp - mejnaTemp
 					logInfo("heating", "Običajni dif je {}", difTemp)
 				} else {
-					difTemp = currentTemp - calcMejnaTemp
+					difTemp = calcMejnaTemp
 					logInfo("heating", "Prediktivni dif je {}", difTemp)
 				}
 				difItem.postUpdate(difTemp)
