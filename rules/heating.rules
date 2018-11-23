@@ -143,12 +143,10 @@ then
 						else if (FhsHeater.state == ON && currentTemp < mejnaTemp + 0.3) mejnaTemp = mejnaTemp + 0.3
 					} else if (now.getDayOfWeek() < 6) {
 						logInfo("heating", "Zvečer po 22. med tednom")
-						timeTillStop = Minutes::minutesBetween(now, now.plusDays(1).withHourOfDay(6).withMinuteOfHour(00)).getMinutes
-						predTemp = checkTrend.apply(tempItem as NumberItem, timeTillStop)
-						logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTillStop, predTemp)
-						if (predTemp < mejnaTemp - 0.5) calcMejnaTemp = predTemp - mejnaTemp - 0.5
-						else if (FhsHeater.state == ON && predTemp < mejnaTemp) calcMejnaTemp = predTemp - mejnaTemp
-						else if (FhsHeater.state == ON && currentTemp < mejnaTemp - 0.3) mejnaTemp = mejnaTemp -0.3
+						// timeTillStop = Minutes::minutesBetween(now, now.plusDays(1).withHourOfDay(6).withMinuteOfHour(00)).getMinutes
+						// predTemp = checkTrend.apply(tempItem as NumberItem, timeTillStop)
+						// logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTillStop, predTemp)
+						mejnaTemp = mejnaTemp - 0.5
 					//weekend
 					} else if (now.getDayOfWeek() >= 6) {
 						logInfo("heating", "Konec tedna")
@@ -200,9 +198,9 @@ then
 			}
 		}
 	]
-	logInfo("heating", "LogOgrevanje je {}, Log pa je {}", LogOgrevanje.state, Log.state)
+	logInfo("heating", "startHeating1 je {}, LogOgrevanje je {}, Log pa je {}", startHeating1, LogOgrevanje.state, Log.state)
 	logInfo("heating", "ManOgrevanje je {}, Man pa je {}", ManOgrevanje.state, Man.state)
-	if (startHeating1 && LogOgrevanje.state == OFF) LogOgrevanje.sendCommand(ON)
+	if (startHeating1) LogOgrevanje.sendCommand(ON)
 	if (Override.state == ON) ManOgrevanje.sendCommand(ON)
 	logInfo("heating", "**********************Konec********************")
 end
@@ -240,8 +238,8 @@ when
 	Item Override changed to OFF
 then
 	logInfo("heating", "***************************Ročno izklopljeno upravljnanje z ogrevanjem {}***************************", ManOgrevanje.toString)
-	ManOgrevanje.sendCommand(OFF)
 	Man.sendCommand(OFF)
+	ManOgrevanje.sendCommand(OFF)
 	logInfo("heating", "***************Zato ugašam vse ročne ventile {}********************", Man.toString)
 end
 
