@@ -1,6 +1,27 @@
-1=http://stream.rockradio.si/proxy/rockr1_1?mp=/rock
-2=http://stream.rockradio.si/proxy/rocks_1?mp=/stream
-3=http://stream.rockradio.si/proxy/rocks_2?mp=/stream
+#1=#http://stream.rockradio.si/proxy/rockr1_1?mp=/rock
+#2=http://stream.rockradio.si/proxy/rocks_1?mp=/stream
+#3=http://stream.rockradio.si/proxy/rocks_2?mp=/stream
+
+1=http://stream.rockradio.si:9034/;stream/1
+2=http://stream.rockradio.si:9036/;stream/1
+3=http://stream.rockradio.si:9040/;stream/1
 4=http://live.radio1.si/Radio1GOR
 5=http://mp3.rtvslo.si/val202
-6=http://www.ndr.de/resources/metadaten/audio/m3u/n-joy.m3u
+6=https://www.webradio.de/antenne-bayern/chillout?gd=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ==
+7=https://www.webradio.de/antenne-bayern/classic-rock-live?gd=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ==
+8=https://www.webradio.de/antenne-bayern/rock-antenne?gd=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ==
+9=https://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3
+
+
+
+
+#imena
+http\://stream.rockradio.si\:9034/;stream/1=RockRadio
+http\://stream.rockradio.si\:9036/;stream/1=RockRadio Balade
+http\://stream.rockradio.si\:9040/;stream/1=RockRadio Hard&Heavy
+http\://live.radio1.si/Radio1GOR=Radio1
+http\://mp3.rtvslo.si/val202=Val202
+https\://www.webradio.de/antenne-bayern/chillout?gd\=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ\=\==Antenne Bayern Chillout
+https\://www.webradio.de/antenne-bayern/classic-rock-live?gd\=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ\=\=Antenne Bayern Classic Rock Live
+https\://www.webradio.de/antenne-bayern/rock-antenne?gd\=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ\=\==Antenne Bayern Rock
+https\://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3=N - Joy

@@ -1,9 +1,9 @@
-rule "Set all necessary variables for radio"
-when
-	System started
-then
-	RadioStationURL.postUpdate(1)
-end
+// rule "Set all necessary variables for xiaomi"
+// when
+// 	System started
+// then
+// 	RadioStationURL.postUpdate(1)
+// end
 
 
 rule "Xiaomi Switch 1"
@@ -24,16 +24,20 @@ when
     Channel "mihome:sensor_switch:158d00016d77ce:button" triggered SHORT_PRESSED
 then
     logInfo("Xiaomi", "Kratek pritisk za menjanje radijske postaje")
-    var Number index = RadioStationURL.state as Number
-    if (index == 6) index = 1
-    else index = index + 1
-	RadioStationURL.postUpdate(index)
-    val naslovToka = transform("MAP", "radio_stations.map", ""+index)
-	logInfo("temp", "Naslov toka je {}", naslovToka)
-    ControlAudio.sendCommand(PAUSE)
-    PlayURIAudio.sendCommand(naslovToka)
-    logInfo("temp", "Preverimo kako je chromecast {}", ControlAudio.state.toString)
-    ControlAudio.sendCommand(PLAY)
+    if (NextRadioStation.state == ON) NextRadioStation.sendCommand(OFF)
+    else NextRadioStation.sendCommand(ON)
+    // var Number index = RadioStationURL.state as Number
+    // if (index == 9) index = 1
+    // else index = index + 1
+	// RadioStationURL.postUpdate(index)
+    // val naslovToka = transform("MAP", "radio_stations.map", ""+index)
+	// logInfo("temp", "Naslov toka je {}", naslovToka)
+    // ControlAudio.sendCommand(PAUSE)
+    // PlayURIAudio.sendCommand(naslovToka)
+    // RadioStation.postUpdate(naslovToka)
+    // logInfo("temp", "Preverimo kako je chromecast {}", ControlAudio.state.toString)
+    // logInfo("temp", "Preverimo katera postaja se predvaja {}", RadioStation.toString)
+    // ControlAudio.sendCommand(PLAY)
 end
 
 rule "Xiaomi Switch 1 double press"

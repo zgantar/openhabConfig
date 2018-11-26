@@ -18,7 +18,10 @@ Group:Number            TimeSetter
 Group                   Other
 
 
-Number  RadioStationURL  "Naslov radio toka :)"
+Number  RadioStationURL     "Naslov radio toka :)"          (Other)      
+String  RadioStation        "[MAP(radio_stations.map):%s]"
+Switch  NextRadioStation    "Naslednja postaja"
+Switch  PrevRadioStation    "Prejšnja postaja"
 
 String  Vacuum_Zone               "Cona [%s]"
 String  Vacuum_Control            "Ukaz"

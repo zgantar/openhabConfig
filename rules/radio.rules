@@ -1,0 +1,54 @@
+val Functions$Function2<Number, Boolean, Boolean> changeStation = [ 
+	Number index,
+    boolean upOrDown|
+
+	logInfo("radio", "################Klic changeStation################")
+    logInfo("radio", "Preverim kateri index je trenutno {}", index)
+    var tmpIndex = index
+    if (upOrDown) {
+        if (index == 9) tmpIndex = 1
+        else tmpIndex = tmpIndex + 1
+    } else {
+        if (tmpIndex == 1) tmpIndex = 9
+        else tmpIndex = tmpIndex - 1
+    }
+    logInfo("radio", "Preverim kateri index je po spremembi {}", tmpIndex)
+	RadioStationURL.postUpdate(tmpIndex)
+    val naslovToka = transform("MAP", "radio_stations.map", ""+tmpIndex)
+	logInfo("radio", "Naslov toka je {}", naslovToka)
+    ControlAudio.sendCommand(PAUSE)
+    PlayURIAudio.sendCommand(naslovToka)
+    RadioStation.postUpdate(naslovToka)
+    RadioStationURL.persist
+    logInfo("radio", "Preverimo kako je chromecast {}", ControlAudio.state.toString)
+    ControlAudio.sendCommand(PLAY)
+	logInfo("radio", "################Konec changeStation################")		
+	return true
+]
+
+
+rule "Set all necessary variables for radio"
+when
+	System started
+then
+    if (RadioStationURL.state == NULL) RadioStationURL.postUpdate(1)
+end
+
+
+rule "Next station"
+when
+	Item NextRadioStation changed
+then
+    var Number index = RadioStationURL.state as Number
+    changeStation.apply(index, true)
+end
+
+rule "Previous station"
+when
+	Item PrevRadioStation changed
+then
+    var Number index = RadioStationURL.state as Number
+    changeStation.apply(index, false)
+end
+
+
