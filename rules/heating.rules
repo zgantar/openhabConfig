@@ -20,6 +20,7 @@ val Functions$Function1<Boolean, Boolean> filterTempValues = [
 			logDebug("heating", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Filtracija izvedena, nova vrednost za je {} !!!!!!!!!!!!!!!!!!!!!!!!!!!", loopItem.toString)
 		}
 		logDebug("heating", "Saving the value {} to the item {}", temp, loopItem.toString)
+		loopItem.postUpdate(temp)
 		loopItem.persist
 	]
 	return true
@@ -143,9 +144,6 @@ then
 						else if (FhsHeater.state == ON && currentTemp < mejnaTemp + 0.3) mejnaTemp = mejnaTemp + 0.3
 					} else if (now.getDayOfWeek() < 6) {
 						logInfo("heating", "Zvečer po 22. med tednom")
-						// timeTillStop = Minutes::minutesBetween(now, now.plusDays(1).withHourOfDay(6).withMinuteOfHour(00)).getMinutes
-						// predTemp = checkTrend.apply(tempItem as NumberItem, timeTillStop)
-						// logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTillStop, predTemp)
 						mejnaTemp = mejnaTemp - 0.5
 					//weekend
 					} else if (now.getDayOfWeek() >= 6) {
@@ -289,93 +287,6 @@ then
 		}
 		logInfo("heating", "Preverimo končno stanje ventila {}", fhsItem.toString)
 	]
-
-	// logInfo("heating", "Poglejmo ali je bilo ročno proženo ali ne {}", Man.toString)
-	// if (Override.state == OFF) {
-	// 	logInfo("heating", "Ogrevanje ni proženo ročno!")
-	// 	Log.members.forEach[ logItem |
-	// 		logInfo("heating", "Preverjamo za logično stikalo " + logItem.toString)
-	// 		val boolean noVent = !logItem.groupNames.filter(group|group.equalsIgnoreCase("LogRev")).empty
-	// 		val name = logItem.name.substring(3)
-	// 		val valve = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
-	// 		if (valve !== null) {
-	// 			logInfo("heating", "Našel ventil za logično stikalo " + valve.toString)
-	// 			if (logItem.state == ON) {
-	// 				startHeating2 = true
-	// 				if (!noVent) {
-	// 					if (valve.state == OFF) {
-	// 						valve.sendCommand(ON)
-	// 						logInfo("heating", "8.1 Našel normalen ventil za ročno odpret {}", valve.toString)
-	// 					}
-	// 				} else {
-	// 					if (valve.state == ON) {
-	// 						valve.sendCommand(OFF)
-	// 						logInfo("heating", "8.2 Našel NO ventil za ročno odpret {}", valve.toString)
-	// 					}
-	// 				}
-	// 			} else {
-	// 				if (!noVent) {
-	// 					if (valve.state == ON) {
-	// 						valve.sendCommand(OFF)
-	// 						logInfo("heating", "8.3 Našel normalen ventil za ročno zapret {}", valve.toString)
-	// 					}
-	// 				} else {
-	// 					if (valve.state == OFF && Log.state == ON) {
-	// 						valve.sendCommand(ON)
-	// 						logInfo("heating", "8.4 Našel NO ventil za ročno zapret {}", valve.toString)
-	// 					}
-	// 				}
-	// 			}
-	// 		} else {
-	// 			logWarn("heating", "Nisem našel ventila za ročno stikalo {}", name)
-	// 		}
-	// 	]
-	// } else {
-	// 	logInfo("heating", "Ogrevanje je proženo ročno!")
-	// 	Man.members.forEach[ manItem |
-	// 		logInfo("heating", "Preverjamo za ročno stikalo " + manItem.toString)
-	// 		val boolean noVent = !manItem.groupNames.filter(group|group.equalsIgnoreCase("ManRev")).empty
-	// 		logInfo("heating", "Ali je stikalo NO " + noVent)
-	// 		val name = manItem.name.substring(3)
-	// 		val valve = Fhs.members.filter( fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
-	// 		logInfo("heating", "Našel ventil za ročno stikalo " + valve.toString)
-	// 		if (valve !== null) {
-	// 			val difItem = Dif.members.filter(setter | setter.name.containsIgnoreCase(name)).head
-	// 			logInfo("heating", "Dobil differ {}", difItem.toString)
-	// 			val Number difTemp = difItem.state as Number
-	// 			if (manItem.state == ON && difTemp < 0) {
-	// 				logInfo("heating", "Ogrevam samo izbrano sobo, ker je ročni ukaz in nižja temperatura od nastavljene {}", difTemp)
-	// 				startHeating2 = true
-	// 				if (!noVent) {
-	// 					if (valve.state == OFF) {
-	// 						valve.sendCommand(ON)
-	// 						logInfo("heating", "8.1 Našel normalen ventil za ročno odpret {}", valve.toString)
-	// 					}
-	// 				} else {
-	// 					if (valve.state == ON) {
-	// 						valve.sendCommand(OFF)
-	// 						logInfo("heating", "8.2 Našel NO ventil za ročno odpret {}", valve.toString)
-	// 					}
-	// 				}
-	// 			} else if (manItem.state == OFF || difTemp > 0){
-	// 				logInfo("heating", "Ne ogrevam izbrane sobe, ker je temperatura višja od nastavljene ali ni ročnega ukaza {}", difTemp)
-	// 				if (!noVent) {
-	// 					if (valve.state == ON) {
-	// 						valve.sendCommand(OFF)
-	// 						logInfo("heating", "8.3 Našel normalen ventil za ročno zapret {}", valve.toString)
-	// 					}
-	// 				} else {
-	// 					if (valve.state == OFF) {
-	// 						valve.sendCommand(ON)
-	// 						logInfo("heating", "8.4 Našel NO ventil za ročno zapret {}", valve.toString)
-	// 					}
-	// 				}
-	// 			}
-	// 		} else {
-	// 			logWarn("heating", "Nisem našel ventila za ročno stikalo {}", name)
-	// 		}
-	// 	]
-	// }
 	logInfo("heating", "Stanje Heating je {}, stanje startHeating2 pa je {}", Heating.state, startHeating2)
 	if (startHeating2 && Heating.state == OFF) {
 		logInfo("heating", "Vklopimo ogrevanje.")
