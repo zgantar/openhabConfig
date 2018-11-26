@@ -1,43 +1,45 @@
 
+val boolean test = false
+
 val Functions$Function2<NumberItem, NumberItem, Boolean> deductMinutes = [ 
-	NumberItem HoursStartSetter,
-	NumberItem MinutesStartSetter|
+	NumberItem hoursItem,
+	NumberItem minutesItem|
 	
 	logInfo("plug", "Potrebno je premakniti uro nazaj")
-	var Number minutes = MinutesStartSetter.state as Number
-	var Number hours = HoursStartSetter.state as Number
+	var Number minutes = minutesItem.state as Number
+	var Number hours = hoursItem.state as Number
 	logInfo("plug", "Trenutno je ura nastavljena na - " + hours + ":" + minutes)
 	if (minutes == 0) {
 		logInfo("plug", "Ker so minute na 0 moram prestaviti uro")
 		hours = hours-1
 		minutes = 55
-		HoursStartSetter.postUpdate(hours)
-		MinutesStartSetter.postUpdate(minutes)
+		hoursItem.postUpdate(hours)
+		minutesItem.postUpdate(minutes)
 	} else {
 		minutes = minutes - 5
-		MinutesStartSetter.postUpdate(minutes)
+		minutesItem.postUpdate(minutes)
 	}
 	logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
 	return true
 ]
 
 val Functions$Function2<NumberItem, NumberItem, Boolean> addMinutes = [ 
-	NumberItem HoursStartSetter,
-	NumberItem MinutesStartSetter|
+	NumberItem hoursItem,
+	NumberItem minutesItem|
 	
 	logInfo("plug", "Potrebno je premakniti uro naprej")
-	var Number minutes = MinutesStartSetter.state as Number
-	var Number hours = HoursStartSetter.state as Number
+	var Number minutes = minutesItem.state as Number
+	var Number hours = hoursItem.state as Number
 	logInfo("plug", "Trenutno je ura nastavljena na - " + hours + ":" + minutes)
 	if (minutes == 55) {
 		logInfo("plug", "Ker so minute na 55 moram prestaviti uro")
 		hours = hours + 1
 		minutes = 0
-		HoursStartSetter.postUpdate(hours)
-		MinutesStartSetter.postUpdate(minutes)
+		hoursItem.postUpdate(hours)
+		minutesItem.postUpdate(minutes)
 	} else {
 		minutes = minutes + 5
-		MinutesStartSetter.postUpdate(minutes)
+		minutesItem.postUpdate(minutes)
 	}
 	logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
 	return true
@@ -69,18 +71,18 @@ val Functions$Function1<Boolean, Boolean> startBoiler = [
 ]
 
 val Functions$Function2<NumberItem, NumberItem, Boolean> stopBoiler = [
-	NumberItem hourItem,
-	NumberItem minuteItem|
+	NumberItem hoursItem,
+	NumberItem minutesItem|
 
 	if (PlugHeatSwitch.state == ON) {
 		// preverim ali je jutranji vžig
-		if (hourItem.name.substring(hourItem.name.length - 1, hourItem.name.length).equals("r")) {
+		if (hoursItem.name.substring(hoursItem.name.length - 1, hoursItem.name.length).equals("r")) {
 			if (PlugHeatPower.state > 0) {
 				logInfo("plug", "Ker bojler še vedno ogreva vodo, premaknem uro prižiga 5 min nazaj")
-				deductMinutes.apply(hourItem, minuteItem)
+				deductMinutes.apply(hoursItem, minutesItem)
 			} else {
 				logInfo("plug", "Ker bojler ne ogreva več vode, premaknem uro prižiga 5 min naprej")
-				addMinutes.apply(hourItem, minuteItem)
+				addMinutes.apply(hoursItem, minutesItem)
 			}
 		}
 		PlugHeatSwitch.sendCommand(OFF)
