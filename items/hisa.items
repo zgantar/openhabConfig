@@ -20,6 +20,8 @@ Group   Smoke   "Senzor za dim"
 Group:Number   Battery  "Baterije"
 Group:Switch:OR(ON,OFF)  BatteryLow  "Opozorilo za slabo baterijo"
 
+Switch      ZigasPhonePingable    "Zaznana naprava" { channel="network:pingdevice:ziga:online" }
+DateTime    ZigasLastSeen         "Nazadnje viden"  { channel="network:pingdevice:ziga:lastseen" }
 
 //Žaluzije
 // Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
