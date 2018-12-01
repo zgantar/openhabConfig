@@ -119,6 +119,10 @@ Switch  PlugHeatSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ chann
 Number  PlugHeatPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node2:meter_watts" }
 Number  PlugHeatConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node2:meter_kwh" }
 
+Switch  PlugStairwaySwitch  "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node7:switch_binary" }
+Switch  PlugStairwaySwitch1  "Vklopljena"   <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node7:switch_binary1" }
+Switch  PlugStairwaySwitch2  "Vklopljena"   <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node7:switch_binary2" }
+
 Switch  PlugIronSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node5:switch_binary" }
 Number  PlugIronPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node5:meter_watts" }
 Number  PlugIronConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node5:meter_kwh" }
