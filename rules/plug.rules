@@ -1,50 +1,4 @@
 
-val boolean test = false
-
-val Functions$Function2<NumberItem, NumberItem, Boolean> deductMinutes = [ 
-	NumberItem hoursItem,
-	NumberItem minutesItem|
-	
-	logInfo("plug", "Potrebno je premakniti uro nazaj")
-	var Number minutes = minutesItem.state as Number
-	var Number hours = hoursItem.state as Number
-	logInfo("plug", "Trenutno je ura nastavljena na - " + hours + ":" + minutes)
-	if (minutes == 0) {
-		logInfo("plug", "Ker so minute na 0 moram prestaviti uro")
-		hours = hours-1
-		minutes = 55
-		hoursItem.postUpdate(hours)
-		minutesItem.postUpdate(minutes)
-	} else {
-		minutes = minutes - 5
-		minutesItem.postUpdate(minutes)
-	}
-	logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
-	return true
-]
-
-val Functions$Function2<NumberItem, NumberItem, Boolean> addMinutes = [ 
-	NumberItem hoursItem,
-	NumberItem minutesItem|
-	
-	logInfo("plug", "Potrebno je premakniti uro naprej")
-	var Number minutes = minutesItem.state as Number
-	var Number hours = hoursItem.state as Number
-	logInfo("plug", "Trenutno je ura nastavljena na - " + hours + ":" + minutes)
-	if (minutes == 55) {
-		logInfo("plug", "Ker so minute na 55 moram prestaviti uro")
-		hours = hours + 1
-		minutes = 0
-		hoursItem.postUpdate(hours)
-		minutesItem.postUpdate(minutes)
-	} else {
-		minutes = minutes + 5
-		minutesItem.postUpdate(minutes)
-	}
-	logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
-	return true
-]
-
 val Functions$Function1<Boolean, Boolean> startBoiler = [
 	Boolean item|
 
@@ -70,19 +24,43 @@ val Functions$Function1<Boolean, Boolean> startBoiler = [
 	return true
 ]
 
-val Functions$Function2<NumberItem, NumberItem, Boolean> stopBoiler = [
-	NumberItem hoursItem,
-	NumberItem minutesItem|
+val Functions$Function4<NumberItem, NumberItem, NumberItem, NumberItem, Boolean> stopBoiler = [
+	NumberItem hoursStopItem,
+	NumberItem minutesStopItem,
+	NumberItem hoursStartItem,
+	NumberItem minutesStartItem|
 
 	if (PlugHeatSwitch.state == ON) {
 		// preverim ali je jutranji vžig
-		if (hoursItem.name.substring(hoursItem.name.length - 1, hoursItem.name.length).equals("r")) {
+		if (hoursStopItem.name.substring(hoursStopItem.name.length - 1, hoursStopItem.name.length).equals("r")) {
+			var Number minutes = minutesStartItem.state as Number
+			var Number hours = hoursStartItem.state as Number
 			if (PlugHeatPower.state > 0) {
-				logInfo("plug", "Ker bojler še vedno ogreva vodo, premaknem uro prižiga 5 min nazaj")
-				deductMinutes.apply(hoursItem, minutesItem)
+				logInfo("plug", "Ker bojler še vedno ogreva vodo, premaknem uro prižiga 5 min nazaj s trenutne: {}:{}", hoursStartItem, minutesStartItem)
+				if (minutes == 0) {
+					logInfo("plug", "Ker so minute na 0 moram prestaviti uro")
+					hours = hours-1
+					minutes = 55
+					hoursStartItem.postUpdate(hours)
+					minutesStartItem.postUpdate(minutes)
+				} else {
+					minutes = minutes - 5
+					minutesStartItem.postUpdate(minutes)
+				}
+				logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
 			} else {
-				logInfo("plug", "Ker bojler ne ogreva več vode, premaknem uro prižiga 5 min naprej")
-				addMinutes.apply(hoursItem, minutesItem)
+				logInfo("plug", "Ker bojler ne ogreva več vode, premaknem uro prižiga 5 min naprej s trenutne: {}:{}", hoursStartItem, minutesStartItem)
+				if (minutes == 55) {
+					logInfo("plug", "Ker so minute na 55 moram prestaviti uro")
+					hours = hours + 1
+					minutes = 0
+					hoursStartItem.postUpdate(hours)
+					minutesStartItem.postUpdate(minutes)
+				} else {
+					minutes = minutes + 5
+					minutesStartItem.postUpdate(minutes)
+				}
+				logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
 			}
 		}
 		PlugHeatSwitch.sendCommand(OFF)
@@ -98,28 +76,24 @@ when
 then
 	logInfo("plug", "#####################Checking if we need to change heater state#####################")
 	//pregledujem prvi start timer
-	logDebug("plug", "Prvi start timer je nastavljen na {}:{}", HoursStartSetter.state, MinutesStartSetter.state)
 	if (now.getHourOfDay == HoursStartSetter.state as Number && now.getMinuteOfHour == MinutesStartSetter.state as Number) {
-		logInfo("plug", "Prišla je ura za vžig bojlerja, kličem start lambda")
+		logInfo("plug", "Prišel je čas {}:{} za vžig bojlerja, kličem start lambda", HoursStartSetter.state, MinutesStartSetter.state)
 		startBoiler.apply(true)
 	}
 	//pregledujem prvi stop timer
-	logDebug("plug", "Prvi stop timer je nastavljen na {}:{}", HoursStopSetter.state, MinutesStopSetter.state)
 	if (now.getHourOfDay == HoursStopSetter.state as Number && now.getMinuteOfHour == MinutesStopSetter.state as Number) {
-		logInfo("plug", "Prišla je ura za ugašanje bojlerja, ugašam, če je prižgan")
-		stopBoiler.apply(HoursStopSetter, MinutesStopSetter)
+		logInfo("plug", "Prišel je čas {}:{} za ugašanje bojlerja", HoursStopSetter.state, MinutesStopSetter.state)
+		stopBoiler.apply(HoursStopSetter, MinutesStopSetter, HoursStartSetter, MinutesStartSetter)
 	}
 	//pregledujem drugi start timer
-	logDebug("plug", "Prvi start timer je nastavljen na {}:{}", HoursStartSetter2.state, MinutesStartSetter2.state)
 	if (now.getHourOfDay == HoursStartSetter2.state as Number && now.getMinuteOfHour == MinutesStartSetter2.state as Number) {
-		logInfo("plug", "Prišla je ura za vžig bojlerja, kličem start lambda")
+		logInfo("plug", "Prišel je čas {}:{} za vžig bojlerja, kličem start lambda", HoursStartSetter2.state, MinutesStartSetter2.state)
 		startBoiler.apply(true)
 	}
 	//pregledujem drugi stop timer
-	logDebug("plug", "Prvi stop timer je nastavljen na {}:{}", HoursStopSetter2.state, MinutesStopSetter2.state)
 	if (now.getHourOfDay == HoursStopSetter2.state as Number && now.getMinuteOfHour == MinutesStopSetter2.state as Number) {
-		logInfo("plug", "Prišla je ura za ugašanje bojlerja, ugašam, če je prižgan")
-		stopBoiler.apply(HoursStopSetter2, MinutesStopSetter2)
+		logInfo("plug", "Prišel je čas {}:{} za ugašanje bojlerja", HoursStopSetter2.state, MinutesStopSetter2.state)
+		stopBoiler.apply(HoursStopSetter2, MinutesStopSetter2, HoursStartSetter2, MinutesStartSetter2)
 	}
 
 
