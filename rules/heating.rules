@@ -138,7 +138,7 @@ then
 						timeTillStop = Minutes::minutesBetween(now, now.withHourOfDay(6).withMinuteOfHour(00)).getMinutes
 						predTemp = checkTrend.apply(tempItem as NumberItem, timeTillStop)
 						logInfo("heating", "Pričakovana temperatura za sobo {} čez {} minut je {}", name, timeTillStop, predTemp)
-						if (timeTillStop <= 200) {
+						if (timeTillStop <= 240) {
 							if (predTemp < mejnaTemp) calcMejnaTemp = mejnaTemp
 							else if (logItem.state == ON && predTemp < mejnaTemp + 0.3) calcMejnaTemp = mejnaTemp + 0.3
 							else if (logItem.state == ON && currentTemp < mejnaTemp + 0.3) mejnaTemp = mejnaTemp + 0.3
