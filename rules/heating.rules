@@ -303,7 +303,7 @@ end
 
 rule "Heating when ordered"
 when
-	Item Heating received command
+	Item Heating changed	//must use changed since received command is triggered before the actual state of the item is changed
 then
 	logInfo("heating", "Klic Heating when ordered {}", Heating.toString)
 	if (Heating.state == ON) {
