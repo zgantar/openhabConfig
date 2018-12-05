@@ -7,10 +7,12 @@
 3=http://stream.rockradio.si:9040/;stream/1
 4=http://live.radio1.si/Radio1GOR
 5=http://mp3.rtvslo.si/val202
-6=https://www.webradio.de/antenne-bayern/chillout?gd=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ==
-7=https://www.webradio.de/antenne-bayern/classic-rock-live?gd=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ==
-8=https://www.webradio.de/antenne-bayern/rock-antenne?gd=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ==
-9=https://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3
+6=https://mp3channels.webradio.de/chillout
+7=https://mp3channels.webradio.de/classic-rock-live
+8=https://mp3channels.webradio.de/rockantenne
+9=https://mp3channels.webradio.de/heavy-metal
+10=https://mp3channels.webradio.de/hip-hop
+11=https://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3
 
 
 
@@ -21,7 +23,9 @@ http\://stream.rockradio.si\:9036/;stream/1=RockRadio Balade
 http\://stream.rockradio.si\:9040/;stream/1=RockRadio Hard&Heavy
 http\://live.radio1.si/Radio1GOR=Radio1
 http\://mp3.rtvslo.si/val202=Val202
-https\://www.webradio.de/antenne-bayern/chillout?gd\=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ\=\==Antenne Bayern Chillout
-https\://www.webradio.de/antenne-bayern/classic-rock-live?gd\=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ\=\=Antenne Bayern Classic Rock Live
-https\://www.webradio.de/antenne-bayern/rock-antenne?gd\=NDguMTQ0OTQ5MjUrMTEuNTY4MjM3NjkxNTQyMQ\=\==Antenne Bayern Rock
-https\://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3=N - Joy
+https\://mp3channels.webradio.de/chillout=Antenne Bayern Chillout
+https\://mp3channels.webradio.de/classic-rock-live=Antenne Bayern Classic Rock Live
+https\://mp3channels.webradio.de/rockantenne=Antenne Bayern Rock
+https\://mp3channels.webradio.de/heavy-metal=Antenne Bayern Heavy Metal
+https\://mp3channels.webradio.de/hip-hop=Antenne Bayern Hip Hop
+https\://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3=N-Joy
