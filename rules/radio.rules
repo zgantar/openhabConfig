@@ -16,13 +16,14 @@ val Functions$Function2<Number, Boolean, Boolean> changeStation = [
 	RadioStationURL.postUpdate(tmpIndex)
     val naslovToka = transform("MAP", "radio_stations.map", ""+tmpIndex)
 	logInfo("radio", "Naslov toka je {}", naslovToka)
-    ControlAudio.sendCommand(PAUSE)
+    // ControlAudio.sendCommand(PAUSE)
     PlayURIAudio.sendCommand(naslovToka)
     RadioStation.postUpdate(naslovToka)
     RadioStationURL.persist
     logInfo("radio", "Preverimo kako je chromecast {}", ControlAudio.state.toString)
-    ControlAudio.sendCommand(PLAY)
-	logInfo("radio", "################Konec changeStation################")		
+   ControlAudio.sendCommand(PLAY)
+	logInfo("radio", "Preverimo kako je chromecast {}", ControlAudio.state.toString)
+    logInfo("radio", "################Konec changeStation################")		
 	return true
 ]
 

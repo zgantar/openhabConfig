@@ -4,7 +4,7 @@
     <genericDeviceClass>BINARY_SWITCH</genericDeviceClass>
     <specificDeviceClass>POWER_SWITCH_BINARY</specificDeviceClass>
   </deviceClass>
-  <homeId>0xf7ec32e2</homeId>
+  <homeId>0xc389ad97</homeId>
   <nodeId>3</nodeId>
   <version>4</version>
   <manufacturer>0x258</manufacturer>
@@ -18,49 +18,13 @@
   <maxBaudRate>40000</maxBaudRate>
   <supportedCommandClasses>
     <entry>
-      <commandClass>METER</commandClass>
-      <meterCommandClass>
-        <version>3</version>
+      <commandClass>BASIC</commandClass>
+      <basicCommandClass>
+        <version>1</version>
         <instances>1</instances>
-        <versionSupported>4</versionSupported>
-        <meterType>ELECTRIC</meterType>
-        <meterScales>
-          <meterScale>E_W</meterScale>
-          <meterScale>E_V</meterScale>
-          <meterScale>E_A</meterScale>
-          <meterScale>E_KWh</meterScale>
-        </meterScales>
-        <canReset>true</canReset>
+        <versionSupported>1</versionSupported>
         <isGetSupported>true</isGetSupported>
-        <isSupportRequestSupported>true</isSupportRequestSupported>
-      </meterCommandClass>
-    </entry>
-    <entry>
-      <commandClass>ASSOCIATION</commandClass>
-      <associationCommandClass>
-        <version>2</version>
-        <instances>1</instances>
-        <versionSupported>2</versionSupported>
-        <maxGroups>3</maxGroups>
-      </associationCommandClass>
-    </entry>
-    <entry>
-      <commandClass>DEVICE_RESET_LOCALLY</commandClass>
-      <deviceResetLocallyCommandClass>
-        <version>1</version>
-        <instances>1</instances>
-        <versionSupported>1</versionSupported>
-      </deviceResetLocallyCommandClass>
-    </entry>
-    <entry>
-      <commandClass>POWERLEVEL</commandClass>
-      <powerLevelCommandClass>
-        <version>1</version>
-        <instances>1</instances>
-        <versionSupported>1</versionSupported>
-        <powerLevel>0</powerLevel>
-        <powerTimeout>0</powerTimeout>
-      </powerLevelCommandClass>
+      </basicCommandClass>
     </entry>
     <entry>
       <commandClass>MANUFACTURER_SPECIFIC</commandClass>
@@ -75,13 +39,33 @@
       </manufacturerSpecificCommandClass>
     </entry>
     <entry>
-      <commandClass>BASIC</commandClass>
-      <basicCommandClass>
+      <commandClass>POWERLEVEL</commandClass>
+      <powerLevelCommandClass>
+        <version>1</version>
+        <instances>1</instances>
+        <versionSupported>1</versionSupported>
+        <powerLevel>0</powerLevel>
+        <powerTimeout>0</powerTimeout>
+      </powerLevelCommandClass>
+    </entry>
+    <entry>
+      <commandClass>SWITCH_ALL</commandClass>
+      <switchAllCommandClass>
         <version>1</version>
         <instances>1</instances>
         <versionSupported>1</versionSupported>
         <isGetSupported>true</isGetSupported>
-      </basicCommandClass>
+        <mode>SWITCH_ALL_EXCLUDED</mode>
+      </switchAllCommandClass>
+    </entry>
+    <entry>
+      <commandClass>ASSOCIATION</commandClass>
+      <associationCommandClass>
+        <version>2</version>
+        <instances>1</instances>
+        <versionSupported>2</versionSupported>
+        <maxGroups>3</maxGroups>
+      </associationCommandClass>
     </entry>
     <entry>
       <commandClass>ASSOCIATION_GROUP_INFO</commandClass>
@@ -96,40 +80,29 @@
       </associationGroupInfoCommandClass>
     </entry>
     <entry>
-      <commandClass>ZWAVE_PLUS_INFO</commandClass>
-      <zwavePlusCommandClass>
+      <commandClass>DEVICE_RESET_LOCALLY</commandClass>
+      <deviceResetLocallyCommandClass>
         <version>1</version>
         <instances>1</instances>
-        <versionSupported>2</versionSupported>
-        <zwPlusVersion>1</zwPlusVersion>
-        <zwPlusRole>5</zwPlusRole>
-        <zwPlusNodeType>0</zwPlusNodeType>
-        <zwPlusDeviceType>0x700</zwPlusDeviceType>
-        <zwPlusInstallerIcon>0x700</zwPlusInstallerIcon>
-        <isGetSupported>true</isGetSupported>
-      </zwavePlusCommandClass>
+        <versionSupported>1</versionSupported>
+      </deviceResetLocallyCommandClass>
     </entry>
     <entry>
-      <commandClass>VERSION</commandClass>
-      <versionCommandClass>
-        <version>2</version>
-        <instances>1</instances>
-        <versionSupported>2</versionSupported>
-        <libraryType>LIB_SLAVE_ENHANCED</libraryType>
-        <protocolVersion>4.5</protocolVersion>
-        <applicationVersion>3.94</applicationVersion>
-        <hardwareVersion>65</hardwareVersion>
-      </versionCommandClass>
-    </entry>
-    <entry>
-      <commandClass>SWITCH_ALL</commandClass>
-      <switchAllCommandClass>
+      <commandClass>SWITCH_BINARY</commandClass>
+      <binarySwitchCommandClass>
         <version>1</version>
         <instances>1</instances>
         <versionSupported>1</versionSupported>
         <isGetSupported>true</isGetSupported>
-        <mode>SWITCH_ALL_EXCLUDED</mode>
-      </switchAllCommandClass>
+      </binarySwitchCommandClass>
+    </entry>
+    <entry>
+      <commandClass>NO_OPERATION</commandClass>
+      <noOperationCommandClass>
+        <version>1</version>
+        <instances>0</instances>
+        <versionSupported>1</versionSupported>
+      </noOperationCommandClass>
     </entry>
     <entry>
       <commandClass>CONFIGURATION</commandClass>
@@ -183,7 +156,7 @@
             <configurationParameter>
               <index>5</index>
               <size>1</size>
-              <value>1</value>
+              <value>0</value>
               <readOnly>false</readOnly>
               <writeOnly>false</writeOnly>
             </configurationParameter>
@@ -193,7 +166,7 @@
             <configurationParameter>
               <index>6</index>
               <size>1</size>
-              <value>5</value>
+              <value>1</value>
               <readOnly>false</readOnly>
               <writeOnly>false</writeOnly>
             </configurationParameter>
@@ -242,13 +215,26 @@
       </configurationCommandClass>
     </entry>
     <entry>
-      <commandClass>SWITCH_BINARY</commandClass>
-      <binarySwitchCommandClass>
-        <version>1</version>
-        <instances>1</instances>
-        <versionSupported>1</versionSupported>
+      <commandClass>SENSOR_BINARY</commandClass>
+      <binarySensorCommandClass>
+        <version>0</version>
+        <instances>0</instances>
+        <versionSupported>0</versionSupported>
         <isGetSupported>true</isGetSupported>
-      </binarySwitchCommandClass>
+        <types/>
+      </binarySensorCommandClass>
+    </entry>
+    <entry>
+      <commandClass>VERSION</commandClass>
+      <versionCommandClass>
+        <version>2</version>
+        <instances>1</instances>
+        <versionSupported>2</versionSupported>
+        <libraryType>LIB_SLAVE_ENHANCED</libraryType>
+        <protocolVersion>4.5</protocolVersion>
+        <applicationVersion>3.94</applicationVersion>
+        <hardwareVersion>65</hardwareVersion>
+      </versionCommandClass>
     </entry>
     <entry>
       <commandClass>ALARM</commandClass>
@@ -273,12 +259,36 @@
       </alarmCommandClass>
     </entry>
     <entry>
-      <commandClass>NO_OPERATION</commandClass>
-      <noOperationCommandClass>
+      <commandClass>ZWAVE_PLUS_INFO</commandClass>
+      <zwavePlusCommandClass>
         <version>1</version>
-        <instances>0</instances>
-        <versionSupported>1</versionSupported>
-      </noOperationCommandClass>
+        <instances>1</instances>
+        <versionSupported>2</versionSupported>
+        <zwPlusVersion>1</zwPlusVersion>
+        <zwPlusRole>5</zwPlusRole>
+        <zwPlusNodeType>0</zwPlusNodeType>
+        <zwPlusDeviceType>0x700</zwPlusDeviceType>
+        <zwPlusInstallerIcon>0x700</zwPlusInstallerIcon>
+        <isGetSupported>true</isGetSupported>
+      </zwavePlusCommandClass>
+    </entry>
+    <entry>
+      <commandClass>METER</commandClass>
+      <meterCommandClass>
+        <version>3</version>
+        <instances>1</instances>
+        <versionSupported>4</versionSupported>
+        <meterType>ELECTRIC</meterType>
+        <meterScales>
+          <meterScale>E_A</meterScale>
+          <meterScale>E_W</meterScale>
+          <meterScale>E_V</meterScale>
+          <meterScale>E_KWh</meterScale>
+        </meterScales>
+        <canReset>true</canReset>
+        <isGetSupported>true</isGetSupported>
+        <isSupportRequestSupported>true</isSupportRequestSupported>
+      </meterCommandClass>
     </entry>
   </supportedCommandClasses>
   <securedCommandClasses/>
@@ -291,18 +301,14 @@
         <profile1>0x0</profile1>
         <profile2>0x1</profile2>
         <commands>
-          <commandClass>METER</commandClass>
           <commandClass>DEVICE_RESET_LOCALLY</commandClass>
           <commandClass>SWITCH_BINARY</commandClass>
           <commandClass>ALARM</commandClass>
+          <commandClass>METER</commandClass>
         </commands>
         <associations>
           <associationMember>
-            <node>1</node>
-            <endpoint>0</endpoint>
-          </associationMember>
-          <associationMember>
-            <node>195</node>
+            <node>199</node>
             <endpoint>0</endpoint>
           </associationMember>
           <associationMember>
@@ -324,7 +330,7 @@
         </commands>
         <associations>
           <associationMember>
-            <node>195</node>
+            <node>199</node>
             <endpoint>0</endpoint>
           </associationMember>
           <associationMember>
@@ -346,7 +352,7 @@
         </commands>
         <associations>
           <associationMember>
-            <node>196</node>
+            <node>199</node>
             <endpoint>0</endpoint>
           </associationMember>
           <associationMember>
@@ -358,6 +364,6 @@
     </entry>
   </associationGroups>
   <nodeNeighbors/>
-  <lastSent>2018-05-25 16:01:39.625 UTC</lastSent>
-  <lastReceived>2018-05-25 16:01:39.676 UTC</lastReceived>
+  <lastSent>2018-11-30 11:44:36.188 UTC</lastSent>
+  <lastReceived>2018-11-30 11:44:36.352 UTC</lastReceived>
 </node>

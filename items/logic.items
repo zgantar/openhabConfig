@@ -16,6 +16,17 @@ Group:Number            CalcConsHour
 Group:Number            CalcConsDay
 Group:Number            TimeSetter
 Group                   Other
+Group:Switch:OR(ON,OFF) MessagesSwitches
+Group                   Messages
+
+String  Message
+Number  MessageNumber
+Number  MessagesNumber
+String  TempCumnataMessage          (Messages)
+String  TempLopaMessage             (Messages)
+
+Switch  SwitchTempCumnataMessage    (MessagesSwitches)
+Switch  SwitchTempLopaMessage       (MessagesSwitches)
 
 
 Number  RadioStationURL     "Naslov radio toka :)"          (Other)      

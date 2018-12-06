@@ -1,0 +1,12 @@
+kuhinja=-6,5;4,1;4,5;4,6;1
+dnevna=-4.4,2,4.9,5.9,1
+hodnik_spodaj=-7.7,-0.7,1.6,5.9,1
+kopalnica_spodaj=-8.6,2.3,2.2,2.3,1
+vhod=-10.4,-0.4,1.8,2.5,1
+kabinet=1,0.6,2.3,2.7,1
+pritlicje=kopalnica_spodaj,hodnik_spodaj,kuhinja,dnevna,kabinet
+pritlicje_vhod=kopalnica_spodaj,hodnik_spodaj,kuhinja,dnevna,kabinet,vhod
+-6.5=krneki
+
+0=[19000,29600,30000,30100,1]
+1=[21100,27500,30400,31400,1]
