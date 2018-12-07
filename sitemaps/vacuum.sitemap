@@ -1,0 +1,7 @@
+sitemap vacuum label="Sesalec" {
+    Frame label="Sesalec" icon="vacuum" {
+        Switch  item=Vacuum_Zone    mappings=[0="Kuhinja", 1="Dnevna", hodnik_spodaj="Hodnik spodaj", kopalnica_spodaj="Kopalnica spodaj", vhod="Vhod", kabinet="Kabinet", pritlicje="Pritličje", pritlicje_vhod="Celotno pritličje"]
+
+        Switch 	item=Vacuum_Control mappings=[vacuum="Sesaj", pause="Počivaj", spot="Točkovno", dock="Polni", mop="Pomij"]
+    }
+}

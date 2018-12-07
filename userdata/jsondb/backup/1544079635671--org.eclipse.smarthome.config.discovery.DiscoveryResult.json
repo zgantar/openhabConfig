@@ -1,0 +1,82 @@
+{
+  "miio:generic:031D3F73": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "thingUID": {
+        "segments": [
+          "miio",
+          "generic",
+          "031D3F73"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "miio",
+          "generic"
+        ]
+      },
+      "properties": {
+        "host": "192.168.1.102",
+        "deviceId": "031D3F73"
+      },
+      "representationProperty": "031D3F73",
+      "flag": "IGNORED",
+      "label": "Xiaomi Mi IO Device 031D3F73 (52248435)",
+      "timestamp": 1544022634316,
+      "timeToLive": -1
+    }
+  },
+  "miio:unsupported:031D3F73": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "thingUID": {
+        "segments": [
+          "miio",
+          "unsupported",
+          "031D3F73"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "miio",
+          "unsupported"
+        ]
+      },
+      "properties": {
+        "host": "192.168.1.102",
+        "deviceId": "031D3F73"
+      },
+      "representationProperty": "031D3F73",
+      "flag": "NEW",
+      "label": "Xiaomi Mi IO Device 031D3F73 (52248435) lumi-gateway-v3_miio52248435",
+      "timestamp": 1544079635167,
+      "timeToLive": -1
+    }
+  },
+  "chromecast:chromecast:6d2598bc4e820c6f33a505c1d6f5ffd3": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "thingUID": {
+        "segments": [
+          "chromecast",
+          "chromecast",
+          "6d2598bc4e820c6f33a505c1d6f5ffd3"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "chromecast",
+          "chromecast"
+        ]
+      },
+      "properties": {
+        "ipAddress": "192.168.1.225",
+        "port": 8009
+      },
+      "flag": "IGNORED",
+      "label": "Living Room TV",
+      "timestamp": 1544030274105,
+      "timeToLive": -1
+    }
+  }
+}
