@@ -1,0 +1,481 @@
+{
+  "Sesalec_CasCiscenja -\u003e miio:vacuum:05C06BB1:status#clean_time": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "status#clean_time"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_CasCiscenja"
+    }
+  },
+  "ControlAudio -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:control": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "control"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "ControlAudio"
+    }
+  },
+  "OutFeelTemp -\u003e exec:command:27ad52a1:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "27ad52a1",
+          "output"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "OutFeelTemp"
+    }
+  },
+  "Sesalec_Zemljevid -\u003e miio:vacuum:05C06BB1:status#map_present": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "status#map_present"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_Zemljevid"
+    }
+  },
+  "VolumeAudio -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:volume": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "volume"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VolumeAudio"
+    }
+  },
+  "OutPercipToday -\u003e exec:command:63f28dbb:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "63f28dbb",
+          "output"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "OutPercipToday"
+    }
+  },
+  "Sesalec_PovrsinaCiscenja -\u003e miio:vacuum:05C06BB1:status#clean_area": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "status#clean_area"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_PovrsinaCiscenja"
+    }
+  },
+  "PlugLiDn1Switch1 -\u003e zwave:device:3c30d241:node8:switch_binary1": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "3c30d241",
+          "node8",
+          "switch_binary1"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugLiDn1Switch1"
+    }
+  },
+  "Sesalec_Control -\u003e miio:vacuum:05C06BB1:actions#control": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "actions#control"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_Control"
+    }
+  },
+  "Sesalec_MocSesanja -\u003e miio:vacuum:05C06BB1:status#fan_power": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "status#fan_power"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_MocSesanja"
+    }
+  },
+  "PlugLiDn2Switch2 -\u003e zwave:device:3c30d241:node8:switch_binary2": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "3c30d241",
+          "node8",
+          "switch_binary2"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugLiDn2Switch2"
+    }
+  },
+  "PlugKrnekiSwitch -\u003e mihome:sensor_plug:158d000237314e:power": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d000237314e",
+          "power"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugKrnekiSwitch"
+    }
+  },
+  "Sesalec_Stanje -\u003e miio:vacuum:05C06BB1:status#state": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "status#state"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_Stanje"
+    }
+  },
+  "OutHum -\u003e exec:command:f5ff6f12:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "f5ff6f12",
+          "output"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "OutHum"
+    }
+  },
+  "Sesalec_OnOff -\u003e miio:vacuum:05C06BB1:actions#vacuum": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "actions#vacuum"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_OnOff"
+    }
+  },
+  "Sesalec_NastaviMocSesanja -\u003e miio:vacuum:05C06BB1:actions#fan": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "actions#fan"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_NastaviMocSesanja"
+    }
+  },
+  "Sesalec_Actions_ExecuteCommand -\u003e miio:vacuum:05C06BB1:actions#commands": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "actions#commands"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_Actions_ExecuteCommand"
+    }
+  },
+  "PlugLiDnSwitch -\u003e zwave:device:3c30d241:node8:switch_binary": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "zwave",
+          "device",
+          "3c30d241",
+          "node8",
+          "switch_binary"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugLiDnSwitch"
+    }
+  },
+  "VticnicaTemp -\u003e miio:basic:034BA5C5:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "basic",
+          "034BA5C5",
+          "temperature"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VticnicaTemp"
+    }
+  },
+  "PlayURIAudio -\u003e chromecast:audio:b7693ed57925d303904f1662ae824ed7:playuri": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "chromecast",
+          "audio",
+          "b7693ed57925d303904f1662ae824ed7",
+          "playuri"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlayURIAudio"
+    }
+  },
+  "Sesalec_Napaka -\u003e miio:vacuum:05C06BB1:status#error_code": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "status#error_code"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_Napaka"
+    }
+  },
+  "PlugKrnekiConsumption -\u003e mihome:sensor_plug:158d000237314e:powerConsumed": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d000237314e",
+          "powerConsumed"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugKrnekiConsumption"
+    }
+  },
+  "Sesalec_Battery -\u003e miio:vacuum:05C06BB1:status#battery": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "status#battery"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_Battery"
+    }
+  },
+  "Sesalec_NeMoti -\u003e miio:vacuum:05C06BB1:status#dnd_enabled": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "vacuum",
+          "05C06BB1",
+          "status#dnd_enabled"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Sesalec_NeMoti"
+    }
+  },
+  "PlugKrnekiPower -\u003e mihome:sensor_plug:158d000237314e:loadPower": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mihome",
+          "sensor_plug",
+          "158d000237314e",
+          "loadPower"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugKrnekiPower"
+    }
+  },
+  "VticnicaSwitch -\u003e miio:basic:034BA5C5:power": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "basic",
+          "034BA5C5",
+          "power"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "VticnicaSwitch"
+    }
+  },
+  "SesalecVticnicaStikalo -\u003e miio:generic:a11891ec:actions#power": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "miio",
+          "generic",
+          "a11891ec",
+          "actions#power"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "SesalecVticnicaStikalo"
+    }
+  },
+  "OutPercipInten -\u003e exec:command:499aa0f2:output": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "499aa0f2",
+          "output"
+        ]
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "OutPercipInten"
+    }
+  }
+}

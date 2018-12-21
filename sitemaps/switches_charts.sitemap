@@ -1,7 +1,7 @@
 sitemap switches_charts label="Grafi ogrevanja za rezidenco Gantar" {
 	Frame label="Ogrevanje" icon="heating" {
 		Text label="Talno gretje"
-		Chart item=Heating period=D refresh=900000 
+		Chart item=FhsHeater period=D refresh=900000 
 	}
 
 	Frame label="Ogrevanje po sobah" icon="heating" {
