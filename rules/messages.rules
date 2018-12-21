@@ -1,26 +1,17 @@
 import org.openhab.model.script.actions.*
+import org.openhab.core.library.types.*
+import org.openhab.core.library.item.*
+import org.joda.time.*
 import org.eclipse.xtext.xbase.lib.*
 
 var Timer messageCarousel
 var Number messageIndex
-val String log = "messages"
+var String log = "messages"
 
-val Functions$Function1<SwitchItem, Boolean> assignMessage = [ 
-	SwitchItem activeMessageSwitch|
-
-    logInfo(log, "-----------------Klic funkcije assignMessage--------------")
-    val String name = activeMessageSwitch.name.substring(6, activeMessageSwitch.name.length)
-    logInfo(log, "Prvo sporočilo je iz {}", name)
-    val activeMessage = Messages.members.filter(filtItem|filtItem.name.equalsIgnoreCase(name)).head
-    logInfo(log, "Dobil sem sporočilo {}, ki ga moram prikazati", name)
-    Message.postUpdate(activeMessage.state)
-    logInfo(log, "-----------------Konec funkcije assignMessage--------------")
-    return true
-]
 
 rule "Set all necessary variables for messages"
 when
-	System started
+    System started
 then
     logInfo(log, "Nastavim vse potrebno za sporočanje")
     Message.postUpdate(transform("MAP", "messages.map", "no_messages"))
@@ -31,48 +22,70 @@ end
 
 rule "Changing the message when one is there"
 when
-	Item MessagesSwitches changed
+    Item MessagesSwitches changed
 then
     logInfo(log, "################Klic Changing the message when one is there##################")
     messageCarousel = null
     messageIndex = 0
+    var String name
+    var activeMessage
+    var String message
+    var SwitchItem tmpSwitch
+
     val activeMessages = MessagesSwitches.members.filter(filtItem|filtItem.state == ON)
+    logInfo(log, "Dobil sem {} sporočil", activeMessages)
     if (activeMessages.size > 0) {
-        MessagesNumber.postUpdate(activeMessages.size)
+        MessagesNumber.postUpdate(activeMessages.size as Number)
+        logInfo(log, "Dobil sem {} sporočil", activeMessages.size)
+        logInfo(log, "Dobil sem {} sporočil", MessagesNumber)
         logInfo(log, "Dobil sem {} sporočil", MessagesNumber.state)
-        val tmpSwitch = activeMessages.get(messageIndex.intValue) as SwitchItem
+        tmpSwitch = activeMessages.get(messageIndex.intValue) as SwitchItem
         logInfo(log, "Prvi vir sporočila je {}", tmpSwitch.toString)
-        assignMessage.apply(tmpSwitch)
+        // assignMessage.apply(tmpSwitch)
+
+        name = tmpSwitch.name.substring(6, tmpSwitch.name.length)
+        logInfo("messages", "Prvo sporočilo je iz {}", name)
+        activeMessage = Messages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name)).head
+        logInfo("messages", "Dobil sem sporočilo {}, ki ga moram prikazati", activeMessage)
+        logInfo("messages", "Kam pa prikažem sporočilo {} ", Message)
+        message = activeMessage
+        logInfo("messages", "Še drugič pokažem sporočilo {} ", message)
+        postUpdate(Message, message)
+        logInfo("messages", "-----------------Konec funkcije assignMessage--------------")
+
+
         logInfo(log, "Prvi vir sporočila je {}", tmpSwitch.toString)
-        messageCarousel = createTimer(now.plusSeconds(7)) [
+        messageCarousel = createTimer(now.plusSeconds(7)) [|
             logInfo(log, "Sem v timerju z indexom {}", messageIndex)
             if (messageIndex == MessageNumber.state as Number) messageIndex = 0
-            else messageIndex = messageIndex + 1    
-            assignMessage.apply(activeMessages.get(messageIndex.intValue) as SwitchItem)
+            else messageIndex = messageIndex + 1
+            val tmpSwitch2 = activeMessages.get(messageIndex.intValue) as SwitchItem
+            // assignMessage.apply(tmpSwitch)
+
+            val name2 = tmpSwitch2.name.substring(6, tmpSwitch2.name.length)
+            logInfo("messages", "Prvo sporočilo je iz {}", name2)
+            val activeMessage2 = Messages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name2)).head
+            logInfo("messages", "Dobil sem sporočilo {}, ki ga moram prikazati", activeMessage2)
+            Message.postUpdate(activeMessage2.state)
+            logInfo("messages", "-----------------Konec funkcije assignMessage--------------")
+
             messageCarousel.reschedule(now.plusSeconds(7))
             logInfo(log, "Ponastavljam timer", messageIndex)
         ]
-    } else logInfo(log, "Ni sporočil!")
+    } else logInfo(log, "Ni sporočil")
     logInfo(log, "################Konec Changing the message when one is there##################")
 end
 
-rule "Changing the message when none is there"
-when
-	Item Messages received command OFF
-then
-    logInfo(log, "################Klic Changing the message when none is there##################")
-    messageCarousel = null
-    messageIndex = 0
-    val activeMessages = MessagesSwitches.members.filter(filtItem|filtItem.state == ON)
-    MessageNumber.postUpdate(activeMessages.size)
-    logInfo(log, "Dobil sem {} sporočil", MessageNumber.state as Number)
-    assignMessage.apply(activeMessages.get(messageIndex) as SwitchItem)
-    messageCarousel = createTimer(now.plusSeconds(7)) [
-        logInfo(log, "Sem v timerju z indexom {}", messageIndex)
-	    if (messageIndex == MessageNumber.state as Number) messageIndex = 0
-    	else messageIndex = messageIndex + 1    
-        assignMessage.apply(activeMessages.get(messageIndex.intValue) as SwitchItem)
-        messageCarousel.reschedule(now.plusSeconds(7))
-    ]
-end
 
+// val Functions$Function1<Item, Boolean> assignMessage = [ 
+//     Item activeMessageSwitch|
+
+//     logInfo("messages", "-----------------Klic funkcije assignMessage--------------")
+//     val name = activeMessageSwitch.name.substring(6, activeMessageSwitch.name.length)
+//     logInfo("messages", "Prvo sporočilo je iz {}", name)
+//     val activeMessage = Messages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name)).head
+//     logInfo("messages", "Dobil sem sporočilo {}, ki ga moram prikazati", name)
+//     Message.postUpdate(activeMessage.state.toString)
+//     logInfo("messages", "-----------------Konec funkcije assignMessage--------------")
+//     return true
+// ]
