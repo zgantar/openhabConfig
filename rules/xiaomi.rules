@@ -34,3 +34,36 @@ when
 then
     logInfo("Xiaomi", "Dolgi spust")
 end
+
+rule "Mijia & Aqara Cube Controller"
+when
+    Channel 'mihome:sensor_cube:158d00029abcd1:action' triggered
+then
+    var actionName = receivedEvent.getEvent()
+    switch(actionName) {
+        case "MOVE": {
+        }
+        case "ROTATE_RIGHT": {
+            val volume = (CubeDnevRotationAngle.state as Number) / 2
+            VolumeAudio.postUpdate((VolumeAudio.state as Number) + volume)
+        }
+        case "ROTATE_LEFT": {
+            val volume = ((CubeDnevRotationAngle.state as Number) / 2 ) * (-1)
+            VolumeAudio.postUpdate((VolumeAudio.state as Number) - volume)
+        }
+        case "FLIP90": {
+                if (NextRadioStation.state == ON) NextRadioStation.sendCommand(OFF)
+                else NextRadioStation.sendCommand(ON)
+        }
+        case "FLIP180": {
+        }
+        case "TAP_TWICE": {
+        }
+        case "SHAKE_AIR": {
+        }
+        case "FREE_FALL": {
+        }
+        case "ALERT": {
+        }
+    }
+end

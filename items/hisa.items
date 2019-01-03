@@ -1,68 +1,32 @@
-Group:Number    Temp        "Senzorji temperature"
-Group:Number    TempRev     "Senzorji temperature NO"
-// Group	TempCal	"Preračunani senzorji temperature"
-Group:Number    Hum         "Senzorji vlažnosti"
-Group:Contact   Door        "Odprta vrata"
+Group:Number            Temp        "Senzorji temperature"
+Group:Number            TempRev     "Senzorji temperature NO"
+Group:Number            Hum         "Senzorji vlažnosti"
+Group:Contact           Door        "Odprta vrata"
+Group:Switch            Fhs         "Ventili talnega gretja"
+Group:Switch            FhsRev      "Ventili talnega gretja NO"
+Group:Number            Power       "Trenutna priključna moč"
+Group:Number            Consumption "Poraba"
+Group:Switch            InUse       "V uporabi"
+Group:Switch            PlugSwitch	"Stikalo za vtičnico"
+Group:Switch            PhonePing   "Zaznava telefonov"
+Group:DateTime:MAX      LastSeen    "Max last seen [%1$td.%1$tm %1$tH:%1$tM]" 
+Group                   Cube        "Kockice"
+Group                   Smoke       "Senzor za dim"
+Group:Number            Battery     "Baterije"
+Group:Switch:OR(ON,OFF) BatteryLow  "Opozorilo za slabo baterijo"
+
 // Group	Lum		"Senzorji svetlosti"
 // Group	Mot		"Senzorji gibanja"	(Mot)
-Group:Switch    Fhs         "Ventili talnega gretja"
-Group:Switch    FhsRev      "Ventili talnega gretja NO"
 // Group	BlindAct	"Aktuatorji žaluzij"
 // Group	BlindSwi	"Stikala žaluzij"
 // Group	BlindRev	"Stikala obratnih žaluzij"
-Group:Number    Power       "Trenutna priključna moč"
-Group:Number    Consumption "Poraba"
-Group:Switch    InUse       "V uporabi"
-Group:Switch    PlugSwitch	"Stikalo za vtičnico"
-
-Group   Smoke   "Senzor za dim"
-
-Group:Number   Battery  "Baterije"
-Group:Switch:OR(ON,OFF)  BatteryLow  "Opozorilo za slabo baterijo"
-
-Switch      ZigasPhonePingable    "Zaznana naprava" { channel="network:pingdevice:nina:online" }
-DateTime    ZigasLastSeen         "Nazadnje viden"  { channel="network:pingdevice:nina:lastseen" }
-
-Switch      NinasPhonePingable    "Zaznana naprava" { channel="network:pingdevice:nina:online" }
-DateTime    NinasLastSeen         "Nazadnje viden"  { channel="network:pingdevice:nina:lastseen" }
 
 
-//Žaluzije
-// Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
-// Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
-// Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
-// Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
+Switch      ZigasPhonePingable    "Zaznana naprava" (PhonePing) { channel="network:pingdevice:nina:online" }
+DateTime    ZigasLastSeen         "Nazadnje viden"  (LastSeen)  { channel="network:pingdevice:nina:lastseen" }
 
-// Switch	ActDnevnaDesDo	"Dnevna desno dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa5" }	
-// Switch	ActDnevnaDesUp	"Dnevna desno gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa4" }
-// Switch	SwiDnevnaDesUp	"Dnevna desno stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb2" }
-// Switch 	SwiDnevnaDesDo	"Dnevna desno stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb3" }
-
-// Switch	ActDnevnaLevDo	"Dnevna levo dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa3" }	
-// Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa2" }
-// Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
-// Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
-
-// Switch	ActSpalnicaDo   "Spalnica dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out0" }	
-// Switch	ActSpalnicaUp   "Spalnica gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out1" }
-// Switch	SwiSpalnicaUp   "Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
-// Switch 	SwiSpalnicaDo   "Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
-
-// Switch	ActAljazDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out2" }	
-// Switch	ActAljazUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out3" }
-// Switch	SwiAljazUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
-// Switch 	SwiAljazDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
-
-// Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out1" }	
-// Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out0" }
-// Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in2" }
-// Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in3" }
-
-// //Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaDoSwitch" }	
-// //Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaUpSwitch" }
-// //Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaUpOrder" }
-// //Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaDoOrder" }
-
+Switch      NinasPhonePingable    "Zaznana naprava" (PhonePing) { channel="network:pingdevice:nina:online" }
+DateTime    NinasLastSeen         "Nazadnje viden"  (LastSeen)  { channel="network:pingdevice:nina:lastseen" }
 
 //Humidity
 Number	HumJulija		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead97:humidity" }
@@ -78,7 +42,7 @@ Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome
 Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001e89694:humidity" }
 Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001f54681:humidity" }
 Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d00020db6d4:humidity" }
-Number	HumLopa1         "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d000241bdac:humidity" }
+Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d000241bdac:humidity" }
 
 //Temperature
 Number	TempJulija	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
@@ -94,7 +58,7 @@ Number	TempDnevna		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channe
 Number	TempCumnata		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89694:temperature" }
 Number	TempRekuperacija    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
 Number	TempEnergetski      "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d00020db6d4:temperature" }
-Number	TempLopa1            "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d000241bdac:temperature" }
+Number	TempLopa1           "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d000241bdac:temperature" }
 
 
 //Plugs
@@ -153,6 +117,11 @@ Number  SmokeCumnataDensity     "Gostota"       <smoke>     (Smoke)     { channe
 Switch  SmokeCumnataAlarm       "Alarm"         <alarm>     (Smoke)    { channel="mihome:smoke:158d0001b76b9c:alarm" }
 String  SmokeCumnataStatus      "Status"        <status>    (Smoke)    { channel="mihome:smoke:158d0001b76b9c:status" }
 
+//cube
+DateTime        CubeDnevLastAction      "[%1$td.%1$tm.%1$tY  %1$tH:%1$tM]"  <clock-on>  (cube)  { channel="mihome:sensor_cube:158d00029abcd1:lastAction" }
+Number:Angle    CubeDnevRotationAngle   "Kot vrtenja [%d °]"                            (cube)  { channel="mihome:sensor_cube:158d00029abcd1:rotationAngle" }
+Number:Time     CubeDnevRotationTime    "Čas vrtenja [%d ms]"                           (cube)  { channel="mihome:sensor_cube:158d00029abcd1:rotationTime" }
+
 //Batteries
 Number JulijaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020ead97:batteryLevel" }
 Switch JulijaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020ead97:lowBattery" }
@@ -180,8 +149,8 @@ Number RekuperacijaBattery      "Baterija"      <battery>   (Battery)       { ch
 Switch RekuperacijaBatteryLow   "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f54681:lowBattery" }
 Number EnergetskiBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020db6d4:batteryLevel" }
 Switch EnergetskiBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020db6d4:lowBattery" }
-Number Lopa1Battery              "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000241bdac:batteryLevel" }
-Switch Lopa1BatteryLow           "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000241bdac:lowBattery" }
+Number Lopa1Battery             "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000241bdac:batteryLevel" }
+Switch Lopa1BatteryLow          "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000241bdac:lowBattery" }
 
 
 Number DoorDvigBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel" }
@@ -200,6 +169,11 @@ Switch  SwitchDnevnaBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { c
 
 Number  SmokeCumnataBattery     "Baterija"      <battery>   (Battery)       { channel="mihome:smoke:158d0001b76b9c:batteryLevel" }
 Switch  SmokeCumnataBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:smoke:158d0001b76b9c:lowBattery" }
+
+
+Number  CubeDnevBattery         "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_cube:158d00029abcd1:batteryLevel" }
+Switch  CubeDnevBatteryLow      "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_cube:158d00029abcd1:lowBattery" }
+
 
 //Gateway
 Switch  GatewayAddDevice        "Nova naprava"                          { channel="mihome:gateway:286c0788c0ee:joinPermission" }
@@ -259,3 +233,40 @@ Switch  MuteVideo       "Utišaj"         { channel="chromecast:chromecast:TVCC:
 String  PlayURIVideo    "Naslov"         { channel="chromecast:chromecast:TVCC:playuri" }
 String  StatusURIVideo  "Naslov"         { channel="chromecast:chromecast:TVCC:statustext" }
 Switch  IdlingVideo     "Pripravljen"    { channel="chromecast:chromecast:TVCC:idling" }
+
+
+//Žaluzije
+// Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
+// Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
+// Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
+// Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
+
+// Switch	ActDnevnaDesDo	"Dnevna desno dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa5" }	
+// Switch	ActDnevnaDesUp	"Dnevna desno gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa4" }
+// Switch	SwiDnevnaDesUp	"Dnevna desno stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb2" }
+// Switch 	SwiDnevnaDesDo	"Dnevna desno stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb3" }
+
+// Switch	ActDnevnaLevDo	"Dnevna levo dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa3" }	
+// Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa2" }
+// Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
+// Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
+
+// Switch	ActSpalnicaDo   "Spalnica dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out0" }	
+// Switch	ActSpalnicaUp   "Spalnica gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out1" }
+// Switch	SwiSpalnicaUp   "Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
+// Switch 	SwiSpalnicaDo   "Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
+
+// Switch	ActAljazDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out2" }	
+// Switch	ActAljazUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out3" }
+// Switch	SwiAljazUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
+// Switch 	SwiAljazDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
+
+// Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out1" }	
+// Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out0" }
+// Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in2" }
+// Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in3" }
+
+// //Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaDoSwitch" }	
+// //Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaUpSwitch" }
+// //Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaUpOrder" }
+// //Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaDoOrder" }
