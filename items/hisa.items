@@ -62,10 +62,7 @@ Number	TempLopa1           "Temperatura [%.2f °C]" <temperature>   (Temp)  { ch
 
 
 //Plugs
-Switch  PlugSusiSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node4:switch_binary" }
-Number  PlugSusiPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node4:meter_watts" }
-Number  PlugSusiConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node4:meter_kwh" }
-
+//Xiaomi Zigbee
 Switch  PlugTinkSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0001a68c94:power" }
 Switch  PlugTinkActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a68c94:inUse" }
 Number  PlugTinkPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a68c94:loadPower" }
@@ -81,31 +78,36 @@ Switch  PlugDnevActive      "V uporabi"     <switch>        (InUse)         { ch
 Number  PlugDnevPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0002372e50:loadPower" }
 Number  PlugDnevConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0002372e50:powerConsumed" }
 
+//Xiaomi WiFi
+Switch  PlugVacuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="miio:basic:034BA5C5:power" }
+
+//CoolCam
+Switch  PlugSusiSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node4:switch_binary" }
+Number  PlugSusiPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node4:meter_watts" }
+Number  PlugSusiConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node4:meter_kwh" }
+
 Switch  PlugPralSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node3:switch_binary" }
 Number  PlugPralPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node3:meter_watts" }
 Number  PlugPralConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node3:meter_kwh" }
-
-Switch  PlugHeatSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node2:switch_binary" }
-Number  PlugHeatPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node2:meter_watts" }
-Number  PlugHeatConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node2:meter_kwh" }
-
-Switch  PlugLiDnSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node7:switch_binary" }
-Switch  PlugLiDn1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node7:switch_binary1" }
-Switch  PlugLiDn2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node7:switch_binary2" }
 
 Switch  PlugIronSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node5:switch_binary" }
 Number  PlugIronPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node5:meter_watts" }
 Number  PlugIronConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node5:meter_kwh" }
 
-Switch  PlugVacuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="miio:basic:034BA5C5:power" }
+//TKBHome
+Switch  PlugHeatSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node2:switch_binary" }
+Number  PlugHeatPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node2:meter_watts" }
+Number  PlugHeatConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node2:meter_kwh" }
 
-//In-wall plugs
-//Switch  PlugHeatSwitch      "Vklopljena"    <switch>        { channel="zwave:device:16426e8f78a:node4:switch_binary" }
-// Switch  PlugInWallLivingPowerFactor "Faktor"        <switch>        { channel="zwave:device:16426e8f78a:node4:meter_powerfactor" }
-// Number  PlugInWallLivingPower       "Trenutna moč"  <energy>        { channel="zwave:device:16426e8f78a:node4:meter_watts" }
-// Number  PlugInWallLivingConsumption "Poraba"        <line-incline>  { channel="zwave:device:16426e8f78a:node4:meter_kwh" }
-// Number  PlugInWallLivingVoltage     "Napetost"      <line-incline>  { channel="zwave:device:16426e8f78a:node4:meter_voltage" }
-// Number  PlugInWallLivingCurrent     "Tok"           <line-incline>  { channel="zwave:device:16426e8f78a:node4:meter_current" }
+Switch  PlugLiDnSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary" }
+Switch  PlugLiDn1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary1" }
+Switch  PlugLiDn2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary2" }
+
+//Qubino
+// Switch  PlugLiDnSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary" }
+// Switch  PlugLiDn1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary1" }
+// Switch  PlugLiDn2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary2" }
+
 
 //Door
 Contact DoorDvigStatus  "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
@@ -236,6 +238,9 @@ Switch  IdlingVideo     "Pripravljen"    { channel="chromecast:chromecast:TVCC:i
 
 
 //Žaluzije
+//Qubino
+
+
 // Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa0" }	
 // Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ tinkerforge="uid=spm, subid=outa1" }
 // Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
