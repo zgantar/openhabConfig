@@ -1,3 +1,5 @@
+val double conv = 57.2957795131
+
 rule "Xiaomi Switch 1"
 when
     Channel "mihome:sensor_switch:158d00016d77ce:button" triggered LONG_PRESSED
@@ -44,22 +46,41 @@ then
         case "MOVE": {
         }
         case "ROTATE_RIGHT": {
-            val volume = (CubeDnevRotationAngle.state as Number) / 2
-            VolumeAudio.postUpdate((VolumeAudio.state as Number) + volume)
+            logInfo("Xiaomi", "Vrtenje v desno {}, trenutna glasnost je {}", CubeDnevRotationAngle.state as Number, VolumeAudio.state)
+            var int volume = (((CubeDnevRotationAngle.state as Number) / 2) * conv).intValue
+            logInfo("Xiaomi", "Spreminjam glasnost za {} ", volume)
+            volume = volume + (VolumeAudio.state as Number).intValue
+            VolumeAudio.sendCommand(new PercentType(volume))
+            logInfo("Xiaomi", "Nova glasnost je {} ", VolumeAudio.state)
         }
         case "ROTATE_LEFT": {
-            val volume = ((CubeDnevRotationAngle.state as Number) / 2 ) * (-1)
-            VolumeAudio.postUpdate((VolumeAudio.state as Number) - volume)
+            logInfo("Xiaomi", "Vrtenje v levo {}, trenutna glasnost je {}", CubeDnevRotationAngle.state, VolumeAudio.state)
+            var int volume = (((CubeDnevRotationAngle.state as Number) / 2) * conv).intValue * (-1)
+            logInfo("Xiaomi", "Spreminjam glasnost za {} ", volume)
+            volume = (VolumeAudio.state as Number).intValue - volume
+            VolumeAudio.sendCommand(new PercentType(volume))
+            logInfo("Xiaomi", "Nova glasnost je {} ", VolumeAudio.state)
         }
         case "FLIP90": {
-                if (NextRadioStation.state == ON) NextRadioStation.sendCommand(OFF)
-                else NextRadioStation.sendCommand(ON)
+            logInfo("Xiaomi", "Obrat 90 za menjavo radijske postaje")
+            if (PlugLiDn2Switch2.state == OFF) PlugLiDn2Switch2.sendCommand(ON)
+            else PlugLiDn2Switch2.sendCommand(OFF)
         }
         case "FLIP180": {
+            logInfo("Xiaomi", "Obrat 180 za prižig luči nad TV")
+            if (PlugLiDn1Switch1.state == OFF) PlugLiDn1Switch1.sendCommand(ON)
+            else PlugLiDn1Switch1.sendCommand(OFF)
         }
         case "TAP_TWICE": {
+            logInfo("Xiaomi", "Dvakratni trepljaj za prižig luči v dnevni")
+            if (NextRadioStation.state == ON) NextRadioStation.sendCommand(OFF)
+            else NextRadioStation.sendCommand(ON)
         }
         case "SHAKE_AIR": {
+            logInfo("Xiaomi", "Tresenje v zraku, vtičnica v dnevni je - " + PlugDnevSwitch.state)
+            if (PlugDnevSwitch.state == ON) PlugDnevSwitch.send(OFF)
+            else PlugDnevSwitch.send(ON)
+            logInfo("Xiaomi", "Konec tresenja v zraku, vtičnica v dnevni je - " + PlugDnevSwitch.state)
         }
         case "FREE_FALL": {
         }
