@@ -78,6 +78,11 @@ Switch  PlugDnevActive      "V uporabi"     <switch>        (InUse)         { ch
 Number  PlugDnevPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0002372e50:loadPower" }
 Number  PlugDnevConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0002372e50:powerConsumed" }
 
+Switch  PlugHifiSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d000237314e:power" }
+Switch  PlugHifiActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d000237314e:inUse" }
+Number  PlugHifiPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d000237314e:loadPower" }
+Number  PlugHifiConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d000237314e:powerConsumed" }
+
 //Xiaomi WiFi
 Switch  PlugVacuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="miio:basic:034BA5C5:power" }
 
