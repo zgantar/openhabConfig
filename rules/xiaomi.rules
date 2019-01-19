@@ -44,9 +44,6 @@ then
     var actionName = receivedEvent.getEvent()
     switch(actionName) {
         case "MOVE": {
-            logInfo("Xiaomi", "Premik za prižig luči v dnevni")
-            if (PlugLiDn1Switch1.state == OFF) PlugLiDn1Switch1.sendCommand(ON)
-            else PlugLiDn1Switch1.sendCommand(OFF)
         }
         case "ROTATE_RIGHT": {
             logInfo("Xiaomi", "Vrtenje v desno {}, trenutna glasnost je {}", CubeDnevRotationAngle.state as Number, VolumeAudio.state)
@@ -86,6 +83,9 @@ then
             logInfo("Xiaomi", "Konec tresenja v zraku, vtičnica v dnevni je - " + PlugDnevSwitch.state)
         }
         case "FREE_FALL": {
+            logInfo("Xiaomi", "Premik za prižig luči v dnevni")
+            if (PlugLiDn1Switch1.state == OFF) PlugLiDn1Switch1.sendCommand(ON)
+            else PlugLiDn1Switch1.sendCommand(OFF)
         }
         case "ALERT": {
         }
