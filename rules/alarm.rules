@@ -101,7 +101,7 @@ then
 			logInfo("alarm", "lightShuttOff---------------Vsa vrata zaprta zato ustavljam timer")
 			AlarmLightRaised.sendCommand(OFF)
 			// AlarmBlinkLight.sendCommand(OFF)
-			LightShuttOff.cancel
+			LightShuttOff = null
 		} else
 			logInfo("alarm", "lightShuttOff ---------------Vsaj ena vrata so odprta zato timer podaljšam za 5 sekund")
 			LightShuttOff.reschedule(now.plusSeconds(5))
