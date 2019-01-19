@@ -23,6 +23,7 @@ Bridge  mihome:bridge:286c0788c0ee "Xiaomi Gateway" @ "Dnevna" [ serialNumber="2
     Thing   mihome:sensor_plug:158d0001a4afdc "Rekuperacija" @ "Energetski prostor" [itemId="158d0001a4afdc"]
     Thing   mihome:sensor_plug:158d0001a68c94 "Tinkerforge" @ "Kabinet" [itemId="158d0001a68c94"]
     Thing   mihome:sensor_plug:158d0002372e50 "TV&HiFi" @ "Dnevna" [itemId="158d0002372e50"]
+    Thing   mihome:sensor_plug:158d000237314e "HiFi" @ "Dnevna" [itemId="158d000237314e"]
 
     //Door
     Thing   mihome:sensor_magnet:158d0001a5eff5 "Vhodna" @ "Hodnik" [itemId="158d0001a5eff5"]
