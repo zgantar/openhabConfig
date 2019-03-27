@@ -36,82 +36,82 @@ Number	HumKuhinja		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:
 Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000222654d:humidity" }
 Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00022264c9:humidity" }
 Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mihome:sensor_ht:158d0002226539:humidity" }
-Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001f58033:humidity" }
-Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001e89688:humidity" }
-Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001c14e34:humidity" }
-Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001e89694:humidity" }
-Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d0001f54681:humidity" }
-Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d00020db6d4:humidity" }
-Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)   { channel="mihome:sensor_ht:158d000241bdac:humidity" }
+Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001f58033:humidity" }
+Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001e89688:humidity" }
+Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001c14e34:humidity" }
+Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001e89694:humidity" }
+Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001f54681:humidity" }
+Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020db6d4:humidity" }
+Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000241bdac:humidity" }
 
 //Temperature
-Number	TempJulija	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
-Number	TempAljaz	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead94:temperature" }
-Number	TempSpalnica        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000210a5ec:temperature" }
-Number	TempKuhinja         "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00023792d1:temperature" }
-Number	TempKabinet	        "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000222654d:temperature" }
-Number	TempKopalnicaZ      "Temperatura [%.2f °C]"	<temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00022264c9:temperature" }
-Number	TempKopalnicaS      "Temperatura [%.2f °C]" <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d0002226539:temperature" }
-Number	TempHodnikZ	        "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f58033:temperature" }
-Number	TempHodnikS	        "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89688:temperature" }
-Number	TempDnevna		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001c14e34:temperature" }
-Number	TempCumnata		    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89694:temperature" }
-Number	TempRekuperacija    "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
-Number	TempEnergetski      "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d00020db6d4:temperature" }
-Number	TempLopa1           "Temperatura [%.2f °C]" <temperature>   (Temp)  { channel="mihome:sensor_ht:158d000241bdac:temperature" }
+Number	TempJulija	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
+Number	TempAljaz	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead94:temperature" }
+Number	TempSpalnica        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000210a5ec:temperature" }
+Number	TempKuhinja         "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00023792d1:temperature" }
+Number	TempKabinet	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000222654d:temperature" }
+Number	TempKopalnicaZ      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00022264c9:temperature" }
+Number	TempKopalnicaS      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d0002226539:temperature" }
+Number	TempHodnikZ	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f58033:temperature" }
+Number	TempHodnikS	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89688:temperature" }
+Number	TempDnevna		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001c14e34:temperature" }
+Number	TempCumnata		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89694:temperature" }
+Number	TempRekuperacija    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
+Number	TempEnergetski      "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d00020db6d4:temperature" }
+Number	TempLopa1           "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d000241bdac:temperature" }
 
 
 //Plugs
 //Xiaomi Zigbee
-Switch  PlugTinkSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0001a68c94:power" }
-Switch  PlugTinkActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a68c94:inUse" }
-Number  PlugTinkPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a68c94:loadPower" }
-Number  PlugTinkConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a68c94:powerConsumed" }
+Switch  PlugTinkSwitch      "Vklopljen Tinkerforge"     <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d0001a68c94:power" }
+Switch  PlugTinkActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d0001a68c94:inUse" }
+Number  PlugTinkPower       "Trenutna moč"              <energy>        (Power)                             { channel="mihome:sensor_plug:158d0001a68c94:loadPower" }
+Number  PlugTinkConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d0001a68c94:powerConsumed" }
 
-Switch  PlugRekuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0001a4afdc:power" }
-Switch  PlugRekuActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a4afdc:inUse" }
-Number  PlugRekuPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a4afdc:loadPower" }
-Number  PlugRekuConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a4afdc:powerConsumed" }
+Switch  PlugRekuSwitch      "Vklopljena"                <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0001a4afdc:power" }
+Switch  PlugRekuActive      "V uporabi"                 <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a4afdc:inUse" }
+Number  PlugRekuPower       "Trenutna moč"              <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a4afdc:loadPower" }
+Number  PlugRekuConsumption "Poraba"                    <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a4afdc:powerConsumed" }
 
-Switch  PlugDnevSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0002372e50:power" }
-Switch  PlugDnevActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d0002372e50:inUse" }
-Number  PlugDnevPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d0002372e50:loadPower" }
-Number  PlugDnevConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0002372e50:powerConsumed" }
+Switch  PlugDnevSwitch      "Vklopljena TV"             <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d0002372e50:power" }
+Switch  PlugDnevActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d0002372e50:inUse" }
+Number  PlugDnevPower       "Trenutna moč"              <energy>        (Power)                             { channel="mihome:sensor_plug:158d0002372e50:loadPower" }
+Number  PlugDnevConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d0002372e50:powerConsumed" }
 
-Switch  PlugHifiSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d000237314e:power" }
-Switch  PlugHifiActive      "V uporabi"     <switch>        (InUse)         { channel="mihome:sensor_plug:158d000237314e:inUse" }
-Number  PlugHifiPower       "Trenutna moč"  <energy>        (Power)         { channel="mihome:sensor_plug:158d000237314e:loadPower" }
-Number  PlugHifiConsumption "Poraba"        <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d000237314e:powerConsumed" }
+Switch  PlugHifiSwitch      "Vklopljen radio"           <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d000237314e:power" }
+Switch  PlugHifiActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d000237314e:inUse" }
+Number  PlugHifiPower       "Trenutna moč"              <energy>        (Power)                             { channel="mihome:sensor_plug:158d000237314e:loadPower" }
+Number  PlugHifiConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d000237314e:powerConsumed" }
 
 //Xiaomi WiFi
-Switch  PlugVacuSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="miio:basic:034BA5C5:power" }
+Switch  PlugVacuSwitch      "Vklopljen sesalec"         <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="miio:basic:034BA5C5:power" }
 
 //CoolCam
-Switch  PlugSusiSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node4:switch_binary" }
-Number  PlugSusiPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node4:meter_watts" }
-Number  PlugSusiConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node4:meter_kwh" }
+Switch  PlugSusiSwitch      "Vklopljen sušilec"         <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="zwave:device:3c30d241:node4:switch_binary" }
+Number  PlugSusiPower       "Trenutna moč"              <energy>        (Power)                             { channel="zwave:device:3c30d241:node4:meter_watts" }
+Number  PlugSusiConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="zwave:device:3c30d241:node4:meter_kwh" }
 
-Switch  PlugPralSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node3:switch_binary" }
-Number  PlugPralPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node3:meter_watts" }
-Number  PlugPralConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node3:meter_kwh" }
+Switch  PlugPralSwitch      "Vklopljen pralni stroj"    <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="zwave:device:3c30d241:node3:switch_binary" }
+Number  PlugPralPower       "Trenutna moč"              <energy>        (Power)                             { channel="zwave:device:3c30d241:node3:meter_watts" }
+Number  PlugPralConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="zwave:device:3c30d241:node3:meter_kwh" }
 
-Switch  PlugIronSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node5:switch_binary" }
-Number  PlugIronPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node5:meter_watts" }
-Number  PlugIronConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node5:meter_kwh" }
+Switch  PlugIronSwitch      "Vklopljen likalnik"        <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="zwave:device:3c30d241:node5:switch_binary" }
+Number  PlugIronPower       "Trenutna moč"              <energy>        (Power)                             { channel="zwave:device:3c30d241:node5:meter_watts" }
+Number  PlugIronConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="zwave:device:3c30d241:node5:meter_kwh" }
 
 //TKBHome
-Switch  PlugHeatSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node2:switch_binary" }
-Number  PlugHeatPower       "Trenutna moč"  <energy>        (Power)         { channel="zwave:device:3c30d241:node2:meter_watts" }
-Number  PlugHeatConsumption "Poraba"        <line-incline>  (Consumption)   { channel="zwave:device:3c30d241:node2:meter_kwh" }
+Switch  PlugHeatSwitch      "Vklopljen bojler"          <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="zwave:device:3c30d241:node2:switch_binary" }
+Number  PlugHeatPower       "Trenutna moč"              <energy>        (Power)                             { channel="zwave:device:3c30d241:node2:meter_watts" }
+Number  PlugHeatConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="zwave:device:3c30d241:node2:meter_kwh" }
 
-Switch  PlugLiDnSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary" }
-Switch  PlugLiDn1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary1" }
-Switch  PlugLiDn2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node8:switch_binary2" }
+Switch  PlugLiDnSwitch      "Vklopljeni TV&strop"       <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node8:switch_binary" }
+Switch  PlugLiDn1Switch1    "Vklopljena stropna luč"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node8:switch_binary1" }
+Switch  PlugLiDn2Switch2    "Vklopljena TV luč"         <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node8:switch_binary2" }
 
 //Qubino
-Switch  PlugLiStSwitch      "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node9:switch_binary" }
-Switch  PlugLiSt1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node9:switch_binary1" }
-Switch  PlugLiSt2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	{ channel="zwave:device:3c30d241:node9:switch_binary2" }
+Switch  PlugLiStSwitch      "Vklopljena"    <switch>        (PlugSwitch)    [ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary" }
+Switch  PlugLiSt1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary1" }
+Switch  PlugLiSt2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary2" }
 
 
 //Door
@@ -120,7 +120,7 @@ Contact DoorNagibStatus "Status [MAP(si.map):%s]"    <window>    (Door)  { chann
 Contact DoorVhodStatus  "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eff5:isOpen" }
 
 //Smoke
-Number  SmokeCumnataDensity     "Gostota"       <smoke>     (Smoke)     { channel="mihome:smoke:158d0001b76b9c:density" }
+Number  SmokeCumnataDensity     "Gostota"       <smoke>     (Smoke)    { channel="mihome:smoke:158d0001b76b9c:density" }
 Switch  SmokeCumnataAlarm       "Alarm"         <alarm>     (Smoke)    { channel="mihome:smoke:158d0001b76b9c:alarm" }
 String  SmokeCumnataStatus      "Status"        <status>    (Smoke)    { channel="mihome:smoke:158d0001b76b9c:status" }
 
@@ -227,19 +227,19 @@ Switch  FhsKabinet      "Kabinet"           <heating>       (Fhs)           { ti
 
 //Chromecast
 //Audio
-Dimmer  VolumeAudio     "Glasnost"       { channel="chromecast:audio:AudioCC:volume" }
-Player  ControlAudio    "Upravljanje"    { channel="chromecast:audio:AudioCC:control" }
-Switch  MuteAudio       "Utišaj"         { channel="chromecast:audio:AudioCC:mute" }
-String  PlayURIAudio    "Naslov"         { channel="chromecast:audio:AudioCC:playuri" }
-String  StatusURIAudio  "Naslov"         { channel="chromecast:audio:AudioCC:statustext" }
-Switch  IdlingAudio     "Pripravljen"    { channel="chromecast:audio:AudioCC:idling" }
+Dimmer  VolumeAudio     "Glasnost"       [ "Lighting" ]     { channel="chromecast:audio:AudioCC:volume" }
+Player  ControlAudio    "Upravljanje"                       { channel="chromecast:audio:AudioCC:control" }
+Switch  MuteAudio       "Utišaj"         [ "Switchable" ]   { channel="chromecast:audio:AudioCC:mute" }
+String  PlayURIAudio    "Naslov"                            { channel="chromecast:audio:AudioCC:playuri" }
+String  StatusURIAudio  "Naslov"                            { channel="chromecast:audio:AudioCC:statustext" }
+Switch  IdlingAudio     "Pripravljen"                       { channel="chromecast:audio:AudioCC:idling" }
 //Video
-Dimmer  VolumeVideo     "Glasnost"       { channel="chromecast:chromecast:TVCC:volume" }
-Player  ControlVideo    "Upravljanje"    { channel="chromecast:chromecast:TVCC:control" }
-Switch  MuteVideo       "Utišaj"         { channel="chromecast:chromecast:TVCC:mute" }
-String  PlayURIVideo    "Naslov"         { channel="chromecast:chromecast:TVCC:playuri" }
-String  StatusURIVideo  "Naslov"         { channel="chromecast:chromecast:TVCC:statustext" }
-Switch  IdlingVideo     "Pripravljen"    { channel="chromecast:chromecast:TVCC:idling" }
+Dimmer  VolumeVideo     "Glasnost"       [ "Lighting" ]     { channel="chromecast:chromecast:TVCC:volume" }
+Player  ControlVideo    "Upravljanje"                       { channel="chromecast:chromecast:TVCC:control" }
+Switch  MuteVideo       "Utišaj"         [ "Switchable" ]   { channel="chromecast:chromecast:TVCC:mute" }
+String  PlayURIVideo    "Naslov"                            { channel="chromecast:chromecast:TVCC:playuri" }
+String  StatusURIVideo  "Naslov"                            { channel="chromecast:chromecast:TVCC:statustext" }
+Switch  IdlingVideo     "Pripravljen"                       { channel="chromecast:chromecast:TVCC:idling" }
 
 
 //Žaluzije

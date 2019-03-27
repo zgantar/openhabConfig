@@ -24,13 +24,14 @@ Number  MessageNumber
 Number  MessagesNumber
 String  TempCumnataMessage          (Messages)
 String  TempLopaMessage             (Messages)
+String  HeatingMessage              (Messages)
 
 Switch  SwitchTempCumnataMessage    (MessagesSwitches)
 Switch  SwitchTempLopaMessage       (MessagesSwitches)
 
 
-Number  RadioStationURL     "Naslov radio toka :)"          (Other)      
-String  RadioStation        "[MAP(radio_stations.map):%s]"
+Number  RadioStationURL                         "Naslov radio toka :)"          (Other)
+String  RadioStation                            "[MAP(radio_stations.map):%s]"
 Switch  NextRadioStation    "Naslednja postaja"
 Switch  PrevRadioStation    "Prejšnja postaja"
 
@@ -46,7 +47,7 @@ Number      MinutesStartSetter2 "Minute"        (TimeSetter,Boiler)
 Number      HoursStopSetter2    "Ura"           (TimeSetter,Boiler)
 Number      MinutesStopSetter2  "Minute"        (TimeSetter,Boiler)
 
-Switch  TimeSetterSaver "Shrani uro"    
+Switch  TimeSetterSaver "Shrani uro"
 
 Number  PlugSusiDayCons "Dnevna poraba sušilec [%.2f kWh]"         <line-incline>  (CalcConsDay)
 Number  PlugTinkDayCons "Dnevna poraba Tinkerfoge [%.2f kWh]"      <line-incline>  (CalcConsDay)
@@ -66,7 +67,7 @@ Number  PlugRekuHourCons "Dnevna poraba rekuperacija [%.2f kWh]"   <line-incline
 
 Switch Trigger
 
-Switch  AlarmLightRaised "Proženje lučke za alarm"
+Switch  AlarmLightRaised    "Proženje lučke za alarm"
 
 Number	Temperature_Chart_Period	"Chart period [%s]"
 
@@ -83,7 +84,7 @@ Switch	LogKabinet		"Kabinet"			<heating>	(Log)
 Switch	LogOgrevanje	"Ogrevanje logika"	<heating>
 
 Switch	AlarmRaised		"Proženje alarma"               (Alarm)
-Switch	Heating			"Ogrevanje"					<heating>
+Switch	Heating			"Ogrevanje"                 <heating>
 Switch	LowElectricity	"Nizka tarifa elektrike"
 Switch	Holidays		"Doma med tednom"               (Other)
 Switch	Away			"Sploh nismo doma"              (Other)
