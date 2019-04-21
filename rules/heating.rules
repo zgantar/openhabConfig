@@ -218,10 +218,14 @@ then
 		val valve = Fhs.members.filter(fhsTmpItem | fhsTmpItem.name.containsIgnoreCase(name)).head
 		if (valve !== null) {
 			logInfo("heating", "Na vrednost ventila {}", valve.toString)
-			if (valve.state == ON && Heating.state == ON) { 
-				if (!noVent) manItem.sendCommand(ON) else manItem.sendCommand(OFF) 
+			if (Heating.state == ON) {
+				if (valve.state == ON) { 
+					if (!noVent) manItem.sendCommand(ON) else manItem.sendCommand(OFF) 
+				} else {
+					if (!noVent) manItem.sendCommand(OFF) else manItem.sendCommand(ON)
+				}
 			} else {
-				if (!noVent) manItem.sendCommand(OFF) else manItem.sendCommand(ON)
+					manItem.sendCommand(OFF)
 			}
 		} else {
 			logWarn("heating", "Nisem našel ventila za ročno stikalo {}", manItem.toString)	
@@ -291,12 +295,21 @@ then
 		logInfo("heating", "Preverimo končno stanje ventila {}", fhsItem.toString)
 	]
 	logInfo("heating", "Stanje Heating je {}, stanje startHeating2 pa je {}", Heating.state, startHeating2)
-	if (startHeating2 && Heating.state == OFF) {
-		logInfo("heating", "Vklopimo ogrevanje.")
-		sendCommand(Heating, ON)
-	} else if (Heating.state == ON && !startHeating2) {
-		logInfo("heating", "Izklopim ogrevanje")
-		sendCommand(Heating, OFF)
+	if (startHeating2) {
+		if (Heating.state == OFF) {
+			logInfo("heating", "Vklopimo ogrevanje.")
+			sendCommand(Heating, ON)
+		}
+	} else {
+		if (Heating.state == ON) {
+			logInfo("heating", "Izklopim ogrevanje")
+			sendCommand(Heating, OFF)
+		} 
+		if (Fhs.state == ON) {
+			Fhs.members.forEach[ manItem |
+				manItem.sendCommand(OFF)
+			]
+		}
 	}
 	logInfo("heating", "*************************Konec pregleda in vklopa zahtevanih ventilov**************************")
 end
