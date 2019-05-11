@@ -14,6 +14,7 @@ Group                   Cube        "Kockice"
 Group                   Smoke       "Senzor za dim"
 Group:Number            Battery     "Baterije"
 Group:Switch:OR(ON,OFF) BatteryLow  "Opozorilo za slabo baterijo"
+Group:Switch            WaterLeak   "Puščanje vode"
 
 // Group	Lum		"Senzorji svetlosti"
 // Group	Mot		"Senzorji gibanja"	(Mot)
@@ -129,6 +130,10 @@ DateTime        CubeDnevLastAction      "[%1$td.%1$tm.%1$tY  %1$tH:%1$tM]"  <clo
 Number:Angle    CubeDnevRotationAngle   "Kot vrtenja [%d °]"                            (cube)  { channel="mihome:sensor_cube:158d00029abcd1:rotationAngle" }
 Number:Time     CubeDnevRotationTime    "Čas vrtenja [%d ms]"                           (cube)  { channel="mihome:sensor_cube:158d00029abcd1:rotationTime" }
 
+//Water leak
+Switch  LeakKuhinjaAlarm    "Zaznal puščanje vode" <alarm> (WaterLeak)    { channel="mihome:sensor_wleak_aq1:158d000245c982:leak" }
+Switch  LeakEnergetskiAlarm "Zaznal puščanje vode" <alarm> (WaterLeak)    { channel="mihome:sensor_wleak_aq1:158d000245ca00:leak" }
+
 //Batteries
 Number JulijaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020ead97:batteryLevel" }
 Switch JulijaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020ead97:lowBattery" }
@@ -181,6 +186,12 @@ Switch  SmokeCumnataBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { c
 Number  CubeDnevBattery         "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_cube:158d00029abcd1:batteryLevel" }
 Switch  CubeDnevBatteryLow      "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_cube:158d00029abcd1:lowBattery" }
 
+
+Number  WaterLeakKuhiBattery    "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_wleak_aq1:158d000245c982:batteryLevel" }
+Switch  WaterLeakKuhiBatteryLow "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_wleak_aq1:158d000245c982:lowBattery" }
+
+Number  WaterLeakEnerBattery    "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_wleak_aq1:158d000245ca00:batteryLevel" }
+Switch  WaterLeakEnerBatteryLow "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_wleak_aq1:158d000245ca00:lowBattery" }
 
 //Gateway
 Switch  GatewayAddDevice        "Nova naprava"                          { channel="mihome:gateway:286c0788c0ee:joinPermission" }
