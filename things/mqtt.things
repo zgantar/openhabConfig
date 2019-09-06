@@ -1,0 +1,6 @@
+Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
+    Thing topic shellyLiWallLights "Dnevna stenska luč" @ "Dnevna" {
+        Channels:
+            Type switch : power "Stikalo" [ stateTopic="shellies/shelly1-9413CD/relay/0", on="on", off="off", commandTopic="shellies/shelly1-9413CD/relay/0/command", on="on", off="off" ]
+    }
+}

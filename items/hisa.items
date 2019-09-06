@@ -114,6 +114,9 @@ Switch  PlugLiStSwitch      "Vklopljena"    <switch>        (PlugSwitch)    [ "L
 Switch  PlugLiSt1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary1" }
 Switch  PlugLiSt2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary2" }
 
+//Shelly
+Switch  PlugLiDnWallSwitch  "Vklopljena stenska luč"    <switch>    (PlugSwitch)	[ "Lighting" ]  { channel="mqtt:topic:mosquitto:shellyLiWallLights:power" }
+
 
 //Door
 Contact DoorDvigStatus  "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
