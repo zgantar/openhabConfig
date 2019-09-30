@@ -1,0 +1,10 @@
+rule SmokeDetected
+
+when
+    Item SmokeCumnataAlarm changed
+then
+	logInfo("smoke", "###########################SmokeAlarm started##############################")
+	sendHABotNotification("Sprožil se je alarm za dim " + triggeringItem.toString)
+	logInfo("smoke", "###########################SmokeAlarm stoped##############################")
+
+end

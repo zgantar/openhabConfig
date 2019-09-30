@@ -1,0 +1,9 @@
+rule "BatterryLow rule"
+
+when
+	Item BatteryLow changed
+then
+	logInfo("tmp", "###########################BatterryLow started##############################")
+	sendHABotNotification("Dobil opozorilo za prazno baterijo na " + triggeringItem.toString)
+	logInfo("tmp", "###########################BatterryLow stoped##############################")
+end
