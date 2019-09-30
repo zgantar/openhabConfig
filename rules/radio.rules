@@ -6,10 +6,10 @@ val Functions$Function2<Number, Boolean, Boolean> changeStation = [
     logInfo("radio", "Preverim kateri index je trenutno {}", index)
     var tmpIndex = index
     if (upOrDown) {
-        if (index == 9) tmpIndex = 1
+        if (index == 14) tmpIndex = 1
         else tmpIndex = tmpIndex + 1
     } else {
-        if (tmpIndex == 1) tmpIndex = 9
+        if (tmpIndex == 1) tmpIndex = 14
         else tmpIndex = tmpIndex - 1
     }
     logInfo("radio", "Preverim kateri index je po spremembi {}", tmpIndex)
@@ -21,7 +21,7 @@ val Functions$Function2<Number, Boolean, Boolean> changeStation = [
     RadioStation.postUpdate(naslovToka)
     RadioStationURL.persist
     logInfo("radio", "Preverimo kako je chromecast {}", ControlAudio.state.toString)
-   ControlAudio.sendCommand(PLAY)
+    ControlAudio.sendCommand(PLAY)
 	logInfo("radio", "Preverimo kako je chromecast {}", ControlAudio.state.toString)
     logInfo("radio", "################Konec changeStation################")		
 	return true

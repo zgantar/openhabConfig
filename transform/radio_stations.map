@@ -11,6 +11,9 @@ NULL=neznano
 9=https://mp3channels.webradio.de/heavy-metal
 10=https://mp3channels.webradio.de/hip-hop
 11=https://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3
+12=https://mp3channels.webradio.de/black-beatz
+13=https://mp3channels.webradio.de/workout-hits
+14=https://mp3channels.webradio.de/relax
 
 
 
@@ -27,3 +30,6 @@ https\://mp3channels.webradio.de/rockantenne=Antenne Bayern Rock
 https\://mp3channels.webradio.de/heavy-metal=Antenne Bayern Heavy Metal
 https\://mp3channels.webradio.de/hip-hop=Antenne Bayern Hip Hop
 https\://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3=N-Joy
+https\://mp3channels.webradio.de/black-beatz=Black Beats
+https\://mp3channels.webradio.de/workout-hits=Workout Hits
+https\://mp3channels.webradio.de/relax=Relax

@@ -247,6 +247,7 @@ Switch  MuteAudio       "Utišaj"         [ "Switchable" ]   { channel="chromeca
 String  PlayURIAudio    "Naslov"                            { channel="chromecast:audio:AudioCC:playuri" }
 String  StatusURIAudio  "Naslov"                            { channel="chromecast:audio:AudioCC:statustext" }
 Switch  IdlingAudio     "Pripravljen"                       { channel="chromecast:audio:AudioCC:idling" }
+Switch  StopAudio       "Ustavi"                            { channel="chromecast:audio:AudioCC:stop" }
 //Video
 Dimmer  VolumeVideo     "Glasnost"       [ "Lighting" ]     { channel="chromecast:chromecast:TVCC:volume" }
 Player  ControlVideo    "Upravljanje"                       { channel="chromecast:chromecast:TVCC:control" }
@@ -254,7 +255,7 @@ Switch  MuteVideo       "Utišaj"         [ "Switchable" ]   { channel="chromeca
 String  PlayURIVideo    "Naslov"                            { channel="chromecast:chromecast:TVCC:playuri" }
 String  StatusURIVideo  "Naslov"                            { channel="chromecast:chromecast:TVCC:statustext" }
 Switch  IdlingVideo     "Pripravljen"                       { channel="chromecast:chromecast:TVCC:idling" }
-
+Switch  StopVideo       "Ustavi"                            { channel="chromecast:chromecast:TVCC:stop" }
 
 //Žaluzije
 //Qubino
