@@ -2,37 +2,17 @@ rule "Stairway lights on"
 when
     Item OutSolarRad changed
 then
-    logInfo("Lights", "Sprememba zunanje osvetljenosti na {}", OutSolarRad.state)
-    if (Integer.parseInt(OutSolarRad.state as String) == 0) {
+    logDebug("Lights", "Sprememba zunanje osvetljenosti na {}", OutSolarRad.state)
+    if (Integer.parseInt((OutSolarRad.state).toString) <= 12) {
         if (PlugLiSt2Switch2.state == OFF) {
             PlugLiSt2Switch2.sendCommand(ON)
-            logInfo("Lights", "Prižigam luči")
+            logDebug("Lights", "Prižigam luči")
         }
     } else {
         if (PlugLiSt2Switch2.state == ON) {
             PlugLiSt2Switch2.sendCommand(OFF)
-            logInfo("Lights", "Ugašam luči")
+            logDebug("Lights", "Ugašam luči")
         }
     }
-    logInfo("Lights", "Končal preverjanje luči na stopnišču")
-end
-
-
-rule "Stairway lights off"
-when
-    Item OutSolarRad changed
-then
-    logInfo("Lights", "Sprememba zunanje osvetljenosti na {}", OutSolarRad.state)
-    if (Integer.parseInt(OutSolarRad.state as String) == 0) {
-        if (PlugLiSt2Switch2.state == OFF) {
-            PlugLiSt2Switch2.sendCommand(ON)
-            logInfo("Lights", "Prižigam luči")
-        }
-    } else {
-        if (PlugLiSt2Switch2.state == ON) {
-            PlugLiSt2Switch2.sendCommand(OFF)
-            logInfo("Lights", "Ugašam luči")
-        }
-    }
-    logInfo("Lights", "Končal preverjanje luči na stopnišču")
+    logDebug("Lights", "Končal preverjanje luči na stopnišču")
 end
