@@ -40,11 +40,17 @@ val Functions$Function4<NumberItem, NumberItem, NumberItem, NumberItem, Boolean>
 				if (minutes == 0) {
 					logInfo("plug", "Ker so minute na 0 moram prestaviti uro")
 					hours = hours-1
+					minutes = 50
+					hoursStartItem.postUpdate(hours)
+					minutesStartItem.postUpdate(minutes)
+				} if (minutes == 5) {
+					logInfo("plug", "Ker so minute na 5 moram prestaviti uro")
+					hours = hours-1
 					minutes = 55
 					hoursStartItem.postUpdate(hours)
 					minutesStartItem.postUpdate(minutes)
 				} else {
-					minutes = minutes - 5
+					minutes = minutes - 10
 					minutesStartItem.postUpdate(minutes)
 				}
 				logInfo("plug", "Nastavil sem novo uro prižiga - " + hours + ":" + minutes)
