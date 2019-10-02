@@ -46,6 +46,10 @@ then
 	logInfo("alarm", "Preverjam katera vrata so se odprla - " + door.toString)
 	if (AlarmLightRaised.state == OFF) {
 		AlarmLightRaised.sendCommand(ON)
+		//checking to see if no parent is at home
+		if (PhonePing.state == OFF) {
+			sendHABotNotification("Zaznal odprta vrata, ko staršev ni doma - " + PhonePing.toString)
+		}
 	}
 	logInfo("alarm", "END ###########################Door sensors group value changed##############################")
 end
