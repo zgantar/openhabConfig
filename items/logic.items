@@ -1,5 +1,5 @@
 Group:Switch:OR(ON,OFF) Log
-Group:Switch            LogRev
+Group:Switch:OR(ON,OFF) LogRev
 Group:Number            Set
 Group:Number            Dif
 Group:Switch:OR(ON,OFF) Man

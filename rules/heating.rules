@@ -2,10 +2,14 @@ import org.joda.time.*
 import org.openhab.model.script.actions.*
 import org.apache.commons.lang.StringUtils.*
 import org.eclipse.xtext.xbase.lib.*
+import java.util.ArrayList
 
 
 var boolean startHeating1
 var boolean startHeating2
+
+var ArrayList<SwitchItem> itemsOn = null
+var ArrayList<SwitchItem> itemsOff = null
 
 val Functions$Function1<Boolean, Boolean> filterTempValues = [ 
 	boolean krneki|
@@ -45,38 +49,6 @@ val Functions$Function2<NumberItem, Number, Number> checkTrend = [
 	return prediction
 ]
 
-val Functions$Function2<SwitchItem,Number, Boolean> turnHeating4RoomOn = [ 
-	SwitchItem item,
-	Number on|
-
-	logInfo("heating", "################Klic turnHeating4RoomOn################")
-	if (on > 0) {
-		if (item.state == OFF) {
-			item.sendCommand(ON)
-			logInfo("heating", "Izdan ukaz za ogrevanje sobe {}", item.toString)
-		}
-	} else {
-		if (item.state == ON) {
-			item.sendCommand(OFF)
-			logInfo("heating", "Izdan ukaz za konec ogrevanja sobe {}", item.toString)
-		}
-	}
-	logInfo("heating", "################Konec turnHeating4RoomOn################")		
-	return true
-]
-
-
-val Functions$Function1<Boolean, Boolean> showFhsValues = [ 
-	boolean krneki|
-
-	logInfo("heating", "################Klic Log for FHS items################")
-	Fhs.members.forEach[fhsItem|
-		logInfo("heating", "Ventil je {}", fhsItem.toString)
-	]
-	logInfo("heating", "################Konec Log for FHS items################")		
-	return true
-]
-
 
 rule "Set all necessary variables for heating"
 when
@@ -84,6 +56,7 @@ when
 then
 	sendCommand(Heating, OFF)
 	sendCommand(LogOgrevanje, OFF)
+	sendCommand(ManOgrevanje, OFF)
 	Log.sendCommand(OFF)
 	Man.sendCommand(OFF)
 	Fhs.sendCommand(OFF)
@@ -186,22 +159,23 @@ then
 				if (Override.state == OFF) {
 					if (difTemp < 0 && logItem.state == OFF) {
 							startHeating1 = true
-							logInfo("heating", "Temperatura je prenizka, stikalo {}", logItem.toString)
-							turnHeating4RoomOn.apply(logItem as SwitchItem, 1)
+							logInfo("heating", "Temperatura je PRENIZKA, izdan ukaz za stikalo {}", logItem.toString)
+							logItem.sendCommand(ON)
 					} else if (difTemp > 0 && logItem.state == ON) {
-							startHeating1 = true
-							logInfo("heating", "Temperatura je previsoka, stikalo {}", logItem.toString)
-							turnHeating4RoomOn.apply(logItem as SwitchItem, -1)
+							logInfo("heating", "Temperatura je PREVISOKA, izdan ukaz za stikalo {}", logItem.toString)
+							logItem.sendCommand(OFF)
 					}
 				} else {
 					logInfo("heating", "Ročni override zato ignoriral preračune, gledam samo ročne ventile!")
 				}
 			}
 		}
+		logInfo("heating", "###################Konec preverjanja sobe {}", name)
 	]
 	logInfo("heating", "startHeating1 je {}, LogOgrevanje je {}, Log pa je {}", startHeating1, LogOgrevanje.state, Log.state)
 	logInfo("heating", "ManOgrevanje je {}, Man pa je {}", ManOgrevanje.state, Man.state)
 	if (startHeating1) LogOgrevanje.sendCommand(ON)
+	else if (Heating.state == ON) LogOgrevanje.sendCommand(OFF)
 	if (Override.state == ON) ManOgrevanje.sendCommand(ON)
 	logInfo("heating", "**********************Konec********************")
 end
@@ -254,11 +228,20 @@ when
 	Item ManOgrevanje received command
 then
 	logInfo("heating", "*************************Pregled in vklop zahtevanih ventilov**************************")
+	if (itemsOn == null) {
+		logInfo("heating", "Nastavljam seznam za stikal")
+		itemsOn = new ArrayList()
+	}
+		if (itemsOff == null) {
+		logInfo("heating", "Nastavljam seznam za stikal")
+		itemsOff = new ArrayList()
+	}
+
 	startHeating2 = false
 	Fhs.members.forEach[fhsItem |
 		logInfo("heating", "#####################Preverimo začetno stanje ventila {}", fhsItem.toString)
-		val boolean noVent = !fhsItem.groupNames.filter(group|group.equalsIgnoreCase("FhsRev")).empty
-		logInfo("heating", "Ali je NO ventil {}", noVent)
+//		val boolean noVent = !fhsItem.groupNames.filter(group|group.equalsIgnoreCase("FhsRev")).empty
+//		logInfo("heating", "Ali je NO ventil {}", noVent)
 		val name = fhsItem.name.substring(3)
 		if (Override.state == ON) {
 			logInfo("heating", "Ročno ogrevanje je aktivno")
@@ -271,10 +254,12 @@ then
 				if (manValve.state == ON && difTemp < 0) {
 					startHeating2 = true
 					logInfo("heating", "Ročni ventil je odprt in temperatura {} je nižja od nastavljene", difTemp)
-					if (!noVent) fhsItem.sendCommand(ON) else fhsItem.sendCommand(OFF)
+					itemsOn.add(fhsItem)
+					// if (!noVent) fhsItem.sendCommand(ON) else fhsItem.sendCommand(OFF)
 				} else if (manValve.state == OFF || difTemp > 0) {
+					itemsOff.add(fhsItem)
 					logInfo("heating", "Ali je ročni ventil zaprt ali pa je temperatura {} višja od nastavljene", difTemp)
-					if (!noVent) fhsItem.sendCommand(OFF) else if (Man.state == ON)fhsItem.sendCommand(ON)
+					// if (!noVent) fhsItem.sendCommand(OFF) else if (Man.state == ON)fhsItem.sendCommand(ON)
 				}
 			} else logInfo("heating", "Nisem našel ročnega ventila")
 		} else {
@@ -284,33 +269,67 @@ then
 				logInfo("heating", "Našel logični ventil {}", logValve.toString)
 				if (logValve.state == ON) {
 					startHeating2 = true
-					logInfo("heating", "Logični ventil je odprt")
-					if (!noVent) fhsItem.sendCommand(ON) else fhsItem.sendCommand(OFF)
+					logInfo("heating", "Logični ventil je odprt, dodajam na seznam za odpret!")
+					itemsOn.add(fhsItem)
+//					if (!noVent) fhsItem.sendCommand(ON) else fhsItem.sendCommand(OFF)
 				} else {
-					logInfo("heating", "Logični ventil je zaprt preverjam pa še ali se še vedno ogreva {}", LogOgrevanje.state.toString)
-					if (!noVent) fhsItem.sendCommand(OFF) else if (Log.state == ON) fhsItem.sendCommand(ON)
+					logInfo("heating", "Logični ventil je zaprt, dodajam na seznam za zapret!")
+					itemsOff.add(fhsItem)
+//					if (!noVent) fhsItem.sendCommand(OFF) else if (Log.state == ON) fhsItem.sendCommand(ON)
 				}
 			} else logInfo("heating", "Nisem našel logičnega ventila")
 		}
-		logInfo("heating", "Preverimo končno stanje ventila {}", fhsItem.toString)
+//		logInfo("heating", "Preverimo končno stanje ventila {}", fhsItem.toString)
 	]
 	logInfo("heating", "Stanje Heating je {}, stanje startHeating2 pa je {}", Heating.state, startHeating2)
 	if (startHeating2) {
+		logInfo("heating", "Imam seznam z {} ventili, ki jih potrebno odpreti", itemsOn.size() )
+		for (SwitchItem item : itemsOn) {
+			if (item.state == OFF && item.groupNames.filter(group|group.equalsIgnoreCase("FhsRev")).empty) {
+				item.sendCommand(ON)
+				logInfo("heating", "Odpiram venitl {}", item.toString )
+			} else logInfo("heating", "Venitl {} je že odprt", item.toString )
+		}
+		logInfo("heating", "Imam seznam z {} ventili, ki jih potrebno zapreti", itemsOff.size() )
+		for (SwitchItem item : itemsOff) {
+			//first nc valves
+			if (item.state == ON && item.groupNames.filter(group|group.equalsIgnoreCase("FhsRev")).empty) {
+				item.sendCommand(OFF)
+				logInfo("heating", "Zapiram nc venitl {}", item.toString )
+			} 
+			//then no valves
+			else if (item.state == OFF && !item.groupNames.filter(group|group.equalsIgnoreCase("FhsRev")).empty) {
+				item.sendCommand(ON)
+				logInfo("heating", "Zapiram no venitl {}", item.toString )
+			} 
+		}
+		logInfo("heating", "Vklopimo ogrevanje.")
 		if (Heating.state == OFF) {
-			logInfo("heating", "Vklopimo ogrevanje.")
 			sendCommand(Heating, ON)
 		}
 	} else {
 		if (Heating.state == ON) {
 			logInfo("heating", "Izklopim ogrevanje")
 			sendCommand(Heating, OFF)
-		} 
+		}
 		if (Fhs.state == ON) {
-			Fhs.members.forEach[ manItem |
-				manItem.sendCommand(OFF)
+			logInfo("heating", "Vsaj en ventil je še odprt, preverjam in zapiram!")
+			Fhs.members.forEach[fhsItem |
+				logInfo("heating", "Preverjam ventil {}!", fhsItem.toString)
+				if (fhsItem.state == ON && fhsItem.groupNames.filter(group|group.equalsIgnoreCase("FhsRev")).empty) {
+					fhsItem.sendCommand(OFF)
+					logInfo("heating", "Zapiram nc ventil {}!", fhsItem.toString)
+				} 
+				else if (fhsItem.state == OFF && !fhsItem.groupNames.filter(group|group.equalsIgnoreCase("FhsRev")).empty) {
+					fhsItem.sendCommand(ON)
+					logInfo("heating", "Zapiram no ventil {}!", fhsItem.toString)
+				} 
 			]
 		}
 	}
+	logInfo("heating", "Pucam seznam za odpret in zapret")
+	itemsOn = null
+	itemsOff = null
 	logInfo("heating", "*************************Konec pregleda in vklopa zahtevanih ventilov**************************")
 end
 
