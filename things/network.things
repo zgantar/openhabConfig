@@ -1,2 +1,2 @@
 network:pingdevice:ziga "Žigov telefon" @ "Hiša" [ hostname="192.168.1.56" ]
-network:pingdevice:nina "Ninin telefon" @ "Hiša" [ hostname="192.168.0.250" ]
+network:pingdevice:nina "Ninin telefon" @ "Hiša" [ hostname="192.168.1.250" ]
