@@ -174,8 +174,8 @@ then
 	]
 	logInfo("heating", "startHeating1 je {}, LogOgrevanje je {}, Log pa je {}", startHeating1, LogOgrevanje.state, Log.state)
 	logInfo("heating", "ManOgrevanje je {}, Man pa je {}", ManOgrevanje.state, Man.state)
-	if (startHeating1) LogOgrevanje.sendCommand(ON)
-	else if (Heating.state == ON) LogOgrevanje.sendCommand(OFF)
+	if (Log.state == ON && LogOgrevanje.state == OFF) LogOgrevanje.sendCommand(ON)
+	else if (Log.state == OFF && Heating.state == ON) LogOgrevanje.sendCommand(OFF)
 	if (Override.state == ON) ManOgrevanje.sendCommand(ON)
 	logInfo("heating", "**********************Konec********************")
 end
