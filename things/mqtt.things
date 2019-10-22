@@ -3,4 +3,22 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
         Channels:
             Type switch : power "Stikalo" [ stateTopic="shellies/shelly1-9413CD/relay/0", on="on", off="off", commandTopic="shellies/shelly1-9413CD/relay/0/command", on="on", off="off" ]
     }
+    //6938C4
+    Thing topic shellyKaBlinds "Žaluzije kabinet" @ "Kabinet" {
+        Channels:
+            Type switch : up    "Stikalo gor" [ stateTopic="shellies/shellyswitch25-6938C4/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-6938C4/relay/0/command", on="on", off="off" ]
+            Type switch : down  "Stikalo dol" [ stateTopic="shellies/shellyswitch25-6938C4/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-6938C4/relay/1/command", on="on", off="off" ]
+    }
+    //68E04B
+    Thing topic shellyDnBlindsDes "Žaluzije dnevna desno" @ "Dnevna" {
+        Channels:
+            Type switch : up    "Stikalo gor" [ stateTopic="shellies/shellyswitch25-68E04B/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-68E04B/relay/0/command", on="on", off="off" ]
+            Type switch : down  "Stikalo dol" [ stateTopic="shellies/shellyswitch25-68E04B/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-68E04B/relay/1/command", on="on", off="off" ]
+    }
+    //68E55A
+    Thing topic shellyDnBlindsLev "Žaluzije dnevna levo" @ "Dnevna" {
+        Channels:
+            Type switch : up    "Stikalo gor" [ stateTopic="shellies/shellyswitch25-68E55A/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-68E55A/relay/0/command", on="on", off="off" ]
+            Type switch : down  "Stikalo dol" [ stateTopic="shellies/shellyswitch25-68E55A/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-68E55A/relay/1/command", on="on", off="off" ]
+    }
 }
