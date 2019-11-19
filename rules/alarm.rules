@@ -48,7 +48,13 @@ then
 		AlarmLightRaised.sendCommand(ON)
 		//checking to see if no parent is at home
 		if (PhonePing.state == OFF) {
-			sendHABotNotification("Zaznal odprta vrata, ko staršev ni doma - " + PhonePing.toString)
+			logInfo("alarm", "Telefona staršev še nista prijavljena na Wifi, počakam še 10 sekund")
+			val Timer shutDownTimer = createTimer(now.plusMillis(10000)) [|
+				if (PhonePing.state == OFF) {
+					logInfo("alarm", "Tudi po desetih sekundah ni prijavljenih telefonov, prožim sporočilo")
+					sendHABotNotification("Zaznal odprta vrata, ko staršev ni doma - " + PhonePing.toString)
+				}
+			]
 		}
 	}
 	logInfo("alarm", "END ###########################Door sensors group value changed##############################")
