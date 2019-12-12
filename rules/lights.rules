@@ -3,7 +3,7 @@ when
     Item OutSolarRad changed
 then
     logDebug("Lights", "Sprememba zunanje osvetljenosti na {}", OutSolarRad.state)
-    if (Integer.parseInt((OutSolarRad.state).toString) <= 12) {
+    if (Integer.parseInt((OutSolarRad.state).toString) <= 8) {
         if (PlugLiSt2Switch2.state == OFF) {
             PlugLiSt2Switch2.sendCommand(ON)
             logDebug("Lights", "Prižigam luči")
