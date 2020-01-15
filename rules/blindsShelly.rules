@@ -1,0 +1,252 @@
+import org.joda.time.*
+import org.apache.commons.lang.StringUtils.*
+import org.eclipse.xtext.xbase.lib.*
+import java.util.Map
+
+val int PEEK = 1000
+val int DIMM = 1900
+val int FULL_D = 58000
+val int FULL_U = 55000
+var Map<String, Timer> timers 
+
+val Functions$Function2 getStringFromItem = [ 
+	SwitchItem item,
+	int whatToGet|
+	
+	var String returnString = null
+	switch whatToGet{
+		case 1: {
+				logInfo("blinds", "getStringFromItem - Iščemo ukaz " + item.name.substring(item.name.length - 2, item.name.length))
+				returnString = item.name.substring(item.name.length - 2, item.name.length)
+			}
+		case 2: {
+				logInfo("blinds", "getStringFromItem - Iščemo ime " + item.name.substring(3, item.name.length - 2))
+				returnString = item.name.substring(3, item.name.length - 2)
+			}
+		case 3: {
+				logInfo("blinds", "getStringFromItem - Iščemo ime z ukazom " + item.name.substring(3, item.name.length))
+				returnString = item.name.substring(3, item.name.length)
+			}
+		case 4: {
+				logInfo("blinds", "getStringFromItem - Iščemo nasprotno ime z ukazom")
+				if (item.name.substring(item.name.length - 2, item.name.length).toString.equals("Up")) {
+					logInfo("blinds", "getStringFromItem - Iščemo nasprotno ime z ukazom " + item.name.substring(3, item.name.length - 2).concat("Do"))
+					returnString = item.name.substring(3, item.name.length - 2).concat("Do")
+				} else {
+					logInfo("blinds", "getStringFromItem - Iščemo nasprotno ime z ukazom " + item.name.substring(3, item.name.length - 2).concat("Up"))
+					returnString = item.name.substring(3, item.name.length - 2).concat("Up")
+				}
+			}
+		case 5: {
+				logInfo("blinds", "getStringFromItem - Iščem ime za peek/dimm stikalo " + item.toString)
+				returnString = item.name.substring(0, item.name.length-4)
+			}
+	}
+	return returnString
+]
+
+val Functions$Function5 activateActBlind = [ 
+	SwitchItem item,
+	boolean on
+	Map<String, Timer> timers,
+	Functions$Function2 getStringFromItem|
+	
+	var Timer timer = null
+	var Timer shutDownTimer = null
+	logInfo("blinds", "activateActBlind - Klic activateActBlind za " + item.toString)
+	val String nameWithCommand = getStringFromItem.apply(item, 3).toString
+	val String justName = getStringFromItem.apply(item, 2).toString
+	val String oppName = getStringFromItem.apply(item, 4).toString
+	val boolean longerTimer = !item.groupNames.filter(group|group.equalsIgnoreCase("BlindD")).empty
+	logInfo("blinds", "activateActBlind - Ali imamo dalšo žaluzijo {}?", longerTimer)
+	val boolean downCommand = item.name.substring(item.name.length - 2, item.name.length).equals("Do")
+	logInfo("blinds", "activateActBlind - Ali je ukaz za spust " + downCommand)
+	var oppItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(oppName)).head
+	logInfo("blinds", "activateActBlind - Našli nasprotni aktuator " + oppItem.toString)
+	val stateItem = BlindState.members.filter(filtItem | filtItem.name.containsIgnoreCase(justName)).head
+	logInfo("blinds", "activateActBlind - Našli stanje " + stateItem.toString)
+	val stanje = stateItem.state as Number
+	logInfo("blinds", "activateActBlind - Stanje žaluzije - " + stanje)
+	if (on) {
+		if (oppItem.state == ON) {
+			logInfo("blinds", "activateActBlind - !!!!!!!!!!!!!!!Našel signal na aktuatorju za nasprotno smer " + oppItem.toString + " Izklapljam!!!!!!!!!!!!!!!!!!!!!!!!")
+			//preklicat mormo timer in nastvati pravilno stanje
+			val lastUpdateTime = oppItem.previousState.timestamp.time
+			logInfo("blinds", "activateActBlind - Preverjam nasprotni aktuator koliko časa " + oppItem.name+ " ----- " + lastUpdateTime)
+			logInfo("blinds", "activateActBlind - V našem času je to " + "----" + oppItem.lastUpdate)
+			logInfo("blinds", "activateActBlind - Trenutni čas " + "----" + now)
+			oppItem.sendCommand(ON)
+			val timeDifference = now.millis - lastUpdateTime
+			if (downCommand) {
+				logInfo("blinds", "activateActBlind - Ker je ukaz za spust prekinil ukaz za dvig, moramo stanje povečati za " + timeDifference)
+				val change = stateItem.state as Number + timeDifference
+				if (change > 60000) stateItem.postUpdate(60000)
+				else stateItem.postUpdate(change)
+			} else {
+				logInfo("blinds", "activateActBlind - Ker je ukaz za dvig prekinil ukaz za spust, moramo stanje zmanjšati za " + timeDifference)
+				val change = stateItem.state as Number - timeDifference
+				if (change < 0) stateItem.postUpdate(0)
+				else stateItem.postUpdate(change)
+			}
+			timer = timers.remove(getStringFromItem.apply(oppItem, 3).toString)
+			logInfo("blinds", "activateActBlind - Ker smo ročno prekinili premik žaluzij prekinjamo timer - {}, kar zmanjša mapo na {}.", oppActItem.toString, + timers.size)
+			if (timer != null) timer.cancel 
+			//nadaljujmo
+			logInfo("blinds", "activateActBlind -----------Izvajam posredovani ukaz za žaluzijo " + actItem.toString + "--------------------------")
+			item.sendCommand(ON) 
+			shutDownTimer = createTimer(now.plusMillis(timeToBeActive)) [|
+				logInfo("blinds", "activateActBlind ---------------Končal posredovani ukaz za žaluzijo " + actItem.toString + "--------------------------")
+						if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON) 
+						if (downCommand) stateItem.postUpdate(stateItem.state as Number - timeToBeActive)
+						else stateItem.postUpdate(stateItem.state as Number + timeToBeActive)
+						logInfo("blinds", "activateActBlind - Stanje žaluzije - " + stateItem.state as Number)
+						if (logBlind) {
+							logInfo("blinds", "activateActBlind - Nastavim logično stikalo na OFF")
+							item.sendCommand(OFF)
+							if (peekSwitch != null) {
+								logInfo("blinds", "activateActBlind - Nastavim peek stikalo na OFF - " + peekSwitch.toString)
+								peekSwitch.sendCommand(OFF)
+							} else {
+								logInfo("blinds", "activateActBlind - Ni bil prožen premik")
+							}
+						}
+					]
+				timers.put(nameWithCommand, shutDownTimer)
+				logInfo("blinds", "activateActBlind - Vstavimo nov timer " + nameWithCommand + ", kar poveča mapo na " + timers.size)
+			} else {
+				logInfo("blinds", "activateActBlind ---------------Izvajam posredovani ukaz za žaluzijo " + actItem.toString + "--------------------------")
+				if (!lowAct)actItem.sendCommand(ON) else actItem.sendCommand(OFF) 
+					shutDownTimer = createTimer(now.plusMillis(timeToBeActive)) [|
+						logInfo("blinds", "activateActBlind ---------------Končal posredovani ukaz za žaluzijo " + actItem.toString + "--------------------------")
+						if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON)
+						val timeDifference = stateItem.state as Number + timeToBeActive
+						if (downCommand) {
+							val razlika = stateItem.state as Number - timeDifference
+							logInfo("blinds", "activateActBlind - Ker je ukaz za konec spusta, moramo stanje zmanjšati za " + timeDifference)
+							if (razlika < 0) stateItem.postUpdate(0)
+							else stateItem.postUpdate(razlika) 
+						} else {
+							val vsota = stateItem.state as Number + timeDifference
+							logInfo("blinds", "activateActBlind - Ker je ukaz za konec dviga, moramo stanje povečati za " + timeDifference)
+							if (vsota > 60000) stateItem.postUpdate(60000)
+							else stateItem.postUpdate(vsota)
+						}
+						logInfo("blinds", "activateActBlind - Novo stanje žaluzije je - " + stateItem.state as Number)
+						if (logBlind) {
+							logInfo("blinds", "activateActBlind - Nastavim logično stikalo na OFF")
+							item.sendCommand(OFF)
+							if (peekSwitch != null) {
+								logInfo("blinds", "activateActBlind - Nastavim peek stikalo na OFF - " + peekSwitch.toString)
+								peekSwitch.sendCommand(OFF)
+							} else {
+								logInfo("blinds", "activateActBlind - Ni bil prožen premik")
+							}
+						}
+					]
+				timers.put(nameWithCommand, shutDownTimer)
+				logInfo("blinds", "activateActBlind - Vstavimo nov timer " + nameWithCommand + ", kar poveča mapo na " + timers.size)
+			}
+//		}
+	} else {
+		logInfo("blinds", "activateActBlind ---------------Končal akcijo na žaluziji " + actItem.name.toUpperCase + "---------------------")
+		//preklicat mormo timer in nastvati pravilno stanje
+		val lastUpdateTime = actItem.previousState.timestamp.time
+		logInfo("blinds", "activateActBlind - Preverjam nasprotni aktuator koliko časa " + actItem.toString+ " ----- " + lastUpdateTime)
+		logInfo("blinds", "activateActBlind - V našem času je to " + "----" + actItem.lastUpdate)
+		logInfo("blinds", "activateActBlind - Trenutni čas " + "----" + now)
+		if (!lowAct)actItem.sendCommand(OFF) else actItem.sendCommand(ON)
+		val timeDifference = now.millis - lastUpdateTime
+		if (timeDifference < 60000) {
+			if (downCommand) {
+				logInfo("blinds", "activateActBlind - Ker je ukaz za konec spusta, moramo stanje zmanjšati za " + timeDifference)
+				val razlika = stateItem.state as Number - timeDifference
+				if (razlika < 0) stateItem.postUpdate(0)
+				else stateItem.postUpdate(razlika)
+			} else {
+				logInfo("blinds", "activateActBlind - Ker je ukaz za konec dviga, moramo stanje povečati za " + timeDifference)
+				val vsota = stateItem.state as Number + timeDifference
+				logInfo("blinds", "activateActBlind - PREVERJAM: 60000")
+				if (vsota > 60000) stateItem.postUpdate(60000)
+				else stateItem.postUpdate(vsota)
+			}
+			logInfo("blinds", "activateActBlind - Novo stanje je: " + stateItem.toString)
+			logInfo("blinds", "activateActBlind - Prekinjamo timer, ker smo ročno prekinili premik žaluzij!")
+			logInfo("blinds", "activateActBlind - Iščemo timer za " + actItem.toString)
+			timer = timers.remove(getStringFromItem.apply(actItem, 3).toString)
+			logInfo("blinds", "activateActBlind - Ker smo prekinili premik žaluzij prekinjamo timer - " + oppActItem.toString + ", kar zmanjša mapo na " + timers.size)
+			if (timer != null) timer.cancel 
+		}
+		//nadaljujmo
+	}
+	logInfo("blinds", "activateActBlind - Mapa je - " + timers)
+	if (timers != null) {
+		logInfo("blinds", "activateActBlind - Trenutna velikost mape je - " + timers.size)
+	} else {
+		logInfo("blinds", "activateActBlind - Trenutna velikost mape je - 0")
+	}
+
+	return true
+]
+
+
+
+rule "Over temperature detected"
+when
+	Member of ShellyOverTemp received command ON
+then
+	logInfo("blinds", "Zaznal povišano temperaturo enega izmed relejev, prožim sporočilo")
+	sendHABotNotification("Zaznal povišano temperaturo releja - {}", triggeringItem.toString)
+end
+
+rule "Status of relays"
+when
+	Member of BlindsAlive received command ON
+then
+	logInfo("blinds", "Izgubil povezavo z enim izmed relejev, prožim sporočilo")
+	sendHABotNotification("Izgubil povezavo z relejem - {}", triggeringItem.toString)
+end
+
+
+rule "All blinds move"
+when
+	Member of BlindsAll changed to ON
+then
+	logInfo("blinds", "All blinds move - ###############Vse žaluzije premakni#####################")
+    var collection
+    if (getStringFromItem.apply(triggeringItem, 1).toString.equals("Up")) collection = BlindActDo
+    else collection = BlindActUp
+	logInfo("blinds", "Imamo {} žaluzij.", collection.size)
+	collection.members.forEach[actItem |
+		logInfo("blinds", "Sem v zanki s stikalom za - {}", actItem.toString)
+		if
+		activateActBlind.apply(actItem, true, timers, getStringFromItem)
+	]
+	logInfo("blinds", "All blinds move - ###############Konec vse žaluzije premakni#####################")
+	sendCommand(AllCompleteUp, OFF)
+end
+
+rule "Start movement of the blind"
+when
+    Member of BlindLog received command
+then
+    logInfo("blinds", "Start movement of the blind - ###############Premik žaluzije#####################")
+    logInfo("blinds", "Ukaz je prišel za žaluzijo {}.", triggeringItem.toString)
+    val nameWithOrder = getStringFromItem.apply(triggeringItem, 3).toString
+    val actItem = BlindsAct.members.filter(item|item.name.containsIgnoreCase(nameWithOrder).toString))
+    //first check if it is a stop or go command
+    if (receivedCommand == ON) {
+        val oppActItem = BlindLog.members.filter(item|item.name.containsIgnoreCase(getStringFromItem.apply(logItem, 4).toString))
+        if (oppActItem !== NULL && oppActItem.state == OFF) {
+            var stateItem = BlindState.members.filter(item|item.name.containsIgnoreCase(getStringFromItem.apply(logItem, 2).toString))
+            if (stateItem !== NULL)
+            sendCommand(actItem, ON)
+            shutDownTimer = createTimer(now.plusMillis(timeToBeActive)) [|
+                
+            ]
+        } else logInfo("blinds", "Žaluzije {} ne morem premakniti, ker je vklopljeno stikalo v nasprotno smer.", triggeringItem.name.toString)
+
+    } else {
+        val lastUpdateTime = triggeringItem.previousState.timestamp.time
+        val timeDifference = now.millis - lastUpdateTime
+
+    }

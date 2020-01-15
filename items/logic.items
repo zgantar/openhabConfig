@@ -6,7 +6,8 @@ Group:Switch:OR(ON,OFF) Man
 Group:Switch            ManRev
 // Group                   BlindLog
 // Group                   BlindState
-// Group                   Blinds
+Group                   Blinds
+Group                   BlindsAll
 // Group                   BlindsPeek
 // Group                   BlindsDimm
 // Group                   BlindsSE    "Stikala na JV"
@@ -128,17 +129,17 @@ Switch	ManKabinet		"Kabinet"				<heating>	(Man)
 Switch	ManOgrevanje	"Ogrevanje ročno"		<heating>
 
 //Žaluzije
-// Switch	AllCompleteUp	"Vse žaluzije gor"		<rollershuter>	(Blinds)
-// Switch	AllCompleteDo	"Vse žaluzije dol"		<rollershuter>	(Blinds)
+Switch	AllCompleteUp	"Vse žaluzije gor"		<rollershuter>	(BlindsAll)
+Switch	AllCompleteDo	"Vse žaluzije dol"		<rollershuter>	(BlindsAll)
 // Switch	AllPeek			"Vse žaluzije premik"	<rollershuter>	(Blinds)
 // Switch	AllPeekClose	"Vse žaluzije zapret"	<rollershuter>	(Blinds)
 // Dimmer	AllDimm			"Vse žaluzije zatemni"	<blinds>		(Blinds)
 
-// Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
-// Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
-// Switch	ZalKabinetPeek	"Kabinet premik"	<rollershuter>	(Blinds,BlindsPeek)
+Switch	ZalKabinetDo	"Kabinet dol"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
+Switch	ZalKabinetUp	"Kabinet gor"		<rollershuter>	(BlindLog,Blinds,BlindsSW)
+Switch	ZalKabinetPeek	"Kabinet premik"	<rollershuter>	(Blinds,BlindsPeek)
 // Dimmer	ZalKabinetDimm	"Kabinet žaluzije zatemni"	<blinds>		(BlindsDimm)
-// Number	StateKabinet	"Stanje žaluzije kabinet [%.1f]"			(BlindState)
+Number	StateKabinet	"Stanje žaluzije kabinet [%.1f]"			(BlindState)
 
 // Switch	ZalDnevnaDesDo	    "Dnevna desno dol"  	        	<rollershuter>	(BlindLog,Blinds,BlindsSW)
 // Switch	ZalDnevnaDesUp	    "Dnevna desno gor"	    	        <rollershuter>	(BlindLog,Blinds,BlindsSW)
