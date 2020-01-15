@@ -7,6 +7,7 @@ import java.util.ArrayList
 
 var boolean startHeating1
 var boolean startHeating2
+var boolean stopHeating
 
 var ArrayList<SwitchItem> itemsOn = null
 var ArrayList<SwitchItem> itemsOff = null
@@ -78,6 +79,7 @@ when
 then
 	logInfo("heating", "##################Preverjamo temperature#################")
 	startHeating1 = false
+	stopHeating = false
 	filterTempValues.apply(startHeating1)
 	Temp.members.forEach[ tempItem |
 		val name = tempItem.name.substring(4)
@@ -162,7 +164,7 @@ then
 							logInfo("heating", "Temperatura je PRENIZKA, izdan ukaz za stikalo {}", logItem.toString)
 							logItem.sendCommand(ON)
 					} else if (difTemp > 0 && logItem.state == ON) {
-							startHeating1 = true
+							stopHeating = true
 							logInfo("heating", "Temperatura je PREVISOKA, izdan ukaz za stikalo {}", logItem.toString)
 							logItem.sendCommand(OFF)
 					}
@@ -176,6 +178,7 @@ then
 	logInfo("heating", "startHeating1 je {}, LogOgrevanje je {}, Log pa je {}", startHeating1, LogOgrevanje.state, Log.state)
 	logInfo("heating", "ManOgrevanje je {}, Man pa je {}", ManOgrevanje.state, Man.state)
 	if (startHeating1 == true) LogOgrevanje.sendCommand(ON)
+	if (stopHeating == true) LogOgrevanje.sendCommand(OFF)
 	if (Override.state == ON) ManOgrevanje.sendCommand(ON)
 	logInfo("heating", "**********************Konec********************")
 end
@@ -228,11 +231,11 @@ when
 	Item ManOgrevanje received command
 then
 	logInfo("heating", "*************************Pregled in vklop zahtevanih ventilov**************************")
-	if (itemsOn == null) {
+	if (itemsOn === null) {
 		logInfo("heating", "Nastavljam seznam za stikal")
 		itemsOn = new ArrayList()
 	}
-	if (itemsOff == null) {
+	if (itemsOff === null) {
 		logInfo("heating", "Nastavljam seznam za stikal")
 		itemsOff = new ArrayList()
 	}
@@ -307,7 +310,7 @@ then
 			} 
 		}
 		logInfo("heating", "Vklopimo ogrevanje.")
-		if (Heating.state == OFF && (Log.state == ON || Man.state == ON)) {
+		if (Heating.state == OFF) {
 			sendCommand(Heating, ON)
 		}
 	} else {
