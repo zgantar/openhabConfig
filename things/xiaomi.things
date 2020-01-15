@@ -42,4 +42,7 @@ Bridge  mihome:bridge:286c0788c0ee "Xiaomi Gateway" @ "Dnevna" [ serialNumber="2
     //water leak
     Thing   mihome:sensor_wleak_aq1:158d000245c982 "Voda" @ "Kuhinja" [ itemId="158d000245c982" ]
     Thing   mihome:sensor_wleak_aq1:158d000245ca00 "Voda" @ "Energetski prostor" [ itemId="158d000245ca00" ]
+
+    //Aqara motion sensor
+    Thing   mihome:sensor_motion_aq2:158d00044b0ff3 "Gibanje" @ "Dnevna" [ itemId="158d00044b0ff3" ]
 }

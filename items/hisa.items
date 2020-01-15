@@ -1,24 +1,29 @@
-Group:Number                    Temp        "Senzorji temperature"
-Group:Number                    TempRev     "Senzorji temperature NO"
-Group:Number                    Hum         "Senzorji vlažnosti"
-Group:Contact:OR(OPEN,CLOSED)   Door        "Odprta vrata"
-Group:Switch:OR(ON,OFF)         Fhs         "Ventili talnega gretja"
-Group:Switch:OR(ON,OFF)         FhsRev      "Ventili talnega gretja NO"
-Group:Number                    Power       "Trenutna priključna moč"
-Group:Number                    Consumption "Poraba"
-Group:Switch                    InUse       "V uporabi"
-Group:Switch                    PlugSwitch	"Stikalo za vtičnico"
-Group:Switch:OR(ON,OFF)         PhonePing   "Zaznava telefonov"
-Group:DateTime:MAX              LastSeen    "Max last seen [%1$td.%1$tm %1$tH:%1$tM]" 
-Group                           Cube        "Kockice"
-Group                           Smoke       "Senzor za dim"
-Group:Number                    Battery     "Baterije"
-Group:Switch:OR(ON,OFF)         BatteryLow  "Opozorilo za slabo baterijo"
-Group:Switch                    WaterLeak   "Puščanje vode"
-
-// Group	Lum		"Senzorji svetlosti"
+Group:Number                    Temp            "Senzorji temperature"
+Group:Number                    TempRev         "Senzorji temperature NO"
+Group:Number                    Hum             "Senzorji vlažnosti"
+Group:Contact:OR(OPEN,CLOSED)   Door            "Odprta vrata"
+Group:Switch:OR(ON,OFF)         Fhs             "Ventili talnega gretja"
+Group:Switch:OR(ON,OFF)         FhsRev          "Ventili talnega gretja NO"
+Group:Number                    Power           "Trenutna priključna moč"
+Group:Number                    Consumption     "Poraba"
+Group:Switch                    InUse           "V uporabi"
+Group:Switch                    PlugSwitch	    "Stikalo za vtičnico"
+Group:Switch:OR(ON,OFF)         PhonePing       "Zaznava telefonov"
+Group:DateTime:MAX              LastSeen        "Max last seen [%1$td.%1$tm %1$tH:%1$tM]" 
+Group                           Cube            "Kockice"
+Group                           Smoke           "Senzor za dim"
+Group:Number                    Battery         "Baterije"
+Group:Switch:OR(ON,OFF)         BatteryLow      "Opozorilo za slabo baterijo"
+Group:Switch                    WaterLeak       "Puščanje vode"
+Group                           BlindAct        "Aktuatorji žaluzij"
+Group                           BlindD          "Žaluzije spodaj"
+Group                           BlindU          "Žaluzije zgoraj"
+Group                           BlindActUp      "Aktuatorji žaluzij"
+Group                           BlindActDo      "Aktuatorji žaluzij"
+Group:Switch:AND(ON,OFF)        BlindsAlive     "Mqtt status"
+Group:Switch:AND(ON,OFF)        ShellyOverTemp  "Shelly pregret"
+Group:Number                    Lum             "Senzorji svetlosti"
 // Group	Mot		"Senzorji gibanja"	(Mot)
-// Group	BlindAct	"Aktuatorji žaluzij"
 // Group	BlindSwi	"Stikala žaluzij"
 // Group	BlindRev	"Stikala obratnih žaluzij"
 
@@ -36,11 +41,11 @@ Number	HumSpalnica		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:se
 Number	HumKuhinja		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00023792d1:humidity" }
 Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000222654d:humidity" }
 Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00022264c9:humidity" }
-Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mihome:sensor_ht:158d0002226539:humidity" }
+Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mihome:sensor_ht:158d0001e89694:humidity" }
 Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001f58033:humidity" }
 Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001e89688:humidity" }
 Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001c14e34:humidity" }
-Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001e89694:humidity" }
+Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0002226539:humidity" }
 Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001f54681:humidity" }
 Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020db6d4:humidity" }
 Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000241bdac:humidity" }
@@ -52,11 +57,11 @@ Number	TempSpalnica        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{
 Number	TempKuhinja         "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00023792d1:temperature" }
 Number	TempKabinet	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000222654d:temperature" }
 Number	TempKopalnicaZ      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00022264c9:temperature" }
-Number	TempKopalnicaS      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d0002226539:temperature" }
+Number	TempKopalnicaS      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d0001e89694:temperature" }
 Number	TempHodnikZ	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f58033:temperature" }
 Number	TempHodnikS	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89688:temperature" }
 Number	TempDnevna		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001c14e34:temperature" }
-Number	TempCumnata		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89694:temperature" }
+Number	TempCumnata		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0002226539:temperature" }
 Number	TempRekuperacija    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
 Number	TempEnergetski      "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d00020db6d4:temperature" }
 Number	TempLopa1           "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d000241bdac:temperature" }
@@ -115,13 +120,13 @@ Switch  PlugLiSt1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	[ "Ligh
 Switch  PlugLiSt2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary2" }
 
 //Shelly
-Switch  PlugLiDnWallSwitch  "Vklopljena stenska luč"    <switch>    (PlugSwitch)	[ "Lighting" ]  { channel="mqtt:topic:mosquitto:shellyLiWallLights:power" }
-
+Switch  PlugLiDnWallSwitch          "Vklopljena stenska luč"                                <switch>        (PlugSwitch)    [ "Lighting" ]  { channel="mqtt:topic:mosquitto:shellyLiWallLights:relay" }
+Switch	PlugLiDnWallSwitchStatus    "Status stikala stenska luč [MAP(si.map):STATUS-%s]"    <rollershutter> (MqttStatus)                    { channel="mqtt:topic:mosquitto:shellyLiWallLights:alive" }
 
 //Door
-Contact DoorDvigStatus  "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
-Contact DoorNagibStatus "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5f10d:isOpen" }
-Contact DoorVhodStatus  "Status [MAP(si.map):%s]"    <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eff5:isOpen" }
+Contact DoorDvigStatus      "Status [MAP(si.map):DOOR-%s]"                        <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
+Contact DoorNagibStatus     "Status [MAP(si.map):DOOR-%s]"                        <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5f10d:isOpen" }
+Contact DoorVhodStatus      "Status [MAP(si.map):DOOR-%s]"                        <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eff5:isOpen" }
 
 //Smoke
 Number  SmokeCumnataDensity     "Gostota"       <smoke>     (Smoke)    { channel="mihome:smoke:158d0001b76b9c:density" }
@@ -137,6 +142,14 @@ Number:Time     CubeDnevRotationTime    "Čas vrtenja [%d ms]"                  
 Switch  LeakKuhinjaAlarm    "Zaznal puščanje vode" <alarm> (WaterLeak)    { channel="mihome:sensor_wleak_aq1:158d000245c982:leak" }
 Switch  LeakEnergetskiAlarm "Zaznal puščanje vode" <alarm> (WaterLeak)    { channel="mihome:sensor_wleak_aq1:158d000245ca00:leak" }
 
+//Aqara motion
+Number  TimerMotOffDnevna  "Čas odklopa"  <time>   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:motionOffTimer" }
+
+DateTime  LastActivityDnevna  "Zadnji podatek"  <time>   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:lastMotion" }
+
+//Ilumination
+Number  LumDnevna  "Svetlost"  <ilumination>   (Lum)   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:illumination" }
+
 //Batteries
 Number JulijaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020ead97:batteryLevel" }
 Switch JulijaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020ead97:lowBattery" }
@@ -150,16 +163,16 @@ Number KabinetBattery           "Baterija"      <battery>   (Battery)       { ch
 Switch KabinetBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000222654d:lowBattery" }
 Number KopalnicaZBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00022264c9:batteryLevel" }
 Switch KopalnicaZBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00022264c9:lowBattery" }
-Number KopalnicaSBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0002226539:batteryLevel" }
-Switch KopalnicaSBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0002226539:lowBattery" }
+Number KopalnicaSBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89694:batteryLevel" }
+Switch KopalnicaSBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89694:lowBattery" }
 Number HodnikZBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f58033:batteryLevel" }
 Switch HodnikZBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f58033:lowBattery" }
 Number HodnikSBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89688:batteryLevel" }
 Switch HodnikSBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89688:lowBattery" }
 Number DnevnaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001c14e34:batteryLevel" }
 Switch DnevnaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001c14e34:lowBattery" }
-Number CumnataBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89694:batteryLevel" }
-Switch CumnataBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89694:lowBattery" }
+Number CumnataBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0002226539:batteryLevel" }
+Switch CumnataBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0002226539:lowBattery" }
 Number RekuperacijaBattery      "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f54681:batteryLevel" }
 Switch RekuperacijaBatteryLow   "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f54681:lowBattery" }
 Number EnergetskiBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020db6d4:batteryLevel" }
@@ -196,6 +209,11 @@ Switch  WaterLeakKuhiBatteryLow "Baterija peša" <energy>    (BatteryLow)    { c
 Number  WaterLeakEnerBattery    "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_wleak_aq1:158d000245ca00:batteryLevel" }
 Switch  WaterLeakEnerBatteryLow "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_wleak_aq1:158d000245ca00:lowBattery" }
 
+
+Number GibanjeDnevnaBattery     "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_motion_aq2:158d00044b0ff3:batteryLevel" }
+Switch GibanjeDnevnaBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_motion_aq2:158d00044b0ff3:lowBattery" }
+
+
 //Gateway
 Switch  GatewayAddDevice        "Nova naprava"                          { channel="mihome:gateway:286c0788c0ee:joinPermission" }
 Switch  GatewayLightSwitch      "Sveti"             <light>             { channel="mihome:gateway:286c0788c0ee:brightness" }
@@ -212,9 +230,9 @@ Dimmer  GatewaySoundVolume      "Jakost zvoka"      <soundvolume>       { channe
 // Contact	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ tinkerforge="name=gibanjeKuhinja" }
 // Contact	MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceS" }
 // Contact	MotVhod				"Vhod [MAP(si.map):MOTION-%s]"  			<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
-// Contact MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeDnevna" }
-Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceZ" }
-Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
+Switch MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:motion" }
+//Contact	MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ tinkerforge="name=gibanjeStopniceZ" }
+//Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
 // 
 
 // 
@@ -256,42 +274,83 @@ String  PlayURIVideo    "Naslov"                            { channel="chromecas
 String  StatusURIVideo  "Naslov"                            { channel="chromecast:chromecast:TVCC:statustext" }
 Switch  IdlingVideo     "Pripravljen"                       { channel="chromecast:chromecast:TVCC:idling" }
 Switch  StopVideo       "Ustavi"                            { channel="chromecast:chromecast:TVCC:stop" }
+//Onkyo
+Dimmer  VolumeOnkyo     "Glasnost"       [ "Lighting" ]     { channel="chromecast:audio:Onkyo:volume" }
+Player  ControlOnkyo    "Upravljanje"                       { channel="chromecast:audio:Onkyo:control" }
+Switch  MuteOnkyo       "Utišaj"         [ "Switchable" ]   { channel="chromecast:audio:Onkyo:mute" }
+String  PlayURIOnkyo    "Naslov"                            { channel="chromecast:audio:Onkyo:playuri" }
+String  StatusURIOnkyo  "Naslov"                            { channel="chromecast:audio:Onkyo:statustext" }
+Switch  IdlingOnkyo     "Pripravljen"                       { channel="chromecast:audio:Onkyo:idling" }
+Switch  StopOnkyo       "Ustavi"         [ "Switchable" ]   { channel="chromecast:audio:Onkyo:stop" }
 
 //Žaluzije
 //Qubino
 
 
-Switch	ActKabinetDo	"Kabinet dol [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ channel="mqtt:topic:mosquitto:shellyKaBlinds:down" }
-Switch	ActKabinetUp	"Kabinet gor [MAP(si.map):SWITCH-%s]"		<rollershutter>	(BlindAct)	{ channel="mqtt:topic:mosquitto:shellyKaBlinds:up" }
-// Switch	SwiKabinetUp	"Kabinte stikalo gor [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb0" }
-// Switch 	SwiKabinetDo	"Kabinte stikalo dol [MAP(si.map):SWITCH-%s]"				(BlindSwi)	{ tinkerforge="uid=spm, subid=inb1" }
+Switch	ActKabinetDo            "Kabinet dol [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyKaBlinds:down" }
+Switch	ActKabinetUp            "Kabinet gor [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyKaBlinds:up" }
+Switch	ActKabinetOverTemp      "Kabinet pregret [MAP(si.map):TEMP-%s]"         <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyKaBlinds:overTemp" }
+Switch	ActKabinetStatus        "Kabinet status [MAP(si.map):STATUS-%s]"        <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyKaBlinds:alive" }
+Number  ActKabinetPowerDo       "Kabinet dol trenutna moć"                      <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKaBlinds:powerDo" }
+Number  ActKabinetPowerUp       "Kabinet gor trenutna moć"                      <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKaBlinds:powerUp" }
 
-Switch	ActDnevnaDesDo	"Dnevna desno dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ channel="mqtt:topic:mosquitto:shellyDnBlindsDes:down" }	
-Switch	ActDnevnaDesUp	"Dnevna desno gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ channel="mqtt:topic:mosquitto:shellyDnBlindsDes:up" }
-// Switch	SwiDnevnaDesUp	"Dnevna desno stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb2" }
-// Switch 	SwiDnevnaDesDo	"Dnevna desno stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb3" }
+Switch	ActDnevnaDesDo          "Dnevna desno dol [MAP(si.map):SWITCH-%s]"      <rollershutter>	    (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:down" }
+Switch	ActDnevnaDesUp          "Dnevna desno gor [MAP(si.map):SWITCH-%s]"      <rollershutter>	    (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:up" }
+Switch	ActDnevnaDesOverTemp    "Dnevna desno pregret [MAP(si.map):TEMP-%s]"    <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:overTemp" }
+Switch	ActDnevnaDesStatus      "Dnevna desno status [MAP(si.map):STATUS-%s]"   <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:alive" }
+Number  ActDnevnaDesPowerDo     "Dnevna desno dol trenutna moć"                 <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:powerDo" }
+Number  ActDnevnaDesPowerUp     "Dnevna desno gor trenutna moć"                 <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:powerUp" }
 
-Switch	ActDnevnaLevDo	"Dnevna levo dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ channel="mqtt:topic:mosquitto:shellyDnBlindsLev:down" }	
-Switch	ActDnevnaLevUp	"Dnevna levo gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ channel="mqtt:topic:mosquitto:shellyDnBlindsLev:up" }
-// Switch	SwiDnevnaLevUp	"Dnevna levo stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb4" }
-// Switch 	SwiDnevnaLevDo	"Dnevna levo stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=spm, subid=inb5" }
+Switch	ActDnevnaLevDo          "Dnevna levo dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:down" }
+Switch	ActDnevnaLevUp          "Dnevna levo gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:up" }
+Switch	ActDnevnaLevOverTemp    "Dnevna levo [MAP(si.map):TEMP-%s]"             <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:overTemp" }
+Switch	ActDnevnaLevStatus      "Dnevna levo [MAP(si.map):STATUS-%s]"           <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:alive" }
+Number  ActDnevnaLevPowerDo     "Dnevna levo dol trenutna moć"                  <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:powerDo" }
+Number  ActDnevnaLevPowerUp     "Dnevna levo gor trenutna moć"                  <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:powerUp" }
 
-// Switch	ActSpalnicaDo   "Spalnica dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out0" }	
-// Switch	ActSpalnicaUp   "Spalnica gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=gZr, subid=out1" }
-// Switch	SwiSpalnicaUp   "Spalnica stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in3" }
-// Switch 	SwiSpalnicaDo   "Spalnica stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=gZr, subid=in2" }
+Switch	ActSpalnicaDo           "Spalnica dol [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="mqtt:topic:mosquitto:shellySpBlinds:down" }
+Switch	ActSpalnicaUp           "Spalnica gor [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="mqtt:topic:mosquitto:shellySpBlinds:up" }
+Switch	ActSpalnicaOverTemp     "Spalnica pregret [MAP(si.map):TEMP-%s]"        <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellySpBlinds:overTemp" }
+Switch	ActSpalnicaStatus       "Spalnica status [MAP(si.map):STATUS-%s]"       <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellySpBlinds:alive" }
+Number  ActSpalnicaPowerDo      "Spalnica dol trenutna moć"                     <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellySpBlinds:powerDo" }
+Number  ActSpalnicaPowerUp      "Spalnica gor trenutna moć"                     <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellySpBlinds:powerUp" }
 
-// Switch	ActAljazDo	"Aljaž dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out2" }	
-// Switch	ActAljazUp	"Aljaž gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hiu, subid=out3" }
-// Switch	SwiAljazUp	"Aljaž stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in0" }
-// Switch 	SwiAljazDo	"Aljaž stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hiu, subid=in1" }
+Switch	ActAljazDo	            "Aljaž dol [MAP(si.map):SWITCH-%s]"             <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyAlBlinds:down" }	
+Switch	ActAljazUp	            "Aljaž gor [MAP(si.map):SWITCH-%s]"             <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyAlBlinds:up" }
+Switch	ActAljazOverTemp        "Aljaž pregret [MAP(si.map):TEMP-%s]"           <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyAlBlinds:overTemp" }
+Switch	ActAljazStatus          "Aljaž status [MAP(si.map):STATUS-%s]"          <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyAlBlinds:alive" }
+Number  ActAljazPowerDo         "Aljaž dol trenutna moć"                        <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyAlBlinds:powerDo" }
+Number  ActAljazPowerUp         "Aljaž gor trenutna moć"                        <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyAlBlinds:powerUp" }
 
-// Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out1" }	
-// Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="uid=hb5, subid=out0" }
-// Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in2" }
-// Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="uid=hb5, subid=in3" }
+Switch	ActJulijaDo	            "Julija dol [MAP(si.map):SWITCH-%s]"            <rollershutter>     (BlindAct,BlindU,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyJuBlinds:down" }	
+Switch	ActJulijaUp	            "Julija gor [MAP(si.map):SWITCH-%s]"            <rollershutter>     (BlindAct,BlindU,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyJuBlinds:up" }
+Switch	ActJulijaOverTemp       "Julija pregret [MAP(si.map):TEMP-%s]"          <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyJuBlinds:overTemp" }
+Switch	ActJulijaStatus         "Julija status [MAP(si.map):STATUS-%s]"         <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyJuBlinds:alive" }
+Number  ActJulijaPowerDo        "Julija dol trenutna moć"                       <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyJuBlinds:powerDo" }
+Number  ActJulijaPowerUp        "Julija gor trenutna moć"                       <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyJuBlinds:powerUp" }
 
-// //Switch	ActJulijaDo	"Julija dol [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaDoSwitch" }	
-// //Switch	ActJulijaUp	"Julija gor [MAP(si.map):SWITCH-%s]"			<rollershutter>	(BlindAct)	{ tinkerforge="name=julijaUpSwitch" }
-// //Switch	SwiJulijaUp	"Julija stikalo gor [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaUpOrder" }
-// //Switch 	SwiJulijaDo	"Julija stikalo dol [MAP(si.map):SWITCH-%s]"					(BlindSwi)	{ tinkerforge="name=julijaDoOrder" }
+Switch	ActKuhinjaLevDo	        "Kuhinja levo dol [MAP(si.map):SWITCH-%s]"      <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:down" }	
+Switch	ActKuhinjaLevUp	        "Kuhinja levo gor [MAP(si.map):SWITCH-%s]"      <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:up" }
+Switch	ActKuhinjaLevOverTemp   "Kuhinja levo pregret [MAP(si.map):TEMP-%s]"    <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:overTemp" }
+Switch	ActKuhinjaLevStatus     "Kuhinja levo status [MAP(si.map):STATUS-%s]"   <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:alive" }
+Number  ActKuhinjaLevPowerDo    "Kuhinja levo dol trenutna moć"                 <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:powerDo" }
+Number  ActKuhinjaLevPowerUp    "Kuhinja levo gor trenutna moć"                 <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:powerUp" }
+
+Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:down" }	
+Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:up" }
+Switch	ActKuhinjaDesOverTemp   "Kuhinja desno pregret [MAP(si.map):TEMP-%s]"   <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:overTemp" }
+Switch	ActKuhinjaDesStatus     "Kuhinja desno status [MAP(si.map):STATUS-%s]"  <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:alive" }
+Number  ActKuhinjaDesPowerDo    "Kabinet desno dol trenutna moć"                <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:powerDo" }
+Number  ActKuhinjaDesPowerUp    "Kabinet desno gor trenutna moć"                <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:powerUp" }
+
+Switch	ActJedilnicaDo	        "Jedilnica dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyJeBlinds:down" }	
+Switch	ActJedilnicaUp	        "Jedilnica gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyJeBlinds:up" }
+Switch	ActJedilnicaOverTemp    "Jedilnica pregret [MAP(si.map):TEMP-%s]"       <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyJeBlinds:overTemp" }
+Switch	ActJedilnicaStatus      "Jedilnica status [MAP(si.map):STATUS-%s]"      <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyJeBlinds:alive" }
+Number  ActJedilnicaPowerDo     "Jedilnica dol trenutna moć"                    <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyJeBlinds:powerDo" }
+Number  ActJedilnicaPowerUp     "Jedilnica gor trenutna moć"                    <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyJeBlinds:powerUp" }
+
+
+//TEST
+//Switch  TestRelay1  "Rele 1"    { channel="mqtt:topic:mosquitto:tinkerforgeDualRelayEner:relay1" }
+//Switch  TestRelay2  "Rele 2"    { channel="mqtt:topic:mosquitto:tinkerforgeDualRelayEner:relay2" }
