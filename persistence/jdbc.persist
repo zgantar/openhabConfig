@@ -19,7 +19,7 @@ Items {
 	Temp* : strategy = restoreOnStartup
 	Hum* : strategy = everyFiveMinutes, restoreOnStartup
 	Lum* : strategy = everyFiveMinutes, restoreOnStartup
-	// Mot* : strategy = everyChange, restoreOnStartup
+	Mot* : strategy = everyChange, restoreOnStartup
 	
 	//ogrevanje
 	Override: strategy = everyChange, restoreOnStartup
