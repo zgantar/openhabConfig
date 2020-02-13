@@ -4,6 +4,6 @@ when
 	Item BatteryLow changed
 then
 	logInfo("tmp", "###########################BatterryLow started##############################")
-	sendHABotNotification("Dobil opozorilo za prazno baterijo na " + triggeringItem.toString)
+	sendHABotNotification("Dobil opozorilo za prazno baterijo ob "+ triggeringItem.name +" za baterijo "+ now.toString)
 	logInfo("tmp", "###########################BatterryLow stoped##############################")
 end

@@ -80,6 +80,7 @@ then
 	logInfo("heating", "##################Preverjamo temperature#################")
 	startHeating1 = false
 	stopHeating = false
+	var boolean sendAlert = false
 	filterTempValues.apply(startHeating1)
 	Temp.members.forEach[ tempItem |
 		val name = tempItem.name.substring(4)
@@ -171,6 +172,7 @@ then
 				} else {
 					logInfo("heating", "Ročni override zato ignoriral preračune, gledam samo ročne ventile!")
 				}
+				if (currentTemp == predTemp) sendAlert = true
 			}
 		}
 		logInfo("heating", "###################Konec preverjanja sobe {}", name)
@@ -180,6 +182,7 @@ then
 	if (startHeating1 == true) LogOgrevanje.sendCommand(ON)
 	if (stopHeating == true) LogOgrevanje.sendCommand(OFF)
 	if (Override.state == ON) ManOgrevanje.sendCommand(ON)
+	if (sendAlert) sendHABotNotification("Predvidena temperatura je enaka trenutni kar kaže na morebitno napako! PREVERI!!!!")
 	logInfo("heating", "**********************Konec********************")
 end
 
