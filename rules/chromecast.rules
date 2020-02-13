@@ -1,16 +1,16 @@
-rule "Chromecast audio"
-when
-    Item IdlingAudio changed to ON
-then
-    logInfo("chromecast", "Chromecast je na čakanju: ", IdlingAudio.state.toString)
-    PlayURIAudio.sendCommand("http://stream.rockradio.si:9034/;stream/1")
-end
+// rule "Chromecast audio"
+// when
+//     Item IdlingAudio changed to ON
+// then
+//     logInfo("chromecast", "Chromecast je na čakanju: ", IdlingAudio.state.toString)
+//     PlayURIAudio.sendCommand("http://stream.rockradio.si:9034/;stream/1")
+// end
 
 
-rule "Chromecast video"
-when
-    Item IdlingVideo changed to ON
-then
-    logInfo("chromecast", "Chromecast je na čakanju: ", IdlingVideo.state.toString)
+// rule "Chromecast video"
+// when
+//     Item IdlingVideo changed to ON
+// then
+//     logInfo("chromecast", "Chromecast je na čakanju: ", IdlingVideo.state.toString)
 
-end
+// end
