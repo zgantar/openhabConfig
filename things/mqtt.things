@@ -8,8 +8,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //6938C4 - 192.168.1.109
     Thing topic shellyKaBlinds "Žaluzije kabinet" @ "Kabinet" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-6938C4/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-6938C4/relay/0/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-6938C4/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-6938C4/relay/1/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-6938C4/relay/0/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-6938C4/relay/1/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-6938C4/relay/0", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-6938C4/relay/1", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-6938C4/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-6938C4/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-6938C4/relay/0/power" ]
@@ -18,8 +20,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //68E04B - 192.168.1.150
     Thing topic shellyDnDeBlinds "Žaluzije dnevna desno" @ "Dnevna" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68E04B/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-68E04B/relay/0/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68E04B/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-68E04B/relay/1/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-68E04B/relay/0/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-68E04B/relay/1/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68E04B/relay/0", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68E04B/relay/1", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-68E04B/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-68E04B/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-68E04B/relay/0/power" ]
@@ -28,8 +32,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //68E55A - 192.168.1.19
     Thing topic shellyDnLeBlinds "Žaluzije dnevna levo" @ "Dnevna" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68E55A/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-68E55A/relay/0/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68E55A/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-68E55A/relay/1/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-68E55A/relay/0/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-68E55A/relay/1/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68E55A/relay/0", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68E55A/relay/1", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-68E55A/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-68E55A/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-68E55A/relay/0/power" ]
@@ -39,8 +45,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //68FD82 - 192.168.1.16
     Thing topic shellyAlBlinds "Žaluzije Aljaž" @ "Aljaž" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68FD82/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-68FD82/relay/1/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68FD82/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-68FD82/relay/0/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-68FD82/relay/1/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-68FD82/relay/0/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68FD82/relay/1", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68FD82/relay/0", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-68FD82/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-68FD82/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-68FD82/relay/1/power" ]
@@ -50,8 +58,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //694338 - 192.168.1.2
     Thing topic shellyKuDeBlinds "Žaluzije kuhinja desno" @ "Kuhinja" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-694338/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-694338/relay/1/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-694338/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-694338/relay/0/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-694338/relay/1/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-694338/relay/0/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-694338/relay/1", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-694338/relay/0", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-694338/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-694338/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-694338/relay/1/power" ]
@@ -61,8 +71,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //68F40F - 192.168.1.12
     Thing topic shellyKuLeBlinds "Žaluzije kuhinja levo" @ "Kuhinja" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68F40F/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-68F40F/relay/0/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68F40F/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-68F40F/relay/1/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-68F40F/relay/0/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-68F40F/relay/1/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68F40F/relay/0", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68F40F/relay/1", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-68F40F/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-68F40F/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-68F40F/relay/0/power" ]
@@ -72,8 +84,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //6914F8 - 192.168.1.99
     Thing topic shellyJeBlinds "Žaluzije jedilnica" @ "Jedilnica" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-6914F8/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-6914F8/relay/0/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-6914F8/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-6914F8/relay/1/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-6914F8/relay/0/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-6914F8/relay/1/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-6914F8/relay/0", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-6914F8/relay/1", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-6914F8/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-6914F8/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-6914F8/relay/0/power" ]
@@ -83,8 +97,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //68661F - 192.168.1.177
     Thing topic shellySpBlinds "Žaluzije spalnica" @ "Spalnica" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68661F/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-68661F/relay/0/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68661F/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-68661F/relay/1/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-68661F/relay/0/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-68661F/relay/1/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68661F/relay/0", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68661F/relay/1", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-68661F/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-68661F/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-68661F/relay/0/power" ]
@@ -94,8 +110,10 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     //68E532 - 192.168.1.232
     Thing topic shellyJuBlinds "Žaluzije Julija" @ "Julija" {
         Channels:
-            Type switch : up        "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68E532/relay/1", on="on", off="off", commandTopic="shellies/shellyswitch25-68E532/relay/1/command", on="on", off="off" ]
-            Type switch : down      "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68E532/relay/0", on="on", off="off", commandTopic="shellies/shellyswitch25-68E532/relay/0/command", on="on", off="off" ]
+            Type switch : up        "Aktuator gor"          [ commandTopic="shellies/shellyswitch25-68E532/relay/1/command", on="on", off="off" ]
+            Type switch : down      "Aktuator dol"          [ commandTopic="shellies/shellyswitch25-68E532/relay/0/command", on="on", off="off" ]
+            Type switch : swiUp     "Stikalo gor"           [ stateTopic="shellies/shellyswitch25-68E532/relay/1", on="on", off="off" ]
+            Type switch : swiDown   "Stikalo dol"           [ stateTopic="shellies/shellyswitch25-68E532/relay/0", on="on", off="off" ]
             Type switch : overTemp  "Pregreto"              [ stateTopic="shellies/shellyswitch25-68E532/overtemperature", on="1", off="0" ]
             Type switch : alive     "Status"                [ stateTopic="shellies/shellyswitch25-68E532/online", on="true", off="false" ]
             Type number : powerUp   "Trenutna poraba gor"   [ stateTopic="shellies/shellyswitch25-68E532/relay/1/power" ]

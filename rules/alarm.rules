@@ -1,7 +1,8 @@
 //import org.joda.time
-var Timer AlarmBlinkTimer = null
-var Timer LightShuttOff = null
+var Timer alarmBlinkTimer = null
+var Timer lightShuttOff = null
 var Timer LightBlinker = null
+var boolean blinkLightState = false
 
 rule "Set all necessary variables for alarm"
 
@@ -49,11 +50,12 @@ then
 		//checking to see if no parent is at home
 		if (PhonePing.state == OFF) {
 			logInfo("alarm", "Telefona staršev še nista prijavljena na Wifi, počakam še 10 sekund")
-			val Timer shutDownTimer = createTimer(now.plusMillis(10000)) [|
+			lightShuttOff = createTimer(now.plusMillis(10000)) [|
 				if (PhonePing.state == OFF) {
 					logInfo("alarm", "Tudi po desetih sekundah ni prijavljenih telefonov, prožim sporočilo")
 					sendHABotNotification("Zaznal odprta vrata, ko staršev ni doma - " + PhonePing.toString)
 				}
+				lightShuttOff = null
 			]
 		}
 	}
@@ -71,4 +73,32 @@ then
 		AlarmLightRaised.sendCommand(OFF)
 	}
 logInfo("alarm", "END ###########################Door sensors group value changed to close##############################")
+end
+
+rule "Blink alarm light"
+when
+	Item AlarmBlinkLightRaised changed
+then
+	logInfo("alarm", "##################Blink Alarm Light########################")
+	if (alarmBlinkTimer !== null) {
+		logInfo("alarm", "Timer ni null in zato brišem stari objekt - {}", alarmBlinkTimer.toString)
+		alarmBlinkTimer.cancel
+		alarmBlinkTimer = null
+	}
+	if (AlarmBlinkLightRaised.state == ON) {
+		logInfo("alarm", "Ker je stikalo za utripajoči alarm priklopljeno, začnem utripati!")
+		alarmBlinkTimer = createTimer(now.plusMillis(500)) [|
+			if (blinkLightState) {
+				GatewayColor.sendCommand(new HSBType("0,100,100"))
+				GatewayBrightness.sendCommand(100)
+				blinkLightState = false
+			} else {
+				GatewayBrightness.sendCommand(0)
+				blinkLightState = true
+			}
+    	    alarmBlinkTimer.reschedule(now.plusMillis(500))
+    	]
+	} else {
+		GatewayBrightness.sendCommand(0)
+	}
 end

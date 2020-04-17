@@ -51,11 +51,14 @@ Items {
 	
 	//telefona
 	Phone* :	strategy = everyChange, restoreOnStartup
+	
 	//žaluzije
-	// BlindAct* : strategy = everyChange
-	// BlindSwi* : strategy = everyChange
-	// BlindLog* : strategy = everyChange, restoreOnStartup
-	// BlindState* : strategy = everyChange
+	BlindAct* : strategy = everyChange
+	BlindSwi* : strategy = everyChange
+	BlindLog* : strategy = everyChange, restoreOnStartup
+	BlindState* : strategy = everyChange, restoreOnStartup
+	ShellyOverTemp* : strategy = everyChange
+	BlindsAlive* : strategy = everyChange
 	
 	//dodatne
 	Other* : strategy = everyChange, restoreOnStartup
