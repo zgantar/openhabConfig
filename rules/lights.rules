@@ -1,18 +1,109 @@
+var Timer shutDownTimer = null
+
+val Functions$Function1<SwitchItem,Boolean> setShutDownTimer = [ 
+	SwitchItem switchItem|
+    
+    shutDownTimer = createTimer(now.plusMinutes(5), [|
+        logInfo("lights", "Po pretečenih petih minutah preverjam ali lahko ugasnem luči")
+        if (Mot.state == OFF){
+            logInfo("lights", "Ker ni več gibanja, lahko ugasnem luči na stopnišču")
+            switchItem.sendCommand(OFF)
+            shutDownTimer = null
+        } else {
+            logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
+            shutDownTimer.reschedule(now.plusMinutes(5))
+        }			
+    ])
+	return true
+]
+
 rule "Stairway lights on"
 when
     Item OutSolarRad changed
 then
-    logDebug("Lights", "Sprememba zunanje osvetljenosti na {}", OutSolarRad.state)
+    logDebug("lights", "Sprememba zunanje osvetljenosti na {}", OutSolarRad.state)
     if (Integer.parseInt((OutSolarRad.state).toString) <= 8) {
         if (PlugLiSt2Switch2.state == OFF) {
-            PlugLiSt2Switch2.sendCommand(ON)
-            logDebug("Lights", "Prižigam luči")
+            if (Integer.parseInt((OutSolarRad.previousState.state).toString) > Integer.parseInt((OutSolarRad.state).toString)) {
+                PlugLiSt2Switch2.sendCommand(ON)
+                logDebug("lights", "Prižigam luči")
+            }
         }
     } else {
         if (PlugLiSt2Switch2.state == ON) {
             PlugLiSt2Switch2.sendCommand(OFF)
-            logDebug("Lights", "Ugašam luči")
+            logDebug("lights", "Ugašam luči")
         }
     }
-    logDebug("Lights", "Končal preverjanje luči na stopnišču")
+    logDebug("lights", "Končal preverjanje luči na stopnišču")
+end
+
+rule "Stairway light on when movement"
+when
+    Member of Mot changed to ON
+then
+    logInfo("lights", "Zaznal gibanje zato preverjim ali prižgati luči na stopnicah")
+    if (PlugLiSt2Switch2.state == OFF && OutSolarRad.state == 0) {
+        if (LumNadStopnicami.state < 10) {
+            logInfo("lights", "Je tema zato prižgem luči za 5 min")
+            PlugLiSt2Switch2.sendCommand(ON)
+            setShutDownTimer.apply(PlugLiSt2Switch2)
+            // shutDownTimer = createTimer(now.plusMinutes(5), [|
+                // logInfo("lights", "Po pretečenih petih minutah preverjam ali lahko ugasnem luči")
+                // if (Mot.state == OFF){
+                    // logInfo("lights", "Ker ni več gibanja, lahko ugasnem luči na stopnišču")
+                    // PlugLiSt2Switch2.sendCommand(OFF)
+                    // shutDownTimer = null
+                // } else {
+                    // logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
+                    // shutDownTimer.reschedule(now.plusMinutes(5))
+                // }			
+            // ])
+        } else logInfo("lights", "Je dovolj svetlo zato ne prižgem luči")
+    } else logInfo("lights", "Ni potrebe po lučeh, zato ignoriram")
+end
+
+rule "Stairway light off if no movement"
+when
+    Time cron "0 0 23 * * ? *"
+then
+    logInfo("lights", "Ura je enajst in preverjam ali lahko ugasnem luči na stopnišču")
+    if (Mot.state == OFF) {
+        logInfo("lights", "Ker ni več gibanja, preverim koliko časa nazaj je bilo zadnje gibanje")
+        val lastUpdateMot = Mot.members.sortBy[lastUpdate].last as SwitchItem
+        val lastUpdateTimeDiff = now.millis - lastUpdateMot.previousState.timestamp.time
+        logInfo("lights", "Zadnje gibanje je bilo zaznano na senzorju {} {} millisekund nazaj", lastUpdateMot, lastUpdateTimeDiff)
+        if (lastUpdateTimeDiff > 900000) {
+            logInfo("lights", "Ker je bilo zadnje gibanje zaznano več kot 15 min nazaj, ugašam luč na stopnišču")
+            PlugLiSt2Switch2.sendCommand(OFF)
+        } else {
+            logInfo("lights", "Ker je bilo zaznano gibanje manj kot 15 min zamaknem ugašanje luči za 5 min.")
+            setShutDownTimer.apply(PlugLiSt2Switch2)
+            // shutDownTimer = createTimer(now.plusMinutes(5), [|
+                // logInfo("lights", "Po pretečenih petih minutah preverjam ali lahko ugasnem luči")
+                // if (Mot.state == OFF){
+                    // logInfo("lights", "Ker ni več gibanja, lahko ugasnem luči na stopnišču")
+                    // PlugLiSt2Switch2.sendCommand(OFF)
+                    // shutDownTimer = null
+                // } else {
+                    // logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
+                    // shutDownTimer.reschedule(now.plusMinutes(5))
+                // }
+            // ])
+        }
+    } else {
+        logInfo("lights", "Ker zaznavam gibanje, prestavim preverjanje za 5 min")
+        setShutDownTimer.apply(PlugLiSt2Switch2)
+        // shutDownTimer = createTimer(now.plusMinutes(5), [|
+            // logInfo("lights", "Po pretečenih petih minutah preverjam ali lahko ugasnem luči")
+            // if (Mot.state == OFF){
+                // logInfo("lights", "Ker ni več gibanja, lahko ugasnem luči na stopnišču")
+                // PlugLiSt2Switch2.sendCommand(OFF)
+                // shutDownTimer = null
+            // } else {
+                // logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
+                // shutDownTimer.reschedule(now.plusMinutes(5))
+            // }
+        // ])
+    }
 end
