@@ -26,14 +26,15 @@ Group:Switch:OR(ON,OFF)         BatteryLow      "Opozorilo za slabo baterijo"
 
 Group:Switch                    WaterLeak       "Puščanje vode"
 
-Group:Switch                    BlindAct        "Aktuatorji žaluzij"
-Group:Switch                    BlindSwi        "Stikala žaluzij"
-Group:Switch                    BlindD          "Žaluzije spodaj"
-Group:Switch                    BlindU          "Žaluzije zgoraj"
-Group:Switch                    BlindActUp      "Aktuatorji žaluzij"
-Group:Switch                    BlindActDo      "Aktuatorji žaluzij"
-Group:Switch:AND(ON,OFF)        BlindsAlive     "Mqtt status"
-Group:Switch:AND(ON,OFF)        ShellyOverTemp  "Shelly pregret"
+Group:Switch                    BlindAct            "Aktuatorji žaluzij"
+Group:Switch                    BlindSwi            "Stikala žaluzij"
+Group:Switch                    BlindD              "Žaluzije spodaj"
+Group:Switch                    BlindU              "Žaluzije zgoraj"
+Group:Switch                    BlindsOnDoors       "Žaluzije na vratih"
+Group:Switch                    BlindActUp          "Aktuatorji žaluzij"
+Group:Switch                    BlindActDo          "Aktuatorji žaluzij"
+Group:Switch:AND(ON,OFF)        BlindsAlive         "Mqtt status"
+Group:Switch:AND(ON,OFF)        ShellyOverTemp      "Shelly pregret"
 
 
 Switch      PhonePingableZiga   "Zaznana naprava" (PhonePing) { channel="network:pingdevice:ziga:online" }
@@ -322,7 +323,7 @@ Switch	ActKabinetStatus        "Kabinet status [MAP(si.map):STATUS-%s]"         
 Number  ActKabinetPowerDo       "Kabinet dol trenutna moč"                          <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKaBlinds:powerDo" }
 Number  ActKabinetPowerUp       "Kabinet gor trenutna moč"                          <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKaBlinds:powerUp" }
 
-Switch	ActDnevnaDesDo          "Dnevna desno dol [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:down" }
+Switch	ActDnevnaDesDo          "Dnevna desno dol [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActDo,BlindsOnDoors)    { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:down" }
 Switch	ActDnevnaDesUp          "Dnevna desno gor [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:up" }
 Switch	SwiDnevnaDesDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:swiDown" }
 Switch	SwiDnevnaDesUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:swiUp" }
@@ -376,7 +377,7 @@ Switch	ActKuhinjaLevStatus     "Kuhinja levo status [MAP(si.map):STATUS-%s]"    
 Number  ActKuhinjaLevPowerDo    "Kuhinja levo dol trenutna moč"                     <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:powerDo" }
 Number  ActKuhinjaLevPowerUp    "Kuhinja levo gor trenutna moč"                     <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:powerUp" }
 
-Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:down" }	
+Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)    { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:down" }	
 Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:up" }
 Switch	SwiKuhinjaDesDo         "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:swiDown" }
 Switch	SwiKuhinjaDesUp         "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:swiUp" }

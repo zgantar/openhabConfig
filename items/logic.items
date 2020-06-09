@@ -4,6 +4,7 @@ Group:Number            Set
 Group:Number            Dif
 Group:Switch:OR(ON,OFF) Man
 Group:Switch            ManRev
+
 Group:Switch            BlindLog
 Group:Switch            BlindLogUp
 Group:Switch            BlindLogDo
@@ -12,6 +13,9 @@ Group:Number            BlindState
 // Group                   BlindsDimm
 Group                   BlindsSE    "Stikala na JV"
 Group                   BlindsSW    "Stikala na JZ"
+Group:Switch            BlindLogD
+Group:Switch            BlindLogU
+
 Group                   Alarm
 Group:Number            CalcConsHour
 Group:Number            CalcConsDay
@@ -130,22 +134,22 @@ Switch	ManKabinet		"Kabinet"				<heating>	(Man)
 Switch	ManOgrevanje	"Ogrevanje ročno"		<heating>
 
 //Žaluzije
-Switch	AllCompleteUp	"Vse žaluzije gor"		<rollershuter>	(BlindsAll)
-Switch	AllCompleteDo	"Vse žaluzije dol"		<rollershuter>	(BlindsAll)
-// Switch	AllPeek			"Vse žaluzije premik"	<rollershuter>	(Blinds)
-// Switch	AllPeekClose	"Vse žaluzije zapret"	<rollershuter>	(Blinds)
-// Dimmer	AllDimm			"Vse žaluzije zatemni"	<blinds>		(Blinds)
+Switch	AllCompleteUp	    "Vse žaluzije gor"		    <rollershuter>	(BlindsAll)
+Switch	AllCompleteDo	    "Vse žaluzije dol"		    <rollershuter>	(BlindsAll)
+Switch	AllPeek			    "Vse žaluzije premik"	    <rollershuter>	(Blinds)
+Switch	GroundFlorPeek      "Premik žaluzij pritličje"  <rollershuter>	(Blinds)
+Switch	BlindsGroundFlorUp  "Žaluzije pritličje gor"    <rollershuter>	(Blinds)
 
-Switch	ZalKabinetDo    "Kabinet dol"                           <rollershuter>  (BlindLog,BlindLogDo,BlindsSW)
-Switch	ZalKabinetUp    "Kabinet gor"                           <rollershuter>  (BlindLog,BlindLogUp,BlindsSW)
+Switch	ZalKabinetDo    "Kabinet dol"                           <rollershuter>  (BlindLog,BlindLogDo,BlindsSW,BlindLogD)
+Switch	ZalKabinetUp    "Kabinet gor"                           <rollershuter>  (BlindLog,BlindLogUp,BlindsSW,BlindLogD)
 Number	StateKabinet    "Stanje žaluzije kabinet [%.1f]"                        (BlindState)
 
-Switch	ZalDnevnaDesDo  "Dnevna desno dol"                      <rollershuter>  (BlindLog,BlindLogDo,BlindsSW)
-Switch	ZalDnevnaDesUp  "Dnevna desno gor"                      <rollershuter>  (BlindLog,BlindLogUp,BlindsSW)
+Switch	ZalDnevnaDesDo  "Dnevna desno dol"                      <rollershuter>  (BlindLog,BlindLogDo,BlindsSW,BlindLogD)
+Switch	ZalDnevnaDesUp  "Dnevna desno gor"                      <rollershuter>  (BlindLog,BlindLogUp,BlindsSW,BlindLogD)
 Number	StateDnevnaDes  "Stanje žaluzij dnevna desno [%.1f]"                    (BlindState)
 
-Switch	ZalDnevnaLevDo  "Dnevna levo dol"                       <rollershuter>  (BlindLog,BlindLogDo,BlindsSW)
-Switch	ZalDnevnaLevUp  "Dnevna levo gor"                       <rollershuter>  (BlindLog,BlindLogUp,BlindsSW)
+Switch	ZalDnevnaLevDo  "Dnevna levo dol"                       <rollershuter>  (BlindLog,BlindLogDo,BlindsSW,BlindLogD)
+Switch	ZalDnevnaLevUp  "Dnevna levo gor"                       <rollershuter>  (BlindLog,BlindLogUp,BlindsSW,BlindLogD)
 Number	StateDnevnaLev  "Stanje žaluzij dnevna levo [%.1f]"                     (BlindState)
 
 Switch	ZalSpalnicaDo   "Spalnica dol"                          <rollershuter>  (BlindLog,BlindLogDo,BlindsSE)
@@ -160,14 +164,14 @@ Switch	ZalJulijaDo     "Julija dol"                            <rollershuter>  (
 Switch	ZalJulijaUp     "Julija gor"                            <rollershuter>  (BlindLog,BlindLogUp,BlindsSE)
 Number	StateJulija     "Stanje žaluzije julija [%.1f]"                         (BlindState)
 
-Switch	ZalKuhinjaLevDo "Kuhinja levo dol"                      <rollershuter>  (BlindLog,BlindLogDo,BlindsSE)
-Switch	ZalKuhinjaLevUp "Kuhinnja levo gor"                     <rollershuter>  (BlindLog,BlindLogUp,BlindsSE)
+Switch	ZalKuhinjaLevDo "Kuhinja levo dol"                      <rollershuter>  (BlindLog,BlindLogDo,BlindsSE,BlindLogD)
+Switch	ZalKuhinjaLevUp "Kuhinnja levo gor"                     <rollershuter>  (BlindLog,BlindLogUp,BlindsSE,BlindLogD)
 Number	StateKuhinjaLev "Stanje žaluzije kuhinnja levo [%.1f]"                  (BlindState)
 
-Switch	ZalKuhinjaDesDo "Kuhinja desno dol"                     <rollershuter>  (BlindLog,BlindLogDo,BlindsSE)
-Switch	ZalKuhinjaDesUp "Kuhinja desno gor"                     <rollershuter>  (BlindLog,BlindLogUp,BlindsSE)
+Switch	ZalKuhinjaDesDo "Kuhinja desno dol"                     <rollershuter>  (BlindLog,BlindLogDo,BlindsSE,BlindLogD)
+Switch	ZalKuhinjaDesUp "Kuhinja desno gor"                     <rollershuter>  (BlindLog,BlindLogUp,BlindsSE,BlindLogD)
 Number	StateKuhinjaDes "Stanje žaluzije kuhinnja desno [%.1f]"                 (BlindState)
 
-Switch	ZalJedilnicaDo "Jedilnica dol"                          <rollershuter>  (BlindLog,BlindLogDo,BlindsSE)
-Switch	ZalJedilnicaUp "Jedilnica gor"                          <rollershuter>  (BlindLog,BlindLogUp,BlindsSE)
+Switch	ZalJedilnicaDo "Jedilnica dol"                          <rollershuter>  (BlindLog,BlindLogDo,BlindsSE,BlindLogD)
+Switch	ZalJedilnicaUp "Jedilnica gor"                          <rollershuter>  (BlindLog,BlindLogUp,BlindsSE,BlindLogD)
 Number	StateJedilnica  "Stanje žaluzije jedilnica [%.1f]"                      (BlindState)

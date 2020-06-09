@@ -73,6 +73,22 @@ val Functions$Function5 activateActBlind = [
 	logInfo("blinds", "activateActBlind - Čas za premik žaluzije je - " + timeToMove)
 	val boolean downCommand = actItem.name.substring(actItem.name.length - 2, actItem.name.length).equals("Do")
 	logInfo("blinds", "activateActBlind - Ali je ukaz za spust, {}", downCommand)
+	if (onOrOff && !actItem.groupNames.filter(group|group.equalsIgnoreCase("BlindsOnDoors")).empty && downCommand){
+		logInfo("blinds", "activateActBlind - Žaluzija je na vratih zato moramo preveriti ali so vrata odprta")
+		if (justName.containsIgnoreCase("KuhinjaDes")) {
+			logInfo("blinds", "activateActBlind - Imam ukaz za spust žaluzijo dvižno drsnih vratih {}", DoorDvigStatus.state)
+			if (DoorDvigStatus.state == OPEN) {
+				logInfo("blinds", "activateActBlind - Vrata so odprta zato ignoriram ukaz za spust žaluzije")
+				return null
+			}
+		} else if (justName.containsIgnoreCase("DnevnaDes")) {
+			logInfo("blinds", "activateActBlind - Imam ukaz za spust žaluzijo nagibno drsnih vratih {}", DoorNagibStatus.state)
+			if (DoorNagibStatus.state == OPEN) {
+				logInfo("blinds", "activateActBlind - Vrata so odprta zato ignoriram ukaz za spust žaluzije")
+				return null
+			}
+		}
+	}
 	var oppItem = BlindAct.members.filter(filtItem | filtItem.name.containsIgnoreCase(oppName)).head
 	logInfo("blinds", "activateActBlind - Našli nasprotni aktuator " + oppItem.toString)
 	val stateItem = BlindState.members.filter(filtItem | filtItem.name.containsIgnoreCase(justName)).head
@@ -276,6 +292,29 @@ then
 	sendCommand(AllCompleteUp, OFF)
 end
 
+rule "All blinds up on the ground flor"
+when
+	Item BlindsGroundFlorUp changed to ON
+then
+	logInfo("blinds", "Začenjam vse žaluzije v pritličju gor")
+	logInfo("blinds", "Imamo {} žaluzij.", BlindLogD.members.size)
+	BlindLogD.members.forEach[logItem |
+		if (!logItem.groupNames.filter(group|group.equalsIgnoreCase("BlindLogUp")).empty) {
+			logInfo("blinds", "Sem v zanki s stikalom za - {}", logItem.toString)
+			if (!getStringFromItem.apply(logItem, 4).toString.equalsIgnoreCase("KabinetUp")) {
+				activateActBlind.apply(logItem, true, -1, timers, getStringFromItem)
+			} else {
+				logInfo("blinds", "Ker je žaluzija za kabinet, preskočim")
+			}
+		} else {
+			logInfo("blinds", "Sem v zanki s stikalom za - {} zato ignoriram", logItem.toString)
+		}
+	]
+	logInfo("blinds", "Konec vse žaluzije v pritličju gor")
+	sendCommand(BlindsGroundFlorUp, OFF)
+end
+
+
 rule "All blinds down"
 when
 	Item AllCompleteDo changed to ON
@@ -289,6 +328,39 @@ then
 	logInfo("blinds", "All blinds down - ###############Konec vse žaluzije dol#####################")
 	sendCommand(AllCompleteDo, OFF)
 end
+
+rule "All blinds peek"
+when
+	Item AllPeek changed to ON
+then
+	logInfo("blinds", "Začenjam s priškrtnjenjem vseh žaluizj")
+	logInfo("blinds", "Imamo {} žaluzij.", BlindLogDo.members.size)
+	BlindLogDo.members.forEach[logItem |
+		logInfo("blinds", "Sem v zanki s stikalom za - {}", logItem.toString)
+		activateActBlind.apply(logItem, true, PEEK, timers, getStringFromItem)
+	]
+	logInfo("blinds", "Konec s priškrtnjenjem vseh žaluizj")
+	sendCommand(AllPeek, OFF)
+end
+
+rule "All blinds peek on the ground floor	"
+when
+	Item GroundFlorPeek changed to ON
+then
+	logInfo("blinds", "Začenjam s priškrtnjenjem vseh žaluizj v pritličju")
+	logInfo("blinds", "Imamo {} žaluzij.", BlindLogD.members.size)
+	BlindLogD.members.forEach[logItem |
+		logInfo("blinds", "Sem v zanki s stikalom za - {}", logItem.toString)
+		if (!logItem.groupNames.filter(group|group.equalsIgnoreCase("BlindLogUp")).empty) {
+			activateActBlind.apply(logItem, true, PEEK, timers, getStringFromItem)
+		} else {
+			logInfo("blinds", "Sem v zanki s stikalom za - {} zato ignoriram", logItem.toString)
+		}
+	]
+	logInfo("blinds", "Konec s priškrtnjenjem vseh žaluizj v pritličju")
+	sendCommand(GroundFlorPeek, OFF)
+end
+
 
 rule "Start movement of the blind"
 when
