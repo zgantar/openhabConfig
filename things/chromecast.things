@@ -1,2 +1,4 @@
 chromecast:audio:AudioCC    "Audio Chromecast" @ "Dnevna"    [ ipAddress="192.168.1.77" ]
 chromecast:chromecast:TVCC  "TV Chromecast" @ "Dnevna"       [ ipAddress="192.168.1.225" ]
+
+chromecast:audio:Onkyo    "Onkyo" @ "Dnevna"    [ ipAddress="192.168.1.216" ]

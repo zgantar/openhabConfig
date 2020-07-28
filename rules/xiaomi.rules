@@ -1,3 +1,5 @@
+val double conv = 57.2957795131
+
 rule "Xiaomi Switch 1"
 when
     Channel "mihome:sensor_switch:158d00016d77ce:button" triggered LONG_PRESSED
@@ -15,7 +17,9 @@ rule "Xiaomi Switch 1 short press"
 when
     Channel "mihome:sensor_switch:158d00016d77ce:button" triggered SHORT_PRESSED
 then
-    logInfo("Xiaomi", "Kratek pritisk")
+    logInfo("Xiaomi", "Kratek pritisk za menjanje radijske postaje")
+    if (NextRadioStation.state == ON) NextRadioStation.sendCommand(OFF)
+    else NextRadioStation.sendCommand(ON)
 end
 
 rule "Xiaomi Switch 1 double press"
@@ -23,6 +27,7 @@ when
     Channel "mihome:sensor_switch:158d00016d77ce:button" triggered DOUBLE_PRESSED
 then
     logInfo("Xiaomi", "Dvojni pritisk")
+    PlayURIAudio.sendCommand("")
 end
 
 rule "Xiaomi Switch 1 long released"
@@ -30,4 +35,59 @@ when
     Channel "mihome:sensor_switch:158d00016d77ce:button" triggered LONG_PRESSED
 then
     logInfo("Xiaomi", "Dolgi spust")
+end
+
+rule "Mijia & Aqara Cube Controller"
+when
+    Channel 'mihome:sensor_cube:158d00029abcd1:action' triggered
+then
+    var actionName = receivedEvent.getEvent()
+    switch(actionName) {
+        case "MOVE": {
+        }
+        case "ROTATE_RIGHT": {
+            logInfo("Xiaomi", "Vrtenje v desno {}, trenutna glasnost je {}", CubeDnevRotationAngle.state as Number, VolumeAudio.state)
+            var int volume = (((CubeDnevRotationAngle.state as Number) / 2) * conv).intValue
+            logInfo("Xiaomi", "Spreminjam glasnost za {} ", volume)
+            volume = volume + (VolumeAudio.state as Number).intValue
+            VolumeAudio.sendCommand(new PercentType(volume))
+            logInfo("Xiaomi", "Nova glasnost je {} ", VolumeAudio.state)
+        }
+        case "ROTATE_LEFT": {
+            logInfo("Xiaomi", "Vrtenje v levo {}, trenutna glasnost je {}", CubeDnevRotationAngle.state, VolumeAudio.state)
+            var int volume = (((CubeDnevRotationAngle.state as Number) / 2) * conv).intValue * (-1)
+            logInfo("Xiaomi", "Spreminjam glasnost za {} ", volume)
+            volume = (VolumeAudio.state as Number).intValue - volume
+            VolumeAudio.sendCommand(new PercentType(volume))
+            logInfo("Xiaomi", "Nova glasnost je {} ", VolumeAudio.state)
+        }
+        case "FLIP90": {
+            logInfo("Xiaomi", "Obrat 90 za prižig radia")
+            if (PlugHifiSwitch.state == OFF) PlugHifiSwitch.sendCommand(ON)
+            else PlugHifiSwitch.sendCommand(OFF)
+        }
+        case "FLIP180": {
+            logInfo("Xiaomi", "Obrat 180 za prižig luči nad TV")
+            if (PlugLiDn2Switch2.state == OFF) PlugLiDn2Switch2.sendCommand(ON)
+            else PlugLiDn2Switch2.sendCommand(OFF)
+        }
+        case "TAP_TWICE": {
+            logInfo("Xiaomi", "Dvakratni trepljaj za prižig luči v dnevni")
+            if (NextRadioStation.state == ON) NextRadioStation.sendCommand(OFF)
+            else NextRadioStation.sendCommand(ON)
+        }
+        case "SHAKE_AIR": {
+            logInfo("Xiaomi", "Tresenje v zraku, vtičnica v dnevni je - " + PlugDnevSwitch.state)
+            if (PlugDnevSwitch.state == ON) PlugDnevSwitch.send(OFF)
+            else PlugDnevSwitch.send(ON)
+            logInfo("Xiaomi", "Konec tresenja v zraku, vtičnica v dnevni je - " + PlugDnevSwitch.state)
+        }
+        case "FREE_FALL": {
+            logInfo("Xiaomi", "Premik za prižig luči v dnevni")
+            if (PlugLiDn1Switch1.state == OFF) PlugLiDn1Switch1.sendCommand(ON)
+            else PlugLiDn1Switch1.sendCommand(OFF)
+        }
+        case "ALERT": {
+        }
+    }
 end

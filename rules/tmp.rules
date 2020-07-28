@@ -1,0 +1,12 @@
+rule "Temp rule"
+
+when
+	Item Trigger changed
+then
+	logInfo("tmp", "###########################Trigger started##############################")
+	val previousStateTimestamp = PlugHeatSwitch.previousState.timestamp.time
+	logInfo("tmp", "PreviousTimestamp millis - " + previousStateTimestamp)
+	val lastUpdateTime = PlugHeatSwitch.lastUpdate.millis
+	logInfo("tmp", "LastUpdate millis - " + lastUpdateTime)
+	logInfo("tmp", "###########################Trigger stoped##############################")
+end

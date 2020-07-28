@@ -4,7 +4,7 @@
     <genericDeviceClass>STATIC_CONTROLLER</genericDeviceClass>
     <specificDeviceClass>PC_CONTROLLER</specificDeviceClass>
   </deviceClass>
-  <homeId>0xf7ec32e2</homeId>
+  <homeId>0xc389ad97</homeId>
   <nodeId>1</nodeId>
   <version>4</version>
   <manufacturer>0x115</manufacturer>
@@ -37,5 +37,7 @@
   </supportedCommandClasses>
   <securedCommandClasses/>
   <associationGroups/>
-  <nodeNeighbors/>
+  <nodeNeighbors>
+    <int>2</int>
+  </nodeNeighbors>
 </node>

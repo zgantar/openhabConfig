@@ -18,8 +18,8 @@ Strategies {
 Items {
 	Temp* : strategy = restoreOnStartup
 	Hum* : strategy = everyFiveMinutes, restoreOnStartup
-	// Lum* : strategy = everyFiveMinutes, restoreOnStartup
-	// Mot* : strategy = everyChange, restoreOnStartup
+	Lum* : strategy = everyFiveMinutes, restoreOnStartup
+	Mot* : strategy = everyChange, restoreOnStartup
 	
 	//ogrevanje
 	Override: strategy = everyChange, restoreOnStartup
@@ -49,11 +49,16 @@ Items {
 	//smoke
 	Smoke :	strategy = everyChange, restoreOnStartup
 	
+	//telefona
+	Phone* :	strategy = everyChange, restoreOnStartup
+	
 	//žaluzije
-	// BlindAct* : strategy = everyChange
-	// BlindSwi* : strategy = everyChange
-	// BlindLog* : strategy = everyChange, restoreOnStartup
-	// BlindState* : strategy = everyChange
+	BlindAct* : strategy = everyChange
+	BlindSwi* : strategy = everyChange
+	BlindLog* : strategy = everyChange, restoreOnStartup
+	BlindState* : strategy = everyChange, restoreOnStartup
+	ShellyOverTemp* : strategy = everyChange
+	BlindsAlive* : strategy = everyChange
 	
 	//dodatne
 	Other* : strategy = everyChange, restoreOnStartup

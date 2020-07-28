@@ -1,12 +1,35 @@
-rule "Temp rule"
+val log = "temp"
 
+rule "Checking temperatures for messages"
 when
-	Item Trigger changed
+	Time cron "5 0/5 * * * ?"
 then
-	logInfo("temp", "###########################Trigger started##############################")
-	val previousStateTimestamp = PlugHeatSwitch.previousState.timestamp.time
-	logInfo("temp", "PreviousTimestamp millis - " + previousStateTimestamp)
-	val lastUpdateTime = PlugHeatSwitch.lastUpdate.millis
-	logInfo("temp", "LastUpdate millis - " + lastUpdateTime)
-	logInfo("temp", "###########################Trigger stoped##############################")
+    //čumnata rule
+    if ((TempKuhinja.state as Number) < (TempCumnata.state as Number)) {
+        logInfo(log, "Temperatura v čumnati {} je višja kot v kuhinji {}", TempCumnata.state, TempKuhinja.state)
+        TempCumnataMessage.postUpdate(transform("MAP", "messages.map", "tempCumnata"))
+        if (SwitchTempCumnataMessage.state == OFF) SwitchTempCumnataMessage.sendCommand(ON)
+        logInfo(log, "Nastavim stikalo {} in shranim sporočilo \"{}\" ter pogledam grupo {}", SwitchTempCumnataMessage.state, TempCumnataMessage.state, MessagesSwitches.state)
+    } 
+    if (SwitchTempCumnataMessage.state == ON) {
+        if ((TempKuhinja.state as Number) > (TempCumnata.state as Number)) {
+            sendCommand(SwitchTempCumnataMessage, OFF)
+            logInfo(log, "Ker se je temperatura v čumnati {} znižala ali pa se je temperatura {} v kuhinji vzdignila in je sporočilo še vedno aktivno, ga izklopimo {} ", 
+                TempCumnata.state, TempKuhinja.state, SwitchTempLopaMessage.state)
+        }
+    }
+    //lopa rule
+    if ((TempLopa1.state as Number) < 0) {
+        logInfo(log, "Temperatura v lopi {} je padla pod ledišče", TempLopa.state)
+        TempLopaMessage.postUpdate(transform("MAP", "messages.map", "tempLopa"))
+        if (SwitchTempLopaMessage.state == OFF) sendCommand(SwitchTempLopaMessage, ON)
+        logInfo(log, "Nastavim stikalo {} in shranim sporočilo \"{}\" ter pogledam grupo {}", SwitchTempLopaMessage.state, TempLopaMessage.state,  MessagesSwitches.state)
+    }
+    if (SwitchTempLopaMessage.state == ON) {
+        if ((TempLopa1.state as Number) > 0) {
+            sendCommand(SwitchTempLopaMessage, OFF)
+            logInfo(log, "Ker se je temperatura v lopi {} vzdignila in je sporočilo še vedno aktivno ga izklopimo {} ", TempLopa.state, SwitchTempLopaMessage.state)
+        }
+    }
+    //... rule
 end

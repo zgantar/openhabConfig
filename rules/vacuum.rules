@@ -44,13 +44,7 @@ then
     // Get zone coordinates
     switch Vacuum_Zone {
       case Vacuum_Zone.state.toString.equals("0"): command = "[19000,29600,30000,30100,1]"
-      case Vacuum_Zone.state.toString.equals("1"): command = "[21100,27500,30400,31400,1]"
-      case Vacuum_Zone.state.toString.equals("2"): command = "[17800,24800,27100,31400,1]"
-      case Vacuum_Zone.state.toString.equals("3"): command = "[16900,27800,27700,27800,1]"
-      case Vacuum_Zone.state.toString.equals("4"): command = "[15100,25100,27300,28000,1]"
-      case Vacuum_Zone.state.toString.equals("5"): command = "[26500,26100,27800,28200,1]"
-      case Vacuum_Zone.state.toString.equals("6"): command = "[[19000,29600,30000,30100,1],[21100,27500,30400,31400,1],[17800,24800,27100,31400,1],[26500,26100,27800,28200,1]]"
-      case Vacuum_Zone.state.toString.equals("7"): command = "[[19000,29600,30000,30100,1],[21100,27500,30400,31400,1],[17800,24800,27100,31400,1],[26500,26100,27800,28200,1],[15100,25100,27300,28000,1]]"
+      case 1: command = "[21100,27500,30400,31400,1]"
     }
     // var zone = transform("MAP", "zones.map", Vacuum_Zone.state.toString)
     // logInfo(logName, "Cona je: ", zone)
@@ -84,10 +78,10 @@ then
         logInfo(logName, "Ali je nastavljena moč sesanja na pomivanje: ", Sesalec_NastaviMocSesanja.state.toString)
     }
     Sesalec_Actions_ExecuteCommand.sendCommand('app_zoned_clean' + command)
-    Vacuum_Zone.postUpdate("")
   } else {
       logInfo(logName, "Navadni ukaz {} zato ignoriramo cone", receivedCommand.toString)
       Sesalec_Control.sendCommand(receivedCommand.toString)
   }
   logInfo (logName, "Sesalec je vrnil odgovor: {}", Sesalec_Actions_ExecuteCommand.state.toString)
+  Vacuum_Zone.postUpdate("")
 end

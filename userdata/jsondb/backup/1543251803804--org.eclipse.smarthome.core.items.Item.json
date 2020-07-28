@@ -1,0 +1,217 @@
+{
+  "Sesalec_PovrsinaCiscenja": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number:Area",
+      "label": "Cleaning Area",
+      "category": "Vacuum"
+    }
+  },
+  "AudioChromecast_AppId": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "label": "App Id"
+    }
+  },
+  "Sesalec_CasCiscenja": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number:Time",
+      "label": "Cleaning Time",
+      "category": "Vacuum"
+    }
+  },
+  "VticnicaTemp": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "label": "Temperature"
+    }
+  },
+  "PlugKrnekiSwitch": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "label": "Power",
+      "category": "PowerOutlet"
+    }
+  },
+  "Sesalec_Actions_ExecuteCommand": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "label": "Execute Command"
+    }
+  },
+  "PlugWallCurrent": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number:Energy",
+      "label": "Tok",
+      "category": "Energy"
+    }
+  },
+  "PlugKrnekiConsumption": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "label": "Power Consumed"
+    }
+  },
+  "Sesalec_Zemljevid": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "label": "map_present",
+      "category": "Energy"
+    }
+  },
+  "Sesalec_Napaka": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "label": "Error",
+      "category": "Vacuum"
+    }
+  },
+  "PlugWallPower": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Power"
+      ],
+      "itemType": "Number:Energy",
+      "label": "Trenutna moč",
+      "category": "Energy"
+    }
+  },
+  "Sesalec_MocSesanja": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number:Intensity",
+      "label": "Fan Power",
+      "category": "Vacuum"
+    }
+  },
+  "PlugHeatSwitch": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "PlugSwitch"
+      ],
+      "itemType": "Switch",
+      "label": "Vklopljen",
+      "category": "Switch"
+    }
+  },
+  "VticnicaSwitch": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "label": "Power"
+    }
+  },
+  "PlugWallConsumption": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Consumption"
+      ],
+      "itemType": "Number:Energy",
+      "label": "Poraba",
+      "category": "Energy"
+    }
+  },
+  "Sesalec_NastaviMocSesanja": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "label": "Control Fan Level",
+      "category": "Vacuum"
+    }
+  },
+  "PlugKrnekiPower": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "label": "Provided Power"
+    }
+  },
+  "Sesalec_Control": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "label": "Control Vacuum",
+      "category": "Vacuum"
+    }
+  },
+  "Sesalec_OnOff": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "label": "Vacuum On/Off",
+      "category": "Vacuum"
+    }
+  },
+  "PlugWallVoltage": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "label": "Napetost",
+      "category": "Energy"
+    }
+  },
+  "Sesalec_Battery": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Number",
+      "label": "Battery Level",
+      "category": "Battery"
+    }
+  },
+  "Sesalec_NeMoti": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Switch",
+      "label": "Do not Disturb",
+      "category": "Vacuum"
+    }
+  },
+  "Sesalec_Stanje": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "label": "state",
+      "category": "Vacuum"
+    }
+  },
+  "AudioChromecast_App": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "String",
+      "label": "App"
+    }
+  }
+}
