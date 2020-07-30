@@ -172,8 +172,12 @@ then
 					logInfo("heating", "Ročni override zato ignoriral preračune, gledam samo ročne ventile!")
 				}
 				if ((now.millis - tempItem.previousState(true).timestamp.time) > 10800000) {
-					sendHABotNotification("Ob "+ now +" je temperatura v "+ name +" enaka kot eno uro nazaj, kar kaže na morebitno napako! PREVERI!!!!")
-					logWarn("heating", "Zadnja sprememba temperature je bila shranjena {}, kar je zelo čudno. Prožim alarm", tempItem.previousState(true).timestamp)
+					logWarn("heating", "Zadnja sprememba temperature je bila shranjena {}, kar je zelo čudno. Preverjam še vlažnost", tempItem.previousState(true).timestamp)
+					val humItem = Hum.members.filter(humer | humer.name.containsIgnoreCase(name)).head
+					if (humItem !== null && ((now.millis - humItem.previousState(true).timestamp.time) > 10800000)) {
+						logWarn("heating", "Zadnja sprememba vlažnosti je bila shranjena {}, kar je zelo čudno. Prožim alarm", humItem.previousState(true).timestamp)
+						sendHABotNotification("Ob "+ now +" sta temperatura in vlažnostv "+ name +" enaka kot eno uro nazaj, kar kaže na morebitno napako! PREVERI!!!!")
+					}
 				}
 			}
 		}
