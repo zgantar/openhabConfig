@@ -36,6 +36,11 @@ Group:Switch                    BlindActDo          "Aktuatorji žaluzij"
 Group:Switch:AND(ON,OFF)        BlindsAlive         "Mqtt status"
 Group:Switch:AND(ON,OFF)        ShellyOverTemp      "Shelly pregret"
 
+Group:Number                    LinkQuality         "Povezava"
+Group:Switch                    State               "Stanje luči"
+Group:Number                    ColorTemp           "Barva luči"
+Group:Number                    Brightness          "Svetlost"
+
 
 Switch      PhonePingableZiga   "Zaznana naprava" (PhonePing) { channel="network:pingdevice:ziga:online" }
 DateTime    PhoneLastSeenZiga   "Nazadnje viden"  (LastSeen)  { channel="network:pingdevice:ziga:lastseen" }
@@ -50,11 +55,11 @@ Number	HumSpalnica		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:se
 Number	HumKuhinja		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00023792d1:humidity" }
 Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000222654d:humidity" }
 Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00022264c9:humidity" }
-Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mihome:sensor_ht:158d0001e89694:humidity" }
+Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mqtt:topic:mosquitto:kopalnicaSTemp:humidity" }
 Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001f58033:humidity" }
 Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001e89688:humidity" }
 Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001c14e34:humidity" }
-Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0002226539:humidity" }
+Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:cumnataTemp:humidity" }
 Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001f54681:humidity" }
 Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020db6d4:humidity" }
 Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000241bdac:humidity" }
@@ -66,11 +71,11 @@ Number	TempSpalnica        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{
 Number	TempKuhinja         "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00023792d1:temperature" }
 Number	TempKabinet	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000222654d:temperature" }
 Number	TempKopalnicaZ      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00022264c9:temperature" }
-Number	TempKopalnicaS      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d0001e89694:temperature" }
+Number	TempKopalnicaS      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kopalnicaSTemp:temperature" }
 Number	TempHodnikZ	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f58033:temperature" }
 Number	TempHodnikS	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89688:temperature" }
 Number	TempDnevna		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001c14e34:temperature" }
-Number	TempCumnata		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0002226539:temperature" }
+Number	TempCumnata		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:cumnataTemp:temperature" }
 Number	TempRekuperacija    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
 Number	TempEnergetski      "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d00020db6d4:temperature" }
 Number	TempLopa1           "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d000241bdac:temperature" }
@@ -181,16 +186,16 @@ Number KabinetBattery           "Baterija"      <battery>   (Battery)       { ch
 Switch KabinetBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000222654d:lowBattery" }
 Number KopalnicaZBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00022264c9:batteryLevel" }
 Switch KopalnicaZBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00022264c9:lowBattery" }
-Number KopalnicaSBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89694:batteryLevel" }
-Switch KopalnicaSBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89694:lowBattery" }
+Number KopalnicaSBattery        "Baterija"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kopalnicaSTemp:battery" }
+// Switch KopalnicaSBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89694:lowBattery" }
 Number HodnikZBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f58033:batteryLevel" }
 Switch HodnikZBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f58033:lowBattery" }
 Number HodnikSBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89688:batteryLevel" }
 Switch HodnikSBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89688:lowBattery" }
 Number DnevnaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001c14e34:batteryLevel" }
 Switch DnevnaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001c14e34:lowBattery" }
-Number CumnataBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0002226539:batteryLevel" }
-Switch CumnataBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0002226539:lowBattery" }
+Number CumnataBattery           "Baterija"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:cumnataTemp:battery" }
+// Switch CumnataBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0002226539:lowBattery" }
 Number RekuperacijaBattery      "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f54681:batteryLevel" }
 Switch RekuperacijaBatteryLow   "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f54681:lowBattery" }
 Number EnergetskiBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020db6d4:batteryLevel" }
@@ -399,3 +404,26 @@ Number  ActJedilnicaPowerUp     "Jedilnica gor trenutna moč"                   
 //TEST
 //Switch  TestRelay1  "Rele 1"    { channel="mqtt:topic:mosquitto:tinkerforgeDualRelayEner:relay1" }
 //Switch  TestRelay2  "Rele 2"    { channel="mqtt:topic:mosquitto:tinkerforgeDualRelayEner:relay2" }
+
+//Zigbee link quality
+Number cumnataLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:cumnataTemp:linkquality" }
+Number kopalnicaSLQ     "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kopalnicaSTemp:linkquality" }
+Number otokLuciLQ       "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokLuci:linkquality" }
+Number otokMalaLucLQ    "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokMalaLuc:linkQuality" }
+Number otokVelikaLucLQ  "Link povezava" (LinkQuality) { channel="mqtt:topic:mosquitto:otokVelikaLuc:linkquality" }
+
+//Zigbee luči
+//stanje
+Switch otokLuciState        "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokLuci:state"}
+Switch otokMalaLucState     "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokMalaLuc:state"}
+Switch otokVelikaLucState   "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokVelikaLuc:state"}
+
+//svetlost
+Number otokLuciBrightness       "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokLuci:brightness"}
+Number otokMalaLucBrightness    "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokMalaLuc:brightness"}
+Number otokVelikaLucBrightness  "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokVelikaLuc:brightness"}
+
+//barva
+Number otokLuciColorTemp        "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokLuci:colorTemp"}
+Number otokMalaLucColorTemp     "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokMalaLuc:colorTemp"}
+Number otokVelikaLucColorTemp   "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokVelikaLuc:colorTemp"}
