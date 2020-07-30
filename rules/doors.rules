@@ -1,0 +1,13 @@
+rule "Terace door opened"
+
+when
+    Item DoorDvigStatus changed to OPEN
+then
+    logInfo("door", "###########################Terace Door opened##############################")
+    if (StateKuhinjaDes.state < 55000) {
+        logInfo("door", "Žaluzija na vratih ni vzdignjena zato vzdigujem")
+        ZalKuhinjaDesUp.sendCommand(ON)
+    } else {
+        logInfo("door", "Žaluzija na vratih je vzdignjena zato ignoriram")
+    }
+end
