@@ -120,6 +120,58 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
             Type number : powerDo   "Trenutna poraba dol"   [ stateTopic="shellies/shellyswitch25-68E532/relay/0/power" ]
     }
 
+//Xiaomi zadeve
+    Thing topic cumnataTemp "Čumnata" @ "Temp" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempCumnata/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempCumnata/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempCumnata/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempCumnata/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempCumnata/linkquality" ]               
+    }    
+
+    Thing topic kopalnicaSTemp "Kopalnica spodaj" @ "Temp" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKopalnicaS/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKopalnicaS/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempKopalnicaS/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempKopalnicaS/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKopalnicaS/linkquality" ]               
+    }
+
+    Thing topic otokMalaLuc "Mala luč otok" @ "Kuhinja" {
+        Channels:
+            Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/otokMalaLuc/brightness", commandTopic = "zigbee2mqtt/otokMalaLuc/set/brightness" ]
+            Type number : linkQuality   "povezava"      [ stateTopic = "zigbee2mqtt/otokMalaLuc/linkquality" ]
+            Type number : colorTemp     "barva luči"    [ stateTopic = "zigbee2mqtt/otokMalaLuc/color_temp", commandTopic = "zigbee2mqtt/otokMalaLuc/set/color_temp" ]
+            Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/otokMalaLuc/state", commandTopic = "zigbee2mqtt/otokMalaLuc/set/state", on="on", off="off" ]
+            Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/otokMalaLuc/update_available", on="true", off="false" ]
+    }
+
+    Thing topic otokVelikaLuc "Velika luč otok" @ "Kuhinja" {
+        Channels:
+            Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/otokVelikaLuc/brightness", commandTopic = "zigbee2mqtt/otokVelikaLuc/set/brightness" ]
+            Type number : linkquality   "povezava"      [ stateTopic = "zigbee2mqtt/otokVelikaLuc/linkquality" ]
+            Type number : colorTemp     "barva luči"    [ stateTopic = "zigbee2mqtt/otokVelikaLuc/color_temp", commandTopic = "zigbee2mqtt/otokVelikaLuc/set/color_temp" ]
+            Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/otokVelikaLuc/state", commandTopic = "zigbee2mqtt/otokVelikaLuc/set/state", on="on", off="off" ]
+            Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/otokVelikaLuc/update_available", on="true", off="false" ]
+    }
+
+    Thing topic otokLuci "Luči otok" @ "Kuhinja" {
+        Channels:
+            Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/otokLuci/brightness", commandTopic = "zigbee2mqtt/otokLuci/set/brightness" ]
+            Type number : colorTemp     "barva luči"    [ stateTopic = "zigbee2mqtt/otokLuci/color_temp", commandTopic = "zigbee2mqtt/otokLuci/set/color_temp" ]
+            Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/otokLuci/state", commandTopic = "zigbee2mqtt/otokLuci/set/state", on="on", off="off" ]
+    }
+
+
+    Thing topic otokMalaLuc "Stikalo otok" @ "Kuhinja" {
+        Channels:
+            Type string : action        "akcija"    [ stateTopic = "zigbee2mqtt/otokMalaLuc/brightness" ]   //toggle;brightness_down_click;brightness_up_click;arrow_left_click;arrow_right_click;toggle_hold
+            Type number : battery       "baterija"  [ stateTopic = "zigbee2mqtt/otokMalaLuc/state" ]
+            Type number : linkquality   "povezava"  [ stateTopic = "zigbee2mqtt/otokMalaLuc/color" ]
+            Type number : action_group  "skupina"   [ stateTopic = "zigbee2mqtt/otokMalaLuc/state" ]     
+    }
 
 //Tinkerfoge prvi koraki
 //    Thing topic tinkerforgeDualRelayEner "Dvojni rele" @ "Energetski prostor" {
