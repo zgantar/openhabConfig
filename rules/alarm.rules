@@ -53,7 +53,7 @@ then
 			lightShuttOff = createTimer(now.plusMillis(10000)) [|
 				if (PhonePing.state == OFF) {
 					logInfo("alarm", "Tudi po desetih sekundah ni prijavljenih telefonov, prožim sporočilo")
-					sendHABotNotification("Zaznal odprta vrata, ko staršev ni doma - " + PhonePing.toString)
+					sendHABotNotification("Zaznal odprta vrata, ko staršev ni doma ob "+ now + " - " + PhonePing.toString)
 				}
 				lightShuttOff = null
 			]
