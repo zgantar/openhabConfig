@@ -4,9 +4,7 @@ when
 	Item Trigger changed
 then
 	logInfo("tmp", "###########################Trigger started##############################")
-	val previousStateTimestamp = PlugHeatSwitch.previousState.timestamp.time
-	logInfo("tmp", "PreviousTimestamp millis - " + previousStateTimestamp)
-	val lastUpdateTime = PlugHeatSwitch.lastUpdate.millis
-	logInfo("tmp", "LastUpdate millis - " + lastUpdateTime)
+	if (AlarmBlinkLightRaised.state == OFF) AlarmBlinkLightRaised.sendCommand(ON)
+	else AlarmBlinkLightRaised.sendCommand(OFF)
 	logInfo("tmp", "###########################Trigger stoped##############################")
 end
