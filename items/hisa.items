@@ -134,8 +134,8 @@ Switch  PlugLiSt1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	[ "Ligh
 Switch  PlugLiSt2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary2" }
 
 //Shelly
-Switch  PlugLiDnWallSwitch          "Vklopljena stenska luč"                                <switch>        (PlugSwitch)    [ "Lighting" ]  { channel="mqtt:topic:mosquitto:shellyLiWallLights:relay" }
-Switch	PlugLiDnWallSwitchStatus    "Status stikala stenska luč [MAP(si.map):STATUS-%s]"    <rollershutter> (MqttStatus)                    { channel="mqtt:topic:mosquitto:shellyLiWallLights:alive" }
+Switch  PlugLiDnWallSwitch          "Vklopljena stenska luč"                    <switch>            (PlugSwitch)        [ "Lighting" ]  { channel="shelly:shelly1:9413CD:relay#output" }
+Number	PlugLiDnWallSwitchOverTemp  "Dnevna stenska luč temperatura [%d °C]"    <temperature_hot>   (ShellyOverTemp)                    { channel="shelly:shelly1:9413CD:device#innerTemp" }
 
 //Door
 Contact DoorDvigStatus      "Status [MAP(si.map):DOOR-%s]"                        <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
@@ -319,86 +319,77 @@ Switch  StopOnkyo       "Ustavi"         [ "Switchable" ]   { channel="chromecas
 //Qubino
 
 
-Switch	ActKabinetDo            "Kabinet dol [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyKaBlinds:down" }
-Switch	ActKabinetUp            "Kabinet gor [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyKaBlinds:up" }
-Switch	SwiKabinetDo            "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyKaBlinds:swiDown" }
-Switch	SwiKabinetUp            "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyKaBlinds:swiUp" }
-Switch	ActKabinetOverTemp      "Kabinet pregret [MAP(si.map):TEMP-%s]"             <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyKaBlinds:overTemp" }
-Switch	ActKabinetStatus        "Kabinet status [MAP(si.map):STATUS-%s]"            <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyKaBlinds:alive" }
-Number  ActKabinetPowerDo       "Kabinet dol trenutna moč"                          <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKaBlinds:powerDo" }
-Number  ActKabinetPowerUp       "Kabinet gor trenutna moč"                          <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKaBlinds:powerUp" }
+Switch	ActKabinetDo            "Kabinet dol [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6938C4:relay2#output" }
+Switch	ActKabinetUp            "Kabinet gor [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6938C4:relay1#output" }
+Switch	SwiKabinetDo            "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6938C4:relay2#input" }
+Switch	SwiKabinetUp            "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6938C4:relay1#input" }
+Number	ActKabinetOverTemp      "Kabinet temperatura [%d °C]"                       <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:6938C4:device#innerTemp" }
+Number  ActKabinetPowerDo       "Kabinet dol trenutna moč"                          <energy>            (Power)                         { channel="shelly:shelly25-relay:6938C4:meter2#currentWatts" }
+Number  ActKabinetPowerUp       "Kabinet gor trenutna moč"                          <energy>            (Power)                         { channel="shelly:shelly25-relay:6938C4:meter1#currentWatts" }
 
-Switch	ActDnevnaDesDo          "Dnevna desno dol [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActDo,BlindsOnDoors)    { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:down" }
-Switch	ActDnevnaDesUp          "Dnevna desno gor [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:up" }
-Switch	SwiDnevnaDesDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:swiDown" }
-Switch	SwiDnevnaDesUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:swiUp" }
-Switch	ActDnevnaDesOverTemp    "Dnevna desno pregret [MAP(si.map):TEMP-%s]"        <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:overTemp" }
-Switch	ActDnevnaDesStatus      "Dnevna desno status [MAP(si.map):STATUS-%s]"       <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:alive" }
-Number  ActDnevnaDesPowerDo     "Dnevna desno dol trenutna moč"                     <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:powerDo" }
-Number  ActDnevnaDesPowerUp     "Dnevna desno gor trenutna moč"                     <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyDnDeBlinds:powerUp" }
+Switch	ActDnevnaDesDo          "Dnevna desno dol [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="shelly:shelly25-relay:68E04B:relay2#output" }
+Switch	ActDnevnaDesUp          "Dnevna desno gor [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActUp)                { channel="shelly:shelly25-relay:68E04B:relay1#output" }
+Switch	SwiDnevnaDesDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:68E04B:relay2#input" }
+Switch	SwiDnevnaDesUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:68E04B:relay1#input" }
+Number	ActDnevnaDesOverTemp    "Dnevna desno temperatura [%d °C]"                  <temperature_hot>   (ShellyOverTemp)                            { channel="shelly:shelly25-relay:68E04B:device#innerTemp" }
+Number  ActDnevnaDesPowerDo     "Dnevna desno dol trenutna moč"                     <energy>            (Power)                                     { channel="shelly:shelly25-relay:68E04B:meter2#currentWatts" }
+Number  ActDnevnaDesPowerUp     "Dnevna desno gor trenutna moč"                     <energy>            (Power)                                     { channel="shelly:shelly25-relay:68E04B:meter1#currentWatts" }
 
-Switch	ActDnevnaLevDo          "Dnevna levo dol [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:down" }
-Switch	ActDnevnaLevUp          "Dnevna levo gor [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:up" }
-Switch	SwiDnevnaLevDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:swiDown" }
-Switch	SwiDnevnaLevUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:swiUp" }
-Switch	ActDnevnaLevOverTemp    "Dnevna levo [MAP(si.map):TEMP-%s]"                 <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:overTemp" }
-Switch	ActDnevnaLevStatus      "Dnevna levo [MAP(si.map):STATUS-%s]"               <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:alive" }
-Number  ActDnevnaLevPowerDo     "Dnevna levo dol trenutna moč"                      <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:powerDo" }
-Number  ActDnevnaLevPowerUp     "Dnevna levo gor trenutna moč"                      <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyDnLeBlinds:powerUp" }
+Switch	ActDnevnaLevDo          "Dnevna levo dol [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:68E55A:relay2#output" }
+Switch	ActDnevnaLevUp          "Dnevna levo gor [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:68E55A:relay1#output" }
+Switch	SwiDnevnaLevDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E55A:relay2#input" }
+Switch	SwiDnevnaLevUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E55A:relay1#input" }
+Number	ActDnevnaLevOverTemp    "Dnevna levo temperatura [%d °C]"                   <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68E55A:device#innerTemp" }
+Number  ActDnevnaLevPowerDo     "Dnevna levo dol trenutna moč"                      <energy>            (Power)                         { channel="shelly:shelly25-relay:68E55A:meter2#currentWatts" }
+Number  ActDnevnaLevPowerUp     "Dnevna levo gor trenutna moč"                      <energy>            (Power)                         { channel="shelly:shelly25-relay:68E55A:meter1#currentWatts" }
 
-Switch	ActSpalnicaDo           "Spalnica dol [MAP(si.map):SWITCH-%s]"              <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="mqtt:topic:mosquitto:shellySpBlinds:down" }
-Switch	ActSpalnicaUp           "Spalnica gor [MAP(si.map):SWITCH-%s]"              <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="mqtt:topic:mosquitto:shellySpBlinds:up" }
-Switch	SwiSpalnicaDo           "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellySpBlinds:swiDown" }
-Switch	SwiSpalnicaUp           "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellySpBlinds:swiUp" }
-Switch	ActSpalnicaOverTemp     "Spalnica pregret [MAP(si.map):TEMP-%s]"            <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellySpBlinds:overTemp" }
-Switch	ActSpalnicaStatus       "Spalnica status [MAP(si.map):STATUS-%s]"           <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellySpBlinds:alive" }
-Number  ActSpalnicaPowerDo      "Spalnica dol trenutna moč"                         <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellySpBlinds:powerDo" }
-Number  ActSpalnicaPowerUp      "Spalnica gor trenutna moč"                         <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellySpBlinds:powerUp" }
+Switch	ActSpalnicaDo           "Spalnica dol [MAP(si.map):SWITCH-%s]"              <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68661F:relay2#output" }
+Switch	ActSpalnicaUp           "Spalnica gor [MAP(si.map):SWITCH-%s]"              <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68661F:relay1#output" }
+Switch	SwiSpalnicaDo           "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68661F:relay2#input" }
+Switch	SwiSpalnicaUp           "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68661F:relay1#input" }
+Number	ActSpalnicaOverTemp     "Spalnica temperatura [%d °C]"                      <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68661F:device#innerTemp" }
+Number  ActSpalnicaPowerDo      "Spalnica dol trenutna moč"                         <energy>            (Power)                         { channel="shelly:shelly25-relay:68661F:meter2#currentWatts" }
+Number  ActSpalnicaPowerUp      "Spalnica gor trenutna moč"                         <energy>            (Power)                         { channel="shelly:shelly25-relay:68661F:meter1#currentWatts" }
 
-Switch	ActAljazDo	            "Aljaž dol [MAP(si.map):SWITCH-%s]"                 <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyAlBlinds:down" }	
-Switch	ActAljazUp	            "Aljaž gor [MAP(si.map):SWITCH-%s]"                 <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyAlBlinds:up" }
-Switch	SwiAljazDo              "Stikalo Aljaž dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyAlBlinds:swiDown" }
-Switch	SwiAljazUp              "Stikalo Aljaž gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyAlBlinds:swiUp" }
-Switch	ActAljazOverTemp        "Aljaž pregret [MAP(si.map):TEMP-%s]"               <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyAlBlinds:overTemp" }
-Switch	ActAljazStatus          "Aljaž status [MAP(si.map):STATUS-%s]"              <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyAlBlinds:alive" }
-Number  ActAljazPowerDo         "Aljaž dol trenutna moč"                            <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyAlBlinds:powerDo" }
-Number  ActAljazPowerUp         "Aljaž gor trenutna moč"                            <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyAlBlinds:powerUp" }
+Switch	ActAljazDo	            "Aljaž dol [MAP(si.map):SWITCH-%s]"                 <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68FD82:relay1#output" }
+Switch	ActAljazUp	            "Aljaž gor [MAP(si.map):SWITCH-%s]"                 <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68FD82:relay2#output" }
+Switch	SwiAljazDo              "Stikalo Aljaž dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68FD82:relay1#input" }
+Switch	SwiAljazUp              "Stikalo Aljaž gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68FD82:relay2#input" }
+Number	ActAljazOverTemp        "Aljaž temperatura [%d °C]"                         <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68FD82:device#innerTemp" }
+Number  ActAljazPowerDo         "Aljaž dol trenutna moč"                            <energy>            (Power)                         { channel="shelly:shelly25-relay:68FD82:meter1#currentWatts" }
+Number  ActAljazPowerUp         "Aljaž gor trenutna moč"                            <energy>            (Power)                         { channel="shelly:shelly25-relay:68FD82:meter2#currentWatts" }
 
-Switch	ActJulijaDo	            "Julija dol [MAP(si.map):SWITCH-%s]"                <rollershutter>     (BlindAct,BlindU,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyJuBlinds:down" }	
-Switch	ActJulijaUp	            "Julija gor [MAP(si.map):SWITCH-%s]"                <rollershutter>     (BlindAct,BlindU,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyJuBlinds:up" }
-Switch	SwiJulijaDo             "Stikalo Julija dol [MAP(si.map):SWITCH-%s]"        <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyJuBlinds:swiDown" }
-Switch	SwiJulijaUp             "Stikalo Julija gor [MAP(si.map):SWITCH-%s]"        <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyJuBlinds:swiUp" }
-Switch	ActJulijaOverTemp       "Julija pregret [MAP(si.map):TEMP-%s]"              <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyJuBlinds:overTemp" }
-Switch	ActJulijaStatus         "Julija status [MAP(si.map):STATUS-%s]"             <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyJuBlinds:alive" }
-Number  ActJulijaPowerDo        "Julija dol trenutna moč"                           <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyJuBlinds:powerDo" }
-Number  ActJulijaPowerUp        "Julija gor trenutna moč"                           <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyJuBlinds:powerUp" }
+Switch	ActJulijaDo	            "Julija dol [MAP(si.map):SWITCH-%s]"                <rollershutter>     (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68E532:relay1#output" }
+Switch	ActJulijaUp	            "Julija gor [MAP(si.map):SWITCH-%s]"                <rollershutter>     (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68E532:relay2#output" }
+Switch	SwiJulijaDo             "Stikalo Julija dol [MAP(si.map):SWITCH-%s]"        <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E532:relay1#input" }
+Switch	SwiJulijaUp             "Stikalo Julija gor [MAP(si.map):SWITCH-%s]"        <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E532:relay2#input" }
+Number	ActJulijaOverTemp       "Julija temperatura [%d °C]"                        <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68E532:device#innerTemp" }
+Number  ActJulijaPowerDo        "Julija dol trenutna moč"                           <energy>            (Power)                         { channel="shelly:shelly25-relay:68E532:meter1#currentWatts" }
+Number  ActJulijaPowerUp        "Julija gor trenutna moč"                           <energy>            (Power)                         { channel="shelly:shelly25-relay:68E532:meter2#currentWatts" }
 
-Switch	ActKuhinjaLevDo	        "Kuhinja levo dol [MAP(si.map):SWITCH-%s]"          <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:down" }	
-Switch	ActKuhinjaLevUp	        "Kuhinja levo gor [MAP(si.map):SWITCH-%s]"          <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:up" }
-Switch	SwiKuhinjaLevDo         "Stikalo kuhinja levo dol [MAP(si.map):SWITCH-%s]"  <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:swiDown" }
-Switch	SwiKuhinjaLevUp         "Stikalo kuhinja levo gor [MAP(si.map):SWITCH-%s]"  <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:swiUp" }
-Switch	ActKuhinjaLevOverTemp   "Kuhinja levo pregret [MAP(si.map):TEMP-%s]"        <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:overTemp" }
-Switch	ActKuhinjaLevStatus     "Kuhinja levo status [MAP(si.map):STATUS-%s]"       <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:alive" }
-Number  ActKuhinjaLevPowerDo    "Kuhinja levo dol trenutna moč"                     <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:powerDo" }
-Number  ActKuhinjaLevPowerUp    "Kuhinja levo gor trenutna moč"                     <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuLeBlinds:powerUp" }
+Switch	ActKuhinjaLevDo	        "Kuhinja levo dol [MAP(si.map):SWITCH-%s]"          <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:68F40F:relay2#output" }
+Switch	ActKuhinjaLevUp	        "Kuhinja levo gor [MAP(si.map):SWITCH-%s]"          <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:68F40F:relay1#output" }
+Switch	SwiKuhinjaLevDo         "Stikalo kuhinja levo dol [MAP(si.map):SWITCH-%s]"  <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68F40F:relay2#input" }
+Switch	SwiKuhinjaLevUp         "Stikalo kuhinja levo gor [MAP(si.map):SWITCH-%s]"  <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68F40F:relay1#input" }
+Number	ActKuhinjaLevOverTemp   "Kuhinja levo temperatura [%d °C]"                  <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68F40F:device#innerTemp" }
+Number  ActKuhinjaLevPowerDo    "Kuhinja levo dol trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter2#currentWatts" }
+Number  ActKuhinjaLevPowerUp    "Kuhinja levo gor trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter1#currentWatts" }
 
-Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)    { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:down" }	
-Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:up" }
-Switch	SwiKuhinjaDesDo         "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:swiDown" }
-Switch	SwiKuhinjaDesUp         "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:swiUp" }
-Switch	ActKuhinjaDesOverTemp   "Kuhinja desno pregret [MAP(si.map):TEMP-%s]"       <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:overTemp" }
-Switch	ActKuhinjaDesStatus     "Kuhinja desno status [MAP(si.map):STATUS-%s]"      <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:alive" }
-Number  ActKuhinjaDesPowerDo    "Kabinet desno dol trenutna moč"                    <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:powerDo" }
-Number  ActKuhinjaDesPowerUp    "Kabinet desno gor trenutna moč"                    <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyKuDeBlinds:powerUp" }
+Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="shelly:shelly25-relay:694338:relay1#output" }
+Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="shelly:shelly25-relay:694338:relay2#output" }
+Switch	SwiKuhinjaDesDo         "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:694338:relay1#input" }
+Switch	SwiKuhinjaDesUp         "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:694338:relay2#input" }
+Number	ActKuhinjaDesOverTemp   "Kuhinja desno temperatura [%d °C]"                 <temperature_hot>   (ShellyOverTemp)                            { channel="shelly:shelly25-relay:694338:device#innerTemp" }
+Number  ActKuhinjaDesPowerDo    "Kabinet desno dol trenutna moč"                    <energy>            (Power)                                     { channel="shelly:shelly25-relay:694338:meter1#currentWatts" }
+Number  ActKuhinjaDesPowerUp    "Kabinet desno gor trenutna moč"                    <energy>            (Power)                                     { channel="shelly:shelly25-relay:694338:meter2#currentWatts" }
 
-Switch	ActJedilnicaDo	        "Jedilnica dol [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="mqtt:topic:mosquitto:shellyJeBlinds:down" }	
-Switch	ActJedilnicaUp	        "Jedilnica gor [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="mqtt:topic:mosquitto:shellyJeBlinds:up" }
-Switch	SwiJedilnicaDo          "Stikalo jedilnica dol [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyJeBlinds:swiDown" }
-Switch	SwiJedilnicaUp          "Stikalo jedilnica gor [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindSwi)                      { channel="mqtt:topic:mosquitto:shellyJeBlinds:swiUp" }
-Switch	ActJedilnicaOverTemp    "Jedilnica pregret [MAP(si.map):TEMP-%s]"           <temperature_hot>   (ShellyOverTemp)                { channel="mqtt:topic:mosquitto:shellyJeBlinds:overTemp" }
-Switch	ActJedilnicaStatus      "Jedilnica status [MAP(si.map):STATUS-%s]"          <rollershutter>     (BlindsAlive)                   { channel="mqtt:topic:mosquitto:shellyJeBlinds:alive" }
-Number  ActJedilnicaPowerDo     "Jedilnica dol trenutna moč"                        <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyJeBlinds:powerDo" }
-Number  ActJedilnicaPowerUp     "Jedilnica gor trenutna moč"                        <energy>            (Power)                         { channel="mqtt:topic:mosquitto:shellyJeBlinds:powerUp" }
+Switch	ActJedilnicaDo	        "Jedilnica dol [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6914F8:relay2#output" }
+Switch	ActJedilnicaUp	        "Jedilnica gor [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6914F8:relay1#output" }
+Switch	SwiJedilnicaDo          "Stikalo jedilnica dol [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6914F8:relay2#input" }
+Switch	SwiJedilnicaUp          "Stikalo jedilnica gor [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6914F8:relay1#input" }
+Number	ActJedilnicaOverTemp    "Jedilnica temperatura [%d °C]"                     <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:6914F8:device#innerTemp" }
+Number  ActJedilnicaPowerDo     "Jedilnica dol trenutna moč"                        <energy>            (Power)                         { channel="shelly:shelly25-relay:6914F8:meter2#currentWatts" }
+Number  ActJedilnicaPowerUp     "Jedilnica gor trenutna moč"                        <energy>            (Power)                         { channel="shelly:shelly25-relay:6914F8:meter1#currentWatts" }
 
 
 //TEST

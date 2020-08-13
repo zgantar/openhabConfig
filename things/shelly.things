@@ -1,0 +1,13 @@
+Thing shelly:shelly25-relay:6938C4 "Žaluzije kabinet" @ "Kabinet" [deviceIp="192.168.1.109"]
+Thing shelly:shelly25-relay:68E04B "Žaluzije dnevna desno" @ "Dnevna"  [deviceIp="192.168.1.150"]
+Thing shelly:shelly25-relay:68E55A "Žaluzije dnevna levo" @ "Dnevna" [deviceIp="192.168.1.19"]
+
+Thing shelly:shelly25-relay:68FD82 "Žaluzije Aljaž" @ "Aljaž" [deviceIp="192.168.1.16"]
+Thing shelly:shelly25-relay:68E532 "Žaluzije Julija" @ "Julija" [deviceIp="192.168.1.232"]
+Thing shelly:shelly25-relay:68661F "Žaluzije spalnica" @ "Spalnica" [deviceIp="192.168.1.177"]
+
+Thing shelly:shelly25-relay:6914F8 "Žaluzije jedilnica" @ "Jedilnica" [deviceIp="192.168.1.99"]
+Thing shelly:shelly25-relay:68F40F "Žaluzije kuhinja levo" @ "Kuhinja" [deviceIp="192.168.1.12"]
+Thing shelly:shelly25-relay:694338 "Žaluzije kuhinja desno" @ "Kuhinja" [deviceIp="192.168.1.2"]
+
+Thing shelly:shelly1:9413CD "Dnevna stenska luč" @ "Dnevna" [deviceIp="192.168.1.76"]
