@@ -3,11 +3,39 @@ rule "Terace door opened"
 when
     Item DoorDvigStatus changed to OPEN
 then
-    logInfo("door", "###########################Terace Door opened##############################")
+    logInfo("doors", "###########################Terace Door opened##############################")
     if (StateKuhinjaDes.state < 55000) {
-        logInfo("door", "Žaluzija na vratih ni vzdignjena zato vzdigujem")
+        logInfo("doors", "Žaluzija na vratih ni vzdignjena zato vzdigujem")
         ZalKuhinjaDesUp.sendCommand(ON)
     } else {
-        logInfo("door", "Žaluzija na vratih je vzdignjena zato ignoriram")
+        logInfo("doors", "Žaluzija na vratih je vzdignjena zato ignoriram")
+    }
+end
+
+rule "Terace door closed"
+
+when
+    Item DoorDvigStatus changed to CLOSED
+then
+    logInfo("doors", "########################### Terace Door closed ##############################")
+    if (StateKuhinjaDes.state > 0 && Integer.parseInt((OutSolarRad.state).toString) == 0) {
+        logInfo("doors", "Žaluzija na vratih ni spuščena")
+        ZalKuhinjaDesDo.sendCommand(ON)
+    } else {
+        logInfo("doors", "Žaluzija na vratih je spuščena zato ignoriram")
+    }
+end
+
+rule "Living room terace door closed"
+
+when
+    Item DoorNagibStatus changed to CLOSED
+then
+    logInfo("doors", "########################### Living room terace Door closed ##############################")
+    if (StateDnevnaDes.state > 0 && Integer.parseInt((OutSolarRad.state).toString) == 0) {
+        logInfo("doors", "Žaluzija na vratih ni spuščena")
+        ZalDnevnaDesDo.sendCommand(ON)
+    } else {
+        logInfo("doors", "Žaluzija na vratih je spuščena zato ignoriram")
     }
 end
