@@ -1,41 +1,27 @@
 val double conv = 57.2957795131
 
-rule "Xiaomi Switch 1"
+rule "Xiaomi Switch"
 when
-    Channel "mihome:sensor_switch:158d00016d77ce:button" triggered LONG_PRESSED
+    Item ClickSwitchBlinds changed
 then
-    logInfo("Xiaomi", "Dolgi pritisk, vtičnica v dnevni je - " + PlugDnevSwitch.state)
-    if (PlugDnevSwitch.state == ON) {
-        PlugDnevSwitch.send(OFF)
-    } else {
-        PlugDnevSwitch.send(ON)
+    logInfo("Xiaomi", "Dobil klik {}", ClickSwitchBlinds.state.toString)
+    if (ClickSwitchBlinds.state.toString == "single") {
+        GroundFlorPeek.sendCommand(ON)
+    } else if (ClickSwitchBlinds.state.toString == "double") {
+        AllCompleteDo.sendCommand(ON)    
+    } else if (ClickSwitchBlinds.state.toString == "triple") {
+        BlindsGroundFlorUp.sendCommand(ON)
+    } else if (ClickSwitchBlinds.state.toString == "quadruple") {
+
+    } else if (ClickSwitchBlinds.state.toString == "many") {
+
+    } else if (ClickSwitchBlinds.state.toString == "hold") {
+        
+    } else if (ClickSwitchBlinds.state.toString == "release") {
+
     }
-    logInfo("Xiaomi", "Vtičnica v dnevni je - " + PlugDnevSwitch.state)
 end
 
-rule "Xiaomi Switch 1 short press"
-when
-    Channel "mihome:sensor_switch:158d00016d77ce:button" triggered SHORT_PRESSED
-then
-    logInfo("Xiaomi", "Kratek pritisk za menjanje radijske postaje")
-    if (NextRadioStation.state == ON) NextRadioStation.sendCommand(OFF)
-    else NextRadioStation.sendCommand(ON)
-end
-
-rule "Xiaomi Switch 1 double press"
-when
-    Channel "mihome:sensor_switch:158d00016d77ce:button" triggered DOUBLE_PRESSED
-then
-    logInfo("Xiaomi", "Dvojni pritisk")
-    PlayURIAudio.sendCommand("")
-end
-
-rule "Xiaomi Switch 1 long released"
-when
-    Channel "mihome:sensor_switch:158d00016d77ce:button" triggered LONG_PRESSED
-then
-    logInfo("Xiaomi", "Dolgi spust")
-end
 
 rule "Mijia & Aqara Cube Controller"
 when
