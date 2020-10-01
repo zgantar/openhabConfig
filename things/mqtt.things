@@ -121,7 +121,15 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
     // }
 
 //Xiaomi zadeve
-    Thing topic cumnataTemp "Čumnata" @ "Temp" {
+    Thing topic stikaloZaluzije "Stikalo žaluzije" @ "Kuhinja" {
+        Channels:
+            Type string : action        "click"         [ stateTopic = "zigbee2mqtt/stikaloZaluzije/action" ]     
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/stikaloZaluzije/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/stikaloZaluzije/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/stikaloZaluzije/linkquality" ]               
+    }
+
+    Thing topic cumnataTemp "Čumnata temperatura" @ "Čumnata" {
         Channels:
             Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempCumnata/temperature" ]
             Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempCumnata/humidity" ]
@@ -130,7 +138,7 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
             Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempCumnata/linkquality" ]               
     }    
 
-    Thing topic kopalnicaSTemp "Kopalnica spodaj" @ "Temp" {
+    Thing topic kopalnicaSTemp "Kopalnica spodaj temperatura" @ "Kopalnica spodaj" {
         Channels:
             Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKopalnicaS/temperature" ]
             Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKopalnicaS/humidity" ]
@@ -139,6 +147,116 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
             Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKopalnicaS/linkquality" ]               
     }
 
+    Thing topic kabinetTemp "Kabinet temperatura" @ "Kabinet" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKabinet/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKabinet/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempKabinet/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempKabinet/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKabinet/linkquality" ]               
+    }
+
+    Thing topic dnevnaTemp "Dnevna temperatura" @ "Dnevna" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempDnevna/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempDnevna/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempDnevna/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempDnevna/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempDnevna/linkquality" ]               
+    }
+
+    Thing topic kuhinjaTemp "Kuhinja temperatura" @ "Kuhinja" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKuhinja/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKuhinja/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempKuhinja/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempKuhinja/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKuhinja/linkquality" ]               
+    }
+
+    Thing topic hodnikSTemp "Hodnik spodaj temperatura" @ "Hodnik spodaj" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempHodnikS/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempHodnikS/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempHodnikS/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempHodnikS/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempHodnikS/linkquality" ]               
+    }
+
+    Thing topic energetskiTemp "Energetski prostor temperatura" @ "Energetski prostor" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempEnergetski/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempEnergetski/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempEnergetski/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempEnergetski/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempEnergetski/linkquality" ]               
+    }
+
+    Thing topic recupTemp "Rekuperacija temperatura" @ "Rekuperacija" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempRecup/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempRecup/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempRecup/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempRecup/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempRecup/linkquality" ]               
+    }
+
+    Thing topic hodnikZTemp "Hodnik zgoraj temperatura" @ "Hodnik zgoraj" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempHodnikZ/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempHodnikZ/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempHodnikZ/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempHodnikZ/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempHodnikZ/linkquality" ]               
+    }
+
+    Thing topic aljazTemp "Aljaž temperatura" @ "Aljaž" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempAljaz/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempAljaz/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempAljaz/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempAljaz/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempAljaz/linkquality" ]               
+    }
+
+    Thing topic julijaTemp "Julija temperatura" @ "Julija" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempJulija/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempJulija/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempJulija/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempJulija/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempJulija/linkquality" ]               
+    }
+
+    Thing topic spalnicaTemp "Spalnica temperatura" @ "Spalnica" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempSpalnica/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempSpalnica/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempSpalnica/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempSpalnica/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempSpalnica/linkquality" ]               
+    }
+
+    Thing topic kopalnicaZTemp "Kopalnica zgoraj temperatura" @ "Kopalnica zgoraj" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/linkquality" ]               
+    }
+
+    Thing topic lopaTemp "Lopa temperatura" @ "Lopa" {
+        Channels:
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempLopa/temperature" ]
+            Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempLopa/humidity" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempLopa/voltage" ]     
+            Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempLopa/battery" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempLopa/linkquality" ]               
+    }
+
+
+    //Lights
     Thing topic otokMalaLuc "Mala luč otok" @ "Kuhinja" {
         Channels:
             Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/otokMalaLuc/brightness", commandTopic = "zigbee2mqtt/otokMalaLuc/set/brightness" ]
@@ -172,6 +290,48 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
             Type number : linkquality   "povezava"  [ stateTopic = "zigbee2mqtt/otokMalaLuc/color" ]
             Type number : action_group  "skupina"   [ stateTopic = "zigbee2mqtt/otokMalaLuc/state" ]     
     }
+
+    Thing topic recuPlug "Vtičnica rekuperacija" @ "Energetski prostor" {
+        Channels:
+            Type switch : state         "state"         [ stateTopic = "zigbee2mqtt/plugRecu/state", commandTopic = "zigbee2mqtt/plugRecu/set/state" ]
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/plugRecu/temperature" ]
+            Type number : consumption   "consumption"   [ stateTopic = "zigbee2mqtt/plugRecu/consumption" ]
+            // Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/plugRecu/voltage" ]     
+            Type number : power         "power"         [ stateTopic = "zigbee2mqtt/plugRecu/power" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/plugRecu/linkquality" ]               
+    }
+
+        Thing topic fridPlug "Vtičnica hladilnik" @ "Kuhinja" {
+        Channels:
+            Type switch : state         "state"         [ stateTopic = "zigbee2mqtt/plugFridge/state", commandTopic = "zigbee2mqtt/plugFridge/set/state" ]
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/plugFridge/temperature" ]
+            Type number : consumption   "consumption"   [ stateTopic = "zigbee2mqtt/plugFridge/consumption" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/plugFridge/voltage" ]
+            Type number : current       "current"       [ stateTopic = "zigbee2mqtt/plugFridge/current" ]
+            Type number : power         "power"         [ stateTopic = "zigbee2mqtt/plugFridge/power" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/plugFridge/linkquality" ]               
+    }
+
+        Thing topic freePlug "Vtičnica skrinja" @ "Čumnata" {
+        Channels:
+            Type switch : state         "state"         [ stateTopic = "zigbee2mqtt/plugFreezer/state", commandTopic = "zigbee2mqtt/plugFreezer/set/state" ]
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/plugFreezer/temperature" ]
+            Type number : consumption   "consumption"   [ stateTopic = "zigbee2mqtt/plugFreezer/consumption" ]
+            Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/plugFreezer/voltage" ]
+            Type number : current       "current"       [ stateTopic = "zigbee2mqtt/plugFreezer/current" ]
+            Type number : power         "power"         [ stateTopic = "zigbee2mqtt/plugFreezer/power" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/plugFreezer/linkquality" ]               
+    }
+
+    Thing topic TVHiFiPlug "Vtičnica TV&HiFi" @ "Dnevna" {
+        Channels:
+            Type switch : state         "state"         [ stateTopic = "zigbee2mqtt/plugTVHiFi/state", commandTopic = "zigbee2mqtt/plugTVHiFi/set/state" ]
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/plugTVHiFi/temperature" ]
+            Type number : consumption   "consumption"   [ stateTopic = "zigbee2mqtt/plugTVHiFi/consumption" ]
+            Type number : power         "power"         [ stateTopic = "zigbee2mqtt/plugTVHiFi/power" ]     
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/plugTVHiFi/linkquality" ]               
+    }
+
 
 //Tinkerfoge prvi koraki
 //    Thing topic tinkerforgeDualRelayEner "Dvojni rele" @ "Energetski prostor" {
