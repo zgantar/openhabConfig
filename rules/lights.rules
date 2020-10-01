@@ -1,28 +1,29 @@
 var Timer shutDownTimer = null
 var Timer orderDownTimer = null
 
-val Functions$Function2<SwitchItem,Functions$Function1<Integer,Boolean>,Boolean> setShutDownTimer = [ 
+val Functions$Function3<SwitchItem,Integer,Functions$Function1<Integer,Boolean>,Boolean> setShutDownTimer = [ 
 	SwitchItem switchItem,
+    Integer time,
     Functions$Function1<Integer,Boolean> checkLastMotion|
     
-    shutDownTimer = createTimer(now.plusMinutes(15), [|
+    shutDownTimer = createTimer(now.plusMinutes(time), [|
         logInfo("lights", "Preverjam ali je prižgana luč nad TVjem")
         if (PlugLiDn2Switch2.state == ON) {
-            logInfo("lights", "TV luč je prižgana zato prestavim ugašanje za {} minut", 15)
-            shutDownTimer.reschedule(now.plusMinutes(15))
+            logInfo("lights", "TV luč je prižgana zato prestavim ugašanje za {} minut", time)
+            shutDownTimer.reschedule(now.plusMinutes(time))
         } else {
             logInfo("lights", "TV luč je ugasnjena zato preverjam gibanje")
             if (Mot.state == OFF){
                 logInfo("lights", "Ker ni več gibanja, preverim kdaj je bilo zadnje gibanje")
-                if (checkLastMotion.apply(15)) {
+                if (checkLastMotion.apply(time)) {
                     switchItem.sendCommand(OFF)
                     shutDownTimer = null
                 } else {
-                    shutDownTimer.reschedule(now.plusMinutes(15))
+                    shutDownTimer.reschedule(now.plusMinutes(time))
                 }
             } else {
                 logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
-                shutDownTimer.reschedule(now.plusMinutes(15))
+                shutDownTimer.reschedule(now.plusMinutes(time))
             }
         }
     ])
@@ -83,8 +84,8 @@ then
         if (LumNadStopnicami.state < 10) {
             logInfo("lights", "Je tema zato prižgem luči za 15 min")
             PlugLiSt2Switch2.sendCommand(ON)
-            if (now.getHourOfDay < 5) {
-                setShutDownTimer.apply(PlugLiSt2Switch2, checkLastMotion)
+            if (now.getHourOfDay < 6) {
+                setShutDownTimer.apply(PlugLiSt2Switch2, 5, checkLastMotion)
             }
         } else logInfo("lights", "Je dovolj svetlo zato ne prižgem luči")
     } else logInfo("lights", "Ni potrebe po lučeh, zato ignoriram")
@@ -95,5 +96,5 @@ when
     Time cron "0 0 23 * * ? *"
 then
     logInfo("lights", "Ura je enajst in preverjam ali lahko ugasnem luči na stopnišču")
-    setShutDownTimer.apply(PlugLiSt2Switch2, checkLastMotion)
+    setShutDownTimer.apply(PlugLiSt2Switch2, 5, checkLastMotion)
 end
