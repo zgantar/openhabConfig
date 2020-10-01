@@ -24,6 +24,10 @@ Group                   Other
 Group:Switch:OR(ON,OFF) MessagesSwitches
 Group                   Messages
 
+
+Switch  KillAlarm
+
+
 String  Message
 Number  MessageNumber
 Number  MessagesNumber
@@ -56,19 +60,23 @@ Switch  TimeSetterSaver "Shrani uro"
 
 Number  PlugSusiDayCons "Dnevna poraba sušilec [%.2f kWh]"         <line-incline>  (CalcConsDay)
 Number  PlugTinkDayCons "Dnevna poraba Tinkerfoge [%.2f kWh]"      <line-incline>  (CalcConsDay)
-Number  PlugDnevDayCons "Dnevna poraba dnevna [%.2f kWh]"          <line-incline>  (CalcConsDay)
 Number  PlugPralDayCons "Dnevna poraba pralni stroj [%.2f kWh]"    <line-incline>  (CalcConsDay)
 Number  PlugHeatDayCons "Dnevna poraba bojler [%.2f kWh]"          <line-incline>  (CalcConsDay)
 Number  PlugIronDayCons "Dnevna poraba likalnik [%.2f kWh]"        <line-incline>  (CalcConsDay)
 Number  PlugRekuDayCons "Dnevna poraba rekuperacija [%.2f kWh]"    <line-incline>  (CalcConsDay)
+Number  PlugFridDayCons "Dnevna poraba rekuperacija [%.2f kWh]"    <line-incline>  (CalcConsDay)
+Number  PlugFreeDayCons "Dnevna poraba rekuperacija [%.2f kWh]"    <line-incline>  (CalcConsDay)
+Number  PlugTVHiDayCons "Dnevna poraba dnevna [%.2f kWh]"          <line-incline>  (CalcConsDay)
 
 Number  PlugSusiHourCons "Urna poraba sušilec [%.2f kWh]"          <line-incline>  (CalcConsHour)
 Number  PlugTinkHourCons "Urna poraba Tinkerforge [%.2f kWh]"      <line-incline>  (CalcConsHour)
-Number  PlugDnevHourCons "Urna poraba dnevna [%.2f kWh]"           <line-incline>  (CalcConsHour)
 Number  PlugPralHourCons "Urna poraba pralni stroj [%.2f kWh]"     <line-incline>  (CalcConsHour)
 Number  PlugHeatHourCons "Urna poraba bojler [%.2f kWh]"           <line-incline>  (CalcConsHour)
 Number  PlugIronHourCons "Urna poraba likalnik [%.2f kWh]"         <line-incline>  (CalcConsHour)
-Number  PlugRekuHourCons "Dnevna poraba rekuperacija [%.2f kWh]"   <line-incline>  (CalcConsDay)
+Number  PlugRekuHourCons "Dnevna poraba rekuperacija [%.2f kWh]"   <line-incline>  (CalcConsHour)
+Number  PlugFridHourCons "Dnevna poraba rekuperacija [%.2f kWh]"   <line-incline>  (CalcConsHour)
+Number  PlugFreeHourCons "Dnevna poraba rekuperacija [%.2f kWh]"   <line-incline>  (CalcConsHour)
+Number  PlugTVHiHourCons "Urna poraba dnevna [%.2f kWh]"           <line-incline>  (CalcConsHour)
 
 Switch Trigger
 

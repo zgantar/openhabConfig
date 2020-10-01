@@ -3,6 +3,8 @@ Group:Number                    Hum             "Senzorji vlažnosti"
 Group:Number                    Lum             "Senzorji svetlosti"
 
 Group:Switch:AND(ON,OFF)        Mot             "Senzorji gibanja"
+Group:Switch:AND(ON,OFF)        GroundF         "Senzorji gibanja v pritličju"
+Group:Switch:AND(ON,OFF)        FirstF          "Senzorji gibanja v mansardi"
 
 Group:Contact:OR(OPEN,CLOSED)   Door            "Odprta vrata"
 
@@ -49,54 +51,72 @@ Switch      PhonePingableNina   "Zaznana naprava" (PhonePing) { channel="network
 DateTime    PhoneLastSeenNina   "Nazadnje viden"  (LastSeen)  { channel="network:pingdevice:nina:lastseen" }
 
 //Humidity
-Number	HumJulija		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead97:humidity" }
-Number	HumAljaz		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020ead94:humidity" }
-Number	HumSpalnica		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000210a5ec:humidity" }
-Number	HumKuhinja		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00023792d1:humidity" }
-Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000222654d:humidity" }
-Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00022264c9:humidity" }
+Number	HumJulija		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:julijaTemp:humidity" }
+Number	HumAljaz		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:aljazTemp:humidity" }
+Number	HumSpalnica		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:spalnicaTemp:humidity" }
+Number	HumKuhinja		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kuhinjaTemp:humidity" }
+Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kabinetTemp:humidity" }
+Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kopalnicaZTemp:humidity" }
 Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mqtt:topic:mosquitto:kopalnicaSTemp:humidity" }
-Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001f58033:humidity" }
-Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001e89688:humidity" }
-Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001c14e34:humidity" }
+Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:hodnikZTemp:humidity" }
+Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:hodnikSTemp:humidity" }
+Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:dnevnaTemp:humidity" }
 Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:cumnataTemp:humidity" }
-Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d0001f54681:humidity" }
-Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d00020db6d4:humidity" }
-Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mihome:sensor_ht:158d000241bdac:humidity" }
+Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:recupTemp:humidity" }
+Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:energetskiTemp:humidity" }
+Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:lopaTemp:humidity" }
 
 //Temperature
-Number	TempJulija	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead97:temperature" }
-Number	TempAljaz	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00020ead94:temperature" }
-Number	TempSpalnica        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000210a5ec:temperature" }
-Number	TempKuhinja         "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00023792d1:temperature" }
-Number	TempKabinet	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d000222654d:temperature" }
-Number	TempKopalnicaZ      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mihome:sensor_ht:158d00022264c9:temperature" }
+Number	TempJulija	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:julijaTemp:temperature" }
+Number	TempAljaz	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:aljazTemp:temperature" }
+Number	TempSpalnica        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:spalnicaTemp:temperature" }
+Number	TempKuhinja         "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kuhinjaTemp:temperature" }
+Number	TempKabinet	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kabinetTemp:temperature" }
+Number	TempKopalnicaZ      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kopalnicaZTemp:temperature" }
 Number	TempKopalnicaS      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kopalnicaSTemp:temperature" }
-Number	TempHodnikZ	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f58033:temperature" }
-Number	TempHodnikS	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001e89688:temperature" }
-Number	TempDnevna		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001c14e34:temperature" }
+Number	TempHodnikZ	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:hodnikZTemp:temperature" }
+Number	TempHodnikS	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:hodnikSTemp:temperature" }
+Number	TempDnevna		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:dnevnaTemp:temperature" }
 Number	TempCumnata		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:cumnataTemp:temperature" }
-Number	TempRekuperacija    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d0001f54681:temperature" }
-Number	TempEnergetski      "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d00020db6d4:temperature" }
-Number	TempLopa1           "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mihome:sensor_ht:158d000241bdac:temperature" }
+Number	TempRekuperacija    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:recupTemp:temperature" }
+Number	TempEnergetski      "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:energetskiTemp:temperature" }
+Number	TempLopa1           "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:lopaTemp:temperature" }
 
 
 //Plugs
 //Xiaomi Zigbee
 Switch  PlugTinkSwitch      "Vklopljen Tinkerforge"     <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d0001a68c94:power" }
 Switch  PlugTinkActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d0001a68c94:inUse" }
-Number  PlugTinkPower       "Trenutna moč"              <energy>        (Power)                             { channel="mihome:sensor_plug:158d0001a68c94:loadPower" }
-Number  PlugTinkConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d0001a68c94:powerConsumed" }
+Number  PlugTinkPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mihome:sensor_plug:158d0001a68c94:loadPower" }
+Number  PlugTinkConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d0001a68c94:powerConsumed" }
 
-Switch  PlugRekuSwitch      "Vklopljena"                <switch>        (PlugSwitch)	{ channel="mihome:sensor_plug:158d0001a4afdc:power" }
-Switch  PlugRekuActive      "V uporabi"                 <switch>        (InUse)         { channel="mihome:sensor_plug:158d0001a4afdc:inUse" }
-Number  PlugRekuPower       "Trenutna moč"              <energy>        (Power)         { channel="mihome:sensor_plug:158d0001a4afdc:loadPower" }
-Number  PlugRekuConsumption "Poraba"                    <line-incline>  (Consumption)   { channel="mihome:sensor_plug:158d0001a4afdc:powerConsumed" }
+Switch  PlugRekuSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:recuPlug:state" }
+Number  PlugRekuPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:recuPlug:power" }
+Number  PlugRekuConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:recuPlug:consumption" }
+Number  PlugRekuTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:recuPlug:temperature" }
+Number  PlugRekuLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:recuPlug:linkquality" }
 
-Switch  PlugDnevSwitch      "Vklopljena TV"             <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d0002372e50:power" }
-Switch  PlugDnevActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d0002372e50:inUse" }
-Number  PlugDnevPower       "Trenutna moč"              <energy>        (Power)                             { channel="mihome:sensor_plug:158d0002372e50:loadPower" }
-Number  PlugDnevConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d0002372e50:powerConsumed" }
+Switch  PlugFridSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:fridPlug:state" }
+Number  PlugFridPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:fridPlug:power" }
+Number  PlugFridConsumption "Poraba [%.d kWh]"          <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:fridPlug:consumption" }
+Number  PlugFridTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:fridPlug:temperature" }
+Number  PlugFridVoltage     "Napetost [%d V]"           <line-incline>                                      { channel="mqtt:topic:mosquitto:fridPlug:voltage" }
+Number  PlugFridCurrent     "Tok [%.4f A]"              <line-incline>                                      { channel="mqtt:topic:mosquitto:fridPlug:current" }
+Number  PlugFridLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:fridPlug:linkquality" }
+
+Switch  PlugFreeSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:freePlug:state" }
+Number  PlugFreePower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:freePlug:power" }
+Number  PlugFreeConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:freePlug:consumption" }
+Number  PlugFreeTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:freePlug:temperature" }
+Number  PlugFreeVoltage     "Napetost [%d V]"           <line-incline>                                      { channel="mqtt:topic:mosquitto:freePlug:voltage" }
+Number  PlugFreeCurrent     "Tok [%.4f A]"              <line-incline>                                      { channel="mqtt:topic:mosquitto:freePlug:current" }
+Number  PlugFreeLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:freePlug:linkquality" }
+
+Switch  PlugTVHiSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:TVHiFiPlug:state" }
+Number  PlugTVHiPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:TVHiFiPlug:power" }
+Number  PlugTVHiConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:consumption" }
+Number  PlugTVHiTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:temperature" }
+Number  PlugTVHiLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:linkquality" }
 
 Switch  PlugHifiSwitch      "Vklopljen radio"           <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d000237314e:power" }
 Switch  PlugHifiActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d000237314e:inUse" }
@@ -173,35 +193,39 @@ Number  LumPodStopnicami    "Svetlost"  <ilumination>   (Lum)   { channel="mihom
 Number  LumNadStopnicami    "Svetlost"  <ilumination>   (Lum)   { channel="mihome:sensor_motion_aq2:158d00044e6dd3:illumination" }
 Number  LumKuhinja          "Svetlost"  <ilumination>   (Lum)   { channel="mihome:sensor_motion_aq2:158d000405906e:illumination" }
 
+
+//Switch
+String ClickSwitchBlinds    "Klik"  { channel="mqtt:topic:mosquitto:stikaloZaluzije:action" }
+
 //Batteries
-Number JulijaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020ead97:batteryLevel" }
-Switch JulijaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020ead97:lowBattery" }
-Number AljazBattery             "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020ead94:batteryLevel" }
-Switch AljazBatteryLow          "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020ead94:lowBattery" }
-Number SpalnicaBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000210a5ec:batteryLevel" }
-Switch SpalnicaBatteryLow       "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000210a5ec:lowBattery" }
-Number KuhinjaBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00023792d1:batteryLevel" }
-Switch KuhinjaBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00023792d1:lowBattery" }
-Number KabinetBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000222654d:batteryLevel" }
-Switch KabinetBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000222654d:lowBattery" }
-Number KopalnicaZBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00022264c9:batteryLevel" }
-Switch KopalnicaZBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00022264c9:lowBattery" }
-Number KopalnicaSBattery        "Baterija"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kopalnicaSTemp:battery" }
-// Switch KopalnicaSBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89694:lowBattery" }
-Number HodnikZBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f58033:batteryLevel" }
-Switch HodnikZBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f58033:lowBattery" }
-Number HodnikSBattery           "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001e89688:batteryLevel" }
-Switch HodnikSBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001e89688:lowBattery" }
-Number DnevnaBattery            "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001c14e34:batteryLevel" }
-Switch DnevnaBatteryLow         "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001c14e34:lowBattery" }
-Number CumnataBattery           "Baterija"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:cumnataTemp:battery" }
-// Switch CumnataBatteryLow        "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0002226539:lowBattery" }
-Number RekuperacijaBattery      "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d0001f54681:batteryLevel" }
-Switch RekuperacijaBatteryLow   "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d0001f54681:lowBattery" }
-Number EnergetskiBattery        "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d00020db6d4:batteryLevel" }
-Switch EnergetskiBatteryLow     "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d00020db6d4:lowBattery" }
-Number Lopa1Battery             "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_ht:158d000241bdac:batteryLevel" }
-Switch Lopa1BatteryLow          "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_ht:158d000241bdac:lowBattery" }
+Number JulijaBattery            "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:julijaTemp:battery" }
+Number AljazBattery             "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:aljazTemp:battery" }
+Number SpalnicaBattery          "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:spalnicaTemp:battery" }
+Number KuhinjaBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kuhinjaTemp:battery" }
+Number KabinetBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kabinetTemp:battery" }
+Number KopalnicaZBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kopalnicaZTemp:battery" }
+Number KopalnicaSBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kopalnicaSTemp:battery" }
+Number HodnikZBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:hodnikZTemp:battery" }
+Number HodnikSBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:hodnikSTemp:battery" }
+Number DnevnaBattery            "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:dnevnaTemp:battery" }
+Number CumnataBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:cumnataTemp:battery" }
+Number RekuperacijaBattery      "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:recupTemp:battery" }
+Number EnergetskiBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:energetskiTemp:battery" }
+Number Lopa1Battery             "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:lopaTemp:battery" }
+
+Number cumnataVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:cumnataTemp:voltage" }
+Number hodnikZVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:hodnikZTemp:voltage" }
+Number spalnicaVoltage           "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:spalnicaTemp:voltage" }
+Number aljazVoltage              "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:aljazTemp:voltage" }
+Number julijaVoltage             "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:julijaTemp:voltage" }
+Number hodnikSVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:hodnikSTemp:voltage" }
+Number kopalnicaZVoltage         "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kopalnicaZTemp:voltage" }
+Number kuhinjaVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kuhinjaTemp:voltage" }
+Number dnevnaVoltage             "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:dnevnaTemp:voltage" }
+Number kabinetVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kabinetTemp:voltage" }
+Number kopalnicaSVoltage         "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kopalnicaSTemp:voltage" }
+Number energetskiSVoltage        "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:energetskiTemp:voltage" }
+Number rekuperacijaSVoltage      "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:recupTemp:voltage" }
 
 
 Number DoorDvigBattery          "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel" }
@@ -214,8 +238,8 @@ Number DoorVhodBattery          "Baterija"      <battery>   (Battery)       { ch
 Switch DoorVhodBatteryLow       "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5eff5:lowBattery" }
 
 
-Number  SwitchDnevnaBattery     "Baterija"      <battery>   (Battery)       { channel="mihome:sensor_switch:158d00016d77ce:batteryLevel" }
-Switch  SwitchDnevnaBatteryLow  "Baterija peša" <energy>    (BatteryLow)    { channel="mihome:sensor_switch:158d00016d77ce:lowBattery" }
+Number StikaloZaluzijeBattery             "Baterija [%d %%]"   <battery>   (Battery)       { channel="mqtt:topic:mosquitto:stikaloZaluzije:battery" }
+Number StikaloZaluzijeVoltage             "Napetost [%d]"      <battery>   (Voltage)       { channel="mqtt:topic:mosquitto:stikaloZaluzije:voltage" }
 
 
 Number  SmokeCumnataBattery     "Baterija"      <battery>   (Battery)       { channel="mihome:smoke:158d0001b76b9c:batteryLevel" }
@@ -259,13 +283,11 @@ Dimmer  GatewaySoundVolume      "Jakost zvoka"      <soundvolume>       { channe
 
 
 //Motion
-Switch	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot)	{ channel="mihome:sensor_motion_aq2:158d000405906e:motion" }
-Switch  MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ channel="mihome:sensor_motion_aq2:158d00044c4d86:motion" }
-// Contact	MotVhod				"Vhod [MAP(si.map):MOTION-%s]"  			<motion>	(Mot)	{ tinkerforge="name=gibanjeVhod" }
-Switch  MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:motion" }
-Switch  MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot)	{ channel="mihome:sensor_motion_aq2:158d00044e6dd3:motion" }
-//Contact MotHodnikZ			"Hodnik zgoraj [MAP(si.map):MOTION-%s]"		<motion>	(Mot)   { tinkerforge="name=gibanjeHodnikZ" }
-// 
+Switch	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot,GroundF)	{ channel="mihome:sensor_motion_aq2:158d000405906e:motion" }
+Switch  MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot,GroundF)	{ channel="mihome:sensor_motion_aq2:158d00044c4d86:motion" }
+Switch  MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot,GroundF)   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:motion" }
+Switch  MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot,FirstF)	{ channel="mihome:sensor_motion_aq2:158d00044e6dd3:motion" }
+
 
 // 
 //Stikala za ogrevanje
@@ -397,11 +419,23 @@ Number  ActJedilnicaPowerUp     "Jedilnica gor trenutna moč"                   
 //Switch  TestRelay2  "Rele 2"    { channel="mqtt:topic:mosquitto:tinkerforgeDualRelayEner:relay2" }
 
 //Zigbee link quality
-Number cumnataLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:cumnataTemp:linkquality" }
-Number kopalnicaSLQ     "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kopalnicaSTemp:linkquality" }
-Number otokLuciLQ       "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokLuci:linkquality" }
-Number otokMalaLucLQ    "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokMalaLuc:linkQuality" }
-Number otokVelikaLucLQ  "Link povezava" (LinkQuality) { channel="mqtt:topic:mosquitto:otokVelikaLuc:linkquality" }
+Number cumnataLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:cumnataTemp:linkquality" }
+Number hodnikZLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikZTemp:linkquality" }
+Number spalnicaLQ           "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:spalnicaTemp:linkquality" }
+Number aljazLQ              "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:aljazTemp:linkquality" }
+Number julijaLQ             "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:julijaTemp:linkquality" }
+Number hodnikSLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikSTemp:linkquality" }
+Number kopalnicaZLQ         "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kopalnicaZTemp:linkquality" }
+Number kuhinjaLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kuhinjaTemp:linkquality" }
+Number dnevnaLQ             "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:dnevnaTemp:linkquality" }
+Number kabinetLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kabinetTemp:linkquality" }
+Number kopalnicaSLQ         "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kopalnicaSTemp:linkquality" }
+Number energetskiSLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:energetskiTemp:linkquality" }
+Number rekuperacijaSLQ      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:recupTemp:linkquality" }
+Number otokLuciLQ           "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokLuci:linkquality" }
+Number otokMalaLucLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokMalaLuc:linkQuality" }
+Number otokVelikaLucLQ      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokVelikaLuc:linkquality" }
+Number stikaloZaluzijeLQ    "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:stikaloZaluzije:linkquality" }
 
 //Zigbee luči
 //stanje
