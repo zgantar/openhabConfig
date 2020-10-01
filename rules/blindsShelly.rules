@@ -117,6 +117,7 @@ val Functions$Function5 activateActBlind = [
 					shutDownTimer = createTimer(now.plusMillis(timeToMoveLambda)) [|
 						logInfo("blinds", "activateActBlind ---------------Končal posredovani ukaz za žaluzijo " + actItem.toString + "--------------------------")
 						actItem.sendCommand(OFF) 
+						item.sendCommand(OFF)
 						if (downCommand) stateItem.postUpdate(stateItem.state as Number - timeToMoveLambda)
 						else stateItem.postUpdate(stateItem.state as Number + timeToMoveLambda)
 						logInfo("blinds", "activateActBlind - Stanje žaluzije - " + stateItem.state as Number)
@@ -139,6 +140,7 @@ val Functions$Function5 activateActBlind = [
 				shutDownTimer = createTimer(now.plusMillis(timeToMoveLambda)) [|
 					logInfo("blinds", "activateActBlind - Timer za izklop aktuatorja {} se je sprožil, nastavim še stanje ", nameWithCommandLambda)
 					actItem.sendCommand(OFF)
+					item.sendCommand(OFF)
 					if (downCommand) {
 						val razlika = stateItem.state as Number - timeToMoveLambda
 						logInfo("blinds", "activateActBlind - Ker je ukaz za konec spusta, moramo stanje zmanjšati za " + timeToMoveLambda)
@@ -172,6 +174,7 @@ val Functions$Function5 activateActBlind = [
 						if (actItem.state == ON) {
 							logInfo("blinds", "activateActBlind - Ker se aktuator {} ni izklopil, ga izklopim in nastavim stanje", nameWithCommand)
 							actItem.sendCommand(OFF)
+							item.sendCommand(OFF)
 							logInfo("blinds", "activateActBlind - Aktuator {} ima stanje {}", nameWithCommand, stanje)
 							if (downCommand) stateItem.sendCommand(0)
 							else stateItem.sendCommand(timeToMoveLambda2)
@@ -319,13 +322,13 @@ rule "All blinds down"
 when
 	Item AllCompleteDo changed to ON
 then
-	logInfo("blinds", "All blinds down - ###############Vse žaluzije dol#####################")
+	logInfo("blinds", "All blinds down - ====================Vse žaluzije dol=========================")
 	logInfo("blinds", "Imamo {} žaluzij.", BlindLogDo.members.size)
 	BlindLogDo.members.forEach[logItem |
 		logInfo("blinds", "Sem v zanki s stikalom za - {}", logItem.toString)
 		activateActBlind.apply(logItem, true, -1, timers, getStringFromItem)
 	]
-	logInfo("blinds", "All blinds down - ###############Konec vse žaluzije dol#####################")
+	logInfo("blinds", "All blinds down - =========================Konec vse žaluzije dol=========================")
 	sendCommand(AllCompleteDo, OFF)
 end
 
@@ -347,7 +350,7 @@ rule "All blinds peek on the ground floor	"
 when
 	Item GroundFlorPeek changed to ON
 then
-	logInfo("blinds", "Začenjam s priškrtnjenjem vseh žaluizj v pritličju")
+	logInfo("blinds", "=========================Začenjam s priškrtnjenjem vseh žaluizj v pritličju=========================")
 	logInfo("blinds", "Imamo {} žaluzij.", BlindLogD.members.size)
 	BlindLogD.members.forEach[logItem |
 		logInfo("blinds", "Sem v zanki s stikalom za - {}", logItem.toString)
@@ -357,7 +360,7 @@ then
 			logInfo("blinds", "Sem v zanki s stikalom za - {} zato ignoriram", logItem.toString)
 		}
 	]
-	logInfo("blinds", "Konec s priškrtnjenjem vseh žaluizj v pritličju")
+	logInfo("blinds", "=========================Konec s priškrtnjenjem vseh žaluizj v pritličju=========================")
 	sendCommand(GroundFlorPeek, OFF)
 end
 
