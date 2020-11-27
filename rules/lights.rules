@@ -1,39 +1,46 @@
 var Timer shutDownTimer = null
 var Timer orderDownTimer = null
 
-val Functions$Function3<SwitchItem,Integer,Functions$Function1<Integer,Boolean>,Boolean> setShutDownTimer = [ 
-	SwitchItem switchItem,
-    Integer time,
-    Functions$Function1<Integer,Boolean> checkLastMotion|
+val Functions$Function1<SwitchItem,Boolean> setShutDownTimer = [ 
+	SwitchItem switchItem|
     
-    shutDownTimer = createTimer(now.plusMinutes(time), [|
-        logInfo("lights", "Preverjam ali je prižgana luč nad TVjem")
-        if (PlugLiDn2Switch2.state == ON) {
-            logInfo("lights", "TV luč je prižgana zato prestavim ugašanje za {} minut", time)
-            shutDownTimer.reschedule(now.plusMinutes(time))
-        } else {
-            logInfo("lights", "TV luč je ugasnjena zato preverjam gibanje")
-            if (Mot.state == OFF){
-                logInfo("lights", "Ker ni več gibanja, preverim kdaj je bilo zadnje gibanje")
-                if (checkLastMotion.apply(time)) {
-                    switchItem.sendCommand(OFF)
-                    shutDownTimer = null
-                } else {
-                    shutDownTimer.reschedule(now.plusMinutes(time))
-                }
-            } else {
-                logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
-                shutDownTimer.reschedule(now.plusMinutes(time))
-            }
-        }
-    ])
+    val intTime = 5
+    
+    if (shutDownTimer === null) {
+       shutDownTimer = createTimer(now.plusMinutes(0), [|
+           logInfo("lights", "Preverjam ali je prižgana luč nad TVjem")
+           if (PlugLiDn2Switch2.state == ON) {
+               logInfo("lights", "TV luč je prižgana zato prestavim ugašanje za {} minut", intTime)
+               shutDownTimer.reschedule(now.plusMinutes(5))
+           } else {
+               logInfo("lights", "TV luč je ugasnjena zato preverjam gibanje")
+               if (Mot.state == OFF){
+                   logInfo("lights", "Ker ni več gibanja, preverim kdaj je bilo zadnje gibanje")
+                   val lastUpdateMot = Mot.members.sortBy[lastUpdate].last as SwitchItem
+                   val lastUpdateTimeDiff = now.millis - lastUpdateMot.previousState.timestamp.time
+                   logInfo("lights", "Zadnje gibanje je bilo zaznano na senzorju {} {} millisekund nazaj", lastUpdateMot, lastUpdateTimeDiff)
+                   if (lastUpdateTimeDiff > intTime) {
+                       logInfo("lights", "Ker je bilo zadnje gibanje zaznano več kot {} minut nazaj, ugašam luč na stopnišču", intTime)
+                       switchItem.sendCommand(OFF)
+                       shutDownTimer = null
+                   } else {
+                       logInfo("lights", "V zadnjih {} minutah je bilo zaznano gibanje, zato prestavim ugašanje.", intTime)
+                       shutDownTimer.reschedule(now.plusMinutes(intTime))
+                   }
+               } else {
+                   logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
+                   shutDownTimer.reschedule(now.plusMinutes(intTime))
+               }
+           }
+       ])
+    } else logInfo("lights", "Že imam nastavljen prožilec za ugasnit luči, tako da vse skupaj ignoriram")
 	return true
 ]
 
-val Functions$Function1<Integer,Boolean> checkLastMotion = [ 
-	Integer checkTime|
+val Functions$Function1<SwitchItem,Boolean> checkLastMotion = [ 
+	SwitchItem checkTime|
     
-    val intCheckTime = checkTime.intValue()
+    val intCheckTime = 5
     val lastUpdateMot = Mot.members.sortBy[lastUpdate].last as SwitchItem
     val lastUpdateTimeDiff = now.millis - lastUpdateMot.previousState.timestamp.time
     logInfo("lights", "Zadnje gibanje je bilo zaznano na senzorju {} {} millisekund nazaj", lastUpdateMot, lastUpdateTimeDiff)
@@ -56,8 +63,9 @@ then
         if (PlugLiSt2Switch2.state == OFF) {
             if (Integer.parseInt((OutSolarRad.previousState.state).toString) > Integer.parseInt((OutSolarRad.state).toString)) {
                 PlugLiSt2Switch2.sendCommand(ON)
-                if (now.getHourOfDay > 16) {
-                    logDebug("lights", "Prižigam luči in nastavim timer za spust žaluzij")
+                logInfo("lights", "Prižigam luči")
+                if (now.getHourOfDay >= 15) {
+                    logInfo("lights", "Nastavim timer za spust žaluzij")
                     orderDownTimer = createTimer(now.plusMinutes(15), [|
                         logDebug("lights", "Timer sproži spust žaluzij")
                         AllCompleteDo.sendCommand(ON)
@@ -79,16 +87,36 @@ rule "Stairway light on when movement"
 when
     Member of Mot changed to ON
 then
-    logInfo("lights", "Zaznal gibanje zato preverim ali prižgati luči na stopnicah, prvo stanje stikala {} in še zunanje osvetlitve {}", PlugLiSt2Switch2.state, OutSolarRad.state)
-    if (PlugLiSt2Switch2.state == OFF && Integer.parseInt((OutSolarRad.state).toString) <= 8) {
-        if (LumNadStopnicami.state < 10) {
-            logInfo("lights", "Je tema zato prižgem luči za 15 min")
+    if (Integer.parseInt((OutSolarRad.state).toString) <= 8) {
+        logInfo("lights", "Zaznal gibanje ob {} zato preverim ali prižgati luči na stopnicah, prvo stanje stikala {} in še zunanje osvetlitve {}",
+            now.getHourOfDay, PlugLiSt2Switch2.state, OutSolarRad.state)
+        if (PlugLiSt2Switch2.state == OFF) {
+            logInfo("lights", "Stanje luči je {} zato prižigam luč", PlugLiSt2Switch2.state)
             PlugLiSt2Switch2.sendCommand(ON)
-            if (now.getHourOfDay < 6) {
-                setShutDownTimer.apply(PlugLiSt2Switch2, 5, checkLastMotion)
-            }
-        } else logInfo("lights", "Je dovolj svetlo zato ne prižgem luči")
-    } else logInfo("lights", "Ni potrebe po lučeh, zato ignoriram")
+            if (now.getHourOfDay < 6 || now.getHourOfDay == 23) {
+                logInfo("lights", "Ker je nočni čas nastavim ugašanje čez 5 minut.")
+                shutDownTimer = createTimer(now.plusMinutes(5), [|
+                    if (Mot.state == OFF) {
+                        logInfo("lights", "Ker trenutno ni gibanja, preverim kdaj je bilo zadnje gibanje")
+                        val lastUpdateMot = Mot.members.sortBy[lastUpdate].last as SwitchItem
+                        val lastUpdateTimeDiff = now.millis - lastUpdateMot.previousState.timestamp.time
+                        logInfo("lights", "Zadnje gibanje je bilo zaznano na senzorju {} {} millisekund nazaj", lastUpdateMot, lastUpdateTimeDiff)
+                        if (lastUpdateTimeDiff > 300000) {
+                            logInfo("lights", "Ker je bilo zadnje gibanje zaznano več kot {} minut nazaj, ugašam luč na stopnišču", 5)
+                            PlugLiSt2Switch2.sendCommand(OFF)
+                            shutDownTimer = null
+                        } else {
+                            logInfo("lights", "V zadnjih {} minutah je bilo zaznano gibanje, zato prestavim ugašanje.", 5)
+                            shutDownTimer.reschedule(now.plusMinutes(5))
+                        }
+                    } else {
+                        logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
+                        shutDownTimer.reschedule(now.plusMinutes(5))
+                    }
+                ])
+            } else logInfo("lights", "Ker je že jutro, ne nastavim ugašanja čez 5 min.")
+        } else logDebug("lights", "Ker ni nočni čas, ne nastavim ugašanja čez 5 min.")
+    }
 end
 
 rule "Stairway light off if no movement"
@@ -96,5 +124,39 @@ when
     Time cron "0 0 23 * * ? *"
 then
     logInfo("lights", "Ura je enajst in preverjam ali lahko ugasnem luči na stopnišču")
-    setShutDownTimer.apply(PlugLiSt2Switch2, 5, checkLastMotion)
+    val lastUpdateMot = Mot.members.sortBy[lastUpdate].last as SwitchItem
+    val lastUpdateTimeDiff = now.millis - lastUpdateMot.previousState.timestamp.time
+    logInfo("lights", "Zadnje gibanje je bilo zaznano na senzorju {} {} millisekund nazaj", lastUpdateMot, lastUpdateTimeDiff)
+
+    if (PlugLiDn2Switch2.state == OFF && lastUpdateTimeDiff > 300000) {
+        logInfo("lights", "Ker je bilo zadnje gibanje zaznano več kot {} minut nazaj in ker TV luč ni prižgana, ugašam luč na stopnišču", 5)
+        PlugLiSt2Switch2.sendCommand(OFF)
+    } else {
+        shutDownTimer = createTimer(now.plusMinutes(5), [|
+            logInfo("lights", "Preverjam ali je prižgana luč nad TVjem")
+            if (PlugLiDn2Switch2.state == ON) {
+                logInfo("lights", "TV luč je prižgana zato prestavim ugašanje za {} minut", 5)
+                shutDownTimer.reschedule(now.plusMinutes(5))
+            } else {
+                logInfo("lights", "TV luč je ugasnjena zato preverjam gibanje")
+                if (Mot.state == OFF){
+                    logInfo("lights", "Ker ni več gibanja, preverim kdaj je bilo zadnje gibanje")
+                    val timerLastUpdateMot = Mot.members.sortBy[lastUpdate].last as SwitchItem
+                    val timerLastUpdateTimeDiff = now.millis - timerLastUpdateMot.previousState.timestamp.time
+                    logInfo("lights", "Zadnje gibanje je bilo zaznano na senzorju {} {} millisekund nazaj", timerLastUpdateMot, timerLastUpdateTimeDiff)
+                    if (timerLastUpdateTimeDiff > 300000) {
+                       logInfo("lights", "Ker je bilo zadnje gibanje zaznano več kot {} minut nazaj, ugašam luč na stopnišču", 5)
+                       PlugLiSt2Switch2.sendCommand(OFF)
+                       shutDownTimer = null
+                   } else {
+                       logInfo("lights", "V zadnjih {} minutah je bilo zaznano gibanje, zato prestavim ugašanje.", 5)
+                       shutDownTimer.reschedule(now.plusMinutes(5))
+                   }
+               } else {
+                   logInfo("lights", "Ker še vedno zaznavam gibanje, prestavim preverjanje še za 5 min")
+                   shutDownTimer.reschedule(now.plusMinutes(5))
+               }
+           }
+       ])
+    }
 end
