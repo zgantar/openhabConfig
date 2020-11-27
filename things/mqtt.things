@@ -332,6 +332,25 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
             Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/plugTVHiFi/linkquality" ]               
     }
 
+    Thing topic vhodMot "Gibanje" @ "Hodnik spodaj" {
+        Channels:
+            Type switch : occupancy         "occupancy"     [ stateTopic = "zigbee2mqtt/motVhod/occupancy", on="true", off="false" ]
+            Type number : illuminance       "illuminance"   [ stateTopic = "zigbee2mqtt/motVhod/illuminance" ]
+            Type number : illuminance_lux   "illuminance"   [ stateTopic = "zigbee2mqtt/motVhod/illuminance_lux" ]
+            Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/motVhod/voltage" ]     
+            Type number : battery           "battery"       [ stateTopic = "zigbee2mqtt/motVhod/battery" ]     
+            Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/motVhod/linkquality" ]               
+    }
+
+    Thing topic hodnikZMot "Gibanje" @ "Hodnik zgoraj" {
+        Channels:
+            Type switch : occupancy         "occupancy"     [ stateTopic = "zigbee2mqtt/motHodnikZ/occupancy", on="true", off="false" ]
+            Type number : illuminance       "illuminance"   [ stateTopic = "zigbee2mqtt/motHodnikZ/illuminance" ]
+            Type number : illuminance_lux   "illuminance"   [ stateTopic = "zigbee2mqtt/motHodnikZ/illuminance_lux" ]
+            Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/motHodnikZ/voltage" ]     
+            Type number : battery           "battery"       [ stateTopic = "zigbee2mqtt/motHodnikZ/battery" ]     
+            Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/motHodnikZ/linkquality" ]               
+    }
 
 //Tinkerfoge prvi koraki
 //    Thing topic tinkerforgeDualRelayEner "Dvojni rele" @ "Energetski prostor" {
