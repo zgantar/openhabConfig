@@ -53,7 +53,7 @@ end
 
 rule "Calculate daily electricity consumption"
 when
-	Time cron "5 0 0 * * ?"
+	Time cron "5 0 0 1/1 * ? *"
 then
 	logInfo("electricity", "#####################Starting calculations for daily electricity consumption values")
 	Consumption.members.forEach[ loopCons |
@@ -73,6 +73,31 @@ then
 	]
 	logInfo("electricity", "#####################Ended calculations for daily electricity consumption values")
 end
+
+
+rule "Calculate monthly electricity consumption"
+when
+	Time cron "5 0 0 1 1/1 ? *"
+then
+	logInfo("electricity", "#####################Starting calculations for monthly electricity consumption values")
+	Consumption.members.forEach[ loopCons |
+		logInfo("electricity", "Calculating consumption for " + loopCons.toString)
+		val calcCons = CalcConsMonth.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(4,7))).head
+		if (calcCons !== null) {
+			logInfo("electricity", "The calculated item is " + calcCons.toString)
+			var time = now.minusMonths(1)
+			logInfo("electricity", "Calculating from " + time)
+			var tempCons = loopCons.deltaSince(now.minusMonths(1).minusSeconds(6)) as Number
+			logInfo("electricity", "The calculated consumption is " + tempCons)
+			if (tempCons == null) tempCons = 0
+			postUpdate(calcCons, tempCons)
+			calcCons.persist
+			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
+		}
+	]
+	logInfo("electricity", "#####################Ended calculations for monthly electricity consumption values")
+end
+
 
 rule "Set all necessary variables for electricity"
 when

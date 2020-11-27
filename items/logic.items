@@ -19,6 +19,7 @@ Group:Switch            BlindLogU
 Group                   Alarm
 Group:Number            CalcConsHour
 Group:Number            CalcConsDay
+Group:Number            CalcConsMonth
 Group:Number            TimeSetter
 Group                   Other
 Group:Switch:OR(ON,OFF) MessagesSwitches
@@ -57,6 +58,17 @@ Number      HoursStopSetter2    "Ura"           (TimeSetter,Boiler)
 Number      MinutesStopSetter2  "Minute"        (TimeSetter,Boiler)
 
 Switch  TimeSetterSaver "Shrani uro"
+
+Number  PlugSusiMonthCons "Mesečna poraba sušilec [%.2f kWh]"         <line-incline>  (CalcConsMonth)
+Number  PlugTinkMonthCons "Mesečna poraba Tinkerfoge [%.2f kWh]"      <line-incline>  (CalcConsMonth)
+Number  PlugPralMonthCons "Mesečna poraba pralni stroj [%.2f kWh]"    <line-incline>  (CalcConsMonth)
+Number  PlugHeatMonthCons "Mesečna poraba bojler [%.2f kWh]"          <line-incline>  (CalcConsMonth)
+Number  PlugIronMonthCons "Mesečna poraba likalnik [%.2f kWh]"        <line-incline>  (CalcConsMonth)
+Number  PlugRekuMonthCons "Mesečna poraba rekuperacija [%.2f kWh]"    <line-incline>  (CalcConsMonth)
+Number  PlugFridMonthCons "Mesečna poraba rekuperacija [%.2f kWh]"    <line-incline>  (CalcConsMonth)
+Number  PlugFreeMonthCons "Mesečna poraba rekuperacija [%.2f kWh]"    <line-incline>  (CalcConsMonth)
+Number  PlugTVHiMonthCons "Mesečna poraba dnevna [%.2f kWh]"          <line-incline>  (CalcConsMonth)
+
 
 Number  PlugSusiDayCons "Dnevna poraba sušilec [%.2f kWh]"         <line-incline>  (CalcConsDay)
 Number  PlugTinkDayCons "Dnevna poraba Tinkerfoge [%.2f kWh]"      <line-incline>  (CalcConsDay)
@@ -115,16 +127,16 @@ Number	SetKabinet		"Nastavljena temperatura kabinet [%.1f °C]"				<temperature>
 Number	SetHodnikZ		"Nastavljena temperatura hodnik zgoraj [%.1f °C]"		<temperature>	(Set)
 Number	SetHodnikS		"Nastavljena temperatura hodnik spodaj [%.1f °C]"		<temperature>	(Set)
 
-Number	DifAljaz		"Razlika Aljaž [%.1f °C]"				<temperature>	(Dif)
-Number	DifJulija		"Razlika Julija [%.1f °C]"				<temperature>	(Dif)
-Number	DifSpalnica		"Razlika spalnica [%.1f °C]"			<temperature>	(Dif)
-Number	DifKopalnicaZ	"Razlika kopalnica zgoraj [%.1f °C]"	<temperature>	(Dif)
-Number	DifKopalnicaS	"Razlika kopalnica spodaj [%.1f °C]"	<temperature>	(Dif)
-Number	DifKuhinja		"Razlika kuhinja [%.1f °C]"				<temperature>	(Dif)
-Number	DifDnevna		"Razlika dnevna soba [%.1f °C]"			<temperature>	(Dif)
-Number	DifKabinet		"Razlika kabinet [%.1f °C]"				<temperature>	(Dif)
-Number	DifHodnikZ		"Razlika hodnik zgoraj [%.1f °C]"		<temperature>	(Dif)
-Number	DifHodnikS		"Razulika hodnik spodaj [%.1f °C]"		<temperature>	(Dif)
+Number	DifAljaz		"Razlika Aljaž  [%.2f °C]"				<temperature>	(Dif)
+Number	DifJulija		"Razlika Julija  [%.2f °C]"				<temperature>	(Dif)
+Number	DifSpalnica		"Razlika spalnica  [%.2f °C]"			<temperature>	(Dif)
+Number	DifKopalnicaZ	"Razlika kopalnica zgoraj  [%.2f °C]"	<temperature>	(Dif)
+Number	DifKopalnicaS	"Razlika kopalnica spodaj  [%.2f °C]"	<temperature>	(Dif)
+Number	DifKuhinja		"Razlika kuhinja [%.2f °C]"				<temperature>	(Dif)
+Number	DifDnevna		"Razlika dnevna soba [%.2f °C]"			<temperature>	(Dif)
+Number	DifKabinet		"Razlika kabinet [%.2f °C]"				<temperature>	(Dif)
+Number	DifHodnikZ		"Razlika hodnik zgoraj [%.2f °C]"		<temperature>	(Dif)
+Number	DifHodnikS		"Razulika hodnik spodaj [%.2f °C]"		<temperature>	(Dif)
 
 //Manual
 Switch	Override		"Aktiviraj ročni način"	<heating>
