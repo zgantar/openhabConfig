@@ -263,12 +263,12 @@ then
 				val manValve = Man.members.filter( manTmpItem | manTmpItem.name.containsIgnoreCase(name)).head
 				if (manValve !== null) {
 					logInfo("heating", "Našel ročni ventil {}", manValve.toString)
-					if (manValve.state == ON && difTemp < 0 && fhsItem.state == OFF) {
+					if (manValve.state == ON && difTemp < 0) {
 						startHeating2 = true
 						logInfo("heating", "Ročni ventil je odprt in temperatura {} je nižja od nastavljene", difTemp)
 						itemsOn.add(fhsItem)
 						// if (!noVent) fhsItem.sendCommand(ON) else fhsItem.sendCommand(OFF)
-					} else if ((manValve.state == OFF || difTemp > 0) && fhsItem.state == ON) {
+					} else if ((manValve.state == OFF || difTemp > 0)) {
 						itemsOff.add(fhsItem)
 						logInfo("heating", "Ali je ročni ventil zaprt ali pa je temperatura {} višja od nastavljene", difTemp)
 						// if (!noVent) fhsItem.sendCommand(OFF) else if (Man.state == ON)fhsItem.sendCommand(ON)
