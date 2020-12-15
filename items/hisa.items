@@ -406,13 +406,15 @@ Number	ActKuhinjaLevOverTemp   "Kuhinja levo temperatura [%d °C]"              
 Number  ActKuhinjaLevPowerDo    "Kuhinja levo dol trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter2#currentWatts" }
 Number  ActKuhinjaLevPowerUp    "Kuhinja levo gor trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter1#currentWatts" }
 
-Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="shelly:shelly25-relay:694338:relay1#output" }
-Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="shelly:shelly25-relay:694338:relay2#output" }
-Switch	SwiKuhinjaDesDo         "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:694338:relay1#input" }
-Switch	SwiKuhinjaDesUp         "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:694338:relay2#input" }
-Number	ActKuhinjaDesOverTemp   "Kuhinja desno temperatura [%d °C]"                 <temperature_hot>   (ShellyOverTemp)                            { channel="shelly:shelly25-relay:694338:device#innerTemp" }
-Number  ActKuhinjaDesPowerDo    "Kabinet desno dol trenutna moč"                    <energy>            (Power)                                     { channel="shelly:shelly25-relay:694338:meter1#currentWatts" }
-Number  ActKuhinjaDesPowerUp    "Kabinet desno gor trenutna moč"                    <energy>            (Power)                                     { channel="shelly:shelly25-relay:694338:meter2#currentWatts" }
+//Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="shelly:shelly25-relay:694338:relay1#output" }
+//Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="shelly:shelly25-relay:694338:relay2#output" }
+Switch	ActKuhinjaDesDo	            "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="mqtt:topic:mosquitto:zalKuhDes:command1" }
+Switch	ActKuhinjaDesUp	            "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="mqtt:topic:mosquitto:zalKuhDes:command2" }
+Switch	SwiKuhinjaDesDo             "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state1" }
+Switch	SwiKuhinjaDesUp             "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state2" }
+Number	ActKuhinjaDesOverTemp       "Kuhinja desno temperatura [%d °C]"                 <temperature_hot>   (ShellyOverTemp)                            { channel="mqtt:topic:mosquitto:zalKuhDes:temperature" }
+Number  ActKuhinjaDesPower          "Kuhinja desna trenutna moč"                        <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:power" }
+Number  ActKuhinjaDesConsumption    "Kuhinja desno poraba"                              <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:consumption" }
 
 Switch	ActJedilnicaDo	        "Jedilnica dol [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6914F8:relay2#output" }
 Switch	ActJedilnicaUp	        "Jedilnica gor [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6914F8:relay1#output" }
@@ -447,6 +449,7 @@ Number otokVelikaLucLQ      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:
 Number stikaloZaluzijeLQ    "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:stikaloZaluzije:linkquality" }
 Number gibanjeVhodLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:vhodMot:linkquality" }
 Number gibanjeHodnikZLQ     "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikZMot:linkquality" }
+Number ZalKuhinjaDesDo      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:zalKuhDes:linkquality" }
 
 //Zigbee luči
 //stanje
