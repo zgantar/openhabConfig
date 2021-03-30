@@ -354,13 +354,13 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
 
     Thing topic zalKuhDes "Žaluzija kuhinja desno" @ "Kuhinja" {
         Channels:
-            Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/zalKuhDes/state_l1", on="ON", off="OFF"]
-            Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/zalKuhDes/state_l2", on="ON", off="OFF" ]
-            Type switch : command1      "command1"      [ stateTopic = "zigbee2mqtt/zalKuhDes/state_I1", on="ON", off="OFF", commandTopic = "zigbee2mqtt/zalKuhDes/set/", transformationPattern = "JSONPATH:$.state_l1", transformationPatternOut="JS:xiaomiSwitchI1_2Zigbee2Mqtt.js" ]
-            Type switch : command2      "command2"      [ stateTopic = "zigbee2mqtt/zalKuhDes/state_I2", on="ON", off="OFF", commandTopic = "zigbee2mqtt/zalKuhDes/set/", transformationPattern = "JSONPATH:$.state_l2", transformationPatternOut="JS:xiaomiSwitchI2_2Zigbee2Mqtt.js" ]
-            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/zalKuhDes/temperature" ]
-            Type number : consumption   "consumption"   [ stateTopic = "zigbee2mqtt/zalKuhDes/consumption" ]
-            Type number : power         "power"         [ stateTopic = "zigbee2mqtt/zalKuhDes/power" ]
+            Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/zalKuhDesNova/state_left", on="ON", off="OFF"]
+            Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/zalKuhDesNova/state_right", on="ON", off="OFF" ]
+            Type switch : command1      "command1"      [ stateTopic = "zigbee2mqtt/zalKuhDesNova/state_left", commandTopic = "zigbee2mqtt/zalKuhDesNova/set", on="ON", off="OFF", transformationPatternOut="JS:zweu02SwitchI2_2Zigbee2Mqtt.js" ]
+            Type switch : command2      "command2"      [ stateTopic = "zigbee2mqtt/zalKuhDesNova/state_right", commandTopic = "zigbee2mqtt/zalKuhDesNova/set", on="ON", off="OFF", transformationPatternOut="JS:zweu02SwitchI1_2Zigbee2Mqtt.js" ]
+            // Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/zalKuhDes/temperature" ]
+            // Type number : consumption   "consumption"   [ stateTopic = "zigbee2mqtt/zalKuhDes/consumption" ]
+            // Type number : power         "power"         [ stateTopic = "zigbee2mqtt/zalKuhDes/power" ]
             Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/zalKuhDes/linkquality" ]
     }
 
