@@ -1,9 +1,9 @@
 rule "BatterryLow rule"
 
 when
-	Item BatteryLow changed
+	Member of BatteryLow changed
 then
 	logInfo("tmp", "###########################BatterryLow started##############################")
-	sendHABotNotification("Dobil opozorilo za prazno baterijo ob "+ triggeringItem.name +" za baterijo "+ now.toString)
+	sendHABotNotification("Dobil opozorilo za prazno baterijo "+ triggeringItem.name +" ob: "+ now.toString)
 	logInfo("tmp", "###########################BatterryLow stoped##############################")
 end
