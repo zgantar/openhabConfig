@@ -102,3 +102,13 @@ then
 		GatewayBrightness.sendCommand(0)
 	}
 end
+
+rule "Start blinking if movement first on groundfloor"
+when
+    Member of GroundF changed to ON
+then
+	val lastUpdateGroundF = GroundF.members.sortBy[lastUpdate].last as SwitchItem
+	val lastUpdateFirstF = FirstF.members.sortBy[lastUpdate].last as SwitchItem
+	val lastUpdateTimeDiffGroundF = now.millis - lastUpdateGroundF.previousState.timestamp.time
+	val lastUpdateTimeDiffFirstF = now.millis - lastUpdateFirstF.previousState.timestamp.time
+end
