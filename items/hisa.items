@@ -112,16 +112,27 @@ Number  PlugFreeVoltage     "Napetost [%d V]"           <line-incline>          
 Number  PlugFreeCurrent     "Tok [%.4f A]"              <line-incline>                                      { channel="mqtt:topic:mosquitto:freePlug:current" }
 Number  PlugFreeLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:freePlug:linkquality" }
 
-Switch  PlugTVHiSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:TVHiFiPlug:state" }
-Number  PlugTVHiPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:TVHiFiPlug:power" }
-Number  PlugTVHiConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:consumption" }
-Number  PlugTVHiTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:temperature" }
-Number  PlugTVHiLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:linkquality" }
 
-Switch  PlugHifiSwitch      "Vklopljen radio"           <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d000237314e:power" }
-Switch  PlugHifiActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d000237314e:inUse" }
-Number  PlugHifiPower       "Trenutna moč"              <energy>        (Power)                             { channel="mihome:sensor_plug:158d000237314e:loadPower" }
-Number  PlugHifiConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d000237314e:powerConsumed" }
+Number	PlugTVHiTemperature "Temperatura [%d °C]"                   <temperature_hot>   (ShellyOverTemp)                    { channel="shelly:shelly25-relay:68E216:device#innerTemp" }
+
+Switch	PlugTVHiSwitch      "Stikalo TV [MAP(si.map):SWITCH-%s]"    <switch>            (PlugSwitch)	[ "Switchable" ]    { channel="shelly:shelly25-relay:68E216:relay1#output" }
+Number  PlugTVHiPower       "Trenutna moč TV [%.2f W]"              <energy>            (Power)                             { channel="shelly:shelly25-relay:68E216:meter1#currentWatts" }
+Number  PlugTVHiConsumption "Poraba TV [%d kWh]"                    <line-incline>      (Consumption)                       { channel="shelly:shelly25-relay:68E216:meter1#totalKWH" }
+
+Switch	PlugHifiSwitch      "Stikalo HiFi [MAP(si.map):SWITCH-%s]"  <switch>            (PlugSwitch)	[ "Switchable" ]    { channel="shelly:shelly25-relay:68E216:relay2#output" }
+Number  PlugHifiPower       "Trenutna moč HiFi [%.2f W]"            <energy>            (Power)                             { channel="shelly:shelly25-relay:68E216:meter2#currentWatts" }
+Number  PlugHifiConsumption "Poraba HiFi [%d kWh]"                  <line-incline>      (Consumption)                       { channel="shelly:shelly25-relay:68E216:meter2#totalKWH" }
+
+// Switch  PlugTVHiSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:TVHiFiPlug:state" }
+// Number  PlugTVHiPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:TVHiFiPlug:power" }
+// Number  PlugTVHiConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:consumption" }
+// Number  PlugTVHiTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:temperature" }
+// Number  PlugTVHiLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:TVHiFiPlug:linkquality" }
+
+// Switch  PlugHifiSwitch      "Vklopljen radio"           <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d000237314e:power" }
+// Switch  PlugHifiActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d000237314e:inUse" }
+// Number  PlugHifiPower       "Trenutna moč"              <energy>        (Power)                             { channel="mihome:sensor_plug:158d000237314e:loadPower" }
+// Number  PlugHifiConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d000237314e:powerConsumed" }
 
 //Xiaomi WiFi
 Switch  PlugVacuSwitch      "Vklopljen sesalec"         <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="miio:basic:034BA5C5:power" }
@@ -347,7 +358,7 @@ Switch  IdlingOnkyo     "Pripravljen"                       { channel="chromecas
 Switch  StopOnkyo       "Ustavi"         [ "Switchable" ]   { channel="chromecast:audio:Onkyo:stop" }
 
 //Žaluzije
-//Qubino
+//Shelly
 
 
 Switch	ActKabinetDo            "Kabinet dol [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6938C4:relay2#output" }
@@ -412,9 +423,9 @@ Switch	ActKuhinjaDesDo	            "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"  
 Switch	ActKuhinjaDesUp	            "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="mqtt:topic:mosquitto:zalKuhDes:command2" }
 Switch	SwiKuhinjaDesDo             "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state1" }
 Switch	SwiKuhinjaDesUp             "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state2" }
-Number	ActKuhinjaDesOverTemp       "Kuhinja desno temperatura [%d °C]"                 <temperature_hot>   (ShellyOverTemp)                            { channel="mqtt:topic:mosquitto:zalKuhDes:temperature" }
-Number  ActKuhinjaDesPower          "Kuhinja desna trenutna moč"                        <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:power" }
-Number  ActKuhinjaDesConsumption    "Kuhinja desno poraba"                              <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:consumption" }
+// Number	ActKuhinjaDesOverTemp       "Kuhinja desno temperatura [%d °C]"                 <temperature_hot>   (ShellyOverTemp)                            { channel="mqtt:topic:mosquitto:zalKuhDes:temperature" }
+// Number  ActKuhinjaDesPower          "Kuhinja desna trenutna moč"                        <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:power" }
+// Number  ActKuhinjaDesConsumption    "Kuhinja desno poraba"                              <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:consumption" }
 
 Switch	ActJedilnicaDo	        "Jedilnica dol [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6914F8:relay2#output" }
 Switch	ActJedilnicaUp	        "Jedilnica gor [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6914F8:relay1#output" }
