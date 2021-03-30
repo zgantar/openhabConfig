@@ -80,7 +80,7 @@ then
 	logInfo("heating", "##################Preverjamo temperature#################")
 	startHeating1 = false
 	stopHeating = false
-	filterTempValues.apply(startHeating1)
+//	filterTempValues.apply(startHeating1)
 	Temp.members.forEach[ tempItem |
 		val name = tempItem.name.substring(4)
 		logInfo("heating", "###################Preverjam sobo {}", name)
