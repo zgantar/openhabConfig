@@ -191,7 +191,7 @@ val Functions$Function5 activateActBlind = [
 		logInfo("blinds", "activateActBlind - Preverjam aktuator pred koliko časa je bil zadnji premik " + actItem.toString+ " ----- " + lastUpdateTime)
 		logInfo("blinds", "activateActBlind - V našem času je to " + "----" + actItem.lastUpdate)
 		logInfo("blinds", "activateActBlind - Trenutni čas " + "----" + now)
-		actItem.sendCommand(OFF)
+		if (actItem.state == ON ) actItem.sendCommand(OFF)
 		val timeDifference = now.millis - lastUpdateTime
 		logInfo("blinds", "activateActBlind - Razlika v času je " + "----" + timeDifference)
 		if (!actItem.groupNames.filter(group|group.equalsIgnoreCase("BlindD")).empty) {
@@ -236,8 +236,7 @@ val Functions$Function5 activateActBlind = [
 
 rule "Set blinds up"
 when
-	System started or
-	Item Trigger changed
+	System started
 then
 	logInfo("blinds", "Set blinds up - ###############Začetna nastavitev žaluzij#####################")
 
