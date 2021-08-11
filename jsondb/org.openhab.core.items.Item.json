@@ -1,0 +1,815 @@
+{
+  "Temperaturacumnata_Temperatura": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorPantry"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "Vticnicaskrinja": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorPantry"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Freezer"
+      ],
+      "label": "Vtičnica skrinja",
+      "category": "switch"
+    }
+  },
+  "HumKuhinja": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorKitchen"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "HumEnergetski": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorUtility"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "gHouseGroundFloorCorridor": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Corridor"
+      ],
+      "label": "Hodnik spodaj",
+      "category": "corridor"
+    }
+  },
+  "gHouseGroundFloorBathroom": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Bathroom"
+      ],
+      "label": "Kopalnica spodaj",
+      "category": "bath"
+    }
+  },
+  "gHouse": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gOutside"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "House"
+      ],
+      "label": "Hiša",
+      "category": "house"
+    }
+  },
+  "TempSpalnica": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "gHouseFirstFloorJulija": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Bedroom"
+      ],
+      "label": "Julijina soba",
+      "category": "bedroom_red"
+    }
+  },
+  "Temperaturacumnata_Vlaznost": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorPantry"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "sTemperaturarekuperacija_Baterija": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temperaturarekuperacija"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Energy"
+      ],
+      "label": "Baterija",
+      "category": "batterylevel"
+    }
+  },
+  "gHouseGroundFloorLivingRoom": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "LivingRoom"
+      ],
+      "label": "Dnevna soba",
+      "category": "sofa"
+    }
+  },
+  "sTemperaturarekuperacija_Vlaznost": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temperaturarekuperacija"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "HumJulija": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloorJulija"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "HumKopalnicaS": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorBathroom"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "HumHodnikZ": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloorHallway"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "gHouseGroundFloor": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouse"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "GroundFloor"
+      ],
+      "label": "Pritličje",
+      "category": "groundfloor"
+    }
+  },
+  "Vticnicaskrinja_Stikalo": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Vticnicaskrinja"
+      ],
+      "itemType": "Switch",
+      "tags": [
+        "Switch"
+      ],
+      "label": "Stikalo",
+      "category": "poweroutlet"
+    }
+  },
+  "Temperaturarekuperacija": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouse"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Equipment"
+      ],
+      "label": "Temperatura rekuperacija",
+      "category": ""
+    }
+  },
+  "HumHodnikS": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorCorridor"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "HumKopalnicaZ": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloorBathroom"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "TempAljaz": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloorAljaz"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "gHouseFirstFloorBedroom": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Bedroom"
+      ],
+      "label": "Spalnica",
+      "category": "bedroom"
+    }
+  },
+  "Vticnicaskrinja_Poraba": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Vticnicaskrinja"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Power"
+      ],
+      "label": "Poraba",
+      "category": "poweroutlet"
+    }
+  },
+  "gHouseGroundFloorPantry": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Location"
+      ],
+      "label": "Čumnata",
+      "category": "pantry"
+    }
+  },
+  "TempDnevna": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "TempLopa1": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "HumKabinet": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorOffice"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "HumLopa": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gShed"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "sTemperaturarekuperacija_Temperatura": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temperaturarekuperacija"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "TempRekuperacija": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "gHouseGroundFloorOffice": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Office"
+      ],
+      "label": "Kabinet",
+      "category": "office"
+    }
+  },
+  "gHouseFirstFloor": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouse"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "FirstFloor"
+      ],
+      "label": "Mansarda",
+      "category": "firstfloor"
+    }
+  },
+  "gHouseGroundFloorDiningroom": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "DiningRoom"
+      ],
+      "label": "Jedilnica",
+      "category": ""
+    }
+  },
+  "HumAljaz": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloorAljaz"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "HumSpalnica": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloorBedroom"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "Temperaturacumnata": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorPantry"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Equipment"
+      ],
+      "label": "Senzor temperature",
+      "category": "temperature"
+    }
+  },
+  "TempJulija": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "Vticnicaskrinja_Temperatura": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Vticnicaskrinja"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "poweroutlet"
+    }
+  },
+  "HumDnevna": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloorLivingRoom"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Humidity"
+      ],
+      "label": "Vlažnost",
+      "category": "humidity"
+    }
+  },
+  "gOutside": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "Group",
+      "tags": [
+        "Outdoor"
+      ],
+      "label": "Zunaj",
+      "category": ""
+    }
+  },
+  "Vticnicaskrinja_Moc": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Vticnicaskrinja"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Power"
+      ],
+      "label": "Moč",
+      "category": "poweroutlet"
+    }
+  },
+  "TempHodnikS": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "gHouseFirstFloorBathroom": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Bathroom"
+      ],
+      "label": "Kopalnica zgoraj",
+      "category": "bath"
+    }
+  },
+  "TempEnergetski": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "gShed": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gOutside"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Shed"
+      ],
+      "label": "Lopa",
+      "category": ""
+    }
+  },
+  "gHouseFirstFloorAljaz": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Bedroom"
+      ],
+      "label": "Aljaževa soba",
+      "category": "bedroom_orange"
+    }
+  },
+  "gHouseFirstFloorHallway": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseFirstFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Corridor"
+      ],
+      "label": "Hodnik zgoraj",
+      "category": "corridor"
+    }
+  },
+  "gHouseGroundFloorKitchen": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "Kitchen"
+      ],
+      "label": "Kuhinja",
+      "category": "kitchen"
+    }
+  },
+  "TempKopalnicaS": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "TempKuhinja": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "gHouseGroundFloorUtility": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "gHouseGroundFloor"
+      ],
+      "itemType": "Group",
+      "tags": [
+        "BoilerRoom"
+      ],
+      "label": "Energetski prostor",
+      "category": "heating"
+    }
+  },
+  "TempKabinet": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "TempHodnikZ": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  },
+  "Temperaturacumnata_Baterija": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temperaturacumnata"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Energy"
+      ],
+      "label": "Baterija",
+      "category": "battery"
+    }
+  },
+  "TempKopalnicaZ": {
+    "class": "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [
+        "Temp"
+      ],
+      "itemType": "Number",
+      "tags": [
+        "Measurement",
+        "Temperature"
+      ],
+      "label": "Temperatura",
+      "category": "temperature"
+    }
+  }
+}

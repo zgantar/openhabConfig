@@ -1,0 +1,2512 @@
+{
+  "mqtt:topic:9986d199fd:c8312946c2": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Vtičnica hladilnik",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "c8312946c2",
+              "sKitchenPlugSwitch"
+            ],
+            "uid": "mqtt:topic:9986d199fd:c8312946c2:sKitchenPlugSwitch"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "Stikalo",
+          "configuration": {
+            "properties": {
+              "commandTopic": "zigbee2mqtt/plugFridge/set/state",
+              "stateTopic": "zigbee2mqtt/plugFreezer/state"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "c8312946c2",
+              "sKitchenPlugTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:c8312946c2:sKitchenPlugTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugFridge/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "c8312946c2",
+              "sKitchenPlugConsumption"
+            ],
+            "uid": "mqtt:topic:9986d199fd:c8312946c2:sKitchenPlugConsumption"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Poraba",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugFridge/consumption",
+              "unit": "kWh"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "c8312946c2",
+              "sKitchenPlugPower"
+            ],
+            "uid": "mqtt:topic:9986d199fd:c8312946c2:sKitchenPlugPower"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Moč",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugFridge/power",
+              "unit": "W"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "c8312946c2"
+        ],
+        "uid": "mqtt:topic:9986d199fd:c8312946c2"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Kuhinja"
+    }
+  },
+  "mqtt:topic:9986d199fd:8389ca7d72": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura rekuperacija",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8389ca7d72",
+              "sRecuperationTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempRecup/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8389ca7d72",
+              "sRecuperationTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempRecup/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8389ca7d72",
+              "sRecuperationTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempRecup/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8389ca7d72"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8389ca7d72"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Hiša"
+    }
+  },
+  "mqtt:topic:9986d199fd:e2e0e943f3": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Vtičnica rekuperacija",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "e2e0e943f3",
+              "sBoilerRoomPlugSwitch"
+            ],
+            "uid": "mqtt:topic:9986d199fd:e2e0e943f3:sBoilerRoomPlugSwitch"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "Stikalo",
+          "configuration": {
+            "properties": {
+              "commandTopic": "zigbee2mqtt/plugRecu/set/state",
+              "stateTopic": "zigbee2mqtt/plugFreezer/state"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "e2e0e943f3",
+              "sBoilerRoomPlugTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:e2e0e943f3:sBoilerRoomPlugTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugRecu/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "e2e0e943f3",
+              "sBoilerRoomPlugConsumption"
+            ],
+            "uid": "mqtt:topic:9986d199fd:e2e0e943f3:sBoilerRoomPlugConsumption"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Poraba",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugRecu/consumption",
+              "unit": "kWh"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "e2e0e943f3",
+              "sBoilerRoomPlugPower"
+            ],
+            "uid": "mqtt:topic:9986d199fd:e2e0e943f3:sBoilerRoomPlugPower"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Moč",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugRecu/power",
+              "unit": "W"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "e2e0e943f3"
+        ],
+        "uid": "mqtt:topic:9986d199fd:e2e0e943f3"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Energetski prostor"
+    }
+  },
+  "mqtt:topic:9986d199fd:eb9ceb582a": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura kuhinja",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "eb9ceb582a",
+              "sKitchenTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:eb9ceb582a:sKitchenTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKuhinja/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "eb9ceb582a",
+              "sKitchenTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:eb9ceb582a:sKitchenTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKuhinja/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "eb9ceb582a",
+              "sKitchenTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:eb9ceb582a:sKitchenTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKuhinja/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "eb9ceb582a"
+        ],
+        "uid": "mqtt:topic:9986d199fd:eb9ceb582a"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Kuhinja"
+    }
+  },
+  "mqtt:topic:9986d199fd:1b6ad011ed": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura kabinet",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "1b6ad011ed",
+              "sOfficeTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:1b6ad011ed:sOfficeTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKabinet/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "1b6ad011ed",
+              "sOfficeTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:1b6ad011ed:sOfficeTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKabinet/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "1b6ad011ed",
+              "sOfficeTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:1b6ad011ed:sOfficeTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKabinet/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "1b6ad011ed"
+        ],
+        "uid": "mqtt:topic:9986d199fd:1b6ad011ed"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Kabinet"
+    }
+  },
+  "mqtt:topic:9986d199fd:0119037e62": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura hodnik zgoraj",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "0119037e62",
+              "sCoridorrAboveTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:0119037e62:sCoridorrAboveTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempHodnikZ/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "0119037e62",
+              "sCoridorrAboveTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:0119037e62:sCoridorrAboveTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempHodnikZ/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "0119037e62",
+              "sCoridorrAboveTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:0119037e62:sCoridorrAboveTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempHodnikZ/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "0119037e62"
+        ],
+        "uid": "mqtt:topic:9986d199fd:0119037e62"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Hodnik zgoraj"
+    }
+  },
+  "mqtt:topic:9986d199fd:b029cc35d8": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura Aljaž",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "b029cc35d8",
+              "sAljazTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:b029cc35d8:sAljazTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempAljaz/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "b029cc35d8",
+              "sAljazTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:b029cc35d8:sAljazTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempAljaz/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "b029cc35d8",
+              "sAljazTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:b029cc35d8:sAljazTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempAljaz/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "b029cc35d8"
+        ],
+        "uid": "mqtt:topic:9986d199fd:b029cc35d8"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Aljaž"
+    }
+  },
+  "mqtt:topic:9986d199fd:dbad7fd3f5": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura hodnik spodaj",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "dbad7fd3f5",
+              "sCorridorBellowTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:dbad7fd3f5:sCorridorBellowTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempHodnikaS/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "dbad7fd3f5",
+              "sCorridorBellowTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:dbad7fd3f5:sCorridorBellowTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempHodnikaS/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "dbad7fd3f5",
+              "sCorridorBellowTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:dbad7fd3f5:sCorridorBellowTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempHodnikaS/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "dbad7fd3f5"
+        ],
+        "uid": "mqtt:topic:9986d199fd:dbad7fd3f5"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Hodnik spodaj"
+    }
+  },
+  "mqtt:topic:9986d199fd:010795c67c": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura dnevna",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "010795c67c",
+              "sLivingRoomTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:010795c67c:sLivingRoomTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempDnevna/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "010795c67c",
+              "sLivingRoomTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:010795c67c:sLivingRoomTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempDnevna/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "010795c67c",
+              "sLivingRoomTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:010795c67c:sLivingRoomTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempDnevna/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "010795c67c"
+        ],
+        "uid": "mqtt:topic:9986d199fd:010795c67c"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Dnevna"
+    }
+  },
+  "mqtt:topic:9986d199fd:c00778138c": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura kopalnica zgoraj",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "c00778138c",
+              "sBathRoomTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:c00778138c:sBathRoomTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKopalnicaZ/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "c00778138c",
+              "sBathRoomTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:c00778138c:sBathRoomTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKopalnicaZ/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "c00778138c",
+              "sBathRoomTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:c00778138c:sBathRoomTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKopalnicaZ/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "c00778138c"
+        ],
+        "uid": "mqtt:topic:9986d199fd:c00778138c"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Kopalnica zgoraj"
+    }
+  },
+  "mqtt:topic:9986d199fd:b2acb5252f": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura Julija",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "b2acb5252f",
+              "sJulijaTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:b2acb5252f:sJulijaTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempJulija/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "b2acb5252f",
+              "sJulijaTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:b2acb5252f:sJulijaTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempJulija/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "b2acb5252f",
+              "sJulijaTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:b2acb5252f:sJulijaTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempJulija/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "b2acb5252f"
+        ],
+        "uid": "mqtt:topic:9986d199fd:b2acb5252f"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Julija"
+    }
+  },
+  "mqtt:topic:9986d199fd:319f65fcdc": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura spalnica",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "319f65fcdc",
+              "sBedRoomTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:319f65fcdc:sBedRoomTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempSpalnica/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "319f65fcdc",
+              "sBedRoomTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:319f65fcdc:sBedRoomTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempSpalnica/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "319f65fcdc",
+              "sBedRoomTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:319f65fcdc:sBedRoomTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempSpalnica/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "319f65fcdc"
+        ],
+        "uid": "mqtt:topic:9986d199fd:319f65fcdc"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Spalnica"
+    }
+  },
+  "mqtt:broker:9986d199fd": {
+    "class": "org.openhab.core.thing.internal.BridgeImpl",
+    "value": {
+      "label": "MQTT Broker",
+      "channels": [],
+      "configuration": {
+        "properties": {
+          "publickeypin": false,
+          "lwtQos": 0,
+          "keepAlive": 60,
+          "clientid": "08cf23c4-61f5-4641-a29c-c2bd47b6c70b",
+          "qos": 0,
+          "reconnectTime": 60000,
+          "port": 1883,
+          "host": "192.168.1.202",
+          "secure": false,
+          "certificatepin": false,
+          "lwtRetain": true,
+          "enableDiscovery": true
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "broker"
+        ],
+        "uid": "mqtt:broker"
+      }
+    }
+  },
+  "mqtt:topic:9986d199fd:d7ecd7a64d": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Vtičnica skrinja",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "d7ecd7a64d",
+              "sPantryPlugSwitch"
+            ],
+            "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugSwitch"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "Stikalo",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "commandTopic": "zigbee2mqtt/plugFreezer/set/state",
+              "stateTopic": "zigbee2mqtt/plugFreezer/state"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "d7ecd7a64d",
+              "sPantryPlugTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugFreezer/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "d7ecd7a64d",
+              "sPantryPlugConsumption"
+            ],
+            "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugConsumption"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Poraba",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugFreezer/consumption",
+              "unit": "kWh"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "d7ecd7a64d",
+              "sPantryPlugPower"
+            ],
+            "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugPower"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Moč",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugFreezer/power",
+              "unit": "W"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Čumnata"
+    }
+  },
+  "mqtt:topic:9986d199fd:8f63f9c935": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura kopalnica spodaj",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8f63f9c935",
+              "sBathRoomBellowTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8f63f9c935:sBathRoomBellowTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKopalnicaS/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8f63f9c935",
+              "sBathRoomBellowTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8f63f9c935:sBathRoomBellowTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKopalnicaS/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8f63f9c935",
+              "sBathRoomBellowTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8f63f9c935:sBathRoomBellowTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempKopalnicaS/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8f63f9c935"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8f63f9c935"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Kopalnica spodaj"
+    }
+  },
+  "mqtt:topic:9986d199fd:f94fbfa464": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura energetski prostor",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "f94fbfa464",
+              "sBoilerRoomTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:f94fbfa464:sBoilerRoomTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempEnergetski/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "f94fbfa464",
+              "sBoilerRoomTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:f94fbfa464:sBoilerRoomTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempEnergetski/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "f94fbfa464",
+              "ssBoilerRoomTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:f94fbfa464:ssBoilerRoomTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempEnergetski/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "f94fbfa464"
+        ],
+        "uid": "mqtt:topic:9986d199fd:f94fbfa464"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Energetski prostor"
+    }
+  },
+  "mqtt:topic:9986d199fd:1f87180eab": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura lopa",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "1f87180eab",
+              "sShedTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:1f87180eab:sShedTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempLopa/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "1f87180eab",
+              "sShedTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:1f87180eab:sShedTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempLopa/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "1f87180eab",
+              "sShedTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:1f87180eab:sShedTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempLopa/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "1f87180eab"
+        ],
+        "uid": "mqtt:topic:9986d199fd:1f87180eab"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Lopa"
+    }
+  },
+  "mqtt:topic:9986d199fd:7d3f9738b7": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Vtičnica dnevna",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "7d3f9738b7",
+              "sLivingRoomPlugSwitch"
+            ],
+            "uid": "mqtt:topic:9986d199fd:7d3f9738b7:sLivingRoomPlugSwitch"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "switch"
+            ],
+            "uid": "mqtt:switch"
+          },
+          "label": "Stikalo",
+          "configuration": {
+            "properties": {
+              "commandTopic": "zigbee2mqtt/plugTVHiFi/set/state",
+              "stateTopic": "zigbee2mqtt/plugFreezer/state"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "7d3f9738b7",
+              "sLivingRoomPlugTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:7d3f9738b7:sLivingRoomPlugTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugTVHiFi/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "7d3f9738b7",
+              "sLivingRoomPlugConsumption"
+            ],
+            "uid": "mqtt:topic:9986d199fd:7d3f9738b7:sLivingRoomPlugConsumption"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Poraba",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugTVHiFi/consumption",
+              "unit": "kWh"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "7d3f9738b7",
+              "sLivingRoomPlugPower"
+            ],
+            "uid": "mqtt:topic:9986d199fd:7d3f9738b7:sLivingRoomPlugPower"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Moč",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/plugTVHiFi/power",
+              "unit": "W"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "7d3f9738b7"
+        ],
+        "uid": "mqtt:topic:9986d199fd:7d3f9738b7"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Dnevna"
+    }
+  },
+  "mqtt:topic:9986d199fd:8a899d3186": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Temperatura čumnata",
+      "bridgeUID": {
+        "segments": [
+          "mqtt",
+          "broker",
+          "9986d199fd"
+        ],
+        "uid": "mqtt:broker:9986d199fd"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8a899d3186",
+              "sPantryTempBattery"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempBattery"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Baterija",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempCumnata/battery",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8a899d3186",
+              "sPantryTempTemperature"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempTemperature"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Temperatura",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempCumnata/temperature",
+              "unit": "°C"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "mqtt",
+              "topic",
+              "9986d199fd",
+              "8a899d3186",
+              "sPantryTempHumidity"
+            ],
+            "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempHumidity"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "mqtt",
+              "number"
+            ],
+            "uid": "mqtt:number"
+          },
+          "label": "Vlažnost",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "stateTopic": "zigbee2mqtt/tempCumnata/humidity",
+              "unit": "%"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {}
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8a899d3186"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8a899d3186"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "topic"
+        ],
+        "uid": "mqtt:topic"
+      },
+      "location": "Čumnata"
+    }
+  }
+}

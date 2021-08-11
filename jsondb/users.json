@@ -1,0 +1,26 @@
+{
+  "ziga": {
+    "class": "org.openhab.core.auth.ManagedUser",
+    "value": {
+      "name": "ziga",
+      "passwordHash": "AAHVHPU41SNNORqp6vxmGVjjKlm7nDGnx7AmO4OI+Rjm789CyAtmJ/97ros6oS1gHzEre6ql2QEuw03Plgc5pA\u003d\u003d",
+      "passwordSalt": "cxpxIQ2HivvcHleRbEoP+jMA0PCfukR9UzcBJ5G7jNo0UhwH5Q+eEJWNKHhsUmn5Vl0IwCIimepUw6SSnmQndQ\u003d\u003d",
+      "roles": [
+        "administrator"
+      ],
+      "sessions": [
+        {
+          "sessionId": "4deea255-7631-455e-b0ad-0cf2ad2ed1c3",
+          "refreshToken": "8502fd3ef5ee4f928bd82268f5c11854",
+          "createdTime": "Jul 30, 2021, 10:36:03 AM",
+          "lastRefreshTime": "Aug 6, 2021, 7:16:09 AM",
+          "clientId": "http://localhost:8080",
+          "redirectUri": "http://localhost:8080",
+          "scope": "admin",
+          "sessionCookie": true
+        }
+      ],
+      "apiTokens": []
+    }
+  }
+}
