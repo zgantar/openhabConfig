@@ -8,8 +8,10 @@ Thing shelly:shelly25-relay:68661F "Žaluzije spalnica" @ "Spalnica" [deviceIp="
 
 Thing shelly:shelly25-relay:6914F8 "Žaluzije jedilnica" @ "Jedilnica" [deviceIp="192.168.1.99"]
 Thing shelly:shelly25-relay:68F40F "Žaluzije kuhinja levo" @ "Kuhinja" [deviceIp="192.168.1.12"]
-//Thing shelly:shelly25-relay:694338 "Žaluzije kuhinja desno" @ "Kuhinja" [deviceIp="192.168.1.2"]
+Thing shelly:shelly25-relay:694338 "Žaluzije kuhinja desno" @ "Kuhinja" [deviceIp="192.168.1.2"]
 
 Thing shelly:shelly25-relay:68E216 "TV&HiFi" @ "Dnevna" [deviceIp="192.168.1.241"]
 
 Thing shelly:shelly1:9413CD "Dnevna stenska luč" @ "Dnevna" [deviceIp="192.168.1.76"]
+
+Thing shelly:shelly1:941769 "Talno gretje" @ "Energetski prostor" [deviceIp="192.168.1.11"]

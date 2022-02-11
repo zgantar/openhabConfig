@@ -1,6 +1,6 @@
 Group:Number                    Temp            "Senzorji temperature"
 Group:Number                    Hum             "Senzorji vlažnosti"
-Group:Number                    Lum             "Senzorji svetlosti"
+Group:Number:MIN                Lum             "Senzorji svetlosti"
 
 Group:Switch:AND(ON,OFF)        Mot             "Senzorji gibanja"
 Group:Switch:AND(ON,OFF)        GroundF         "Senzorji gibanja v pritličju"
@@ -313,22 +313,24 @@ Switch  MotHodnikZ         	"Nad kopalnico [MAP(si.map):MOTION-%s]"     <motion>
 
 // 
 //Stikala za ogrevanje
-Switch	FhsHeater	    "Talno gretje"      <heating>   (Fhs)                   { tinkerforge="uid=kBH, subid=relay1" }
+Switch	FhsHeater	        "Talno gretje"                      <heating>           (Fhs)               { channel="shelly:shelly1:941769:relay#output" }
+Number	FhsHeaterOverTemp   "Talno gretje temperatura [%d °C]"  <temperature_hot>   (ShellyOverTemp)    { channel="shelly:shelly1:941769:device#innerTemp" }
+
 Switch	FhsRecuperation	"Rekuperacija"      <climate>                           { tinkerforge="uid=kBH, subid=relay2" }
 
 //zgoraj
-Switch FhsKopalnicaZ    "Kopalnica zgoraj"  <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaZ" }
-Switch FhsAljaz		    "Aljaz"             <heating>   (Fhs)           { tinkerforge="name=stikaloAljaz" }
-Switch FhsJulija	    "Julija"            <heating>   (Fhs)           { tinkerforge="name=stikaloJulija" }
-Switch FhsHodnikZ	    "Hodnik zgoraj"     <heating>   (Fhs)           { tinkerforge="name=stikaloHodnikZ" }
-Switch FhsSpalnica	    "Spalnica"          <heating>   (Fhs)           { tinkerforge="name=stikaloSpalnica" }
+Switch FhsKopalnicaZ    "Kopalnica zgoraj"  <heating>   (Fhs,FhsRev)    { channel="mqtt:topic:mosquitto:talnoZgoraj2:state1" }//tinkerforge="name=stikaloKopalnicaZ" }
+Switch FhsAljaz		    "Aljaz"             <heating>   (Fhs)           { channel="mqtt:topic:mosquitto:talnoZgoraj2:state2" }//tinkerforge="name=stikaloAljaz" }
+Switch FhsJulija	    "Julija"            <heating>   (Fhs)           { channel="mqtt:topic:mosquitto:talnoZgoraj1:state1" }//tinkerforge="name=stikaloJulija" }
+Switch FhsHodnikZ	    "Hodnik zgoraj"     <heating>   (Fhs)           { channel="mqtt:topic:mosquitto:talnoZgoraj3:state"  }//tinkerforge="name=stikaloHodnikZ" }
+Switch FhsSpalnica	    "Spalnica"          <heating>   (Fhs)           { channel="mqtt:topic:mosquitto:talnoZgoraj1:state2" }//tinkerforge="name=stikaloSpalnica" }
 
 //spodaj
-Switch  FhsHodnikS      "Hodnik spodaj"     <heating>   (Fhs)           { tinkerforge="name=stikaloHodnikS" }
-Switch  FhsKopalnicaS   "Kopalnica spodaj"  <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaS" }
-Switch  FhsDnevna       "Dnevna soba"       <heating>   (Fhs)           { tinkerforge="name=stikaloDnevna" }
-Switch  FhsKuhinja      "Kuhinja"           <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKuhinja" }
-Switch  FhsKabinet      "Kabinet"           <heating>   (Fhs)           { tinkerforge="name=stikaloKabinet" }
+Switch  FhsHodnikS      "Hodnik spodaj"     <heating>   (Fhs)           { channel="mqtt:topic:mosquitto:talnoSpodaj3:state1" }
+Switch  FhsKopalnicaS   "Kopalnica spodaj"  <heating>   (Fhs,FhsRev)    { channel="mqtt:topic:mosquitto:talnoSpodaj3:state2" }
+Switch  FhsDnevna       "Dnevna soba"       <heating>   (Fhs)           { channel="mqtt:topic:mosquitto:talnoSpodaj2:state2" }
+Switch  FhsKuhinja      "Kuhinja"           <heating>   (Fhs,FhsRev)    { channel="mqtt:topic:mosquitto:talnoSpodaj1:state" }
+Switch  FhsKabinet      "Kabinet"           <heating>   (Fhs)           { channel="mqtt:topic:mosquitto:talnoSpodaj2:state1" }
 
 
 //Chromecast
@@ -417,15 +419,13 @@ Number	ActKuhinjaLevOverTemp   "Kuhinja levo temperatura [%d °C]"              
 Number  ActKuhinjaLevPowerDo    "Kuhinja levo dol trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter2#currentWatts" }
 Number  ActKuhinjaLevPowerUp    "Kuhinja levo gor trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter1#currentWatts" }
 
-//Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="shelly:shelly25-relay:694338:relay1#output" }
-//Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="shelly:shelly25-relay:694338:relay2#output" }
-Switch	ActKuhinjaDesDo	            "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="mqtt:topic:mosquitto:zalKuhDes:command1" }
-Switch	ActKuhinjaDesUp	            "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="mqtt:topic:mosquitto:zalKuhDes:command2" }
-Switch	SwiKuhinjaDesDo             "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state1" }
-Switch	SwiKuhinjaDesUp             "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state2" }
-// Number	ActKuhinjaDesOverTemp       "Kuhinja desno temperatura [%d °C]"                 <temperature_hot>   (ShellyOverTemp)                            { channel="mqtt:topic:mosquitto:zalKuhDes:temperature" }
-// Number  ActKuhinjaDesPower          "Kuhinja desna trenutna moč"                        <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:power" }
-// Number  ActKuhinjaDesConsumption    "Kuhinja desno poraba"                              <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:consumption" }
+Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:694338:relay1#output" }
+Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:694338:relay2#output" }
+Switch	SwiKuhinjaDesDo         "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:694338:relay1#input" }
+Switch	SwiKuhinjaDesUp         "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:694338:relay2#input" }
+Number	ActKuhinjaDesOverTemp   "Kuhinja desno temperatura [%d °C]"                 <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:694338:device#innerTemp" }
+Number  ActKuhinjaDesPowerDo    "Kuhinja desno dol trenutna moč"                    <energy>            (Power)                         { channel="shelly:shelly25-relay:694338:meter1#currentWatts" }
+Number  ActKuhinjaDesPowerUp    "Kuhinja desno gor trenutna moč"                    <energy>            (Power)                         { channel="shelly:shelly25-relay:694338:meter2#currentWatts" }
 
 Switch	ActJedilnicaDo	        "Jedilnica dol [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6914F8:relay2#output" }
 Switch	ActJedilnicaUp	        "Jedilnica gor [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6914F8:relay1#output" }
@@ -460,7 +460,14 @@ Number otokVelikaLucLQ      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:
 Number stikaloZaluzijeLQ    "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:stikaloZaluzije:linkquality" }
 Number gibanjeVhodLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:vhodMot:linkquality" }
 Number gibanjeHodnikZLQ     "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikZMot:linkquality" }
-Number ZalKuhinjaDesDo      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:zalKuhDes:linkquality" }
+Number ZalKuhinjaDesDoLQ    "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:zalKuhDes:linkquality" }
+Number talnoZgoraj1LQ       "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:talnoZgoraj1:linkquality" }
+Number talnoZgoraj2LQ       "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:talnoZgoraj2:linkquality" }
+Number talnoZgoraj3LQ       "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:talnoZgoraj3:linkquality" }
+Number talnoSpodaj1LQ       "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:talnoSpodaj1:linkquality" }
+Number talnoSpodaj2LQ       "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:talnoSpodaj2:linkquality" }
+Number talnoSpodaj3LQ       "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:talnoSpodaj3:linkquality" }
+
 
 //Zigbee luči
 //stanje

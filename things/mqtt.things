@@ -230,7 +230,7 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
 
     Thing topic spalnicaTemp "Spalnica temperatura" @ "Spalnica" {
         Channels:
-            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempSpalnica/temperature" ]
+            Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempSpalnica/temperature" ] 
             Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempSpalnica/humidity" ]
             Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempSpalnica/voltage" ]     
             Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempSpalnica/battery" ]     
@@ -303,7 +303,7 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
 
         Thing topic fridPlug "Vtičnica hladilnik" @ "Kuhinja" {
         Channels:
-            Type switch : state         "state"         [ stateTopic = "zigbee2mqtt/plugFridge/state", commandTopic = "zigbee2mqtt/plugFridge/set/state" ]
+            Type switch : state         "state"         [ stateTopic = "zigbee2mqtt/plugFridge/state", commandTopic = "zigbee2mqtt/plugFridge/set" ]
             Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/plugFridge/temperature" ]
             Type number : consumption   "consumption"   [ stateTopic = "zigbee2mqtt/plugFridge/consumption" ]
             Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/plugFridge/voltage" ]
@@ -352,18 +352,45 @@ Bridge mqtt:broker:mosquitto [ host="192.168.1.202", secure=false] {
             Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/motHodnikZ/linkquality" ]               
     }
 
-    Thing topic zalKuhDes "Žaluzija kuhinja desno" @ "Kuhinja" {
+    Thing topic talnoZgoraj1 "Talno gretje zgoraj 1" @ "Hodnik zgoraj" {
         Channels:
-            Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/zalKuhDesNova/state_left", on="ON", off="OFF"]
-            Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/zalKuhDesNova/state_right", on="ON", off="OFF" ]
-            Type switch : command1      "command1"      [ stateTopic = "zigbee2mqtt/zalKuhDesNova/state_left", commandTopic = "zigbee2mqtt/zalKuhDesNova/set", on="ON", off="OFF", transformationPatternOut="JS:zweu02SwitchI2_2Zigbee2Mqtt.js" ]
-            Type switch : command2      "command2"      [ stateTopic = "zigbee2mqtt/zalKuhDesNova/state_right", commandTopic = "zigbee2mqtt/zalKuhDesNova/set", on="ON", off="OFF", transformationPatternOut="JS:zweu02SwitchI1_2Zigbee2Mqtt.js" ]
-            // Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/zalKuhDes/temperature" ]
-            // Type number : consumption   "consumption"   [ stateTopic = "zigbee2mqtt/zalKuhDes/consumption" ]
-            // Type number : power         "power"         [ stateTopic = "zigbee2mqtt/zalKuhDes/power" ]
-            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/zalKuhDes/linkquality" ]
+            Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/talnoZgoraj1/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj1/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+            Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/talnoZgoraj1/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj1/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoZgoraj1/linkquality" ]
     }
 
+    Thing topic talnoZgoraj2 "Talno gretje zgoraj 2" @ "Hodnik zgoraj" {
+        Channels:
+            Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/talnoZgoraj2/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj2/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+            Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/talnoZgoraj2/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj2/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoZgoraj2/linkquality" ]
+    }
+
+    Thing topic talnoZgoraj3 "Talno gretje zgoraj 3" @ "Hodnik zgoraj" {
+        Channels:
+            Type switch : state        "state"          [ stateTopic = "zigbee2mqtt/talnoZgoraj3/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj3/set" ]
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoZgoraj3/linkquality" ]
+    }
+
+    Thing topic talnoSpodaj2 "Talno gretje spodaj 2" @ "Energetski prostor" {
+        Channels:
+            Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/talnoSpodaj2/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj2/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+            Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/talnoSpodaj2/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj2/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoSpodaj2/linkquality" ]
+    }
+
+    Thing topic talnoSpodaj3 "Talno gretje spodaj 3" @ "Energetski prostor" {
+        Channels:
+            Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/talnoSpodaj3/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj3/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+            Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/talnoSpodaj3/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj3/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoSpodaj3/linkquality" ]
+    }
+
+    Thing topic talnoSpodaj1 "Talno gretje spodaj 1" @ "Energetski prostor" {
+        Channels:
+            Type switch : state        "state"          [ stateTopic = "zigbee2mqtt/talnoSpodaj1/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj1/set" ]
+            Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoSpodaj1/linkquality" ]
+    }
 //Tinkerfoge prvi koraki
 //    Thing topic tinkerforgeDualRelayEner "Dvojni rele" @ "Energetski prostor" {
 //        Channels:

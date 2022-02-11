@@ -26,6 +26,7 @@ Group:Switch:OR(ON,OFF) MessagesSwitches
 Group                   Messages
 
 
+Switch  SuspendStairwayLights
 Switch  KillAlarm
 
 
@@ -171,7 +172,7 @@ Number	StateDnevnaDes  "Stanje žaluzij dnevna desno [%.1f]"                    
 Switch	ZalDnevnaLevDo  "Dnevna levo dol"                       <rollershuter>  (BlindLog,BlindLogDo,BlindsSW,BlindLogD)
 Switch	ZalDnevnaLevUp  "Dnevna levo gor"                       <rollershuter>  (BlindLog,BlindLogUp,BlindsSW,BlindLogD)
 Number	StateDnevnaLev  "Stanje žaluzij dnevna levo [%.1f]"                     (BlindState)
-
+                           
 Switch	ZalSpalnicaDo   "Spalnica dol"                          <rollershuter>  (BlindLog,BlindLogDo,BlindsSE)
 Switch	ZalSpalnicaUp   "Spalnica gor"                          <rollershuter>  (BlindLog,BlindLogUp,BlindsSE)
 Number	StateSpalnica   "Stanje žaluzije spalnica [%.1f]"                       (BlindState)
