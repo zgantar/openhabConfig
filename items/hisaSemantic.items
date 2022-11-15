@@ -1,0 +1,202 @@
+//HOUSE MODEL
+
+//INDOOR
+Group                       gIndoor                                 "Hiša"                                           <house>                                    ["House"]
+
+//GROUND FLOOR
+Group                       gGroundFloor                            "Pritličje"                                      <groundfloor>         (gIndoor)            ["GroundFloor"]
+
+Group                       gDiningRoom                             "Jedilnica"                                                            (gGroundFloor)       ["DiningRoom"]
+Group                       gDiningRoomBlind                        "Žaluzija jedilnica"                             <blinds>              (gDiningRoom)        ["Blinds"]
+
+Group                       gLivingRoom                             "Dnevna"                                         <sofa>                (gGroundFloor)       ["LivingRoom"]
+Group                       gLivingRoomSensor                       "Temperaturni senzor dnevna"                     <temperature>         (gLivingRoom)        ["Sensor"]
+Group                       gLivingRoomLeftBlind                    "Leva žaluzija dnevna"                           <blinds>              (gLivingRoom)        ["Blinds"]
+Group                       gLivingRoomRightBlind                   "Desna žaluzija dnevna"                          <blinds>              (gLivingRoom)        ["Blinds"]
+Group                       gLivingRoomTVHiFiPLug                   "Vtičnica za TV&HiFi dnevna"                     <poweroutlet>         (gLivingRoom)        ["PowerOutlet"]
+Group                       gLivingRoomWallLights                   "Stenska luč dnevna"                             <lightbulb>           (gLivingRoom)        ["Lightbulb"]
+Group                       gLivingRoomTVLights                     "TV luč dnevna"                                  <lightbulb>           (gLivingRoom)        ["Lightbulb"]
+Group                       gLivingRoomCeilingLights                "Stropna luč dnevna"                             <lightbulb>           (gLivingRoom)        ["Lightbulb"]
+Group                       gLivingRoomMotionSensor                 "Senzor gibanja dnevna"                          <motion>              (gLivingRoom)        ["MotionDetector"]
+Group                       gLivingRoomOnkiyo                       "Onkyo receiver dnevna"                          <player>              (gLivingRoom)        ["Receiver"]
+Group                       gLivingRoomAudioCC                      "Chromecast dnevna"                              <player>              (gLivingRoom)        ["Receiver"]
+Group                       gLivingRoomTiltWindowContact            "Nagibno drsna vrata dnevna"                     <windows>             (gLivingRoom)        ["Window"]
+
+Group                       gKitchen                                "Kuhinja"                                        <kitchen>             (gGroundFloor)       ["Kitchen"]
+Group                       gKitchenSensor                          "Temperaturni senzor kuhinja"                    <temperature>         (gKitchen)           ["Sensor"]
+Group                       gKitchenLeftBlind                       "Leva žaluzija kuhinja"                          <blinds>              (gKitchen)           ["Blinds"]
+Group                       gKitchenRightBlind                      "Desna žaluzija kuhinja"                         <blinds>              (gKitchen)           ["Blinds"]
+Group                       gKitchenRefridgerator                   "Hladilnik kuhinja"                                                    (gKitchen)           ["Refrigerator"]
+Group                       gKitchenMotionSensor                    "Senzor gibanja kuhinja"                         <motion>              (gKitchen)           ["MotionDetector"]
+Group                       gKitchenBlindsSwitch                    "Stikalo žaluzije"                               <switch>              (gKitchen)           ["WallSwitch"]
+Group                       gKitchenLightsIslandSwitch              "Stikalo otok luči"                              <switch>              (gKitchen)           ["WallSwitch"]
+Group                       gKitchenRaiseWindowContact              "Dvižno drsna vrata kuhinja"                     <windows>             (gKitchen)           ["Window"]
+Group                       gKitchenLightsIslandSmallLight          "Mala luč otok"                                  <light>               (gKitchen)           ["Lightbulb"]
+Group                       gKitchenLightsIslandBigLight            "Velika luč otok"                                <light>               (gKitchen)           ["Lightbulb"]
+Group                       gKitchenLightsIsland                    "Luči otok"                                      <light>               (gKitchen)           ["Lightbulb"]
+Group                       gKitchenWaterLeakDetector               "Senzor vode Kuhinja"                            <water>               (gKitchen)           ["Sensor"]
+
+Group                       gGroundBath                             "Spodnja kopalnica"                              <bath>                (gGroundFloor)       ["Bathroom"]
+Group                       gGroundBathSensor                       "Temperaturni senzor kopalnica spodaj"           <temperature>         (gGroundBath)        ["Sensor"]
+
+Group                       gGroundCorridor                         "Spodnji hodnik"                                 <corridor>            (gGroundFloor)       ["Corridor"]
+Group                       gGroundCorridorSensor                   "Temperaturni senzor hodnik spodaj"              <temperature>         (gGroundCorridor)    ["Sensor"]
+Group                       gGroundCorridorFrontDoorContact         "Vhodna vrata"                                   <frontdoor>           (gGroundCorridor)    ["FrontDoor"]
+Group                       gGroundCorridorFrontDoorMotionSensor    "Senzor gibanja vhodna vrata"                    <motion>              (gGroundCorridor)    ["MotionDetector"]
+Group                       gGroundCorridorMotionSensor             "Senzor gibanja hodnik spodaj"                   <motion>              (gGroundCorridor)    ["MotionDetector"]
+Group                       gKitchenXiaomiGateway                   "Xiaomi gateway"                                 <light>               (gGroundCorridor)    ["NetworkAppliance"]
+
+Group                       gOffice                                 "Kabinet"                                        <office>              (gGroundFloor)       ["Office"]
+Group                       gOfficeSensor                           "Temperaturni senzor kabinet"                    <temperature>         (gOffice)            ["Sensor"]
+Group                       gOfficeBlind                            "Žaluzija kabinet"                               <blinds>              (gOffice)            ["Blinds"]
+Group                       gVac                                    "Miško kabinet"                                  <fan>                 (gOffice)            ["CleaningRobot"]
+
+Group                       gPantry                                 "Čumnata"                                        <pantry>              (gGroundFloor)       ["Office"]
+Group                       gPantrySensor                           "Temperaturni senzor čumnata"                    <temperature>         (gPantry)            ["Sensor"]
+Group                       gPantryFreezer                          "Zamrzovalna omara čumnata"                                            (gPantry)            ["Freezer"]
+Group                       gPantrySmokeDetector                    "Detektor dima čumnata"                          <smoke>               (gPantry)            ["SmokeDetector"]
+
+Group                       gUtility                                "Energetski prostor"                                                   (gGroundFloor)       ["BoilerRoom"]
+Group                       gUtilitySensor                          "Temperaturni senzor energetski prostor"         <temperature>         (gUtility)           ["Sensor"]
+Group                       gUtilityRecuperation                    "Rekuperacija energetski prostor"                <climate>             (gUtility)           ["Fan"]
+Group                       gUtilityHeating                         "Talno gretje energetski prostor"                <heating>             (gUtility)           ["HVAC"]
+Group                       gUtilityBoiler                          "Bojler energetski prostor"                      <heating>             (gUtility)           ["Boiler"]
+Group                       gUtilityWaterLeakDetector               "Senzor vode energetski prostor"                 <water>               (gUtility)           ["Sensor"]
+
+
+Group                       gStairwayLights                         "Stopnišče luč"                                  <lightbulb>           (gIndoor)            ["Lightbulb"]
+
+//FIRST FLOOR
+Group                       gFirstFloor                             "Mansarda"                                       <firstfloor>          (gIndoor)            ["FirstFloor"]
+
+Group                       gUpperBath                              "Zgornja kopalnica"                              <bath>                (gFirstFloor)        ["Bathroom"]
+Group                       gUpperBathSensor                        "Temperaturni senzor kopalnica zgoraj"           <temperature>         (gUpperBath)         ["Sensor"]
+Group                       gUpperBathWashingMachine                "Pralni stroj kopalnica zgoraj"                  <washingmachine>      (gUpperBath)         ["WashingMachine"]
+Group                       gUpperBathDryer                         "Sušilni stroj kopalnica zgoraj"                 <washingmachine_2>    (gUpperBath)         ["Dryer"]
+
+Group                       gUpperCorridor                          "Zgornji hodnik"                                 <corridor>            (gFirstFloor)        ["Corridor"]
+Group                       gUpperCorridorSensor                    "Temperaturni senzor hodnik zgoraj"              <temperature>         (gUpperCorridor)     ["Sensor"]
+Group                       gUpperCorridorMotionSensor              "Senzor gibanja hodnik zgoraj"                   <motion>              (gUpperCorridor)     ["MotionDetector"]
+Group                       gUpperCorridorBathMotionSensor          "Senzor gibanja hodnik zgoraj pred kopalnico"    <motion>              (gUpperCorridor)     ["MotionDetector"]
+Group                       gUpperCorridorSpeaker                   "Symfonisk hodnik zgoraj pred kopalnico"         <soundvolume>         (gUpperCorridor)     ["Speaker"]
+Group                       gUpperCorridorIron                      "Peglezn hodnik zgoraj"                          <poweroutlet>         (gUpperCorridor)     ["PowerOutlet"]
+
+Group                       gBedroom                                "Spalnica"                                       <bedroom>             (gFirstFloor)        ["Bedroom"]
+Group                       gBedroomSensor                          "Temperaturni senzor spalnica"                   <temperature>         (gBedroom)           ["Sensor"]
+Group                       gBedroomBlind                           "Žaluzija spalnica"                              <blinds>              (gBedroom)           ["Blinds"]
+
+Group                       gJulija                                 "Julija"                                         <bedroom>             (gFirstFloor)        ["Bedroom"]
+Group                       gJulijaSensor                           "Temperaturni senzor Julija"                     <temperature>         (gJulija)            ["Sensor"]
+Group                       gJulijaBlind                            "Žaluzija Julija"                                <blinds>              (gJulija)            ["Blinds"]
+
+Group                       gAljaz                                  "Aljaž"                                          <bedroom>             (gFirstFloor)        ["Bedroom"]
+Group                       gAljazSensor                            "Temperaturni senzor Aljaž"                      <temperature>         (gAljaz)             ["Sensor"]
+Group                       gAljazBlind                             "Žaluzija Aljaž"                                 <blinds>              (gAljaz)             ["Blinds"]
+Group                       gAljazPCPLug                            "Vtičnica za PC Aljaž dnevna"                    <poweroutlet>         (gAljaz)             ["PowerOutlet"]
+
+//Network
+Group                       gNetwork                                                                                                       (gIndoor)            ["NetworkAppliance"]
+Group                       gPhoneZiga                              "Telefon Žiga"                                                         (gNetwork)           ["Smartphone"]
+Group                       gPhoneNina                              "Telefon Nina"                                                         (gNetwork)           ["Smartphone"]
+Group                       gPCAljaz                                "Računalnik Aljaž"                                                     (gNetwork)           ["NetworkAppliance"]
+Group:Switch:OR(ON,OFF)     gPhonePing                              "Dosegljivi telefoni"                                                  (gNetwork)           ["Smartphone"]
+
+
+//OUTDOOR
+Group                       gOutdoor                                "Zunaj"                                                                                     ["Outdoor"]
+Group                       gOutdoorSensor                          "Zunanje okoljske vrednosti"                     <temperature>         (gOutdoor)           ["Sensor"]
+Group                       gAirQuality                             "Kakovost zraka"                                 <flow>                (gOutdoor)           ["Sensor"]
+Group                       gAirQualityNoDB                         "Kakovost zraka brez shranjevanja v bazo"                              (gOutdoor)           ["Sensor"]
+
+Group                       gShed                                   "Lopa"                                           <garage_detached>     (gOutdoor)           ["Shed"]
+Group                       gShedSensor                             "Temperaturni senzor Aljaž"                      <temperature>         (gShed)              ["Sensor"]
+
+Group                       gGarden                                 "Vrt"                                            <garden>              (gOutdoor)           ["Garden"]
+Group                       gMower                                  "Becka Ovčić Kosi"                               <lawnmower>           (gOutdoor)           ["LawnMower"]
+
+Group                       gCourtyard                              "Dvorišče"                                       <terrace>             (gOutdoor)           ["Driveway"]
+
+
+
+//Grupe
+//Stanje naprav
+Group                       gEquipmentVars
+Group:Number                gBattery                                "Baterije"                                                             (gEquipmentVars)
+Group:Switch:OR(ON,OFF)     gBatteryLow                             "Opozorilo za slabo baterijo"                                          (gEquipmentVars)
+Group:Number                gLinkQuality                            "Povezava"                                                             (gEquipmentVars)
+Group:Number                gEquipmentTemperature                   "Temperature naprav"                                                   (gEquipmentVars)
+Group:Switch:AND(ON,OFF)    gMqttAvailability                       "Ali so naprave poslale podatke"                                       (gEquipmentVars)
+
+//Okoljske vrednosti
+Group                       gXiaomiTemp
+Group:Number                gTemp                                   "Senzorji temperature"                                                 (gXiaomiTemp)
+Group:Number                gHum                                    "Senzorji vlažnosti"                                                   (gXiaomiTemp)
+Group:Number                gLum                                    "Senzorji svetlosti"                                                   (gXiaomiTemp)
+
+//Gibanje
+Group                       gMotion
+Group:Switch:AND(OFF,ON)    gMot                                    "Senzorji gibanja"                                                     (gMotion)
+Group:Switch:OR(ON,OFF)     gMotGroundF                             "Senzorji gibanja v pritličju"                                         (gMotion)
+Group:Switch:OR(ON,OFF)     gMotFirstF                              "Senzorji gibanja v mansardi"                                          (gMotion)
+
+//Puščanje vode
+Group                       gWaterLeak
+
+//Okna/Vrata
+Group:Switch:OR(ON,OFF)     gDoor                                   "Odprta vrata"
+
+//Talno gretje
+Group:Switch:OR(ON,OFF)     gFhs                                    "Ventili talnega gretja"
+Group:Switch:OR(ON,OFF)     gFhsRev                                 "Ventili talnega gretja NO"
+
+//Plugs
+Group                       gPlugs
+Group:Number                gPower                                  "Trenutna priključna moč"                                              (gPlugs)
+Group:Number                gConsumption                            "Poraba"                                                               (gPlugs)
+Group:Switch                gInUse                                  "V uporabi"                                                            (gPlugs)
+Group:Switch                gPlugSwitch                             "Stikalo za vtičnico"                                                  (gPlugs)
+Group:Switch:OR(ON,OFF)     gPowerZero                              "Trenutna moč 0"                                                       (gPlugs)
+
+//Luči
+Group                       gLigths
+Group:Switch                gState                                  "Stanje luči"                                                          (gLights)
+Group:Number                gColorTemp                              "Barva luči"                                                           (gLights)
+Group:Number                gBrightness                             "Svetlost"                                                             (gLights)
+
+//Landroid
+Group                       gMowerBat                                                                                                      (gMower)
+Group                       gMowerStatus                                                                                                   (gMower)
+Group                       gMowerSchedule                                                                                                 (gMower)
+Group                       gMowerStats                                                                                                    (gMower)
+Group                       gMowerSettings                                                                                                 (gMower)
+Group                       gMowerRain                                                                                                     (gMower)
+Group                       gMowerPosition                                                                                                 (gMower)
+Group                       gMowerZone                                                                                                     (gMower)
+
+//Outside
+Group                       Out
+
+//Shelly
+Group                       gShelly
+Group:Number                gShellyTemp                             "Shelly temperature"                                                   (gShelly)
+Group:Switch                gShellyUpdate                           "Shelly posodobitve"                                                   (gShelly)
+Group:Switch                gShellyAlarm                            "Shelly alarm"                                                         (gShelly)
+Group:Number                gShellyConsumption                      "Shelly poraba"                                                        (gShelly)
+
+//Žaluzije
+Group                       gBlinds
+Group:Switch                gBlindAct                               "Aktuatorji žaluzij"                                                   (gBlinds)
+Group:Switch                gBlindSwi                               "Stikala žaluzij"                                                      (gBlinds)
+Group:Switch                gBlindD                                 "Žaluzije spodaj"                                                      (gBlinds)
+Group:Switch                gBlindU                                 "Žaluzije zgoraj"                                                      (gBlinds)
+Group:Switch                gBlindsOnDoors                          "Žaluzije na vratih"                                                   (gBlinds)
+Group:Switch                gBlindActUp                             "Aktuatorji žaluzij"                                                   (gBlinds)
+Group:Switch                gBlindActDo                             "Aktuatorji žaluzij"                                                   (gBlinds)
+
+//Sesalec
+Group                       gVacStat                                "Podrobnosti statusa"                            <status>              (gVac)
+Group                       gVacCons                                "Podrobnosti uporabe"                            <line-increase>       (gVac)
+Group                       gVacDND                                 "Nastavitve Ne moti"                             <moon>                (gVac)
+Group                       gVacHist                                "Zgodovina čiščenj"                              <calendar>            (gVac)
+Group                       gVacLast                                "Podrobnosti zadnjega čiščenja"                  <calendar>            (gVac)
+Group                       gVacInfo                                "Informacije"                                    <calendar>            (gVac)

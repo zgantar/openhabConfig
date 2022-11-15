@@ -1,0 +1,44 @@
+#openHAB
+docker run --name openhab --net=host -p 8080:8080 -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro -v /opt/openhab/conf:/openhab/conf -v /opt/openhab/userdata:/openhab/userdata -v /opt/openhab/addons:/openhab/addons -d -e USER_ID=114 -e GROUP_ID=121 -e CRYPTO_POLICY=unlimited -e "EXTRA_JAVA_OPTS=-Duser.timezone=Europe/Ljubljana" --device=/dev/ttyACM1 --restart=always openhab/openhab
+
+#USB Z-wave (check if /dev/ttyACM0 is for Z-wave or Zigbee stick)
+docker exec \
+    -d \
+    openhab \
+    /bin/chmod o+rw /dev/ttyACM0
+
+#or use this if above did not work (check if /dev/ttyACM0 is for Z-wave or Zigbee stick)
+chmod 777 /dev/ttyAM0
+
+#for additional help
+#https://community.openhab.org/t/solved-z-wave-stick-in-docker-container-on-a-synology/35855
+
+#Mosqiutto
+docker run -d --name mosquitto -p 1883:1883 -p 9001:9001 -v /opt/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf -v /opt/mosquitto/log:/mosquitto/log -v /opt/mosquitto/data/:/mosquitto/data/ --restart=always eclipse-mosquitto
+
+#Postgre
+docker run --name postgres -e POSTGRES_PASSWORD=akileine -v /opt/postgres/data/:/var/lib/postgresql/data -v /opt/postgres/conf/postgres.conf:/etc/postgresql/postgresql.conf -e USER_ID=113 -e GROUP_ID=118 -p 5432:5432 --restart=always -d postgres:alpine
+
+#zigbee2mqtt (check if /dev/ttyACM0 is for Z-wave or Zigbee stick)
+docker run --name zigbee2mqtt --device=/dev/ttyACM0 -p 8000:8000 -v /opt/zigbee2mqtt/data:/app/data -v /run/udev:/run/udev:ro -e TZ=Europe/Amsterdam --restart=always -d koenkk/zigbee2mqtt
+
+#homeassitant
+docker run -d --name homeassistant --restart=always -e TZ=Europe/Amsterdam -v /opt/homeassistant/conf/:/config --network=host ghcr.io/home-assistant/home-assistant:stable
+#--privileged --device=/dev/ttyACM0
+
+docker kill $(docker ps -q)
+docker rm $(docker ps -a -q)
+
+#delete docker image
+docker rmi $(docker images -q)
+
+
+##Watchtower za avtomatsko posodabljanje docker instanc
+docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock -e WATCHTOWER_MONITOR_ONLY=true -e WATCHTOWER_NOTIFICATIONS=slack -e WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL="https://hooks.slack.com/services/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" -e WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER=watchtower-ubuntek -e WATCHTOWER_INCLUDE_RESTARTING=true -e WATCHTOWER_ROLLING_RESTART=true -e WATCHTOWER_CLEANUP=true -p 3443:443 -p 3080:80 --restart=always containrrr/watchtower mosquitto openhab postgres zigbee2mqtt
+
+
+##Če se pozabi geslo za openHAB3
+#na docker mašini zalaufej naslednje ukaze
+ssh -p 8101 openhab@localhost
+openhab:users list
+openhab:users changePassword <user> <newPass>

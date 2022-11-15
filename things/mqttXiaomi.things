@@ -1,0 +1,348 @@
+//Senzorji temperature
+Thing mqtt:topic:mosquitto:stikaloZaluzije "Stikalo žaluzije" (mqtt:broker:mosquitto) @ "Kuhinja"{
+    Channels:
+        Type string : action        "click"         [ stateTopic = "zigbee2mqtt/stikaloZaluzije/action" ]     
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/stikaloZaluzije/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/stikaloZaluzije/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/stikaloZaluzije/linkquality" ]               
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/stikaloZaluzije/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:cumnataTemp "Temperatura čumnata" (mqtt:broker:mosquitto) @ "Čumnata" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempCumnata/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempCumnata/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempCumnata/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempCumnata/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempCumnata/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempCumnata/availability", on="online", off="offline" ]
+}    
+Thing mqtt:topic:mosquitto:kopalnicaSTemp "Temperatura kopalnica spodaj" (mqtt:broker:mosquitto) @ "Kopalnica spodaj" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKopalnicaS/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKopalnicaS/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempKopalnicaS/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempKopalnicaS/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKopalnicaS/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempKopalnicaS/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:kabinetTemp "Temperatura kabinet" (mqtt:broker:mosquitto) @ "Kabinet" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKabinet/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKabinet/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempKabinet/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempKabinet/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKabinet/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempKabinet/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:dnevnaTemp "Temperatura dnevna" (mqtt:broker:mosquitto) @ "Dnevna" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempDnevna/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempDnevna/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempDnevna/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempDnevna/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempDnevna/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempDnevna/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:kuhinjaTemp "Temperatura kuhinja" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKuhinja/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKuhinja/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempKuhinja/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempKuhinja/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKuhinja/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempKuhinja/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:hodnikSTemp "Temperatura hodnik spodaj" (mqtt:broker:mosquitto) @ "Hodnik spodaj" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempHodnikS/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempHodnikS/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempHodnikS/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempHodnikS/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempHodnikS/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempHodnikS/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:energetskiTemp "Temperatura energetski prostor" (mqtt:broker:mosquitto) @ "Energetski prostor" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempEnergetski/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempEnergetski/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempEnergetski/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempEnergetski/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempEnergetski/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempEnergetski/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:recupTemp "Temperatura rekuperacija" (mqtt:broker:mosquitto) @ "Rekuperacija" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempRecup/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempRecup/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempRecup/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempRecup/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempRecup/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempRecup/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:hodnikZTemp "Temperatura hodnik zgoraj" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempHodnikZ/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempHodnikZ/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempHodnikZ/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempHodnikZ/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempHodnikZ/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempHodnikZ/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:aljazTemp "Temperatura Aljaž" (mqtt:broker:mosquitto) @ "Aljaž" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempAljaz/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempAljaz/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempAljaz/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempAljaz/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempAljaz/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempAljaz/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:julijaTemp "Temperatura Julija" (mqtt:broker:mosquitto) @ "Julija" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempJulija/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempJulija/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempJulija/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempJulija/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempJulija/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempJulija/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:spalnicaTemp "Temperatura spalnica" (mqtt:broker:mosquitto) @ "Spalnica" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempSpalnica/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempSpalnica/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempSpalnica/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempSpalnica/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempSpalnica/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempSpalnica/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:kopalnicaZTemp "Temperatura kopalnica zgoraj" (mqtt:broker:mosquitto) @ "Kopalnica zgoraj" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempKopalnicaZ/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:lopaTemp "Temperatura lopa" (mqtt:broker:mosquitto) @ "Lopa" {
+    Channels:
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/tempLopa/temperature" ]
+        Type number : humidity      "humidity"      [ stateTopic = "zigbee2mqtt/tempLopa/humidity" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/tempLopa/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/tempLopa/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/tempLopa/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/tempLopa/availability", on="online", off="offline" ]
+}
+
+//Vtičnice
+Thing mqtt:topic:mosquitto:recuPlug "Vtičnica rekuperacija" (mqtt:broker:mosquitto) @ "Energetski prostor" {
+    Channels:
+        Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/plugRecu/state", commandTopic = "zigbee2mqtt/plugRecu/set/state" ]
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/plugRecu/temperature" ]
+        Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/plugRecu/consumption" ]
+        // Type number : voltage        "voltage"       [ stateTopic = "zigbee2mqtt/plugRecu/voltage" ]     
+        Type number : power             "power"         [ stateTopic = "zigbee2mqtt/plugRecu/power" ]     
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/plugRecu/device_temperature" ]     
+        Type switch : update_available  "update"        [ stateTopic = "zigbee2mqtt/plugRecu/update_available", on="true", off="false" ]
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/plugRecu/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/plugRecu/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:fridPlug "Vtičnica hladilnik" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/fridPlug/state", commandTopic = "zigbee2mqtt/fridPlug/set/state", on="ON", off="OFF" ]
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/fridPlug/temperature" ]
+        Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/fridPlug/consumption" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/fridPlug/voltage" ]
+        Type number : current           "current"       [ stateTopic = "zigbee2mqtt/fridPlug/current" ]
+        Type number : power             "power"         [ stateTopic = "zigbee2mqtt/fridPlug/power" ]     
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/fridPlug/device_temperature" ]     
+        Type switch : update_available  "update"        [ stateTopic = "zigbee2mqtt/fridPlug/update_available", on="true", off="false" ]
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/fridPlug/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/fridPlug/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:freePlug "Vtičnica skrinja" (mqtt:broker:mosquitto) @ "Čumnata" {
+    Channels:
+        Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/freePlug/state", commandTopic = "zigbee2mqtt/freePlug/set/state", on="ON", off="OFF" ]
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/freePlug/temperature" ]
+        Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/freePlug/consumption" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/freePlug/voltage" ]
+        Type number : current           "current"       [ stateTopic = "zigbee2mqtt/freePlug/current" ]
+        Type number : power             "power"         [ stateTopic = "zigbee2mqtt/freePlug/power" ]     
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/freePlug/device_temperature" ]     
+        Type switch : update_available  "update"        [ stateTopic = "zigbee2mqtt/freePlug/update_available", on="true", off="false" ]
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/freePlug/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/freePlug/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:aljazPCPlug "Vtičnica Aljaž PC" (mqtt:broker:mosquitto) @ "Aljaž" {
+    Channels:
+        Type switch : state1            "state1"        [ stateTopic = "zigbee2mqtt/plugAljaz/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/plugAljaz/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+        Type switch : state2            "state2"        [ stateTopic = "zigbee2mqtt/plugAljaz/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/plugAljaz/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/plugAljaz/linkquality" ]
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/plugAljaz/temperature" ]
+        Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/plugAljaz/energy" ]
+        Type switch : update_available  "update"        [ stateTopic = "zigbee2mqtt/plugAljaz/update_available", on="true", off="false" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/plugAljaz/voltage" ]
+        Type number : power             "power"         [ stateTopic = "zigbee2mqtt/plugAljaz/power" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/plugAljaz/availability", on="online", off="offline" ]
+}
+
+//Senzorji gibanja
+Thing mqtt:topic:mosquitto:vhodMot "Gibanje hodnik spodaj vhod" (mqtt:broker:mosquitto) @ "Hodnik spodaj" {
+    Channels:
+        Type switch : occupancy         "occupancy"     [ stateTopic = "zigbee2mqtt/vhodMot/occupancy", on="true", off="false" ]
+        Type number : illuminance       "illuminance"   [ stateTopic = "zigbee2mqtt/vhodMot/illuminance" ] 
+        Type number : illuminance_lux   "illuminance"   [ stateTopic = "zigbee2mqtt/vhodMot/illuminance_lux" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/vhodMot/voltage" ]     
+        Type number : battery           "battery"       [ stateTopic = "zigbee2mqtt/vhodMot/battery" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/vhodMot/linkquality" ]               
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/vhodMot/device_temperature" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/vhodMot/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:hodnikSMot "Gibanje hodnik spodaj" (mqtt:broker:mosquitto) @ "Hodnik spodaj" {
+    Channels:
+        Type switch : occupancy         "occupancy"     [ stateTopic = "zigbee2mqtt/motHodnikS/occupancy", on="true", off="false" ]
+        Type number : illuminance       "illuminance"   [ stateTopic = "zigbee2mqtt/motHodnikS/illuminance" ]
+        Type number : illuminance_lux   "illuminance"   [ stateTopic = "zigbee2mqtt/motHodnikS/illuminance_lux" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/motHodnikS/voltage" ]     
+        Type number : battery           "battery"       [ stateTopic = "zigbee2mqtt/motHodnikS/battery" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/motHodnikS/linkquality" ]               
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/motHodnikS/device_temperature" ]
+        Type number : power_outage      "powerOutage"   [ stateTopic = "zigbee2mqtt/motHodnikS/power_outage_count" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/motHodnikS/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:hodnikZMot "Gibanje hodnik zgoraj" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" {
+    Channels:
+        Type switch : occupancy         "occupancy"     [ stateTopic = "zigbee2mqtt/motHodnikZ/occupancy", on="true", off="false" ]
+        Type number : illuminance       "illuminance"   [ stateTopic = "zigbee2mqtt/motHodnikZ/illuminance" ]
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/motHodnikZ/device_temperature" ]
+        Type number : power_outage      "powerOutage"   [ stateTopic = "zigbee2mqtt/motHodnikZ/power_outage_count" ]
+        Type number : illuminance_lux   "illuminance"   [ stateTopic = "zigbee2mqtt/motHodnikZ/illuminance_lux" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/motHodnikZ/voltage" ]     
+        Type number : battery           "battery"       [ stateTopic = "zigbee2mqtt/motHodnikZ/battery" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/motHodnikZ/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/motHodnikZ/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:hodnikKopalnicaZMot "Gibanje hodnik zgoraj pred kopalnico" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" {
+    Channels:
+        Type switch : occupancy         "occupancy"     [ stateTopic = "zigbee2mqtt/motHodnikKopalnicaZ/occupancy", on="true", off="false" ]
+        Type number : illuminance       "illuminance"   [ stateTopic = "zigbee2mqtt/motHodnikKopalnicaZ/illuminance" ]
+        Type number : illuminance_lux   "illuminance"   [ stateTopic = "zigbee2mqtt/motHodnikKopalnicaZ/illuminance_lux" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/motHodnikKopalnicaZ/voltage" ]     
+        Type number : battery           "battery"       [ stateTopic = "zigbee2mqtt/motHodnikKopalnicaZ/battery" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/motHodnikKopalnicaZ/linkquality" ]               
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/motHodnikKopalnicaZ/device_temperature" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/motHodnikKopalnicaZ/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:kuhinjaMot "Gibanje kuhinja" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type switch : occupancy         "occupancy"     [ stateTopic = "zigbee2mqtt/motKuhinja/occupancy", on="true", off="false" ]
+        Type number : illuminance       "illuminance"   [ stateTopic = "zigbee2mqtt/motKuhinja/illuminance" ]
+        Type number : illuminance_lux   "illuminance"   [ stateTopic = "zigbee2mqtt/motKuhinja/illuminance_lux" ]
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/motKuhinja/device_temperature" ]
+        Type number : power_outage      "powerOutage"   [ stateTopic = "zigbee2mqtt/motKuhinja/power_outage_count" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/motKuhinja/voltage" ]     
+        Type number : battery           "battery"       [ stateTopic = "zigbee2mqtt/motKuhinja/battery" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/motKuhinja/linkquality" ]               
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/motKuhinja/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:dnevnaMot "Gibanje dnevna" (mqtt:broker:mosquitto) @ "Dnevna" {
+    Channels:
+        Type switch : occupancy         "occupancy"     [ stateTopic = "zigbee2mqtt/motDnevna/occupancy", on="true", off="false" ]
+        Type number : illuminance       "illuminance"   [ stateTopic = "zigbee2mqtt/motDnevna/illuminance" ]
+        Type number : illuminance_lux   "illuminance"   [ stateTopic = "zigbee2mqtt/motDnevna/illuminance_lux" ]
+        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/motDnevna/device_temperature" ]
+        Type number : power_outage      "powerOutage"   [ stateTopic = "zigbee2mqtt/motDnevna/power_outage_count" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/motDnevna/voltage" ]     
+        Type number : battery           "battery"       [ stateTopic = "zigbee2mqtt/motDnevna/battery" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/motDnevna/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/motDnevna/availability", on="online", off="offline" ]
+}
+
+//talno gretje
+Thing mqtt:topic:mosquitto:talnoZgoraj1 "Talno gretje zgoraj 1" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" {
+    Channels:
+        Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/talnoZgoraj1/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj1/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+        Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/talnoZgoraj1/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj1/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoZgoraj1/linkquality" ]
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/talnoZgoraj1/device_temperature" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/talnoZgoraj1/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:talnoZgoraj2 "Talno gretje zgoraj 2" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" {
+    Channels:
+        Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/talnoZgoraj2/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj2/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+        Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/talnoZgoraj2/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj2/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoZgoraj2/linkquality" ]
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/talnoZgoraj2/device_temperature" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/talnoZgoraj2/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:talnoSpodaj3 "Talno gretje spodaj 3" (mqtt:broker:mosquitto) @ "Energetski prostor" {
+    Channels:
+        Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/talnoSpodaj3/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj3/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+        Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/talnoSpodaj3/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj3/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoSpodaj3/linkquality" ]
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/talnoSpodaj3/device_temperature" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/talnoSpodaj3/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:talnoSpodaj2 "Talno gretje spodaj 2" (mqtt:broker:mosquitto) @ "Energetski prostor" {
+    Channels:
+        Type switch : state1        "state1"        [ stateTopic = "zigbee2mqtt/talnoSpodaj2/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj2/l1/set", transformationPattern = "JSONPATH:$.state_l1" ]
+        Type switch : state2        "state2"        [ stateTopic = "zigbee2mqtt/talnoSpodaj2/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj2/l2/set", transformationPattern = "JSONPATH:$.state_l2" ]
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoSpodaj2/linkquality" ]
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/talnoSpodaj2/device_temperature" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/talnoSpodaj2/availability", on="online", off="offline" ]
+}
+
+
+//Kontakt senzor za vrata in okna
+Thing mqtt:topic:mosquitto:vhodContact "Kontakt vhodna vrata" (mqtt:broker:mosquitto) @ "Hodnik spodaj" {
+    Channels:
+        Type switch : state         "occupancy"     [ stateTopic = "zigbee2mqtt/vrataVhod/contact", on="false", off="true" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/vrataVhod/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/vrataVhod/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/vrataVhod/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/vrataVhod/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:dviznoDrsnaContact "Kontakt dvižno drsna vrata" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type switch : state         "occupancy"     [ stateTopic = "zigbee2mqtt/oknoKuhinja/contact", on="false", off="true" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/oknoKuhinja/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/oknoKuhinja/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/oknoKuhinja/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/oknoKuhinja/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:nagibnoDrsnaContact "Kontakt nagibno drsna" (mqtt:broker:mosquitto) @ "Dnevna" {
+    Channels:
+        Type switch : state         "occupancy"     [ stateTopic = "zigbee2mqtt/oknoDnevna/contact", on="false", off="true" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/oknoDnevna/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/oknoDnevna/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/oknoDnevna/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/oknoDnevna/availability", on="online", off="offline" ]
+}
+
+
+//Puščanje vode
+Thing mqtt:topic:mosquitto:kuhinjaLeak "Puščanje vode kuhinja" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type switch : leak          "leak"          [ stateTopic = "zigbee2mqtt/waterLeakKuhinja/water_leak", on="true", off="false" ]
+        Type switch : battery_low   "battery_low"   [ stateTopic = "zigbee2mqtt/waterLeakKuhinja/battery_low", on="true", off="false" ]
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/waterLeakKuhinja/temperature" ]     
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/waterLeakKuhinja/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/waterLeakKuhinja/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/waterLeakKuhinja/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/waterLeakKuhinja/availability", on="online", off="offline" ]
+}
+
+
+//Detektor dima
+// Thing mqtt:topic:mosquitto:cumnataSmoke "Detektor dima čumnata" (mqtt:broker:mosquitto) @ "Čumnata" {
+//     Channels:
+//         Type switch : smoke         "smoke"         [ stateTopic = "zigbee2mqtt/cumnataSmoke/smoke" ]
+//         Type switch : battery_low   "battery_low"   [ stateTopic = "zigbee2mqtt/cumnataSmoke/battery_low" ]
+//         Type switch : tamper        "tamper"        [ stateTopic = "zigbee2mqtt/cumnataSmoke/tamper" ]
+//         Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/cumnataSmoke/device_temperature" ]
+//         Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/cumnataSmoke/voltage" ] 
+//         Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/cumnataSmoke/battery" ]
+//         Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/cumnataSmoke/linkquality" ]
+//         Type number : smoke_density "smoke_density" [ stateTopic = "zigbee2mqtt/cumnataSmoke/smoke_density" ]
+//         Type string : sensitivity   "sensitivity"   [ stateTopic = "zigbee2mqtt/cumnataSmoke/sensitivity" ]
+// }

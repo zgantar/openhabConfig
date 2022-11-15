@@ -1,0 +1,3 @@
+Bridge airquality:api:main "AirQuality Bridge" [apiKey="01e386135d4e8e2587bf436e5564c893a88e98d0"] {
+    station AI_Kranj "AirQuality Kranj"[stationId="13356", refresh=60]
+}

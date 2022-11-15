@@ -3,7 +3,7 @@ when
 	Time cron "0 0 22 ? * MON-FRI"
 then
 	sendCommand(LowElectricity, ON)
-	logInfo("electricity", "Začetek poceni elektrike - " + LowElectricity.state)
+	logDebug("electricity", "Začetek poceni elektrike - " + LowElectricity.state)
 end	
 
 rule "Time of lower price electricity end weekdays"
@@ -11,7 +11,7 @@ when
 	Time cron "0 0 6 ? * MON-FRI"
 then
 	sendCommand(LowElectricity, OFF)
-	logInfo("electricity", "Konec poceni elektrike - " + LowElectricity.state)
+	logDebug("electricity", "Konec poceni elektrike - " + LowElectricity.state)
 end
  
 rule "Set things up"
@@ -19,83 +19,83 @@ when
 	System started
 then
 	//setting the price of electricity
-	logInfo("electricity", "Ura je - " + now.toString)
-	if (now.getHourOfDay > 6 && now.getHourOfDay < 22 && (now.getDayOfWeek != 6 && now.getDayOfWeek != 7)) {
+	logDebug("electricity", "Ura je - " + now.toString)
+	if (now.getHour > 6 && now.getHour < 22 && (now.getDayOfWeek != 6 && now.getDayOfWeek != 7)) {
 		sendCommand(LowElectricity, OFF)
 	} else {
 		sendCommand(LowElectricity, ON)
 	}
-	logInfo("electricity", "Poceni elektrika je - " + LowElectricity.state)
+	logDebug("electricity", "Poceni elektrika je - " + LowElectricity.state)
 end
 
 rule "Calculate hourly electricity consumption"
 when
 	Time cron "5 0 * * * ?"
 then
-	logInfo("electricity", "#####################Starting calculations for hourly electricity consumption values")
-	Consumption.members.forEach[ loopCons |
-		logInfo("electricity", "Calculating consumption for " + loopCons.toString)
-		val calcCons = CalcConsHour.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(4,7))).head
+	logDebug("electricity", "#####################Starting calculations for hourly electricity consumption values")
+	gConsumption.members.forEach[ loopCons |
+		logDebug("electricity", "============Calculating consumption for {} ===============", loopCons.toString)
+		val calcCons = gCalcConsHour.members.filter(calcCons | calcCons.name.substring(4,7).equals((loopCons.name.substring(4,7)))).head
 		if (calcCons !== null) {
-			logInfo("electricity", "The calculated item is " + calcCons.toString)
+			logDebug("electricity", "The calculated item is " + calcCons.toString)
 			var time = now.minusHours(1)
-			logInfo("electricity", "Calculating from " + time)
+			logDebug("electricity", "Calculating from " + time)
 			var tempCons = loopCons.deltaSince(now.minusHours(1).minusSeconds(6)) as Number
-			logInfo("electricity", "The delta consumption is " + tempCons)
+			logDebug("electricity", "The delta consumption is " + tempCons)
 			if (tempCons == null) tempCons = 0
 			postUpdate(calcCons, tempCons)
 			calcCons.persist
-			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
+			logDebug("electricity", "Saved the calculated consumption for {}", calcCons.toString)
 		}
 	]
-	logInfo("electricity", "#####################Ended calculations for hourly electricity consumption values")
+	logDebug("electricity", "#####################Ended calculations for hourly electricity consumption values")
 end
 
 rule "Calculate daily electricity consumption"
 when
-	Time cron "5 0 0 1/1 * ? *"
+	Time cron "10 0 0 * * ? *"
 then
-	logInfo("electricity", "#####################Starting calculations for daily electricity consumption values")
-	Consumption.members.forEach[ loopCons |
-		logInfo("electricity", "Calculating consumption for " + loopCons.toString)
-		val calcCons = CalcConsDay.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(4,7))).head
+	logDebug("electricity", "#####################Starting calculations for daily electricity consumption values")
+	gConsumption.members.forEach[ loopCons |
+		logDebug("electricity", "============Calculating consumption for {} ============", loopCons.toString)
+		val calcCons = gCalcConsDay.members.filter(calcCons | calcCons.name.substring(4,7).equals((loopCons.name.substring(4,7)))).head
 		if (calcCons !== null) {
-			logInfo("electricity", "The calculated item is " + calcCons.toString)
+			logDebug("electricity", "The calculated item is " + calcCons.toString)
 			var time = now.minusDays(1)
-			logInfo("electricity", "Calculating from " + time)
+			logDebug("electricity", "Calculating from " + time)
 			var tempCons = loopCons.deltaSince(now.minusDays(1).minusSeconds(6)) as Number
-			logInfo("electricity", "The calculated consumption is " + tempCons)
+			logDebug("electricity", "The calculated consumption is " + tempCons)
 			if (tempCons == null) tempCons = 0
 			postUpdate(calcCons, tempCons)
 			calcCons.persist
-			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
+			logDebug("electricity", "Saved the calculated consumption for {}", calcCons.toString)
 		}
 	]
-	logInfo("electricity", "#####################Ended calculations for daily electricity consumption values")
+	logDebug("electricity", "#####################Ended calculations for daily electricity consumption values")
 end
 
 
 rule "Calculate monthly electricity consumption"
 when
-	Time cron "5 0 0 1 1/1 ? *"
+	Time cron "15 0 0 1 * ?"
 then
-	logInfo("electricity", "#####################Starting calculations for monthly electricity consumption values")
-	Consumption.members.forEach[ loopCons |
-		logInfo("electricity", "Calculating consumption for " + loopCons.toString)
-		val calcCons = CalcConsMonth.members.filter(calcCons | calcCons.name.containsIgnoreCase(loopCons.name.substring(4,7))).head
+	logDebug("electricity", "#####################Starting calculations for monthly electricity consumption values")
+	gConsumption.members.forEach[ loopCons |
+		logDebug("electricity", "============Calculating consumption for {} ============", loopCons.toString)
+		val calcCons = gCalcConsMonth.members.filter(calcCons | calcCons.name.substring(4,7).equals((loopCons.name.substring(4,7)))).head
 		if (calcCons !== null) {
-			logInfo("electricity", "The calculated item is " + calcCons.toString)
+			logDebug("electricity", "The calculated item is " + calcCons.toString)
 			var time = now.minusMonths(1)
-			logInfo("electricity", "Calculating from " + time)
+			logDebug("electricity", "Calculating from " + time)
 			var tempCons = loopCons.deltaSince(now.minusMonths(1).minusSeconds(6)) as Number
-			logInfo("electricity", "The calculated consumption is " + tempCons)
+			logDebug("electricity", "The calculated consumption is " + tempCons)
 			if (tempCons == null) tempCons = 0
 			postUpdate(calcCons, tempCons)
 			calcCons.persist
-			logInfo("electricity", "Saved the calculated consumption " + calcCons.toString)
+			logDebug("electricity", "Saved the calculated consumption for {}", calcCons.toString)
 		}
 	]
-	logInfo("electricity", "#####################Ended calculations for monthly electricity consumption values")
+	logDebug("electricity", "#####################Ended calculations for monthly electricity consumption values")
 end
 
 
@@ -104,12 +104,12 @@ when
 	System started
 then
 	logDebug("electricity", "Setting up all needed variables!")
-	CalcConsDay.members.forEach[ item |
+	gCalcConsDay.members.forEach[ item |
 		logDebug("electricity", "Setting up item " + item)
 		if (item.state == NULL) item.postUpdate(0.0)
 		logDebug("electricity", "Item set up " + item.toString)
 	]
-	CalcConsHour.members.forEach[ item |
+	gCalcConsHour.members.forEach[ item |
 		logDebug("electricity", "Setting up item " + item)
 		if (item.state == NULL) item.postUpdate(0.0)
 		logDebug("electricity", "Item set up " + item.toString)

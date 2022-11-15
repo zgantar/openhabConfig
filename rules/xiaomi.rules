@@ -2,22 +2,22 @@ val double conv = 57.2957795131
 
 rule "Xiaomi Switch"
 when
-    Item ClickSwitchBlinds changed
+    Item stikaloZaluzijeSwitch changed
 then
-    logInfo("Xiaomi", "Dobil klik {}", ClickSwitchBlinds.state.toString)
-    if (ClickSwitchBlinds.state.toString == "single") {
+    logInfo("Xiaomi", "Dobil klik {}", stikaloZaluzijeSwitch.state.toString)
+    if (stikaloZaluzijeSwitch.state.toString == "single") {
         GroundFlorPeek.sendCommand(ON)
-    } else if (ClickSwitchBlinds.state.toString == "double") {
+    } else if (stikaloZaluzijeSwitch.state.toString == "double") {
         AllCompleteDo.sendCommand(ON)    
-    } else if (ClickSwitchBlinds.state.toString == "triple") {
+    } else if (stikaloZaluzijeSwitch.state.toString == "triple") {
         BlindsGroundFlorUp.sendCommand(ON)
-    } else if (ClickSwitchBlinds.state.toString == "quadruple") {
+    } else if (stikaloZaluzijeSwitch.state.toString == "quadruple") {
 
-    } else if (ClickSwitchBlinds.state.toString == "many") {
+    } else if (stikaloZaluzijeSwitch.state.toString == "many") {
 
-    } else if (ClickSwitchBlinds.state.toString == "hold") {
+    } else if (stikaloZaluzijeSwitch.state.toString == "hold") {
         
-    } else if (ClickSwitchBlinds.state.toString == "release") {
+    } else if (stikaloZaluzijeSwitch.state.toString == "release") {
 
     }
 end

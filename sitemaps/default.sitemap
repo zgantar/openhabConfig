@@ -21,7 +21,7 @@ sitemap hisa label="Rezidenca Gantar" {
 //		Text item=HumAvg
 //	}
 	Frame label="Ogrevanje" {
-		Switch item=FhsHeater
+		Switch item=fhsHeater
 	}
 
 	Frame label="Julija" {

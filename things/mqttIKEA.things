@@ -1,0 +1,35 @@
+//Luči
+Thing mqtt:topic:mosquitto:otokMalaLuc "Luč mala otok" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/otokMalaLuc/brightness", commandTopic = "zigbee2mqtt/otokMalaLuc/set/brightness" ]
+        Type number : linkQuality   "povezava"      [ stateTopic = "zigbee2mqtt/otokMalaLuc/linkquality" ]
+        Type number : colorTemp     "barva luči"    [ stateTopic = "zigbee2mqtt/otokMalaLuc/color_temp", commandTopic = "zigbee2mqtt/otokMalaLuc/set/color_temp" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/otokMalaLuc/state", commandTopic = "zigbee2mqtt/otokMalaLuc/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/otokMalaLuc/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/otokMalaLuc/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:otokVelikaLuc "Luč velika otok" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/otokVelikaLuc/brightness", commandTopic = "zigbee2mqtt/otokVelikaLuc/set/brightness" ]
+        Type number : linkquality   "povezava"      [ stateTopic = "zigbee2mqtt/otokVelikaLuc/linkquality" ]
+        Type number : colorTemp     "barva luči"    [ stateTopic = "zigbee2mqtt/otokVelikaLuc/color_temp", commandTopic = "zigbee2mqtt/otokVelikaLuc/set/color_temp" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/otokVelikaLuc/state", commandTopic = "zigbee2mqtt/otokVelikaLuc/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/otokVelikaLuc/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/otokVelikaLuc/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:otokLuci "Luči otok" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/otokLuci/brightness", commandTopic = "zigbee2mqtt/otokLuci/set/brightness" ]
+        Type number : colorTemp     "barva luči"    [ stateTopic = "zigbee2mqtt/otokLuci/color_temp", commandTopic = "zigbee2mqtt/otokLuci/set/color_temp" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/otokLuci/state", commandTopic = "zigbee2mqtt/otokLuci/set/state", on="on", off="off" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/otokLuci/availability", on="online", off="offline" ]
+}
+
+//Stikala
+Thing mqtt:topic:mosquitto:stikaloLuciOtok "Stikalo luči otok" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type string : action            "akcija"        [ stateTopic = "zigbee2mqtt/otokStikalo/action" ]   //toggle;brightness_down_click;brightness_up_click;arrow_left_click;arrow_right_click;toggle_hold
+        Type number : battery           "baterija"      [ stateTopic = "zigbee2mqtt/otokStikalo/battery" ]
+        Type number : linkquality       "povezava"      [ stateTopic = "zigbee2mqtt/otokStikalo/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/otokStikalo/availability", on="online", off="offline" ]
+}

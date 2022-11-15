@@ -1,0 +1,12 @@
+Player    Sonos_Controller         "Upravljanje"                                     (gUpperCorridorSpeaker)    ["Control"]                  {channel="sonos:SYMFONISK:peglarnica:control"}
+Dimmer    Sonos_Volume             "Glasnost [%.1f %%]"        <soundvolume>         (gUpperCorridorSpeaker)    ["SoundVolume","Control"]    {channel="sonos:SYMFONISK:peglarnica:volume"}
+Switch    Sonos_Mute               "Utišaj"                    <soundvolume_mute>    (gUpperCorridorSpeaker)    ["Control"]                  {channel="sonos:SYMFONISK:peglarnica:mute"}
+Switch    Sonos_LED                "LED"                       <switch>              (gUpperCorridorSpeaker)    ["Control"]                  {channel="sonos:SYMFONISK:peglarnica:led"}
+String    Sonos_CurrentTrack       "Trenutno igra [%s]"        <text>                (gUpperCorridorSpeaker)                                 {channel="sonos:SYMFONISK:peglarnica:currenttrack"}
+String    Sonos_State              "Status [%s]"               <text>                (gUpperCorridorSpeaker)                                 {channel="sonos:SYMFONISK:peglarnica:state"}
+String    Sonos_TuneInStation      "TuneIn postaja [%s]"       <text>                (gUpperCorridorSpeaker)                                 {channel="sonos:SYMFONISK:peglarnica:tuneinstation"}
+String    Sonos_TuneInStationID    "ID TuneIn postaje [%s]"    <text>                (gUpperCorridorSpeaker)                                 {channel="sonos:SYMFONISK:peglarnica:tuneinstationid"}
+String    Sonos_Radio              "Radijska postaja [%s]"     <text>                (gUpperCorridorSpeaker)                                 {channel="sonos:SYMFONISK:peglarnica:radio"}
+String    Sonos_PlayURI            "Igraj naslov [%s]"         <text>                (gUpperCorridorSpeaker)                                 {channel="sonos:SYMFONISK:peglarnica:playuri"}
+String    Sonos_MediaTitle         "Naslov skladbe [%s]"       <text>                (gUpperCorridorSpeaker)                                 {channel="sonos:SYMFONISK:peglarnica:currenttitle"}
+String    Sonos_MediaArtist        "Izvajalec skladbe [%s]"    <text>                (gUpperCorridorSpeaker)                                 {channel="sonos:SYMFONISK:peglarnica:currentartist"}
