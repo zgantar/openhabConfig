@@ -1,0 +1,12 @@
+Thing mqtt:topic:mosquitto:plugTvHiFi "Vtičnica TV in HiFi" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" {
+    Channels:
+        Type switch : state1        "state 1"       [ stateTopic = "shellies/plugTVHiFi/relay/1", on="on", off="off", commandTopic = "shellies/plugTVHiFi/relay/1/command" ]
+        Type switch : state0        "state 0"       [ stateTopic = "shellies/plugTVHiFi/relay/0", on="on", off="off", commandTopic = "shellies/plugTVHiFi/relay/0/command" ]
+        Type number : power1        "power 1"       [ stateTopic = "shellies/plugTVHiFi/relay/1/power" ]
+        Type number : power0        "power 0"       [ stateTopic = "shellies/plugTVHiFi/relay/0/power" ]
+        Type number : consumption1  "consumption 1" [ stateTopic = "shellies/plugTVHiFi/relay/1/energy", transformationPattern="JS:Wm2kWh.js" ]
+        Type number : consumption0  "consumption 0" [ stateTopic = "shellies/plugTVHiFi/relay/0/energy", transformationPattern="JS:Wm2kWh.js" ]
+        Type number : temperature   "temperature"   [ stateTopic = "shellies/plugTVHiFi/temperature" ]
+        Type number : voltage       "voltage"       [ stateTopic = "shellies/plugTVHiFi/voltage" ]
+        Type switch : overTemp      "overTemp"      [ stateTopic = "shellies/plugTVHiFi/overtemperature", on="1", off="0" ]
+}

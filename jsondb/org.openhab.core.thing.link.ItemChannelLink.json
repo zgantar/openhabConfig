@@ -1,0 +1,1142 @@
+{
+  "TempRekuperacija -\u003e mqtt:topic:mosquitto:recupTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "recupTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:recupTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempRekuperacija"
+    }
+  },
+  "TempKopalnicaS -\u003e mqtt:topic:mosquitto:kopalnicaSTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "kopalnicaSTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:kopalnicaSTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempKopalnicaS"
+    }
+  },
+  "HumKopalnicaS -\u003e mqtt:topic:9986d199fd:8f63f9c935:sBathRoomBellowTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8f63f9c935",
+          "sBathRoomBellowTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8f63f9c935:sBathRoomBellowTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumKopalnicaS"
+    }
+  },
+  "HumKabinet -\u003e mqtt:topic:mosquitto:kabinetTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "kabinetTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:kabinetTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumKabinet"
+    }
+  },
+  "PlugFreeLinkQaulity -\u003e mqtt:topic:mosquitto:freePlug:linkquality": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "freePlug",
+          "linkquality"
+        ],
+        "uid": "mqtt:topic:mosquitto:freePlug:linkquality"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugFreeLinkQaulity"
+    }
+  },
+  "TempKopalnicaZ -\u003e mqtt:topic:mosquitto:kopalnicaZTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "kopalnicaZTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:kopalnicaZTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempKopalnicaZ"
+    }
+  },
+  "HumKuhinja -\u003e mqtt:topic:9986d199fd:eb9ceb582a:sKitchenTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "eb9ceb582a",
+          "sKitchenTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:eb9ceb582a:sKitchenTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumKuhinja"
+    }
+  },
+  "HumDnevna -\u003e mqtt:topic:mosquitto:dnevnaTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "dnevnaTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:dnevnaTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumDnevna"
+    }
+  },
+  "Vticnicaskrinja_Poraba -\u003e mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugConsumption": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d",
+          "sPantryPlugConsumption"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugConsumption"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Vticnicaskrinja_Poraba"
+    }
+  },
+  "Vticnicaskrinja_Stikalo -\u003e mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugSwitch": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d",
+          "sPantryPlugSwitch"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugSwitch"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Vticnicaskrinja_Stikalo"
+    }
+  },
+  "HumKopalnicaZ -\u003e mqtt:topic:mosquitto:kopalnicaZTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "kopalnicaZTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:kopalnicaZTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumKopalnicaZ"
+    }
+  },
+  "HumLopa -\u003e mqtt:topic:mosquitto:lopaTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "lopaTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:lopaTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumLopa"
+    }
+  },
+  "Temperaturacumnata_Baterija -\u003e mqtt:topic:9986d199fd:8a899d3186:sPantryTempBattery": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8a899d3186",
+          "sPantryTempBattery"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempBattery"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Temperaturacumnata_Baterija"
+    }
+  },
+  "sTemperaturarekuperacija_Baterija -\u003e mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempBattery": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8389ca7d72",
+          "sRecuperationTempBattery"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempBattery"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "sTemperaturarekuperacija_Baterija"
+    }
+  },
+  "PlugFreeCurrent -\u003e mqtt:topic:mosquitto:freePlug:current": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "freePlug",
+          "current"
+        ],
+        "uid": "mqtt:topic:mosquitto:freePlug:current"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugFreeCurrent"
+    }
+  },
+  "Vticnicaskrinja_Temperatura -\u003e mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugTemperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d",
+          "sPantryPlugTemperature"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugTemperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Vticnicaskrinja_Temperatura"
+    }
+  },
+  "TempJulija -\u003e mqtt:topic:mosquitto:julijaTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "julijaTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:julijaTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempJulija"
+    }
+  },
+  "HumKabinet -\u003e mqtt:topic:9986d199fd:1b6ad011ed:sOfficeTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "1b6ad011ed",
+          "sOfficeTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:1b6ad011ed:sOfficeTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumKabinet"
+    }
+  },
+  "TempAljaz -\u003e mqtt:topic:9986d199fd:b029cc35d8:sAljazTempTemperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "b029cc35d8",
+          "sAljazTempTemperature"
+        ],
+        "uid": "mqtt:topic:9986d199fd:b029cc35d8:sAljazTempTemperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempAljaz"
+    }
+  },
+  "HumHodnikS -\u003e mqtt:topic:9986d199fd:dbad7fd3f5:sCorridorBellowTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "dbad7fd3f5",
+          "sCorridorBellowTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:dbad7fd3f5:sCorridorBellowTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumHodnikS"
+    }
+  },
+  "HumHodnikS -\u003e mqtt:topic:mosquitto:hodnikSTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "hodnikSTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:hodnikSTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumHodnikS"
+    }
+  },
+  "HumKopalnicaS -\u003e mqtt:topic:mosquitto:kopalnicaSTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "kopalnicaSTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:kopalnicaSTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumKopalnicaS"
+    }
+  },
+  "TempSpalnica -\u003e mqtt:topic:mosquitto:spalnicaTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "spalnicaTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:spalnicaTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempSpalnica"
+    }
+  },
+  "Temperaturacumnata_Temperatura -\u003e mqtt:topic:9986d199fd:8a899d3186:sPantryTempTemperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8a899d3186",
+          "sPantryTempTemperature"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempTemperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Temperaturacumnata_Temperatura"
+    }
+  },
+  "TempKabinet -\u003e mqtt:topic:mosquitto:kabinetTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "kabinetTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:kabinetTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempKabinet"
+    }
+  },
+  "HumKuhinja -\u003e mqtt:topic:mosquitto:kuhinjaTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "kuhinjaTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:kuhinjaTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumKuhinja"
+    }
+  },
+  "HumHodnikZ -\u003e mqtt:topic:mosquitto:hodnikZTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "hodnikZTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:hodnikZTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumHodnikZ"
+    }
+  },
+  "HumRekuperacija -\u003e mqtt:topic:mosquitto:recupTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "recupTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:recupTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumRekuperacija"
+    }
+  },
+  "HumCumnata -\u003e mqtt:topic:9986d199fd:8a899d3186:sPantryTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8a899d3186",
+          "sPantryTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumCumnata"
+    }
+  },
+  "sTemperaturarekuperacija_Temperatura -\u003e mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempTemperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8389ca7d72",
+          "sRecuperationTempTemperature"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempTemperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "sTemperaturarekuperacija_Temperatura"
+    }
+  },
+  "PlugFreePower -\u003e mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugPower": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d",
+          "sPantryPlugPower"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugPower"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugFreePower"
+    }
+  },
+  "HumJulija -\u003e mqtt:topic:9986d199fd:b2acb5252f:sJulijaTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "b2acb5252f",
+          "sJulijaTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:b2acb5252f:sJulijaTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumJulija"
+    }
+  },
+  "TempCumnata -\u003e mqtt:topic:9986d199fd:8a899d3186:sPantryTempTemperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8a899d3186",
+          "sPantryTempTemperature"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempTemperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempCumnata"
+    }
+  },
+  "TempDnevna -\u003e mqtt:topic:mosquitto:dnevnaTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "dnevnaTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:dnevnaTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempDnevna"
+    }
+  },
+  "CumnataBattery -\u003e mqtt:topic:9986d199fd:8a899d3186:sPantryTempBattery": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8a899d3186",
+          "sPantryTempBattery"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempBattery"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "CumnataBattery"
+    }
+  },
+  "PlugFreeSwitch -\u003e mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugSwitch": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d",
+          "sPantryPlugSwitch"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugSwitch"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugFreeSwitch"
+    }
+  },
+  "HumAljaz -\u003e mqtt:topic:9986d199fd:b029cc35d8:sAljazTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "b029cc35d8",
+          "sAljazTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:b029cc35d8:sAljazTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumAljaz"
+    }
+  },
+  "TempEnergetski -\u003e mqtt:topic:mosquitto:energetskiTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "energetskiTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:energetskiTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempEnergetski"
+    }
+  },
+  "HumHodnikZ -\u003e mqtt:topic:9986d199fd:0119037e62:sCoridorrAboveTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "0119037e62",
+          "sCoridorrAboveTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:0119037e62:sCoridorrAboveTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumHodnikZ"
+    }
+  },
+  "HumEnergetski -\u003e mqtt:topic:9986d199fd:f94fbfa464:ssBoilerRoomTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "f94fbfa464",
+          "ssBoilerRoomTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:f94fbfa464:ssBoilerRoomTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumEnergetski"
+    }
+  },
+  "PlugFreeConsumption -\u003e mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugConsumption": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d",
+          "sPantryPlugConsumption"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugConsumption"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugFreeConsumption"
+    }
+  },
+  "HumKopalnicaZ -\u003e mqtt:topic:9986d199fd:c00778138c:sBathRoomTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "c00778138c",
+          "sBathRoomTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:c00778138c:sBathRoomTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumKopalnicaZ"
+    }
+  },
+  "HumSpalnica -\u003e mqtt:topic:mosquitto:spalnicaTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "spalnicaTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:spalnicaTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumSpalnica"
+    }
+  },
+  "HumAljaz -\u003e mqtt:topic:mosquitto:aljazTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "aljazTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:aljazTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumAljaz"
+    }
+  },
+  "HumLopa -\u003e mqtt:topic:9986d199fd:1f87180eab:sShedTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "1f87180eab",
+          "sShedTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:1f87180eab:sShedTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumLopa"
+    }
+  },
+  "HumSpalnica -\u003e mqtt:topic:9986d199fd:319f65fcdc:sBedRoomTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "319f65fcdc",
+          "sBedRoomTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:319f65fcdc:sBedRoomTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumSpalnica"
+    }
+  },
+  "TempKuhinja -\u003e mqtt:topic:mosquitto:kuhinjaTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "kuhinjaTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:kuhinjaTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempKuhinja"
+    }
+  },
+  "Vticnicaskrinja_Moc -\u003e mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugPower": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d",
+          "sPantryPlugPower"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugPower"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Vticnicaskrinja_Moc"
+    }
+  },
+  "Temperaturacumnata_Vlaznost -\u003e mqtt:topic:9986d199fd:8a899d3186:sPantryTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8a899d3186",
+          "sPantryTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8a899d3186:sPantryTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "Temperaturacumnata_Vlaznost"
+    }
+  },
+  "sTemperaturarekuperacija_Vlaznost -\u003e mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8389ca7d72",
+          "sRecuperationTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "sTemperaturarekuperacija_Vlaznost"
+    }
+  },
+  "HumJulija -\u003e mqtt:topic:mosquitto:julijaTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "julijaTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:julijaTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumJulija"
+    }
+  },
+  "TempHodnikS -\u003e mqtt:topic:mosquitto:hodnikSTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "hodnikSTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:hodnikSTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempHodnikS"
+    }
+  },
+  "TempLopa1 -\u003e mqtt:topic:mosquitto:lopaTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "lopaTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:lopaTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempLopa1"
+    }
+  },
+  "TempAljaz -\u003e mqtt:topic:mosquitto:aljazTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "aljazTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:aljazTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempAljaz"
+    }
+  },
+  "TempHodnikZ -\u003e mqtt:topic:mosquitto:hodnikZTemp:temperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "hodnikZTemp",
+          "temperature"
+        ],
+        "uid": "mqtt:topic:mosquitto:hodnikZTemp:temperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "TempHodnikZ"
+    }
+  },
+  "PlugFreeTemperature -\u003e mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugTemperature": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "d7ecd7a64d",
+          "sPantryPlugTemperature"
+        ],
+        "uid": "mqtt:topic:9986d199fd:d7ecd7a64d:sPantryPlugTemperature"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugFreeTemperature"
+    }
+  },
+  "PlugFreeVoltage -\u003e mqtt:topic:mosquitto:freePlug:voltage": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "freePlug",
+          "voltage"
+        ],
+        "uid": "mqtt:topic:mosquitto:freePlug:voltage"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "PlugFreeVoltage"
+    }
+  },
+  "HumRekuperacija -\u003e mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "8389ca7d72",
+          "sRecuperationTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:8389ca7d72:sRecuperationTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumRekuperacija"
+    }
+  },
+  "HumDnevna -\u003e mqtt:topic:9986d199fd:010795c67c:sLivingRoomTempHumidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "9986d199fd",
+          "010795c67c",
+          "sLivingRoomTempHumidity"
+        ],
+        "uid": "mqtt:topic:9986d199fd:010795c67c:sLivingRoomTempHumidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumDnevna"
+    }
+  },
+  "HumEnergetski -\u003e mqtt:topic:mosquitto:energetskiTemp:humidity": {
+    "class": "org.openhab.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "mqtt",
+          "topic",
+          "mosquitto",
+          "energetskiTemp",
+          "humidity"
+        ],
+        "uid": "mqtt:topic:mosquitto:energetskiTemp:humidity"
+      },
+      "configuration": {
+        "properties": {}
+      },
+      "itemName": "HumEnergetski"
+    }
+  }
+}

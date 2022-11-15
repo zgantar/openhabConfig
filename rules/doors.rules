@@ -1,7 +1,7 @@
 rule "Terace door opened"
 
 when
-    Item DoorDvigStatus changed to OPEN
+    Item gRaiseWindowContact changed to ON
 then
     logInfo("doors", "###########################Terace Door opened##############################")
     if (StateKuhinjaDes.state < 55000) {
@@ -12,27 +12,27 @@ then
     }
 end
 
-rule "Terace door closed"
+// rule "Terace door closed"
 
-when
-    Item DoorDvigStatus changed to CLOSED
-then
-    logInfo("doors", "########################### Terace Door closed ##############################")
-    if (StateKuhinjaDes.state > 0 && Integer.parseInt((OutSolarRad.state).toString) == 0) {
-        logInfo("doors", "Žaluzija na vratih ni spuščena")
-        ZalKuhinjaDesDo.sendCommand(ON)
-    } else {
-        logInfo("doors", "Žaluzija na vratih je spuščena zato ignoriram")
-    }
-end
+// when
+//     Item gRaiseWindowContact changed to OFF
+// then
+//     logInfo("doors", "########################### Terace Door closed ##############################")
+//     if (StateKuhinjaDes.state > 0 && gOutSolarRad.state == 0) {
+//         logInfo("doors", "Žaluzija na vratih ni spuščena")
+//         ZalKuhinjaDesDo.sendCommand(ON)
+//     } else {
+//         logInfo("doors", "Žaluzija na vratih je spuščena zato ignoriram")
+//     }
+// end
 
 rule "Living room terace door closed"
 
 when
-    Item DoorNagibStatus changed to CLOSED
+    Item gTiltWindowContact changed to OFF
 then
     logInfo("doors", "########################### Living room terace Door closed ##############################")
-    if (StateDnevnaDes.state > 0 && Integer.parseInt((OutSolarRad.state).toString) == 0) {
+    if (StateDnevnaDes.state > 0 && gOutSolarRad.state == 0) {
         logInfo("doors", "Žaluzija na vratih ni spuščena")
         ZalDnevnaDesDo.sendCommand(ON)
     } else {

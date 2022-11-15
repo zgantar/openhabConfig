@@ -1,0 +1,12 @@
+Thing mqtt:topic:mosquitto:talnoZgoraj3 "Talno gretje zgoraj 3" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" {
+    Channels:
+        Type switch : state         "state"         [ stateTopic = "zigbee2mqtt/talnoZgoraj3/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoZgoraj3/set" ]
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoZgoraj3/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/talnoZgoraj3/availability", on="online", off="offline" ]
+}
+Thing mqtt:topic:mosquitto:talnoSpodaj1 "Talno gretje spodaj 1" (mqtt:broker:mosquitto) @ "Energetski prostor" {
+    Channels:
+        Type switch : state         "state"         [ stateTopic = "zigbee2mqtt/talnoSpodaj1/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/talnoSpodaj1/set" ]
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/talnoSpodaj1/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/talnoSpodaj1/availability", on="online", off="offline" ]
+}

@@ -1,0 +1,6 @@
+{
+  "mqtt:systemBroker:prod": {
+    "class": "java.lang.String",
+    "value": ""
+  }
+}

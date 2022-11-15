@@ -1,11 +1,14 @@
 {
     //On-site settings
-    "openhab.host":"192.168.1.202",
-    "openhab.port": 8080,
     "openhab.lspPort": 5007,
-    //"openhab.host":"localhost",
-    //"openhab.port": 9000,
     //"openhab.lspPort": 9003,
-    "workbench.colorTheme": "Solarized Dark"
+    "workbench.colorTheme": "Solarized Dark",
+    "openhab.useRestApi": true,
+    "openhab.connection.host": "192.168.1.92",
+    "openhab.connection.port": 8080,
+    "openhab.connection.authToken": "oh.VisualStudioCode.QbNfKt8PlFKNjgskImhq7xLKt56i7UEHXW9t2wOt3hdz4wjWxreDYWluREChHr2VZqXCdaHfzqviJB4c81pQ",
+    "openhab.languageserver.remotePort": 5007,
+    "openhab.languageserver.remoteEnabled": true
+
     //Off-site settings 
 }

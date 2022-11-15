@@ -1,0 +1,98 @@
+{
+  "overview": {
+    "class": "org.openhab.core.ui.components.RootUIComponent",
+    "value": {
+      "uid": "overview",
+      "timestamp": "Jul 30, 2021, 3:09:33 PM",
+      "component": "oh-layout-page",
+      "config": {
+        "label": "Overview",
+        "layoutType": "responsive"
+      },
+      "slots": {
+        "default": [],
+        "masonry": [
+          {
+            "component": "oh-masonry",
+            "slots": {
+              "default": [
+                {
+                  "component": "oh-label-card",
+                  "config": {
+                    "trendItem": "Temperaturacumnata_BaterijaB",
+                    "action": "analyzer",
+                    "actionAnalyzerItems": [
+                      "Temperaturacumnata_BaterijaB"
+                    ],
+                    "item": "Temperaturacumnata_BaterijaB"
+                  }
+                },
+                {
+                  "component": "oh-label-card",
+                  "config": {
+                    "trendItem": "Vticnicaskrinja_Moc",
+                    "action": "analyzer",
+                    "actionAnalyzerItems": [
+                      "Vticnicaskrinja_Moc"
+                    ],
+                    "item": "Vticnicaskrinja_Moc"
+                  }
+                },
+                {
+                  "component": "oh-label-card",
+                  "config": {
+                    "trendItem": "Vticnicaskrinja_Poraba",
+                    "action": "analyzer",
+                    "actionAnalyzerItems": [
+                      "Vticnicaskrinja_Poraba"
+                    ],
+                    "item": "Vticnicaskrinja_Poraba"
+                  }
+                },
+                {
+                  "component": "oh-toggle-card",
+                  "config": {
+                    "item": "Vticnicaskrinja_Stikalo"
+                  }
+                },
+                {
+                  "component": "oh-label-card",
+                  "config": {
+                    "trendItem": "Temperaturacumnata_Temperatura",
+                    "action": "analyzer",
+                    "actionAnalyzerItems": [
+                      "Temperaturacumnata_Temperatura"
+                    ],
+                    "item": "Temperaturacumnata_Temperatura"
+                  }
+                },
+                {
+                  "component": "oh-label-card",
+                  "config": {
+                    "trendItem": "Vticnicaskrinja_Temperatura",
+                    "action": "analyzer",
+                    "actionAnalyzerItems": [
+                      "Vticnicaskrinja_Temperatura"
+                    ],
+                    "item": "Vticnicaskrinja_Temperatura"
+                  }
+                },
+                {
+                  "component": "oh-label-card",
+                  "config": {
+                    "trendItem": "Temperaturacumnata_Vlaznost",
+                    "action": "analyzer",
+                    "actionAnalyzerItems": [
+                      "Temperaturacumnata_Vlaznost"
+                    ],
+                    "item": "Temperaturacumnata_Vlaznost"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

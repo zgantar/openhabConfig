@@ -1,0 +1,1 @@
+Bridge mqtt:broker:mosquitto [ host="192.168.1.92", secure=false]

@@ -1,127 +1,127 @@
-Group:Number                    Temp            "Senzorji temperature"
-Group:Number                    Hum             "Senzorji vlažnosti"
-Group:Number                    Lum             "Senzorji svetlosti"
+// Group:Number                    Temp            "Senzorji temperature"
+// Group:Number                    Hum             "Senzorji vlažnosti"
+// Group:Number                    Lum             "Senzorji svetlosti"
 
-Group:Switch:AND(ON,OFF)        Mot             "Senzorji gibanja"
-Group:Switch:AND(ON,OFF)        GroundF         "Senzorji gibanja v pritličju"
-Group:Switch:AND(ON,OFF)        FirstF          "Senzorji gibanja v mansardi"
+// Group:Switch:AND(ON,OFF)         Mot                               "Senzorji gibanja"
+// Group:Switch:AND(ON,OFF)         GroundF                           "Senzorji gibanja v pritličju"
+// Group:Switch:AND(ON,OFF)         FirstF                            "Senzorji gibanja v mansardi"
 
-Group:Contact:OR(OPEN,CLOSED)   Door            "Odprta vrata"
+Group:Contact:OR(OPEN,CLOSED)    Door                              "Odprta vrata"
 
-Group:Switch:OR(ON,OFF)         Fhs             "Ventili talnega gretja"
-Group:Switch:OR(ON,OFF)         FhsRev          "Ventili talnega gretja NO"
+// Group:Switch:OR(ON,OFF)          Fhs                               "Ventili talnega gretja"
+// Group:Switch:OR(ON,OFF)          FhsRev                            "Ventili talnega gretja NO"
 
-Group:Number                    Power           "Trenutna priključna moč"
-Group:Number                    Consumption     "Poraba"
-Group:Switch                    InUse           "V uporabi"
-Group:Switch                    PlugSwitch	    "Stikalo za vtičnico"
+// Group:Number                     Power                             "Trenutna priključna moč"
+// Group:Number                     Consumption                       "Poraba"
+// Group:Switch                     InUse                             "V uporabi"
+// Group:Switch                     PlugSwitch                        "Stikalo za vtičnico"
 
-Group:Switch:OR(ON,OFF)         PhonePing       "Zaznava telefonov"
-Group:DateTime:MAX              LastSeen        "Max last seen [%1$td.%1$tm %1$tH:%1$tM]" 
+// Group:Switch:OR(ON,OFF)          PhonePing                         "Zaznava telefonov"
+// Group:DateTime:MAX               LastSeen                          "Max last seen [%1$td.%1$tm %1$tH:%1$tM]"
 
-Group                           Cube            "Kockice"
+Group                            Cube                              "Kockice"
 
-Group                           Smoke           "Senzor za dim"
+Group                            Smoke                             "Senzor za dim"
 
-Group:Number                    Battery         "Baterije"
-Group:Switch:OR(ON,OFF)         BatteryLow      "Opozorilo za slabo baterijo"
+// Group:Number                     Battery                           "Baterije"
+// Group:Switch:OR(ON,OFF)          BatteryLow                        "Opozorilo za slabo baterijo"
 
-Group:Switch                    WaterLeak       "Puščanje vode"
+Group:Switch                     WaterLeak                         "Puščanje vode"
 
-Group:Switch                    BlindAct            "Aktuatorji žaluzij"
-Group:Switch                    BlindSwi            "Stikala žaluzij"
-Group:Switch                    BlindD              "Žaluzije spodaj"
-Group:Switch                    BlindU              "Žaluzije zgoraj"
-Group:Switch                    BlindsOnDoors       "Žaluzije na vratih"
-Group:Switch                    BlindActUp          "Aktuatorji žaluzij"
-Group:Switch                    BlindActDo          "Aktuatorji žaluzij"
-Group:Switch:AND(ON,OFF)        BlindsAlive         "Mqtt status"
-Group:Switch:AND(ON,OFF)        ShellyOverTemp      "Shelly pregret"
+// Group:Switch                     BlindAct                          "Aktuatorji žaluzij"
+// Group:Switch                     BlindSwi                          "Stikala žaluzij"
+// Group:Switch                     BlindD                            "Žaluzije spodaj"
+// Group:Switch                     BlindU                            "Žaluzije zgoraj"
+// Group:Switch                     BlindsOnDoors                     "Žaluzije na vratih"
+// Group:Switch                     BlindActUp                        "Aktuatorji žaluzij"
+// Group:Switch                     BlindActDo                        "Aktuatorji žaluzij"
+// Group:Switch:AND(ON,OFF)         BlindsAlive                       "Mqtt status"
+// Group:Switch:AND(ON,OFF)         ShellyOverTemp                    "Shelly pregret"
 
-Group:Number                    LinkQuality         "Povezava"
-Group:Switch                    State               "Stanje luči"
-Group:Number                    ColorTemp           "Barva luči"
-Group:Number                    Brightness          "Svetlost"
+// Group:Number                     LinkQuality                       "Povezava"
+// Group:Switch                     State                             "Stanje luči"
+// Group:Number                     ColorTemp                         "Barva luči"
+// Group:Number                     Brightness                        "Svetlost"
 
 
-Switch      PhonePingableZiga   "Zaznana naprava" (PhonePing) { channel="network:pingdevice:ziga:online" }
-DateTime    PhoneLastSeenZiga   "Nazadnje viden"  (LastSeen)  { channel="network:pingdevice:ziga:lastseen" }
+// Switch                           PhonePingableZiga                 "Zaznana naprava"                                                  (PhonePing)                             {channel="network:pingdevice:ziga:online"}
+// DateTime                         PhoneLastSeenZiga                 "Nazadnje viden"                                                   (LastSeen)                              {channel="network:pingdevice:ziga:lastseen"}
 
-Switch      PhonePingableNina   "Zaznana naprava" (PhonePing) { channel="network:pingdevice:nina:online" }
-DateTime    PhoneLastSeenNina   "Nazadnje viden"  (LastSeen)  { channel="network:pingdevice:nina:lastseen" }
+// Switch                           PhonePingableNina                 "Zaznana naprava"                                                  (PhonePing)                             {channel="network:pingdevice:nina:online"}
+// DateTime                         PhoneLastSeenNina                 "Nazadnje viden"                                                   (LastSeen)                              {channel="network:pingdevice:nina:lastseen"}
 
 //Humidity
-Number	HumJulija		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:julijaTemp:humidity" }
-Number	HumAljaz		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:aljazTemp:humidity" }
-Number	HumSpalnica		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:spalnicaTemp:humidity" }
-Number	HumKuhinja		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kuhinjaTemp:humidity" }
-Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kabinetTemp:humidity" }
-Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kopalnicaZTemp:humidity" }
-Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mqtt:topic:mosquitto:kopalnicaSTemp:humidity" }
-Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:hodnikZTemp:humidity" }
-Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:hodnikSTemp:humidity" }
-Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:dnevnaTemp:humidity" }
-Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:cumnataTemp:humidity" }
-Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:recupTemp:humidity" }
-Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:energetskiTemp:humidity" }
-Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:lopaTemp:humidity" }
+// Number	HumJulija		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:julijaTemp:humidity" }
+// Number	HumAljaz		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:aljazTemp:humidity" }
+// Number	HumSpalnica		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:spalnicaTemp:humidity" }
+// Number	HumKuhinja		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kuhinjaTemp:humidity" }
+// Number	HumKabinet		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kabinetTemp:humidity" }
+// Number	HumKopalnicaZ	"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:kopalnicaZTemp:humidity" }
+// Number	HumKopalnicaS	"Vlažnost [%.1f %%]"    <humidity>	(Hum)	{ channel="mqtt:topic:mosquitto:kopalnicaSTemp:humidity" }
+// Number	HumHodnikZ		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:hodnikZTemp:humidity" }
+// Number	HumHodnikS		"Vlažnost [%.1f %%]"	<humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:hodnikSTemp:humidity" }
+// Number	HumDnevna		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:dnevnaTemp:humidity" }
+// Number	HumCumnata		"Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:cumnataTemp:humidity" }
+// Number	HumRekuperacija "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:recupTemp:humidity" }
+// Number	HumEnergetski   "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:energetskiTemp:humidity" }
+// Number	HumLopa1        "Vlažnost [%.1f %%]"    <humidity>  (Hum)	{ channel="mqtt:topic:mosquitto:lopaTemp:humidity" }
 
-//Temperature
-Number	TempJulija	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:julijaTemp:temperature" }
-Number	TempAljaz	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:aljazTemp:temperature" }
-Number	TempSpalnica        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:spalnicaTemp:temperature" }
-Number	TempKuhinja         "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kuhinjaTemp:temperature" }
-Number	TempKabinet	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kabinetTemp:temperature" }
-Number	TempKopalnicaZ      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kopalnicaZTemp:temperature" }
-Number	TempKopalnicaS      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kopalnicaSTemp:temperature" }
-Number	TempHodnikZ	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:hodnikZTemp:temperature" }
-Number	TempHodnikS	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:hodnikSTemp:temperature" }
-Number	TempDnevna		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:dnevnaTemp:temperature" }
-Number	TempCumnata		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:cumnataTemp:temperature" }
-Number	TempRekuperacija    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:recupTemp:temperature" }
-Number	TempEnergetski      "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:energetskiTemp:temperature" }
-Number	TempLopa1           "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:lopaTemp:temperature" }
+// //Temperature
+// Number	TempJulija	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:julijaTemp:temperature" }
+// Number	TempAljaz	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:aljazTemp:temperature" }
+// Number	TempSpalnica        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:spalnicaTemp:temperature" }
+// Number	TempKuhinja         "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kuhinjaTemp:temperature" }
+// Number	TempKabinet	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kabinetTemp:temperature" }
+// Number	TempKopalnicaZ      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kopalnicaZTemp:temperature" }
+// Number	TempKopalnicaS      "Temperatura  [%.2f °C]"    <temperature>   (Temp)	{ channel="mqtt:topic:mosquitto:kopalnicaSTemp:temperature" }
+// Number	TempHodnikZ	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:hodnikZTemp:temperature" }
+// Number	TempHodnikS	        "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:hodnikSTemp:temperature" }
+// Number	TempDnevna		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:dnevnaTemp:temperature" }
+// Number	TempCumnata		    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:cumnataTemp:temperature" }
+// Number	TempRekuperacija    "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:recupTemp:temperature" }
+// Number	TempEnergetski      "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:energetskiTemp:temperature" }
+// Number	TempLopa1           "Temperatura  [%.2f °C]"    <temperature>   (Temp)  { channel="mqtt:topic:mosquitto:lopaTemp:temperature" }
 
 
 //Plugs
 //Xiaomi Zigbee
-Switch  PlugTinkSwitch      "Vklopljen Tinkerforge"     <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mihome:sensor_plug:158d0001a68c94:power" }
-Switch  PlugTinkActive      "V uporabi"                 <switch>        (InUse)                             { channel="mihome:sensor_plug:158d0001a68c94:inUse" }
-Number  PlugTinkPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mihome:sensor_plug:158d0001a68c94:loadPower" }
-Number  PlugTinkConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d0001a68c94:powerConsumed" }
+// Switch                           PlugTinkSwitch                    "Vklopljen Tinkerforge"                      <switch>              (PlugSwitch)        [ "Switchable" ]    {channel="mihome:sensor_plug:158d0001a68c94:power"}
+// Switch                           PlugTinkActive                    "V uporabi"                                  <switch>              (InUse)                                 {channel="mihome:sensor_plug:158d0001a68c94:inUse"}
+// Number                           PlugTinkPower                     "Trenutna moč [%.2f W]"                      <energy>              (Power)                                 {channel="mihome:sensor_plug:158d0001a68c94:loadPower"}
+// Number                           PlugTinkConsumption               "Poraba [%d kWh]"                            <line-incline>        (Consumption)                           {channel="mihome:sensor_plug:158d0001a68c94:powerConsumed"}
 
-Switch  PlugRekuSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:recuPlug:state" }
-Number  PlugRekuPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:recuPlug:power" }
-Number  PlugRekuConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:recuPlug:consumption" }
-Number  PlugRekuTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:recuPlug:temperature" }
-Number  PlugRekuLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:recuPlug:linkquality" }
+// Switch  PlugRekuSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:recuPlug:state" }
+// Number  PlugRekuPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:recuPlug:power" }
+// Number  PlugRekuConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:recuPlug:consumption" }
+// Number  PlugRekuTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:recuPlug:temperature" }
+// Number  PlugRekuLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:recuPlug:linkquality" }
 
-Switch  PlugFridSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:fridPlug:state" }
-Number  PlugFridPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:fridPlug:power" }
-Number  PlugFridConsumption "Poraba [%.d kWh]"          <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:fridPlug:consumption" }
-Number  PlugFridTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:fridPlug:temperature" }
-Number  PlugFridVoltage     "Napetost [%d V]"           <line-incline>                                      { channel="mqtt:topic:mosquitto:fridPlug:voltage" }
-Number  PlugFridCurrent     "Tok [%.4f A]"              <line-incline>                                      { channel="mqtt:topic:mosquitto:fridPlug:current" }
-Number  PlugFridLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:fridPlug:linkquality" }
+// Switch  PlugFridSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:fridPlug:state" }
+// Number  PlugFridPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:fridPlug:power" }
+// Number  PlugFridConsumption "Poraba [%.d kWh]"          <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:fridPlug:consumption" }
+// Number  PlugFridTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:fridPlug:temperature" }
+// Number  PlugFridVoltage     "Napetost [%d V]"           <line-incline>                                      { channel="mqtt:topic:mosquitto:fridPlug:voltage" }
+// Number  PlugFridCurrent     "Tok [%.4f A]"              <line-incline>                                      { channel="mqtt:topic:mosquitto:fridPlug:current" }
+// Number  PlugFridLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:fridPlug:linkquality" }
 
-Switch  PlugFreeSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:freePlug:state" }
-Number  PlugFreePower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:freePlug:power" }
-Number  PlugFreeConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:freePlug:consumption" }
-Number  PlugFreeTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:freePlug:temperature" }
-Number  PlugFreeVoltage     "Napetost [%d V]"           <line-incline>                                      { channel="mqtt:topic:mosquitto:freePlug:voltage" }
-Number  PlugFreeCurrent     "Tok [%.4f A]"              <line-incline>                                      { channel="mqtt:topic:mosquitto:freePlug:current" }
-Number  PlugFreeLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:freePlug:linkquality" }
+// Switch  PlugFreeSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:freePlug:state" }
+// Number  PlugFreePower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:freePlug:power" }
+// Number  PlugFreeConsumption "Poraba [%d kWh]"           <line-incline>  (Consumption)                       { channel="mqtt:topic:mosquitto:freePlug:consumption" }
+// Number  PlugFreeTemperature "Temperatura [%.2f °C]"     <temperature>                                       { channel="mqtt:topic:mosquitto:freePlug:temperature" }
+// Number  PlugFreeVoltage     "Napetost [%d V]"           <line-incline>                                      { channel="mqtt:topic:mosquitto:freePlug:voltage" }
+// Number  PlugFreeCurrent     "Tok [%.4f A]"              <line-incline>                                      { channel="mqtt:topic:mosquitto:freePlug:current" }
+// Number  PlugFreeLinkQaulity "Kakovost povezave"                         (LinkQuality)                       { channel="mqtt:topic:mosquitto:freePlug:linkquality" }
 
 
-Number	PlugTVHiTemperature "Temperatura [%d °C]"                   <temperature_hot>   (ShellyOverTemp)                    { channel="shelly:shelly25-relay:68E216:device#innerTemp" }
-
-Switch	PlugTVHiSwitch      "Stikalo TV [MAP(si.map):SWITCH-%s]"    <switch>            (PlugSwitch)	[ "Switchable" ]    { channel="shelly:shelly25-relay:68E216:relay1#output" }
-Number  PlugTVHiPower       "Trenutna moč TV [%.2f W]"              <energy>            (Power)                             { channel="shelly:shelly25-relay:68E216:meter1#currentWatts" }
-Number  PlugTVHiConsumption "Poraba TV [%d kWh]"                    <line-incline>      (Consumption)                       { channel="shelly:shelly25-relay:68E216:meter1#totalKWH" }
-
-Switch	PlugHifiSwitch      "Stikalo HiFi [MAP(si.map):SWITCH-%s]"  <switch>            (PlugSwitch)	[ "Switchable" ]    { channel="shelly:shelly25-relay:68E216:relay2#output" }
-Number  PlugHifiPower       "Trenutna moč HiFi [%.2f W]"            <energy>            (Power)                             { channel="shelly:shelly25-relay:68E216:meter2#currentWatts" }
-Number  PlugHifiConsumption "Poraba HiFi [%d kWh]"                  <line-incline>      (Consumption)                       { channel="shelly:shelly25-relay:68E216:meter2#totalKWH" }
+// Number                           PlugTVHiTemperature               "Temperatura [%d °C]"                        <temperature_hot>     (ShellyOverTemp)                        {channel="shelly:shelly25-relay:68E216:device#innerTemp"}
+// 
+// Switch                           PlugTVHiSwitch                    "Stikalo TV [MAP(si.map):SWITCH-%s]"         <switch>              (PlugSwitch)        [ "Switchable" ]    {channel="shelly:shelly25-relay:68E216:relay1#output"}
+// Number                           PlugTVHiPower                     "Trenutna moč TV [%.2f W]"                   <energy>              (Power)                                 {channel="shelly:shelly25-relay:68E216:meter1#currentWatts"}
+// Number                           PlugTVHiConsumption               "Poraba TV [%d kWh]"                         <line-incline>        (Consumption)                           {channel="shelly:shelly25-relay:68E216:meter1#totalKWH"}
+// 
+// Switch                           PlugHifiSwitch                    "Stikalo HiFi [MAP(si.map):SWITCH-%s]"       <switch>              (PlugSwitch)        [ "Switchable" ]    {channel="shelly:shelly25-relay:68E216:relay2#output"}
+// Number                           PlugHifiPower                     "Trenutna moč HiFi [%.2f W]"                 <energy>              (Power)                                 {channel="shelly:shelly25-relay:68E216:meter2#currentWatts"}
+// Number                           PlugHifiConsumption               "Poraba HiFi [%d kWh]"                       <line-incline>        (Consumption)                           {channel="shelly:shelly25-relay:68E216:meter2#totalKWH"}
 
 // Switch  PlugTVHiSwitch      "Vklopljena"                <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="mqtt:topic:mosquitto:TVHiFiPlug:state" }
 // Number  PlugTVHiPower       "Trenutna moč [%.2f W]"     <energy>        (Power)                             { channel="mqtt:topic:mosquitto:TVHiFiPlug:power" }
@@ -135,345 +135,314 @@ Number  PlugHifiConsumption "Poraba HiFi [%d kWh]"                  <line-inclin
 // Number  PlugHifiConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="mihome:sensor_plug:158d000237314e:powerConsumed" }
 
 //Xiaomi WiFi
-Switch  PlugVacuSwitch      "Vklopljen sesalec"         <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="miio:basic:034BA5C5:power" }
+// Switch                           PlugVacuSwitch                    "Vklopljen sesalec"                          <switch>              (PlugSwitch)        [ "Switchable" ]    {channel="miio:basic:034BA5C5:power"}
 
 //CoolCam
-Switch  PlugSusiSwitch      "Vklopljen sušilec"         <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="zwave:device:3c30d241:node4:switch_binary" }
-Number  PlugSusiPower       "Trenutna moč"              <energy>        (Power)                             { channel="zwave:device:3c30d241:node4:meter_watts" }
-Number  PlugSusiConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="zwave:device:3c30d241:node4:meter_kwh" }
+// Switch                           PlugSusiSwitch                    "Vklopljen sušilec"                          <switch>              (PlugSwitch)        [ "Switchable" ]    {channel="zwave:device:3c30d241:node4:switch_binary"}
+// Number                           PlugSusiPower                     "Trenutna moč"                               <energy>              (Power)                                 {channel="zwave:device:3c30d241:node4:meter_watts"}
+// Number                           PlugSusiConsumption               "Poraba"                                     <line-incline>        (Consumption)                           {channel="zwave:device:3c30d241:node4:meter_kwh"}
 
-Switch  PlugPralSwitch      "Vklopljen pralni stroj"    <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="zwave:device:3c30d241:node3:switch_binary" }
-Number  PlugPralPower       "Trenutna moč"              <energy>        (Power)                             { channel="zwave:device:3c30d241:node3:meter_watts" }
-Number  PlugPralConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="zwave:device:3c30d241:node3:meter_kwh" }
+// Switch                           PlugPralSwitch                    "Vklopljen pralni stroj"                     <switch>              (PlugSwitch)        [ "Switchable" ]    {channel="zwave:device:3c30d241:node3:switch_binary"}
+// Number                           PlugPralPower                     "Trenutna moč"                               <energy>              (Power)                                 {channel="zwave:device:3c30d241:node3:meter_watts"}
+// Number                           PlugPralConsumption               "Poraba"                                     <line-incline>        (Consumption)                           {channel="zwave:device:3c30d241:node3:meter_kwh"}
 
-Switch  PlugIronSwitch      "Vklopljen likalnik"        <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="zwave:device:3c30d241:node5:switch_binary" }
-Number  PlugIronPower       "Trenutna moč"              <energy>        (Power)                             { channel="zwave:device:3c30d241:node5:meter_watts" }
-Number  PlugIronConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="zwave:device:3c30d241:node5:meter_kwh" }
+// Switch                           PlugIronSwitch                    "Vklopljen likalnik"                         <switch>              (PlugSwitch)        [ "Switchable" ]    {channel="zwave:device:3c30d241:node5:switch_binary"}
+// Number                           PlugIronPower                     "Trenutna moč"                               <energy>              (Power)                                 {channel="zwave:device:3c30d241:node5:meter_watts"}
+// Number                           PlugIronConsumption               "Poraba"                                     <line-incline>        (Consumption)                           {channel="zwave:device:3c30d241:node5:meter_kwh"}
 
 //TKBHome
-Switch  PlugHeatSwitch      "Vklopljen bojler"          <switch>        (PlugSwitch)	[ "Switchable" ]    { channel="zwave:device:3c30d241:node2:switch_binary" }
-Number  PlugHeatPower       "Trenutna moč"              <energy>        (Power)                             { channel="zwave:device:3c30d241:node2:meter_watts" }
-Number  PlugHeatConsumption "Poraba"                    <line-incline>  (Consumption)                       { channel="zwave:device:3c30d241:node2:meter_kwh" }
+// Switch                           PlugHeatSwitch                    "Vklopljen bojler"                           <switch>              (PlugSwitch)        [ "Switchable" ]    {channel="zwave:device:3c30d241:node2:switch_binary"}
+// Number                           PlugHeatPower                     "Trenutna moč"                               <energy>              (Power)                                 {channel="zwave:device:3c30d241:node2:meter_watts"}
+// Number                           PlugHeatConsumption               "Poraba"                                     <line-incline>        (Consumption)                           {channel="zwave:device:3c30d241:node2:meter_kwh"}
 
-Switch  PlugLiDnSwitch      "Vklopljeni TV&strop"       <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node8:switch_binary" }
-Switch  PlugLiDn1Switch1    "Vklopljena stropna luč"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node8:switch_binary1" }
-Switch  PlugLiDn2Switch2    "Vklopljena TV luč"         <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node8:switch_binary2" }
-
+// Switch                           PlugLiDnSwitch                    "Vklopljeni TV&strop"                        <switch>              (PlugSwitch)        [ "Lighting" ]      {channel="zwave:device:3c30d241:node8:switch_binary"}
+// Switch                           PlugLiDn1Switch1                  "Vklopljena stropna luč"                     <switch>              (PlugSwitch)        [ "Lighting" ]      {channel="zwave:device:3c30d241:node8:switch_binary1"}
+// Switch                           PlugLiDn2Switch2                  "Vklopljena TV luč"                          <switch>              (PlugSwitch)        [ "Lighting" ]      {channel="zwave:device:3c30d241:node8:switch_binary2"}
+// 
 //Qubino
-Switch  PlugLiStSwitch      "Vklopljena"    <switch>        (PlugSwitch)    [ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary" }
-Switch  PlugLiSt1Switch1    "Vklopljena"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary1" }
-Switch  PlugLiSt2Switch2    "Vklopljena"    <switch>        (PlugSwitch)	[ "Lighting" ]  { channel="zwave:device:3c30d241:node9:switch_binary2" }
+// Switch                           PlugLiStSwitch                    "Vklopljena"                                 <switch>              (PlugSwitch)        [ "Lighting" ]      {channel="zwave:device:3c30d241:node9:switch_binary"}
+// Switch                           PlugLiSt1Switch1                  "Vklopljena"                                 <switch>              (PlugSwitch)        [ "Lighting" ]      {channel="zwave:device:3c30d241:node9:switch_binary1"}
+// Switch                           PlugLiSt2Switch2                  "Vklopljena"                                 <switch>              (PlugSwitch)        [ "Lighting" ]      {channel="zwave:device:3c30d241:node9:switch_binary2"}
 
 //Shelly
-Switch  PlugLiDnWallSwitch          "Vklopljena stenska luč"                    <switch>            (PlugSwitch)        [ "Lighting" ]  { channel="shelly:shelly1:9413CD:relay#output" }
-Number	PlugLiDnWallSwitchOverTemp  "Dnevna stenska luč temperatura [%d °C]"    <temperature_hot>   (ShellyOverTemp)                    { channel="shelly:shelly1:9413CD:device#innerTemp" }
+// Switch                           PlugLiDnWallSwitch                "Vklopljena stenska luč"                     <switch>              (PlugSwitch)        [ "Lighting" ]      {channel="shelly:shelly1:9413CD:relay#output"}
+// Number                           PlugLiDnWallSwitchOverTemp        "Dnevna stenska luč temperatura [%d °C]"     <temperature_hot>     (ShellyOverTemp)                        {channel="shelly:shelly1:9413CD:device#innerTemp"}
 
 //Door
-Contact DoorDvigStatus      "Status [MAP(si.map):DOOR-%s]"                        <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen" }
-Contact DoorNagibStatus     "Status [MAP(si.map):DOOR-%s]"                        <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5f10d:isOpen" }
-Contact DoorVhodStatus      "Status [MAP(si.map):DOOR-%s]"                        <window>    (Door)  { channel="mihome:sensor_magnet:158d0001a5eff5:isOpen" }
+// Contact                          DoorDvigStatus                    "Status [MAP(si.map):DOOR-%s]"               <window>              (Door)                                  {channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen"}
+// Contact                          DoorNagibStatus                   "Status [MAP(si.map):DOOR-%s]"               <window>              (Door)                                  {channel="mihome:sensor_magnet:158d0001a5f10d:isOpen"}
+// Contact                          DoorVhodStatus                    "Status [MAP(si.map):DOOR-%s]"               <window>              (Door)                                  {channel="mihome:sensor_magnet:158d0001a5eff5:isOpen"}
 
 //Smoke
-Number  SmokeCumnataDensity     "Gostota"       <smoke>     (Smoke)    { channel="mihome:smoke:158d0001b76b9c:density" }
-Switch  SmokeCumnataAlarm       "Alarm"         <alarm>     (Smoke)    { channel="mihome:smoke:158d0001b76b9c:alarm" }
-String  SmokeCumnataStatus      "Status"        <status>    (Smoke)    { channel="mihome:smoke:158d0001b76b9c:status" }
-
+// Number                           SmokeCumnataDensity               "Gostota"                                    <smoke>               (Smoke)                                 {channel="mihome:smoke:158d0001b76b9c:density"}
+// Switch                           SmokeCumnataAlarm                 "Alarm"                                      <alarm>               (Smoke)                                 {channel="mihome:smoke:158d0001b76b9c:alarm"}
+// String                           SmokeCumnataStatus                "Status"                                     <status>              (Smoke)                                 {channel="mihome:smoke:158d0001b76b9c:status"}
+// 
 //cube
-DateTime        CubeDnevLastAction      "[%1$td.%1$tm.%1$tY  %1$tH:%1$tM]"  <clock-on>  (cube)  { channel="mihome:sensor_cube:158d00029abcd1:lastAction" }
-Number:Angle    CubeDnevRotationAngle   "Kot vrtenja [%d °]"                            (cube)  { channel="mihome:sensor_cube:158d00029abcd1:rotationAngle" }
-Number:Time     CubeDnevRotationTime    "Čas vrtenja [%d ms]"                           (cube)  { channel="mihome:sensor_cube:158d00029abcd1:rotationTime" }
+// DateTime                         CubeDnevLastAction                "[%1$td.%1$tm.%1$tY  %1$tH:%1$tM]"           <clock-on>            (cube)                                  {channel="mihome:sensor_cube:158d00029abcd1:lastAction"}
+// Number:Angle                     CubeDnevRotationAngle             "Kot vrtenja [%d °]"                                               (cube)                                  {channel="mihome:sensor_cube:158d00029abcd1:rotationAngle"}
+// Number:Time                      CubeDnevRotationTime              "Čas vrtenja [%d ms]"                                              (cube)                                  {channel="mihome:sensor_cube:158d00029abcd1:rotationTime"}
 
 //Water leak
-Switch  LeakKuhinjaAlarm    "Zaznal puščanje vode" <alarm> (WaterLeak)    { channel="mihome:sensor_wleak_aq1:158d000245c982:leak" }
-Switch  LeakEnergetskiAlarm "Zaznal puščanje vode" <alarm> (WaterLeak)    { channel="mihome:sensor_wleak_aq1:158d000245ca00:leak" }
-
+// Switch                           LeakKuhinjaAlarm                  "Zaznal puščanje vode"                       <alarm>               (WaterLeak)                             {channel="mihome:sensor_wleak_aq1:158d000245c982:leak"}
+// Switch                           LeakEnergetskiAlarm               "Zaznal puščanje vode"                       <alarm>               (WaterLeak)                             {channel="mihome:sensor_wleak_aq1:158d000245ca00:leak"}
+// 
 //Aqara motion
-Number  TimerMotOffDnevna           "Čas odklopa"  <time>   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:motionOffTimer" }
-Number  TimerMotOffPodStopnicami    "Čas odklopa"  <time>   { channel="mihome:sensor_motion_aq2:158d00044c4d86:motionOffTimer" }
-Number  TimerMotOffNadStopnicami    "Čas odklopa"  <time>   { channel="mihome:sensor_motion_aq2:158d00044e6dd3:motionOffTimer" }
-Number  TimerMotOffKuhinja          "Čas odklopa"  <time>   { channel="mihome:sensor_motion_aq2:158d000405906e:motionOffTimer" }
+// Number                           TimerMotOffDnevna                 "Čas odklopa"                                <time>                                                        {channel="mihome:sensor_motion_aq2:158d00044b0ff3:motionOffTimer"}
+// Number                           TimerMotOffPodStopnicami          "Čas odklopa"                                <time>                                                        {channel="mihome:sensor_motion_aq2:158d00044c4d86:motionOffTimer"}
+// Number                           TimerMotOffNadStopnicami          "Čas odklopa"                                <time>                                                        {channel="mihome:sensor_motion_aq2:158d00044e6dd3:motionOffTimer"}
+// Number                           TimerMotOffKuhinja                "Čas odklopa"                                <time>                                                        {channel="mihome:sensor_motion_aq2:158d000405906e:motionOffTimer"}
 
-DateTime  LastActivityDnevna        "Zadnji podatek"  <time>   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:lastMotion" }
-DateTime  LastActivityPodStopnicami "Zadnji podatek"  <time>   { channel="mihome:sensor_motion_aq2:158d00044c4d86:lastMotion" }
-DateTime  LastActivityNadStopnicami "Zadnji podatek"  <time>   { channel="mihome:sensor_motion_aq2:158d00044e6dd3:lastMotion" }
-DateTime  LastActivityKuhinja       "Zadnji podatek"  <time>   { channel="mihome:sensor_motion_aq2:158d000405906e:lastMotion" }
+// DateTime                         LastActivityDnevna                "Zadnji podatek"                             <time>                                                        {channel="mihome:sensor_motion_aq2:158d00044b0ff3:lastMotion"}
+// DateTime                         LastActivityPodStopnicami         "Zadnji podatek"                             <time>                                                        {channel="mihome:sensor_motion_aq2:158d00044c4d86:lastMotion"}
+// DateTime                         LastActivityNadStopnicami         "Zadnji podatek"                             <time>                                                        {channel="mihome:sensor_motion_aq2:158d00044e6dd3:lastMotion"}
+// DateTime                         LastActivityKuhinja               "Zadnji podatek"                             <time>                                                        {channel="mihome:sensor_motion_aq2:158d000405906e:lastMotion"}
 
-//Ilumination
-Number  LumDnevna           "Svetlost"          <ilumination>   (Lum)   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:illumination" }
-Number  LumPodStopnicami    "Svetlost"          <ilumination>   (Lum)   { channel="mihome:sensor_motion_aq2:158d00044c4d86:illumination" }
-Number  LumNadStopnicami    "Svetlost"          <ilumination>   (Lum)   { channel="mihome:sensor_motion_aq2:158d00044e6dd3:illumination" }
-Number  LumKuhinja          "Svetlost"          <ilumination>   (Lum)   { channel="mihome:sensor_motion_aq2:158d000405906e:illumination" }
-Number  LumVhod             "Svetlost"          <ilumination>   (Lum)   { channel="mqtt:topic:mosquitto:vhodMot:illuminance" }
-Number  LumLuxVhod          "Svetlost [%d lux]" <ilumination>   (Lum)   { channel="mqtt:topic:mosquitto:vhodMot:illuminance_lux" }
-Number  LumKopalnicaZ       "Svetlost"          <ilumination>   (Lum)   { channel="mqtt:topic:mosquitto:hodnikZMot:illuminance" }
-Number  LumLuxKopalnicaZ    "Svetlost [%d lux]" <ilumination>   (Lum)   { channel="mqtt:topic:mosquitto:hodnikZMot:illuminance_lux" }
-
-
-//Switch
-String ClickSwitchBlinds    "Klik"  { channel="mqtt:topic:mosquitto:stikaloZaluzije:action" }
-
-//Batteries
-Number JulijaBattery            "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:julijaTemp:battery" }
-Number AljazBattery             "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:aljazTemp:battery" }
-Number SpalnicaBattery          "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:spalnicaTemp:battery" }
-Number KuhinjaBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kuhinjaTemp:battery" }
-Number KabinetBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kabinetTemp:battery" }
-Number KopalnicaZBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kopalnicaZTemp:battery" }
-Number KopalnicaSBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kopalnicaSTemp:battery" }
-Number HodnikZBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:hodnikZTemp:battery" }
-Number HodnikSBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:hodnikSTemp:battery" }
-Number DnevnaBattery            "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:dnevnaTemp:battery" }
-Number CumnataBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:cumnataTemp:battery" }
-Number RekuperacijaBattery      "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:recupTemp:battery" }
-Number EnergetskiBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:energetskiTemp:battery" }
-Number Lopa1Battery             "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:lopaTemp:battery" }
-
-Number cumnataVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:cumnataTemp:voltage" }
-Number hodnikZVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:hodnikZTemp:voltage" }
-Number spalnicaVoltage           "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:spalnicaTemp:voltage" }
-Number aljazVoltage              "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:aljazTemp:voltage" }
-Number julijaVoltage             "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:julijaTemp:voltage" }
-Number hodnikSVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:hodnikSTemp:voltage" }
-Number kopalnicaZVoltage         "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kopalnicaZTemp:voltage" }
-Number kuhinjaVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kuhinjaTemp:voltage" }
-Number dnevnaVoltage             "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:dnevnaTemp:voltage" }
-Number kabinetVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kabinetTemp:voltage" }
-Number kopalnicaSVoltage         "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kopalnicaSTemp:voltage" }
-Number energetskiSVoltage        "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:energetskiTemp:voltage" }
-Number rekuperacijaSVoltage      "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:recupTemp:voltage" }
+// Ilumination
+// Number                           LumDnevna                         "Svetlost"                                   <ilumination>         (Lum)                                   {channel="mihome:sensor_motion_aq2:158d00044b0ff3:illumination"}
+// Number                           LumPodStopnicami                  "Svetlost"                                   <ilumination>         (Lum)                                   {channel="mihome:sensor_motion_aq2:158d00044c4d86:illumination"}
+// Number                           LumNadStopnicami                  "Svetlost"                                   <ilumination>         (Lum)                                   {channel="mihome:sensor_motion_aq2:158d00044e6dd3:illumination"}
+// Number                           LumKuhinja                        "Svetlost"                                   <ilumination>         (Lum)                                   {channel="mihome:sensor_motion_aq2:158d000405906e:illumination"}
+// Number  LumVhod             "Svetlost"          <ilumination>   (Lum)   { channel="mqtt:topic:mosquitto:vhodMot:illuminance" }
+// Number  LumLuxVhod          "Svetlost [%d lux]" <ilumination>   (Lum)   { channel="mqtt:topic:mosquitto:vhodMot:illuminance_lux" }
+// Number  LumKopalnicaZ       "Svetlost"          <ilumination>   (Lum)   { channel="mqtt:topic:mosquitto:hodnikZMot:illuminance" }
+// Number  LumLuxKopalnicaZ    "Svetlost [%d lux]" <ilumination>   (Lum)   { channel="mqtt:topic:mosquitto:hodnikZMot:illuminance_lux" }
 
 
-Number DoorDvigBattery                  "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel" }
-Switch DoorDvigBatteryLow               "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5eaf2:lowBattery" }
+// //Switch
+// String ClickSwitchBlinds    "Klik"  { channel="mqtt:topic:mosquitto:stikaloZaluzije:action" }
 
-Number DoorNagibBattery                 "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5f10d:batteryLevel" }
-Switch DoorNagibBatteryLow              "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5f10d:lowBattery" }
+// //Batteries
+// Number JulijaBattery            "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:julijaTemp:battery" }
+// Number AljazBattery             "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:aljazTemp:battery" }
+// Number SpalnicaBattery          "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:spalnicaTemp:battery" }
+// Number KuhinjaBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kuhinjaTemp:battery" }
+// Number KabinetBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kabinetTemp:battery" }
+// Number KopalnicaZBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kopalnicaZTemp:battery" }
+// Number KopalnicaSBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:kopalnicaSTemp:battery" }
+// Number HodnikZBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:hodnikZTemp:battery" }
+// Number HodnikSBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:hodnikSTemp:battery" }
+// Number DnevnaBattery            "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:dnevnaTemp:battery" }
+// Number CumnataBattery           "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:cumnataTemp:battery" }
+// Number RekuperacijaBattery      "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:recupTemp:battery" }
+// Number EnergetskiBattery        "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:energetskiTemp:battery" }
+// Number Lopa1Battery             "Baterija [%d %%]"      <battery>   (Battery)       { channel="mqtt:topic:mosquitto:lopaTemp:battery" }
 
-Number DoorVhodBattery                  "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_magnet:158d0001a5eff5:batteryLevel" }
-Switch DoorVhodBatteryLow               "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_magnet:158d0001a5eff5:lowBattery" }
+// Number cumnataVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:cumnataTemp:voltage" }
+// Number hodnikZVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:hodnikZTemp:voltage" }
+// Number spalnicaVoltage           "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:spalnicaTemp:voltage" }
+// Number aljazVoltage              "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:aljazTemp:voltage" }
+// Number julijaVoltage             "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:julijaTemp:voltage" }
+// Number hodnikSVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:hodnikSTemp:voltage" }
+// Number kopalnicaZVoltage         "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kopalnicaZTemp:voltage" }
+// Number kuhinjaVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kuhinjaTemp:voltage" }
+// Number dnevnaVoltage             "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:dnevnaTemp:voltage" }
+// Number kabinetVoltage            "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kabinetTemp:voltage" }
+// Number kopalnicaSVoltage         "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:kopalnicaSTemp:voltage" }
+// Number energetskiSVoltage        "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:energetskiTemp:voltage" }
+// Number rekuperacijaSVoltage      "Napetost [%d mV]" (Voltage) { channel="mqtt:topic:mosquitto:recupTemp:voltage" }
 
 
-Number StikaloZaluzijeBattery           "Baterija [%d %%]"  <battery>   (Battery)       { channel="mqtt:topic:mosquitto:stikaloZaluzije:battery" }
-Number StikaloZaluzijeVoltage           "Napetost [%d]"     <battery>   (Voltage)       { channel="mqtt:topic:mosquitto:stikaloZaluzije:voltage" }
+// Number                           DoorDvigBattery                   "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel"}
+// Switch                           DoorDvigBatteryLow                "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_magnet:158d0001a5eaf2:lowBattery"}
+// 
+// Number                           DoorNagibBattery                  "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_magnet:158d0001a5f10d:batteryLevel"}
+// Switch                           DoorNagibBatteryLow               "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_magnet:158d0001a5f10d:lowBattery"}
+// 
+// Number                           DoorVhodBattery                   "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_magnet:158d0001a5eff5:batteryLevel"}
+// Switch                           DoorVhodBatteryLow                "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_magnet:158d0001a5eff5:lowBattery"}
 
 
-Number  SmokeCumnataBattery             "Baterija"          <battery>   (Battery)       { channel="mihome:smoke:158d0001b76b9c:batteryLevel" }
-Switch  SmokeCumnataBatteryLow          "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:smoke:158d0001b76b9c:lowBattery" }
+// Number StikaloZaluzijeBattery           "Baterija [%d %%]"  <battery>   (Battery)       { channel="mqtt:topic:mosquitto:stikaloZaluzije:battery" }
+// Number StikaloZaluzijeVoltage           "Napetost [%d]"     <battery>   (Voltage)       { channel="mqtt:topic:mosquitto:stikaloZaluzije:voltage" }
 
 
-Number  CubeDnevBattery                 "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_cube:158d00029abcd1:batteryLevel" }
-Switch  CubeDnevBatteryLow              "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_cube:158d00029abcd1:lowBattery" }
-
-
-Number  WaterLeakKuhiBattery            "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_wleak_aq1:158d000245c982:batteryLevel" }
-Switch  WaterLeakKuhiBatteryLow         "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_wleak_aq1:158d000245c982:lowBattery" }
-
-Number  WaterLeakEnerBattery            "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_wleak_aq1:158d000245ca00:batteryLevel" }
-Switch  WaterLeakEnerBatteryLow         "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_wleak_aq1:158d000245ca00:lowBattery" }
-
-
-Number GibanjeDnevnaBattery             "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_motion_aq2:158d00044b0ff3:batteryLevel" }
-Switch GibanjeDnevnaBatteryLow          "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_motion_aq2:158d00044b0ff3:lowBattery" }
-
-Number GibanjePodStopnicamiBattery      "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_motion_aq2:158d00044c4d86:batteryLevel" }
-Switch GibanjePodStopnicamiBatteryLow   "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_motion_aq2:158d00044c4d86:lowBattery" }
-
-Number GibanjeNadStopnicamiBattery      "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_motion_aq2:158d00044e6dd3:batteryLevel" }
-Switch GibanjeNadStopnicamiBatteryLow   "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_motion_aq2:158d00044e6dd3:lowBattery" }
-
-Number GibanjeKuhinjaBattery            "Baterija"          <battery>   (Battery)       { channel="mihome:sensor_motion_aq2:158d000405906e:batteryLevel" }
-Switch GibanjeKuhinjaBatteryLow         "Baterija peša"     <energy>    (BatteryLow)    { channel="mihome:sensor_motion_aq2:158d000405906e:lowBattery" }
-
-Number GibanjeVhodBattery               "Baterija [%d %%]"  <battery>   (Battery)       { channel="mqtt:topic:mosquitto:vhodMot:battery" }
-Number GibanjeVhodVoltage               "Napetost [%d mV]"              (Voltage)       { channel="mqtt:topic:mosquitto:vhodMot:voltage" }
-
-Number GibanjeKopalnicaZBattery         "Baterija [%d %%]"  <battery>   (Battery)       { channel="mqtt:topic:mosquitto:hodnikZMot:battery" }
-Number GibanjeKopalnicaZVoltage         "Napetost [%d mV]"              (Voltage)       { channel="mqtt:topic:mosquitto:hodnikZMot:voltage" }
+// Number                           SmokeCumnataBattery               "Baterija"                                   <battery>             (Battery)                               {channel="mihome:smoke:158d0001b76b9c:batteryLevel"}
+// Switch                           SmokeCumnataBatteryLow            "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:smoke:158d0001b76b9c:lowBattery"}
+// 
+// 
+// Number                           CubeDnevBattery                   "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_cube:158d00029abcd1:batteryLevel"}
+// Switch                           CubeDnevBatteryLow                "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_cube:158d00029abcd1:lowBattery"}
+// 
+// 
+// Number                           WaterLeakKuhiBattery              "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_wleak_aq1:158d000245c982:batteryLevel"}
+// Switch                           WaterLeakKuhiBatteryLow           "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_wleak_aq1:158d000245c982:lowBattery"}
+// 
+// Number                           WaterLeakEnerBattery              "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_wleak_aq1:158d000245ca00:batteryLevel"}
+// Switch                           WaterLeakEnerBatteryLow           "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_wleak_aq1:158d000245ca00:lowBattery"}
+// 
+// 
+// Number                           GibanjeDnevnaBattery              "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_motion_aq2:158d00044b0ff3:batteryLevel"}
+// Switch                           GibanjeDnevnaBatteryLow           "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_motion_aq2:158d00044b0ff3:lowBattery"}
+// 
+// Number                           GibanjePodStopnicamiBattery       "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_motion_aq2:158d00044c4d86:batteryLevel"}
+// Switch                           GibanjePodStopnicamiBatteryLow    "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_motion_aq2:158d00044c4d86:lowBattery"}
+// 
+// Number                           GibanjeNadStopnicamiBattery       "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_motion_aq2:158d00044e6dd3:batteryLevel"}
+// Switch                           GibanjeNadStopnicamiBatteryLow    "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_motion_aq2:158d00044e6dd3:lowBattery"}
+// 
+// Number                           GibanjeKuhinjaBattery             "Baterija"                                   <battery>             (Battery)                               {channel="mihome:sensor_motion_aq2:158d000405906e:batteryLevel"}
+// Switch                           GibanjeKuhinjaBatteryLow          "Baterija peša"                              <energy>              (BatteryLow)                            {channel="mihome:sensor_motion_aq2:158d000405906e:lowBattery"}
+// 
+// Number GibanjeVhodBattery               "Baterija [%d %%]"  <battery>   (Battery)       { channel="mqtt:topic:mosquitto:vhodMot:battery" }
+// Number GibanjeVhodVoltage               "Napetost [%d mV]"              (Voltage)       { channel="mqtt:topic:mosquitto:vhodMot:voltage" }
+// 
+// Number GibanjeKopalnicaZBattery         "Baterija [%d %%]"  <battery>   (Battery)       { channel="mqtt:topic:mosquitto:hodnikZMot:battery" }
+// Number GibanjeKopalnicaZVoltage         "Napetost [%d mV]"              (Voltage)       { channel="mqtt:topic:mosquitto:hodnikZMot:voltage" }
 
 //Gateway
-Switch  GatewayAddDevice        "Nova naprava"                          { channel="mihome:gateway:286c0788c0ee:joinPermission" }
-Switch  GatewayLightSwitch      "Sveti"             <light>             { channel="mihome:gateway:286c0788c0ee:brightness" }
-Dimmer  GatewayBrightness       "Svetlost luči"     <dimmablelight>     { channel="mihome:gateway:286c0788c0ee:brightness" }
-Color   GatewayColor            "Barva"             <rgb>               { channel="mihome:gateway:286c0788c0ee:color" }
-Dimmer  GatewayColorTemperature "Temperatura barve" <heating>           { channel="mihome:gateway:286c0788c0ee:colorTemperature" }
-Number  GatewayAmbientLight     "Svetlost sobe"     <sun>               { channel="mihome:gateway:286c0788c0ee:illumination" }
-Number  GatewaySound            "Zvok"              <soundvolume-0>     { channel="mihome:gateway:286c0788c0ee:sound" }
-Switch  GatewaySoundSwitch      "Stikalo zvoka"     <soundvolume_mute>  { channel="mihome:gateway:286c0788c0ee:enableSound" }
-Dimmer  GatewaySoundVolume      "Jakost zvoka"      <soundvolume>       { channel="mihome:gateway:286c0788c0ee:volume" }
+// Switch                           GatewayAddDevice                  "Nova naprava"                                                                                             {channel="mihome:gateway:286c0788c0ee:joinPermission"}
+// Switch                           GatewayLightSwitch                "Sveti"                                      <light>                                                       {channel="mihome:gateway:286c0788c0ee:brightness"}
+// Dimmer                           GatewayBrightness                 "Svetlost luči"                              <dimmablelight>                                               {channel="mihome:gateway:286c0788c0ee:brightness"}
+// Color                            GatewayColor                      "Barva"                                      <rgb>                                                         {channel="mihome:gateway:286c0788c0ee:color"}
+// Dimmer                           GatewayColorTemperature           "Temperatura barve"                          <heating>                                                     {channel="mihome:gateway:286c0788c0ee:colorTemperature"}
+// Number                           GatewayAmbientLight               "Svetlost sobe"                              <sun>                                                         {channel="mihome:gateway:286c0788c0ee:illumination"}
+// Number                           GatewaySound                      "Zvok"                                       <soundvolume-0>                                               {channel="mihome:gateway:286c0788c0ee:sound"}
+// Switch                           GatewaySoundSwitch                "Stikalo zvoka"                              <soundvolume_mute>                                            {channel="mihome:gateway:286c0788c0ee:enableSound"}
+// Dimmer                           GatewaySoundVolume                "Jakost zvoka"                               <soundvolume>                                                 {channel="mihome:gateway:286c0788c0ee:volume"}
 
 
 //Motion
-Switch	MotKuhinja			"Kuhinja [MAP(si.map):MOTION-%s]"			<motion>	(Mot,GroundF)	{ channel="mihome:sensor_motion_aq2:158d000405906e:motion" }
-Switch  MotPodStopnicami	"Pod stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot,GroundF)	{ channel="mihome:sensor_motion_aq2:158d00044c4d86:motion" }
-Switch  MotDnevna			"Dnevna soba [MAP(si.map):MOTION-%s]"		<motion>	(Mot,GroundF)   { channel="mihome:sensor_motion_aq2:158d00044b0ff3:motion" }
-Switch  MotNadStopnicami	"Nad stopnicami [MAP(si.map):MOTION-%s]"	<motion>	(Mot,FirstF)	{ channel="mihome:sensor_motion_aq2:158d00044e6dd3:motion" }
-Switch  MotVhod         	"Vhod [MAP(si.map):MOTION-%s]"          	<motion>	(Mot,GroundF)	{ channel="mqtt:topic:mosquitto:vhodMot:occupancy" }
-Switch  MotHodnikZ         	"Nad kopalnico [MAP(si.map):MOTION-%s]"     <motion>	(Mot,FirstF)	{ channel="mqtt:topic:mosquitto:hodnikZMot:occupancy" }
+// Switch                           MotKuhinja                        "Kuhinja [MAP(si.map):MOTION-%s]"            <motion>              (Mot,GroundF)                           {channel="mihome:sensor_motion_aq2:158d000405906e:motion"}
+// Switch                           MotPodStopnicami                  "Pod stopnicami [MAP(si.map):MOTION-%s]"     <motion>              (Mot,GroundF)                           {channel="mihome:sensor_motion_aq2:158d00044c4d86:motion"}
+// Switch                           MotDnevna                         "Dnevna soba [MAP(si.map):MOTION-%s]"        <motion>              (Mot,GroundF)                           {channel="mihome:sensor_motion_aq2:158d00044b0ff3:motion"}
+// Switch                           MotNadStopnicami                  "Nad stopnicami [MAP(si.map):MOTION-%s]"     <motion>              (Mot,FirstF)                            {channel="mihome:sensor_motion_aq2:158d00044e6dd3:motion"}
+// Switch  MotVhod         	"Vhod [MAP(si.map):MOTION-%s]"          	<motion>	(Mot,GroundF)	{ channel="mqtt:topic:mosquitto:vhodMot:occupancy" }
+// Switch  MotHodnikZ         	"Nad kopalnico [MAP(si.map):MOTION-%s]"     <motion>	(Mot,FirstF)	{ channel="mqtt:topic:mosquitto:hodnikZMot:occupancy" }
 
 
 // 
-//Stikala za ogrevanje
-Switch	FhsHeater	    "Talno gretje"      <heating>   (Fhs)                   { tinkerforge="uid=kBH, subid=relay1" }
-Switch	FhsRecuperation	"Rekuperacija"      <climate>                           { tinkerforge="uid=kBH, subid=relay2" }
-
-//zgoraj
-Switch FhsKopalnicaZ    "Kopalnica zgoraj"  <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaZ" }
-Switch FhsAljaz		    "Aljaz"             <heating>   (Fhs)           { tinkerforge="name=stikaloAljaz" }
-Switch FhsJulija	    "Julija"            <heating>   (Fhs)           { tinkerforge="name=stikaloJulija" }
-Switch FhsHodnikZ	    "Hodnik zgoraj"     <heating>   (Fhs)           { tinkerforge="name=stikaloHodnikZ" }
-Switch FhsSpalnica	    "Spalnica"          <heating>   (Fhs)           { tinkerforge="name=stikaloSpalnica" }
-
-//spodaj
-Switch  FhsHodnikS      "Hodnik spodaj"     <heating>   (Fhs)           { tinkerforge="name=stikaloHodnikS" }
-Switch  FhsKopalnicaS   "Kopalnica spodaj"  <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaS" }
-Switch  FhsDnevna       "Dnevna soba"       <heating>   (Fhs)           { tinkerforge="name=stikaloDnevna" }
-Switch  FhsKuhinja      "Kuhinja"           <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKuhinja" }
-Switch  FhsKabinet      "Kabinet"           <heating>   (Fhs)           { tinkerforge="name=stikaloKabinet" }
-
-
-//Chromecast
-//Audio
-Dimmer  VolumeAudio     "Glasnost"       [ "Lighting" ]     { channel="chromecast:audio:AudioCC:volume" }
-Player  ControlAudio    "Upravljanje"                       { channel="chromecast:audio:AudioCC:control" }
-Switch  MuteAudio       "Utišaj"         [ "Switchable" ]   { channel="chromecast:audio:AudioCC:mute" }
-String  PlayURIAudio    "Naslov"                            { channel="chromecast:audio:AudioCC:playuri" }
-String  StatusURIAudio  "Naslov"                            { channel="chromecast:audio:AudioCC:statustext" }
-Switch  IdlingAudio     "Pripravljen"                       { channel="chromecast:audio:AudioCC:idling" }
-Switch  StopAudio       "Ustavi"                            { channel="chromecast:audio:AudioCC:stop" }
-//Video
-Dimmer  VolumeVideo     "Glasnost"       [ "Lighting" ]     { channel="chromecast:chromecast:TVCC:volume" }
-Player  ControlVideo    "Upravljanje"                       { channel="chromecast:chromecast:TVCC:control" }
-Switch  MuteVideo       "Utišaj"         [ "Switchable" ]   { channel="chromecast:chromecast:TVCC:mute" }
-String  PlayURIVideo    "Naslov"                            { channel="chromecast:chromecast:TVCC:playuri" }
-String  StatusURIVideo  "Naslov"                            { channel="chromecast:chromecast:TVCC:statustext" }
-Switch  IdlingVideo     "Pripravljen"                       { channel="chromecast:chromecast:TVCC:idling" }
-Switch  StopVideo       "Ustavi"                            { channel="chromecast:chromecast:TVCC:stop" }
-//Onkyo
-Dimmer  VolumeOnkyo     "Glasnost"       [ "Lighting" ]     { channel="chromecast:audio:Onkyo:volume" }
-Player  ControlOnkyo    "Upravljanje"                       { channel="chromecast:audio:Onkyo:control" }
-Switch  MuteOnkyo       "Utišaj"         [ "Switchable" ]   { channel="chromecast:audio:Onkyo:mute" }
-String  PlayURIOnkyo    "Naslov"                            { channel="chromecast:audio:Onkyo:playuri" }
-String  StatusURIOnkyo  "Naslov"                            { channel="chromecast:audio:Onkyo:statustext" }
-Switch  IdlingOnkyo     "Pripravljen"                       { channel="chromecast:audio:Onkyo:idling" }
-Switch  StopOnkyo       "Ustavi"         [ "Switchable" ]   { channel="chromecast:audio:Onkyo:stop" }
-
-//Žaluzije
-//Shelly
+// Stikala za ogrevanje
+// Switch	fhsHeater	    "Talno gretje"      <heating>   (Fhs)                   { tinkerforge="uid=kBH, subid=relay1" }
+// Switch	FhsRecuperation	"Rekuperacija"      <climate>                           { tinkerforge="uid=kBH, subid=relay2" }
+// 
+// zgoraj
+// Switch FhsKopalnicaZ    "Kopalnica zgoraj"  <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaZ" }
+// Switch FhsAljaz		    "Aljaz"             <heating>   (Fhs)           { tinkerforge="name=stikaloAljaz" }
+// Switch FhsJulija	    "Julija"            <heating>   (Fhs)           { tinkerforge="name=stikaloJulija" }
+// Switch FhsHodnikZ	    "Hodnik zgoraj"     <heating>   (Fhs)           { tinkerforge="name=stikaloHodnikZ" }
+// Switch FhsSpalnica	    "Spalnica"          <heating>   (Fhs)           { tinkerforge="name=stikaloSpalnica" }
+// 
+// spodaj
+// Switch  FhsHodnikS      "Hodnik spodaj"     <heating>   (Fhs)           { tinkerforge="name=stikaloHodnikS" }
+// Switch  FhsKopalnicaS   "Kopalnica spodaj"  <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKopalnicaS" }
+// Switch  FhsDnevna       "Dnevna soba"       <heating>   (Fhs)           { tinkerforge="name=stikaloDnevna" }
+// Switch  FhsKuhinja      "Kuhinja"           <heating>   (Fhs,FhsRev)    { tinkerforge="name=stikaloKuhinja" }
+// Switch  FhsKabinet      "Kabinet"           <heating>   (Fhs)           { tinkerforge="name=stikaloKabinet" }
 
 
-Switch	ActKabinetDo            "Kabinet dol [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6938C4:relay2#output" }
-Switch	ActKabinetUp            "Kabinet gor [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6938C4:relay1#output" }
-Switch	SwiKabinetDo            "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6938C4:relay2#input" }
-Switch	SwiKabinetUp            "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6938C4:relay1#input" }
-Number	ActKabinetOverTemp      "Kabinet temperatura [%d °C]"                       <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:6938C4:device#innerTemp" }
-Number  ActKabinetPowerDo       "Kabinet dol trenutna moč"                          <energy>            (Power)                         { channel="shelly:shelly25-relay:6938C4:meter2#currentWatts" }
-Number  ActKabinetPowerUp       "Kabinet gor trenutna moč"                          <energy>            (Power)                         { channel="shelly:shelly25-relay:6938C4:meter1#currentWatts" }
+// //Žaluzije
+// //Shelly
 
-Switch	ActDnevnaDesDo          "Dnevna desno dol [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="shelly:shelly25-relay:68E04B:relay2#output" }
-Switch	ActDnevnaDesUp          "Dnevna desno gor [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActUp)                { channel="shelly:shelly25-relay:68E04B:relay1#output" }
-Switch	SwiDnevnaDesDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:68E04B:relay2#input" }
-Switch	SwiDnevnaDesUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:68E04B:relay1#input" }
-Number	ActDnevnaDesOverTemp    "Dnevna desno temperatura [%d °C]"                  <temperature_hot>   (ShellyOverTemp)                            { channel="shelly:shelly25-relay:68E04B:device#innerTemp" }
-Number  ActDnevnaDesPowerDo     "Dnevna desno dol trenutna moč"                     <energy>            (Power)                                     { channel="shelly:shelly25-relay:68E04B:meter2#currentWatts" }
-Number  ActDnevnaDesPowerUp     "Dnevna desno gor trenutna moč"                     <energy>            (Power)                                     { channel="shelly:shelly25-relay:68E04B:meter1#currentWatts" }
 
-Switch	ActDnevnaLevDo          "Dnevna levo dol [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:68E55A:relay2#output" }
-Switch	ActDnevnaLevUp          "Dnevna levo gor [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:68E55A:relay1#output" }
-Switch	SwiDnevnaLevDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E55A:relay2#input" }
-Switch	SwiDnevnaLevUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E55A:relay1#input" }
-Number	ActDnevnaLevOverTemp    "Dnevna levo temperatura [%d °C]"                   <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68E55A:device#innerTemp" }
-Number  ActDnevnaLevPowerDo     "Dnevna levo dol trenutna moč"                      <energy>            (Power)                         { channel="shelly:shelly25-relay:68E55A:meter2#currentWatts" }
-Number  ActDnevnaLevPowerUp     "Dnevna levo gor trenutna moč"                      <energy>            (Power)                         { channel="shelly:shelly25-relay:68E55A:meter1#currentWatts" }
+// Switch	ActKabinetDo            "Kabinet dol [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6938C4:relay2#output" }
+// Switch	ActKabinetUp            "Kabinet gor [MAP(si.map):SWITCH-%s]"               <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6938C4:relay1#output" }
+// Switch	SwiKabinetDo            "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6938C4:relay2#input" }
+// Switch	SwiKabinetUp            "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6938C4:relay1#input" }
+// Number	ActKabinetOverTemp      "Kabinet temperatura [%d °C]"                       <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:6938C4:device#innerTemp" }
+// Number  ActKabinetPowerDo       "Kabinet dol trenutna moč"                          <energy>            (Power)                         { channel="shelly:shelly25-relay:6938C4:meter2#currentWatts" }
+// Number  ActKabinetPowerUp       "Kabinet gor trenutna moč"                          <energy>            (Power)                         { channel="shelly:shelly25-relay:6938C4:meter1#currentWatts" }
 
-Switch	ActSpalnicaDo           "Spalnica dol [MAP(si.map):SWITCH-%s]"              <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68661F:relay2#output" }
-Switch	ActSpalnicaUp           "Spalnica gor [MAP(si.map):SWITCH-%s]"              <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68661F:relay1#output" }
-Switch	SwiSpalnicaDo           "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68661F:relay2#input" }
-Switch	SwiSpalnicaUp           "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68661F:relay1#input" }
-Number	ActSpalnicaOverTemp     "Spalnica temperatura [%d °C]"                      <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68661F:device#innerTemp" }
-Number  ActSpalnicaPowerDo      "Spalnica dol trenutna moč"                         <energy>            (Power)                         { channel="shelly:shelly25-relay:68661F:meter2#currentWatts" }
-Number  ActSpalnicaPowerUp      "Spalnica gor trenutna moč"                         <energy>            (Power)                         { channel="shelly:shelly25-relay:68661F:meter1#currentWatts" }
+// Switch	ActDnevnaDesDo          "Dnevna desno dol [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="shelly:shelly25-relay:68E04B:relay2#output" }
+// Switch	ActDnevnaDesUp          "Dnevna desno gor [MAP(si.map):SWITCH-%s]"          <rollershutter>	    (BlindAct,BlindD,BlindActUp)                { channel="shelly:shelly25-relay:68E04B:relay1#output" }
+// Switch	SwiDnevnaDesDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:68E04B:relay2#input" }
+// Switch	SwiDnevnaDesUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                                  { channel="shelly:shelly25-relay:68E04B:relay1#input" }
+// Number	ActDnevnaDesOverTemp    "Dnevna desno temperatura [%d °C]"                  <temperature_hot>   (ShellyOverTemp)                            { channel="shelly:shelly25-relay:68E04B:device#innerTemp" }
+// Number  ActDnevnaDesPowerDo     "Dnevna desno dol trenutna moč"                     <energy>            (Power)                                     { channel="shelly:shelly25-relay:68E04B:meter2#currentWatts" }
+// Number  ActDnevnaDesPowerUp     "Dnevna desno gor trenutna moč"                     <energy>            (Power)                                     { channel="shelly:shelly25-relay:68E04B:meter1#currentWatts" }
 
-Switch	ActAljazDo	            "Aljaž dol [MAP(si.map):SWITCH-%s]"                 <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68FD82:relay1#output" }
-Switch	ActAljazUp	            "Aljaž gor [MAP(si.map):SWITCH-%s]"                 <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68FD82:relay2#output" }
-Switch	SwiAljazDo              "Stikalo Aljaž dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68FD82:relay1#input" }
-Switch	SwiAljazUp              "Stikalo Aljaž gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68FD82:relay2#input" }
-Number	ActAljazOverTemp        "Aljaž temperatura [%d °C]"                         <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68FD82:device#innerTemp" }
-Number  ActAljazPowerDo         "Aljaž dol trenutna moč"                            <energy>            (Power)                         { channel="shelly:shelly25-relay:68FD82:meter1#currentWatts" }
-Number  ActAljazPowerUp         "Aljaž gor trenutna moč"                            <energy>            (Power)                         { channel="shelly:shelly25-relay:68FD82:meter2#currentWatts" }
+// Switch	ActDnevnaLevDo          "Dnevna levo dol [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:68E55A:relay2#output" }
+// Switch	ActDnevnaLevUp          "Dnevna levo gor [MAP(si.map):SWITCH-%s]"           <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:68E55A:relay1#output" }
+// Switch	SwiDnevnaLevDo          "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E55A:relay2#input" }
+// Switch	SwiDnevnaLevUp          "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E55A:relay1#input" }
+// Number	ActDnevnaLevOverTemp    "Dnevna levo temperatura [%d °C]"                   <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68E55A:device#innerTemp" }
+// Number  ActDnevnaLevPowerDo     "Dnevna levo dol trenutna moč"                      <energy>            (Power)                         { channel="shelly:shelly25-relay:68E55A:meter2#currentWatts" }
+// Number  ActDnevnaLevPowerUp     "Dnevna levo gor trenutna moč"                      <energy>            (Power)                         { channel="shelly:shelly25-relay:68E55A:meter1#currentWatts" }
 
-Switch	ActJulijaDo	            "Julija dol [MAP(si.map):SWITCH-%s]"                <rollershutter>     (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68E532:relay1#output" }
-Switch	ActJulijaUp	            "Julija gor [MAP(si.map):SWITCH-%s]"                <rollershutter>     (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68E532:relay2#output" }
-Switch	SwiJulijaDo             "Stikalo Julija dol [MAP(si.map):SWITCH-%s]"        <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E532:relay1#input" }
-Switch	SwiJulijaUp             "Stikalo Julija gor [MAP(si.map):SWITCH-%s]"        <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E532:relay2#input" }
-Number	ActJulijaOverTemp       "Julija temperatura [%d °C]"                        <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68E532:device#innerTemp" }
-Number  ActJulijaPowerDo        "Julija dol trenutna moč"                           <energy>            (Power)                         { channel="shelly:shelly25-relay:68E532:meter1#currentWatts" }
-Number  ActJulijaPowerUp        "Julija gor trenutna moč"                           <energy>            (Power)                         { channel="shelly:shelly25-relay:68E532:meter2#currentWatts" }
+// Switch	ActSpalnicaDo           "Spalnica dol [MAP(si.map):SWITCH-%s]"              <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68661F:relay2#output" }
+// Switch	ActSpalnicaUp           "Spalnica gor [MAP(si.map):SWITCH-%s]"              <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68661F:relay1#output" }
+// Switch	SwiSpalnicaDo           "Stikalo kabinet dol [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68661F:relay2#input" }
+// Switch	SwiSpalnicaUp           "Stikalo kabinet gor [MAP(si.map):SWITCH-%s]"       <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68661F:relay1#input" }
+// Number	ActSpalnicaOverTemp     "Spalnica temperatura [%d °C]"                      <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68661F:device#innerTemp" }
+// Number  ActSpalnicaPowerDo      "Spalnica dol trenutna moč"                         <energy>            (Power)                         { channel="shelly:shelly25-relay:68661F:meter2#currentWatts" }
+// Number  ActSpalnicaPowerUp      "Spalnica gor trenutna moč"                         <energy>            (Power)                         { channel="shelly:shelly25-relay:68661F:meter1#currentWatts" }
 
-Switch	ActKuhinjaLevDo	        "Kuhinja levo dol [MAP(si.map):SWITCH-%s]"          <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:68F40F:relay2#output" }
-Switch	ActKuhinjaLevUp	        "Kuhinja levo gor [MAP(si.map):SWITCH-%s]"          <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:68F40F:relay1#output" }
-Switch	SwiKuhinjaLevDo         "Stikalo kuhinja levo dol [MAP(si.map):SWITCH-%s]"  <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68F40F:relay2#input" }
-Switch	SwiKuhinjaLevUp         "Stikalo kuhinja levo gor [MAP(si.map):SWITCH-%s]"  <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68F40F:relay1#input" }
-Number	ActKuhinjaLevOverTemp   "Kuhinja levo temperatura [%d °C]"                  <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68F40F:device#innerTemp" }
-Number  ActKuhinjaLevPowerDo    "Kuhinja levo dol trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter2#currentWatts" }
-Number  ActKuhinjaLevPowerUp    "Kuhinja levo gor trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter1#currentWatts" }
+// Switch	ActAljazDo	            "Aljaž dol [MAP(si.map):SWITCH-%s]"                 <rollershutter>	    (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68FD82:relay1#output" }
+// Switch	ActAljazUp	            "Aljaž gor [MAP(si.map):SWITCH-%s]"                 <rollershutter>	    (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68FD82:relay2#output" }
+// Switch	SwiAljazDo              "Stikalo Aljaž dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68FD82:relay1#input" }
+// Switch	SwiAljazUp              "Stikalo Aljaž gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68FD82:relay2#input" }
+// Number	ActAljazOverTemp        "Aljaž temperatura [%d °C]"                         <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68FD82:device#innerTemp" }
+// Number  ActAljazPowerDo         "Aljaž dol trenutna moč"                            <energy>            (Power)                         { channel="shelly:shelly25-relay:68FD82:meter1#currentWatts" }
+// Number  ActAljazPowerUp         "Aljaž gor trenutna moč"                            <energy>            (Power)                         { channel="shelly:shelly25-relay:68FD82:meter2#currentWatts" }
 
-//Switch	ActKuhinjaDesDo	        "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="shelly:shelly25-relay:694338:relay1#output" }
-//Switch	ActKuhinjaDesUp	        "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="shelly:shelly25-relay:694338:relay2#output" }
-Switch	ActKuhinjaDesDo	            "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="mqtt:topic:mosquitto:zalKuhDes:command1" }
-Switch	ActKuhinjaDesUp	            "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="mqtt:topic:mosquitto:zalKuhDes:command2" }
-Switch	SwiKuhinjaDesDo             "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state1" }
-Switch	SwiKuhinjaDesUp             "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state2" }
-// Number	ActKuhinjaDesOverTemp       "Kuhinja desno temperatura [%d °C]"                 <temperature_hot>   (ShellyOverTemp)                            { channel="mqtt:topic:mosquitto:zalKuhDes:temperature" }
-// Number  ActKuhinjaDesPower          "Kuhinja desna trenutna moč"                        <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:power" }
-// Number  ActKuhinjaDesConsumption    "Kuhinja desno poraba"                              <energy>            (Power)                                     { channel="mqtt:topic:mosquitto:zalKuhDes:consumption" }
+// Switch	ActJulijaDo	            "Julija dol [MAP(si.map):SWITCH-%s]"                <rollershutter>     (BlindAct,BlindU,BlindActDo)    { channel="shelly:shelly25-relay:68E532:relay1#output" }
+// Switch	ActJulijaUp	            "Julija gor [MAP(si.map):SWITCH-%s]"                <rollershutter>     (BlindAct,BlindU,BlindActUp)    { channel="shelly:shelly25-relay:68E532:relay2#output" }
+// Switch	SwiJulijaDo             "Stikalo Julija dol [MAP(si.map):SWITCH-%s]"        <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E532:relay1#input" }
+// Switch	SwiJulijaUp             "Stikalo Julija gor [MAP(si.map):SWITCH-%s]"        <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68E532:relay2#input" }
+// Number	ActJulijaOverTemp       "Julija temperatura [%d °C]"                        <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68E532:device#innerTemp" }
+// Number  ActJulijaPowerDo        "Julija dol trenutna moč"                           <energy>            (Power)                         { channel="shelly:shelly25-relay:68E532:meter1#currentWatts" }
+// Number  ActJulijaPowerUp        "Julija gor trenutna moč"                           <energy>            (Power)                         { channel="shelly:shelly25-relay:68E532:meter2#currentWatts" }
 
-Switch	ActJedilnicaDo	        "Jedilnica dol [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6914F8:relay2#output" }
-Switch	ActJedilnicaUp	        "Jedilnica gor [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6914F8:relay1#output" }
-Switch	SwiJedilnicaDo          "Stikalo jedilnica dol [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6914F8:relay2#input" }
-Switch	SwiJedilnicaUp          "Stikalo jedilnica gor [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6914F8:relay1#input" }
-Number	ActJedilnicaOverTemp    "Jedilnica temperatura [%d °C]"                     <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:6914F8:device#innerTemp" }
-Number  ActJedilnicaPowerDo     "Jedilnica dol trenutna moč"                        <energy>            (Power)                         { channel="shelly:shelly25-relay:6914F8:meter2#currentWatts" }
-Number  ActJedilnicaPowerUp     "Jedilnica gor trenutna moč"                        <energy>            (Power)                         { channel="shelly:shelly25-relay:6914F8:meter1#currentWatts" }
+// Switch	ActKuhinjaLevDo	        "Kuhinja levo dol [MAP(si.map):SWITCH-%s]"          <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:68F40F:relay2#output" }
+// Switch	ActKuhinjaLevUp	        "Kuhinja levo gor [MAP(si.map):SWITCH-%s]"          <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:68F40F:relay1#output" }
+// Switch	SwiKuhinjaLevDo         "Stikalo kuhinja levo dol [MAP(si.map):SWITCH-%s]"  <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68F40F:relay2#input" }
+// Switch	SwiKuhinjaLevUp         "Stikalo kuhinja levo gor [MAP(si.map):SWITCH-%s]"  <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:68F40F:relay1#input" }
+// Number	ActKuhinjaLevOverTemp   "Kuhinja levo temperatura [%d °C]"                  <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:68F40F:device#innerTemp" }
+// Number  ActKuhinjaLevPowerDo    "Kuhinja levo dol trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter2#currentWatts" }
+// Number  ActKuhinjaLevPowerUp    "Kuhinja levo gor trenutna moč"                     <energy>            (Power)                         { channel="shelly:shelly25-relay:68F40F:meter1#currentWatts" }
+
+// Switch	ActKuhinjaDesDo	            "Kuhinja desno dol [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActDo,BlindsOnDoors)  { channel="mqtt:topic:mosquitto:zalKuhDes:command1" }
+// Switch	ActKuhinjaDesUp	            "Kuhinja desno gor [MAP(si.map):SWITCH-%s]"         <rollershutter>     (BlindAct,BlindD,BlindActUp)                { channel="mqtt:topic:mosquitto:zalKuhDes:command2" }
+// Switch	SwiKuhinjaDesDo             "Stikalo kuhinja desno dol [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state1" }
+// Switch	SwiKuhinjaDesUp             "Stikalo kuhinja desno gor [MAP(si.map):SWITCH-%s]" <rollershutter>     (BlindSwi)                                  { channel="mqtt:topic:mosquitto:zalKuhDes:state2" }
+
+// Switch	ActJedilnicaDo	        "Jedilnica dol [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActDo)    { channel="shelly:shelly25-relay:6914F8:relay2#output" }
+// Switch	ActJedilnicaUp	        "Jedilnica gor [MAP(si.map):SWITCH-%s]"             <rollershutter>     (BlindAct,BlindD,BlindActUp)    { channel="shelly:shelly25-relay:6914F8:relay1#output" }
+// Switch	SwiJedilnicaDo          "Stikalo jedilnica dol [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6914F8:relay2#input" }
+// Switch	SwiJedilnicaUp          "Stikalo jedilnica gor [MAP(si.map):SWITCH-%s]"     <rollershutter>     (BlindSwi)                      { channel="shelly:shelly25-relay:6914F8:relay1#input" }
+// Number	ActJedilnicaOverTemp    "Jedilnica temperatura [%d °C]"                     <temperature_hot>   (ShellyOverTemp)                { channel="shelly:shelly25-relay:6914F8:device#innerTemp" }
+// Number  ActJedilnicaPowerDo     "Jedilnica dol trenutna moč"                        <energy>            (Power)                         { channel="shelly:shelly25-relay:6914F8:meter2#currentWatts" }
+// Number  ActJedilnicaPowerUp     "Jedilnica gor trenutna moč"                        <energy>            (Power)                         { channel="shelly:shelly25-relay:6914F8:meter1#currentWatts" }
 
 
 //TEST
 //Switch  TestRelay1  "Rele 1"    { channel="mqtt:topic:mosquitto:tinkerforgeDualRelayEner:relay1" }
 //Switch  TestRelay2  "Rele 2"    { channel="mqtt:topic:mosquitto:tinkerforgeDualRelayEner:relay2" }
 
-//Zigbee link quality
-Number cumnataLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:cumnataTemp:linkquality" }
-Number hodnikZLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikZTemp:linkquality" }
-Number spalnicaLQ           "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:spalnicaTemp:linkquality" }
-Number aljazLQ              "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:aljazTemp:linkquality" }
-Number julijaLQ             "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:julijaTemp:linkquality" }
-Number hodnikSLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikSTemp:linkquality" }
-Number kopalnicaZLQ         "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kopalnicaZTemp:linkquality" }
-Number kuhinjaLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kuhinjaTemp:linkquality" }
-Number dnevnaLQ             "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:dnevnaTemp:linkquality" }
-Number kabinetLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kabinetTemp:linkquality" }
-Number kopalnicaSLQ         "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kopalnicaSTemp:linkquality" }
-Number energetskiSLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:energetskiTemp:linkquality" }
-Number rekuperacijaSLQ      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:recupTemp:linkquality" }
-Number otokLuciLQ           "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokLuci:linkquality" }
-Number otokMalaLucLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokMalaLuc:linkQuality" }
-Number otokVelikaLucLQ      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokVelikaLuc:linkquality" }
-Number stikaloZaluzijeLQ    "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:stikaloZaluzije:linkquality" }
-Number gibanjeVhodLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:vhodMot:linkquality" }
-Number gibanjeHodnikZLQ     "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikZMot:linkquality" }
-Number ZalKuhinjaDesDo      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:zalKuhDes:linkquality" }
+// //Zigbee link quality
+// Number cumnataLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:cumnataTemp:linkquality" }
+// Number hodnikZLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikZTemp:linkquality" }
+// Number spalnicaLQ           "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:spalnicaTemp:linkquality" }
+// Number aljazLQ              "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:aljazTemp:linkquality" }
+// Number julijaLQ             "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:julijaTemp:linkquality" }
+// Number hodnikSLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikSTemp:linkquality" }
+// Number kopalnicaZLQ         "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kopalnicaZTemp:linkquality" }
+// Number kuhinjaLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kuhinjaTemp:linkquality" }
+// Number dnevnaLQ             "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:dnevnaTemp:linkquality" }
+// Number kabinetLQ            "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kabinetTemp:linkquality" }
+// Number kopalnicaSLQ         "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:kopalnicaSTemp:linkquality" }
+// Number energetskiSLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:energetskiTemp:linkquality" }
+// Number rekuperacijaSLQ      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:recupTemp:linkquality" }
+// Number otokLuciLQ           "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokLuci:linkquality" }
+// Number otokMalaLucLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokMalaLuc:linkQuality" }
+// Number otokVelikaLucLQ      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:otokVelikaLuc:linkquality" }
+// Number stikaloZaluzijeLQ    "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:stikaloZaluzije:linkquality" }
+// Number gibanjeVhodLQ        "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:vhodMot:linkquality" }
+// Number gibanjeHodnikZLQ     "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:hodnikZMot:linkquality" }
+// Number ZalKuhinjaDesDo      "Povezava [%d]" (LinkQuality) { channel="mqtt:topic:mosquitto:zalKuhDes:linkquality" }
 
-//Zigbee luči
-//stanje
-Switch otokLuciState        "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokLuci:state"}
-Switch otokMalaLucState     "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokMalaLuc:state"}
-Switch otokVelikaLucState   "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokVelikaLuc:state"}
+// //Zigbee luči
+// //stanje
+// Switch otokLuciState        "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokLuci:state"}
+// Switch otokMalaLucState     "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokMalaLuc:state"}
+// Switch otokVelikaLucState   "Stanje"    (Sate) {channel="mqtt:topic:mosquitto:otokVelikaLuc:state"}
 
-//svetlost
-Number otokLuciBrightness       "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokLuci:brightness"}
-Number otokMalaLucBrightness    "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokMalaLuc:brightness"}
-Number otokVelikaLucBrightness  "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokVelikaLuc:brightness"}
+// //svetlost
+// Number otokLuciBrightness       "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokLuci:brightness"}
+// Number otokMalaLucBrightness    "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokMalaLuc:brightness"}
+// Number otokVelikaLucBrightness  "Svetlost"  (Brightness) {channel="mqtt:topic:mosquitto:otokVelikaLuc:brightness"}
 
-//barva
-Number otokLuciColorTemp        "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokLuci:colorTemp"}
-Number otokMalaLucColorTemp     "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokMalaLuc:colorTemp"}
-Number otokVelikaLucColorTemp   "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokVelikaLuc:colorTemp"}
+// //barva
+// Number otokLuciColorTemp        "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokLuci:colorTemp"}
+// Number otokMalaLucColorTemp     "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokMalaLuc:colorTemp"}
+// Number otokVelikaLucColorTemp   "Barva luči"    (ColorTemp) {channel="mqtt:topic:mosquitto:otokVelikaLuc:colorTemp"}

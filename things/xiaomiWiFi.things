@@ -1,0 +1,1 @@
+Thing miio:vacuum:s5 "Miško" @ "Dnevna" [ host="192.168.1.101", token="356e6b415332655431545a7a43706543", deviceId="96496561", model="roborock.vacuum.s5", communication="direct", cloudServer="cn" ]

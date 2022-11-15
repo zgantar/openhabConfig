@@ -1,0 +1,52 @@
+String    vacActionControl              "Upravljanje sesalnika"                                    (gVac)             ["Control"]                  {channel="miio:vacuum:s5:actions#control"}
+String    vacActionCommand              "Ukaz sesalnika"                                           (gVac)             ["Control"]                  {channel="miio:vacuum:s5:actions#commands"}
+String    vacActionsFanControl          "Upravljanje moči"                                         (gVac)             ["Control"]                  {channel="miio:vacuum:s5:actions#fan"}
+String    vacActionsVacuumRoom          "Sesaj sobo"                                               (gVac)             ["Control"]                  {channel="miio:vacuum:s5:actions#segment"}
+
+Number    vacStatusBat                  "Stanje baterije [%1.0f%%]"                  <battery>     (gVac)             ["Measurement","Battery"]    {channel="miio:vacuum:s5:status#battery"}	//gVacStat,gBattery
+Number    vacStatusArea                 "Očiščena površina [%1.0fm²]"                <zoom>        (gVac)             ["Measurement"]              {channel="miio:vacuum:s5:status#clean_area"}	//gVacStat
+Number    vacStatusTime                 "Čas čiščenja [%1.0f']"                      <clock>       (gVac)                                          {channel="miio:vacuum:s5:status#clean_time"}	//gVacStat
+String    vacStatusError                "Napaka [%s]"                                <error>       (gVac)                                          {channel="miio:vacuum:s5:status#error_code"}	//gVacStat
+Number    vacStatusFanPow               "Moč sesanja [%1.0f%%]"                      <signal>      (gVac)                                          {channel="miio:vacuum:s5:status#fan_power"}	//gVacStat
+Number    vacStatusClean                "Trenutno čisti [%1.0f]"                     <switch>      (gVac)                                          {channel="miio:vacuum:s5:status#in_cleaning"}	//gVacStat
+Switch    vacStatusDND                  "Vklopljen ne moti"                                        (gVac)                                          {channel="miio:vacuum:s5:status#dnd_enabled"}	//gVacStat
+Number    vacStatusStatus               "Status [%1.0f]"                             <status>      (gVac)             ["Status"]                   {channel="miio:vacuum:s5:status#state"}	//gVacStat
+Switch    vacStatusWaterBox             "Rezervoar za vodo"                                        (gVac)                                          {channel="miio:vacuum:s5:status#water_box_status"}	//gVacStat
+Switch    vacStatusLock                 "Zaklenjen"                                                (gVac)                                          {channel="miio:vacuum:s5:status#lock_status"}	//gVacStat
+Switch    vacIsLocating                 "Lociranje"                                                (gVac)                                          {channel="miio:vacuum:s5:status#is_locating"}	//gVacStat
+String    vacStatusSegmentStatus        "Status segmenta [%s]"                       <error>       (gVac)                                          {channel="miio:vacuum:s5:status#segment_status"}	//gVacStat
+Number    vacStatusMap                  "Status zemljevida [%1.0f]"                  <status>      (gVac)                                          {channel="miio:vacuum:s5:status#map_status"}	//gVacStat
+Number    vacStatusMapPresent           "Prisoten zemljevid [%1.0f]"                 <status>      (gVac)                                          {channel="miio:vacuum:s5:status#map_present"}	//gVacStat
+
+Number    vacConsumableMain             "Odstotek porabe glavne krtače [%1.0f]"                    (gVac)                                 {channel="miio:vacuum:s5:consumables#main_brush_percent"}    //gVacCons
+Number    vacConsumableSide             "Odstotek porabe stranske krtače [%1.0f]"                  (gVac)                                 {channel="miio:vacuum:s5:consumables#side_brush_percent"}    //gVacCons
+Number    vacConsumableFilter           "Odstotek porabe filtra [%1.0f]"                           (gVac)                                 {channel="miio:vacuum:s5:consumables#filter_percent"}    //gVacCons
+Number    vacConsumableSensor           "Odstotek porabe senzorja [%1.0f]"                         (gVac)                                 {channel="miio:vacuum:s5:consumables#sensor_dirt_percent"}   //gVacCons    
+Number    vacConsumableMainTime         "Čas porabe glavne krtače [%1.0f]"                         (gVac)                                 {channel="miio:vacuum:s5:consumables#main_brush_time"}   //gVacCons
+Number    vacConsumableSideTime         "Čas porabe stranske krtače [%1.0f]"                       (gVac)                                 {channel="miio:vacuum:s5:consumables#side_brush_time"}   //gVacCons
+Number    vacConsumableFilterTime       "Čas porabe filtra [%1.0f]"                                (gVac)                                 {channel="miio:vacuum:s5:consumables#filter_time"}   //gVacCons
+Number    vacConsumableSensorTime       "Čas porabe senzorja [%1.0f]"                              (gVac)                                 {channel="miio:vacuum:s5:consumables#sensor_dirt_time"}  //gVacCons
+String    vacConsumableReset            "Ponastavi"                                                (gVac)                                 {channel="miio:vacuum:s5:consumables#consumable_reset"}  //gVacCons
+
+Switch    vacDndFunction                "Funkcija Ne moti"                           <moon>        (gVac)                                  {channel="miio:vacuum:s5:dnd#dnd_function"}  //gVacDND
+String    vacDndStart                   "Začetek Ne moti [%s]"                       <clock>       (gVac)                                  {channel="miio:vacuum:s5:dnd#dnd_start"} //gVacDND
+String    vacDndEnd                     "Konec Ne moti [%s]"                         <clock-on>    (gVac)                                  {channel="miio:vacuum:s5:dnd#dnd_end"}   //gVacDND
+
+Number    vacHistoryArea                "Očiščena površina skupaj [%1.0fm²]"         <zoom>        (gVac)                                 {channel="miio:vacuum:s5:history#total_clean_area"}  //gVacHist
+String    vacHistoryTime                "Čas čiščenja skupaj [%s]"                   <clock>       (gVac)                                 {channel="miio:vacuum:s5:history#total_clean_time"}  //gVacHist
+Number    vacHistoryCount               "Število čiščenj [%1.0f]"                    <office>      (gVac)                                 {channel="miio:vacuum:s5:history#total_clean_count"} //gVacHist
+
+String    vacLastStart                  "Začetek zadnjega čiščenja [%s]"             <clock>       (gVac)                                 {channel="miio:vacuum:s5:cleaning#last_clean_start_time"}    //gVacLast
+String    vacLastEnd                    "Konec zadnjega čiščenja [%s]"               <clock>       (gVac)                                 {channel="miio:vacuum:s5:cleaning#last_clean_end_time"}  //gVacLast
+Number    vacLastArea                   "Površina zadnjega čiščenja [%1.0fm²]"       <zoom>        (gVac)                                 {channel="miio:vacuum:s5:cleaning#last_clean_area"}  //gVacLast
+Number    vacLastTime                   "Trajanje zadnjega čiščenja [%1.0f']"        <clock>       (gVac)                                 {channel="miio:vacuum:s5:cleaning#last_clean_duration"}  //gVacLast
+Number    vacLastError                  "Napaka [%s]"                                <error>       (gVac)                                 {channel="miio:vacuum:s5:cleaning#last_clean_error"} //gVacLast
+Switch    vacLastCompleted              "Zaključek zadnjega čiščenja"                              (gVac)                                 {channel="miio:vacuum:s5:cleaning#last_clean_finish"}    //gVacLast
+String    vacLastRecord                 "Zapis zadnjega čiščenja [%s]"               <clock>       (gVac)                                 {channel="miio:vacuum:s5:cleaning#last_clean_record"}    //gVacLast
+Image     vacMap                        "Zemljevid"                                                (gVac)                                 {channel="miio:vacuum:s5:cleaning#map"}  //gVacLast
+
+String    vacInfoMultiMapList           "Seznam zemljevidov"                                       (gVac)                                 {channel="miio:vacuum:s5:info#multi_maps_list"}      //gVacInfo
+String    vacInfoRoomMaping             "Zemljevid sob"                                            (gVac)                                 {channel="miio:vacuum:s5:info#room_mapping"}         //gVacInfo
+String    vacInfoFirmwareFeatures       "Funkcionalnosti sesalca"                                  (gVac)                                 {channel="miio:vacuum:s5:info#fw_features"}          //gVacInfo
+String    vacInfoCustomizedCleanMode    "Prilagojen način čiščenja"                                (gVac)                                 {channel="miio:vacuum:s5:info#customize_clean_mode"} //gVacInfo
+String    vacInfoCarpetMode             "Način čiščenja tepiha"                                    (gVac)                                 {channel="miio:vacuum:s5:info#carpet_mode"}  //gVacInfo

@@ -1,0 +1,6 @@
+[0..30]=Excellent
+]30..50]=Good
+]50..100]=Moderate
+]100..200]=Unhealthy
+]200..300]=VeryUnhealthy
+]300..]=Hazardous

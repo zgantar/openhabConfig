@@ -1,0 +1,30 @@
+//Chromecast
+//Audio
+Dimmer    CC_VolumeDnevna       "Glasnost"         (gLivingRoomAudioCC)    ["Control","SoundVolume"]    {channel="chromecast:audio:AudioCC:volume"}
+Player    CC_ControlDnevna      "Upravljanje"      (gLivingRoomAudioCC)    ["Control"]                  {channel="chromecast:audio:AudioCC:control"}
+Switch    CC_MuteDnevna         "Utišaj"           (gLivingRoomAudioCC)    ["Control","Switch"]         {channel="chromecast:audio:AudioCC:mute"}
+String    CC_PlayURIDnevna      "Naslov"           (gLivingRoomAudioCC)                                 {channel="chromecast:audio:AudioCC:playuri"}
+String    CC_StatusURIDnevna    "Naslov"           (gLivingRoomAudioCC)                                 {channel="chromecast:audio:AudioCC:statustext"}
+Switch    CC_IdlingDnevna       "Pripravljen"      (gLivingRoomAudioCC)                                 {channel="chromecast:audio:AudioCC:idling"}
+Switch    CC_StopDnevna         "Ustavi"           (gLivingRoomAudioCC)    ["Control","Switch"]         {channel="chromecast:audio:AudioCC:stop"}
+
+//Onkyo
+Dimmer    CC_VolumeOnkyo        "Glasnost"         (gLivingRoomOnkiyo)     ["Control","SoundVolume"]    {channel="chromecast:audio:Onkyo:volume"}
+Player    CC_ControlOnkyo       "Upravljanje"      (gLivingRoomOnkiyo)     ["Control"]                  {channel="chromecast:audio:Onkyo:control"}
+Switch    CC_MuteOnkyo          "Utišaj"           (gLivingRoomOnkiyo)     ["Control","Switch"]         {channel="chromecast:audio:Onkyo:mute"}
+String    CC_PlayURIOnkyo       "Naslov"           (gLivingRoomOnkiyo)                                  {channel="chromecast:audio:Onkyo:playuri"}
+String    CC_StatusURIOnkyo     "Naslov"           (gLivingRoomOnkiyo)                                  {channel="chromecast:audio:Onkyo:statustext"}
+Switch    CC_IdlingOnkyo        "Pripravljen"      (gLivingRoomOnkiyo)                                  {channel="chromecast:audio:Onkyo:idling"}
+Switch    CC_StopOnkyo          "Ustavi"           (gLivingRoomOnkiyo)     ["Control","Switch"]         {channel="chromecast:audio:Onkyo:stop"}
+String    CC_MetaDataOnkyo      "Meta podatki"     (gLivingRoomOnkiyo)                                  {channel="chromecast:audio:Onkyo:metadataType"}
+String    CC_ArtistOnkyo        "Glasbenik"        (gLivingRoomOnkiyo)                                  {channel="chromecast:audio:Onkyo:artist"}
+String    CC_TitleOnkyo         "Naslov glasbe"    (gLivingRoomOnkiyo)                                  {channel="chromecast:audio:Onkyo:title"}
+
+// //Video
+// Dimmer  VolumeVideo     "Glasnost"       [ "Lighting" ]     { channel="chromecast:chromecast:TVCC:volume" }
+// Player  ControlVideo    "Upravljanje"                       { channel="chromecast:chromecast:TVCC:control" }
+// Switch  MuteVideo       "Utišaj"         [ "Switchable" ]   { channel="chromecast:chromecast:TVCC:mute" }
+// String  PlayURIVideo    "Naslov"                            { channel="chromecast:chromecast:TVCC:playuri" }
+// String  StatusURIVideo  "Naslov"                            { channel="chromecast:chromecast:TVCC:statustext" }
+// Switch  IdlingVideo     "Pripravljen"                       { channel="chromecast:chromecast:TVCC:idling" }
+// Switch  StopVideo       "Ustavi"                            { channel="chromecast:chromecast:TVCC:stop" }

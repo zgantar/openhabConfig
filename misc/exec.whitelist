@@ -1,0 +1,11 @@
+# For security reasons all commands that are used by the exec binding or transformation need to be whitelisted.
+# Every command needs to be listed on a separate line below.
+java -jar /etc/openhab/scripts/ZevsParser.jar percipInten
+java -jar /etc/openhab/scripts/ZevsParser.jar percipToday
+java -jar /etc/openhab/scripts/ZevsParser.jar press
+java -jar /etc/openhab/scripts/ZevsParser.jar solarRad
+java -jar /etc/openhab/scripts/ZevsParser.jar temp
+java -jar /etc/openhab/scripts/ZevsParser.jar feelTemp
+java -jar /etc/openhab/scripts/ZevsParser.jar hum
+java -jar /etc/openhab/scripts/ZevsParser.jar windDir
+java -jar /etc/openhab/scripts/ZevsParser.jar windSpeed

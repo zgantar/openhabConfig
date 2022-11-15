@@ -1,0 +1,2 @@
+Number:Temperature      arsoTemp    "ARSO temperatura"    <temperature>    (Out)    ["Measurement","Temperature"]    {channel="http:url:arso:temperature", stateDescription=" "[ pattern="%.1f °C" ]}
+Number:Dimensionless    arsoHum     "ARSO vlažnost"       <humidity>       (Out)    ["Measurement","Humidity"]       {channel="http:url:arso:humidity", stateDescription=" "[ pattern="%d %%", min="0", max="100" ]}

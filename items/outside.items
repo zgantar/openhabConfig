@@ -1,12 +1,9 @@
-Group	Out
-
-//Humidity
-String	OutTemp			"Zunanja temperatura [%s °C]"			    <temperature>	(Out)	{channel="exec:command:outTemp:output"}
-String	OutFeelTemp		"Zunanja občutena temperatura [%s °C]"	    <temperature>	(Out)	{channel="exec:command:outFeelTemp:output"}
-String	OutHum			"Zunanja vlažnost [%s %%]"				    <humidity>      (Out)	{channel="exec:command:outHum:output"}
-String	OutWindDir		"Smer vetra [%s]"						    <wind>          (Out)	{channel="exec:command:outWindDir:output"}
-String	OutWindSpeed	"Hitrost vetra [%s km/h]"           	    <wind>			(Out)	{channel="exec:command:outWindSpeed:output"}
-String	OutPressure		"Zunanji zračni pritisk [%s hPa]"	        <pressure>		(Out)	{channel="exec:command:outPress:output"}
-String	OutPercipInten	"Trenutna intenziteta padavin [%s l/m2]"    <rain>    		(Out)	{channel="exec:command:outPercipInten:output"}
-String	OutPercipToday	"Današnja količina padavin [%s l/m2]"		<rain>	    	(Out)	{channel="exec:command:outPercipToday:output"}
-String	OutSolarRad		"Sočno sevanje [%s W/m2]"					<sun>           (Out)	{channel="exec:command:outSolarRad:output"}
+Number:Temperature      gOutTemp           "Zunanja temperatura"             <temperature>    (gOutdoorSensor)    ["Measurement","Temperature"]    {channel="exec:command:outTemp:output", stateDescription=" "[ pattern="%.1f %unit%", readOnly=true ]}
+Number:Temperature      gOutFeelTemp       "Zunanja občutena temperatura"    <temperature>    (gOutdoorSensor)    ["Measurement","Temperature"]    {channel="exec:command:outFeelTemp:output", stateDescription=" "[ pattern="%.1f °C", readOnly=true ]}
+Number:Dimensionless    gOutHum            "Zunanja vlažnost"                <humidity>       (gOutdoorSensor)    ["Measurement","Humidity"]       {channel="exec:command:outHum:output", stateDescription=" "[ pattern="%.1f %%", readOnly=true ]}
+String                  gOutWindDir        "Smer vetra"                      <wind>           (gOutdoorSensor)    ["Measurement","Wind"]           {channel="exec:command:outWindDir:output", stateDescription=" "[ readOnly=true ]}
+Number:Speed            gOutWindSpeed      "Hitrost vetra"                   <wind>           (gOutdoorSensor)    ["Measurement","Wind"]           {channel="exec:command:outWindSpeed:output", stateDescription=" "[ pattern="%.1f %unit%", readOnly=true ]}
+Number:Pressure         gOutPressure       "Zunanji zračni pritisk"          <pressure>       (gOutdoorSensor)    ["Measurement","Pressure"]       {channel="exec:command:outPress:output", stateDescription=" "[ pattern="%d %unit%", readOnly=true ]}
+Number:Dimensionless    gOutPercipInten    "Trenutna intenziteta padavin"    <rain>           (gOutdoorSensor)    ["Measurement","Rain"]           {channel="exec:command:outPercipInten:output", stateDescription=" "[ pattern="%.1f l/m2", readOnly=true ]}
+Number:Dimensionless    gOutPercipToday    "Današnja količina padavin"       <rain>           (gOutdoorSensor)    ["Measurement","Rain"]           {channel="exec:command:outPercipToday:output", stateDescription=" "[ pattern="%.1f l/m2", readOnly=true ]}
+Number:Intensity        gOutSolarRad       "Sočno sevanje"                   <sun>            (gOutdoorSensor)    ["Measurement"]                  {channel="exec:command:outSolarRad:output", stateDescription=" "[ pattern="%d %unit%", readOnly=true ]}

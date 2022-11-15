@@ -1,0 +1,31 @@
+Bridge  mihome:bridge:286c0788c0ee "Xiaomi Gateway" @ "Dnevna" [ serialNumber="286c0788c0ee", ipAddress="192.168.1.102", port=9898, key="7j427x5auhe49ku2", pollingInterval=6000 ] {
+
+    //Gateway
+    Thing   mihome:gateway:286c0788c0ee "Xiaomi Mi Smart Home Gateway" @ "Kuhinja" [itemId="286c0788c0ee"]
+
+    // //Plug
+    // Thing   mihome:sensor_plug:158d0001a68c94 "Tinkerforge" @ "Kabinet" [itemId="158d0001a68c94"]
+    // Thing   mihome:sensor_plug:158d0002372e50 "TV&HiFi" @ "Dnevna" [itemId="158d0002372e50"]
+    // Thing   mihome:sensor_plug:158d000237314e "HiFi" @ "Dnevna" [itemId="158d000237314e"]
+
+    // //Door
+    // Thing   mihome:sensor_magnet:158d0001a5eff5 "Vhodna vrata" @ "Hodnik spodaj" [itemId="158d0001a5eff5"]
+    // Thing   mihome:sensor_magnet:158d0001a5eaf2 "Dvižno drsno okno" @ "Kuhinja" [itemId="158d0001a5eaf2"]
+    // Thing   mihome:sensor_magnet:158d0001a5f10d "Nagibno drsno okno" @ "Dnevna" [itemId="158d0001a5f10d"]
+
+    //Smoke
+    Thing   mihome:smoke:158d0001b76b9c "Dim" @ "Čumnata" [itemId="158d0001b76b9c"]
+
+    // //cube
+    // Thing   mihome:sensor_cube:158d00029abcd1 "Kockica" @ "Dnevna" [ itemId="158d00029abcd1" ]
+
+    //water leak
+    Thing   mihome:sensor_wleak_aq1:158d000245c982 "Voda" @ "Energetski prostor" [ itemId="158d000245c982" ]
+    //Thing   mihome:sensor_wleak_aq1:158d000245ca00 "Voda" @ "Energetski prostor" [ itemId="158d000245ca00" ]
+
+    // //Aqara motion sensor
+    // Thing   mihome:sensor_motion_aq2:158d00044b0ff3 "Gibanje" @ "Dnevna"        [ itemId="158d00044b0ff3" ]
+    // Thing   mihome:sensor_motion_aq2:158d00044c4d86 "Gibanje" @ "Hodnik spodaj" [ itemId="158d00044c4d86" ]
+    // Thing   mihome:sensor_motion_aq2:158d00044e6dd3 "Gibanje" @ "Hodnik zgoraj" [ itemId="158d00044e6dd3" ]
+    // Thing   mihome:sensor_motion_aq2:158d000405906e "Gibanje" @ "Kuhinja" [ itemId="158d000405906e" ] 
+}
