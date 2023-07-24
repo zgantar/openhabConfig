@@ -1,0 +1,8 @@
+Thing http:url:arsoVreme "ARSO vreme     " [
+	baseURL="http://meteo.arso.gov.si/uploads/probase/www/observ/surface/text/sl/observationAms_KRANJ_latest.xml",
+	refresh=300] {
+		Channels:
+			Type number : temperature "Temperatura" [ stateTransformation="XPATH://data/metData/t", unit="°C" ]
+            Type number : humidity "Vlažnost" [ stateTransformation="XPATH://data/metData/rh", unit="%" ]
+            // Type number : forecast "Napoved" [ stateTransformation="XPATH://data/metData[1]/txsyn", unit="°C" ]
+}

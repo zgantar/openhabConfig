@@ -11,7 +11,7 @@ when
 then
 	logInfo("alarm", "###########################Set all necessary variables for alarm##############################")
 	logInfo("alarm", "AlarmLightRaised - " + AlarmLightRaised.state)
-	if (DoorDvigStatus.state == OPEN || DoorNagibStatus == OPEN || DoorVhodStatus == OPEN) {
+	if (gKitchenRaiseWindowContact.state == OPEN || gLivingRoomTiltWindowContact == OPEN || gGroundCorridorFrontDoorContact == OPEN) {
 			logInfo("alarm", "Vsaj ena vrata so odprta zato nastavim AlarmBlinkLight")
 			AlarmLightRaised.sendCommand(ON)
 	} else sendCommand(AlarmLightRaised, OFF)
@@ -26,11 +26,11 @@ then
 	logInfo("alarm", "###########################Turning " + AlarmLightRaised.state + " light##############################")
 	if (AlarmLightRaised.state == ON) {
 		logInfo("alarm", "Dobil obvestilo za prižgati luč - " + AlarmLightRaised.state)
-		sendCommand(GatewayColor, new HSBType("0,100,100"))
-		sendCommand(GatewayBrightness, 20.0)
+		sendCommand(xiaomiMiGatewayColor, new HSBType("0,100,100"))
+		sendCommand(xiaomiMiGatewayBrightness, 20.0)
 	} else {
 		logInfo("alarm", "Dobil obvestilo za ugasniti luč - " + AlarmLightRaised.state)
-		sendCommand(GatewayBrightness, 0)
+		sendCommand(xiaomiMiGatewayBrightness, 0)
 	}
 	logInfo("alarm", "END ###########################Turning " + AlarmLightRaised.state + " light##############################")
 end
@@ -39,7 +39,7 @@ end
 rule "Door sensors group value changed"
 
 when
-	Member of Door changed to OPEN
+	Member of gDoor changed to ON
 then
 	logInfo("alarm", "###########################Door sensors group value changed##############################")
 	logInfo("alarm", "Zaznal sem odprta vrata, preverjam ali že gori luč!! - " + AlarmLightRaised.state.toString)
@@ -48,12 +48,12 @@ then
 	if (AlarmLightRaised.state == OFF) {
 		AlarmLightRaised.sendCommand(ON)
 		//checking to see if no parent is at home
-		if (PhonePing.state == OFF) {
+		if (gPhonePing.state == OFF) {
 			logInfo("alarm", "Telefona staršev še nista prijavljena na Wifi, počakam še 10 sekund")
-			lightShuttOff = createTimer(now.plusMillis(10000)) [|
-				if (PhonePing.state == OFF) {
+			lightShuttOff = createTimer(now.plusSeconds(10)) [|
+				if (gPhonePing.state == OFF) {
 					logInfo("alarm", "Tudi po desetih sekundah ni prijavljenih telefonov, prožim sporočilo")
-					sendHABotNotification("Zaznal odprta vrata, ko staršev ni doma ob "+ now + " - " + PhonePing.toString)
+					sendHABotNotification("Zaznal odprta vrata, ko staršev ni doma ob "+ now + " - " + gPhonePing.toString)
 				}
 				lightShuttOff = null
 			]
@@ -65,10 +65,10 @@ end
 rule "Door sensors group value changed to close"
 
 when
-	Item Door changed to CLOSED
+	Item gDoor changed to OFF
 then
 	logInfo("alarm", "###########################Door sensors group value changed to close##############################")
-	logInfo("alarm", "Zaznal sem zapiranje vrat, preverjam če so katera vrata ostala odprta!!" + DoorDvigStatus.state.toString + DoorNagibStatus.state.toString + DoorVhodStatus.state.toString)
+	logInfo("alarm", "Zaznal sem zapiranje vrat, preverjam če so katera vrata ostala odprta!!" + gKitchenRaiseWindowContact + gLivingRoomTiltWindowContact + gGroundCorridorFrontDoorContact)
 	if (AlarmLightRaised.state == ON) {
 		AlarmLightRaised.sendCommand(OFF)
 	}
@@ -87,28 +87,51 @@ then
 	}
 	if (AlarmBlinkLightRaised.state == ON) {
 		logInfo("alarm", "Ker je stikalo za utripajoči alarm priklopljeno, začnem utripati!")
-		alarmBlinkTimer = createTimer(now.plusMillis(500)) [|
+		alarmBlinkTimer = createTimer(now.plusSeconds(1)) [|
 			if (blinkLightState) {
-				GatewayColor.sendCommand(new HSBType("0,100,100"))
-				GatewayBrightness.sendCommand(100)
+				xiaomiMiGatewayColor.sendCommand(new HSBType("0,100,100"))
+				xiaomiMiGatewayBrightness.sendCommand(100)
 				blinkLightState = false
 			} else {
-				GatewayBrightness.sendCommand(0)
+				xiaomiMiGatewayBrightness.sendCommand(0)
 				blinkLightState = true
 			}
-    	    alarmBlinkTimer.reschedule(now.plusMillis(500))
+    	    alarmBlinkTimer.reschedule(now.plusSeconds(1))
     	]
 	} else {
-		GatewayBrightness.sendCommand(0)
+		xiaomiMiGatewayBrightness.sendCommand(0)
 	}
 end
 
-rule "Start blinking if movement first on groundfloor"
-when
-    Member of GroundF changed to ON
-then
-	val lastUpdateGroundF = GroundF.members.sortBy[lastUpdate].last as SwitchItem
-	val lastUpdateFirstF = FirstF.members.sortBy[lastUpdate].last as SwitchItem
-	val lastUpdateTimeDiffGroundF = now.millis - lastUpdateGroundF.previousState.timestamp.time
-	val lastUpdateTimeDiffFirstF = now.millis - lastUpdateFirstF.previousState.timestamp.time
-end
+// rule "gKitchenRaiseWindowContact changed to ON"
+
+// when
+//     Item gRaiseWindowContact changed to ON
+// then
+//     logInfo("doors", "###########################Terace Door opened##############################")
+// 	if (AlarmLightRaised.state == OFF) {
+// 		AlarmLightRaised.sendCommand(ON)
+// 	}
+// end
+
+// rule "gKitchenRaiseWindowContact changed to OFF"
+
+// when
+//     Item gRaiseWindowContact changed to OFF
+// then
+//     logInfo("doors", "########################### Terace Door closed ##############################")
+// 	if (AlarmLightRaised.state == ON) {
+// 		AlarmLightRaised.sendCommand(OFF)
+// 	}
+// end
+
+
+// rule "Start blinking if movement first on groundfloor"
+// when
+    // Member of GroundF changed to ON
+// then
+	// val lastUpdateGroundF = gGroundF.members.sortBy[lastUpdate].last as SwitchItem
+	// val lastUpdateFirstF = gFirstF.members.sortBy[lastUpdate].last as SwitchItem
+	// val lastUpdateTimeDiffGroundF = now.millis - lastUpdateGroundF.previousState.timestamp.time
+	// val lastUpdateTimeDiffFirstF = now.millis - lastUpdateFirstF.previousState.timestamp.time
+// end

@@ -1,0 +1,113 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://172.17.0.1
+serial:
+  port: >-
+    /dev/serial/by-id/usb-Silicon_Labs_slae.sh_cc2652rb_stick_-_slaesh_s_iot_stuff_00_12_4B_00_25_9B_22_72-if00-port0
+  adapter: zstack
+frontend:
+  port: 8000
+advanced:
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+  legacy_availability_payload: false
+  channel: 24
+  log_syslog:
+    app_name: Zigbee2MQTT
+    eol: /n
+    host: localhost
+    localhost: localhost
+    path: /dev/log
+    pid: process.pid
+    port: 514
+    protocol: udp4
+    type: '5424'
+  adapter_concurrent: 16
+experimental:
+  output: attribute
+device_options:
+  legacy: false
+availability:
+  active:
+    timeout: 10
+  passive:
+    timeout: 1500
+devices:
+  '0x00158d000237314e':
+    friendly_name: plugRecu
+  '0x00158d000210a5ec':
+    friendly_name: tempKabinet
+  '0x00158d00020db6d4':
+    friendly_name: tempDnevna
+  '0x00158d0001a5eaf2':
+    friendly_name: oknoKuhinja
+  '0x00158d00044b0ff3':
+    friendly_name: motDnevna
+  '0x04cf8cdf3c7c4042':
+    friendly_name: plugFree
+  '0x00158d0004aadef6':
+    friendly_name: tempCumnata
+  '0x00158d00023792d1':
+    friendly_name: tempKuhinja
+  '0x00158d0007bde75b':
+    friendly_name: tempEnergetski
+  '0x00158d0005c1a95c':
+    friendly_name: talnoSpodaj2
+  '0x00158d000636feed':
+    friendly_name: talnoSpodaj3
+  '0x00158d0001b76b9c':
+    friendly_name: smokeCumnata
+  '0x00158d0001e89688':
+    friendly_name: tempHodnikS
+  '0x00158d0001a5eff5':
+    friendly_name: vrataVhod
+  '0x00158d00054a7443':
+    friendly_name: motVhod
+  '0x00158d0001e89694':
+    friendly_name: tempKopalnicaS
+  '0x00158d00020ead94':
+    friendly_name: tempAljaz
+  '0x00158d000586784e':
+    friendly_name: talnoZgoraj1
+  '0x00124b0024c1e419':
+    friendly_name: talnoZgoraj3
+  '0x00158d000637181d':
+    friendly_name: talnoZgoraj2
+  '0x00158d0001f58033':
+    friendly_name: tempHodnikZ
+  '0x00158d00022264c9':
+    friendly_name: tempKopalnicaZ
+  '0x00158d00020ead97':
+    friendly_name: tempJulija
+  '0x00158d0005729a23':
+    friendly_name: motHodnikKopalnicaZ
+  '0x00158d00044e6dd3':
+    friendly_name: motHodnikZ
+  '0x00158d000222654d':
+    friendly_name: tempSpalnica
+  '0x00158d000636fedd':
+    friendly_name: plugAljaz
+  '0x00158d0001f54681':
+    friendly_name: tempRecu
+  '0x00124b0024c07423':
+    friendly_name: talnoSpodaj1
+  '0x00158d000245c982':
+    friendly_name: leakKuhinja
+  '0x00158d00016d77ce':
+    friendly_name: switchZaluzije
+  '0x000b57fffeca8ab4':
+    friendly_name: stikaloLightOtok
+    availability: false
+  '0x000b57fffe0e1564':
+    friendly_name: lightMalaOtok
+  '0x000b57fffec34986':
+    friendly_name: lightVelikaOtok
+  '0x00158d00044c4d86':
+    friendly_name: motHodnikS
+  '0x00158d000405906e':
+    friendly_name: motKuhinja
+ota:
+  ikea_ota_use_test_url: false
+  update_check_interval: 2880

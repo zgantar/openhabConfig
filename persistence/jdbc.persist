@@ -3,8 +3,9 @@ Strategies {
 	everyFiveMinutes	: "0 */5 * * * ?"
 	everyTenMinutes		: "0 */10 * * * ?"
 	everyCourterHour	: "0 */15 * * * ?"
-	everyHour		: "0 0 * * * ?"
-	everyDay		: "0 0 0 * * ?"
+	everyHour			: "0 0 * * * ?"
+	everyDay			: "0 0 0 * * ?"
+	everyMonth			: "20 0 0 1 * ? *"
 
 	// If no strategy is specified for an item entry below, the default list will be used.
 	default = everyChange 
@@ -16,54 +17,65 @@ Strategies {
  * item (excl. the group item itself).
  */
 Items {
-	Temp* : strategy = restoreOnStartup
-	Hum* : strategy = everyFiveMinutes, restoreOnStartup
-	Lum* : strategy = everyFiveMinutes, restoreOnStartup
-	Mot* : strategy = everyChange, restoreOnStartup
+	gTemp* : strategy = everyFiveMinutes, restoreOnStartup
+	gHum* : strategy = everyFiveMinutes, restoreOnStartup
+	gLum* : strategy = everyFiveMinutes, restoreOnStartup
+	gMot* : strategy = everyChange, restoreOnStartup
 	
 	//ogrevanje
-	Override: strategy = everyChange, restoreOnStartup
-	Heating: strategy = everyChange, restoreOnStartup
-	Log* : strategy = everyChange, restoreOnStartup
-	Fhs* : strategy = everyChange, restoreOnStartup
-	Set* : strategy = everyChange, restoreOnStartup
-	Dif* : strategy = everyChange, restoreOnStartup	
-	Man* : strategy = everyChange, restoreOnStartup
+	gOverride: strategy = everyChange, restoreOnStartup
+	gHeating: strategy = everyChange, restoreOnStartup
+	gLog* : strategy = everyChange, restoreOnStartup
+	gFhs* : strategy = everyChange, restoreOnStartup
+	gSet* : strategy = everyChange, restoreOnStartup
+	gDif* : strategy = everyChange, restoreOnStartup	
+	gMan* : strategy = everyChange, restoreOnStartup
 
 	//zunanji podatki
-	Out* : strategy = everyFiveMinutes, restoreOnStartup
+	gOutdoorSensor* : strategy = everyFiveMinutes, restoreOnStartup
+	gAirQuality*  : strategy = everyFiveMinutes, restoreOnStartup
+
 	
 	//vrata in alarm
-	Alarm* : strategy = everyChange, restoreOnStartup
-	Door* : strategy = everyChange, restoreOnStartup
+	gAlarm* : strategy = everyChange, restoreOnStartup
+	gDoor* : strategy = everyChange, restoreOnStartup
 
 	//elektrika
-	LowElectricity: strategy = everyChange, restoreOnStartup
-	Power* : strategy = everyFiveMinutes, restoreOnStartup
-	Consumption* : strategy = everyCourterHour, restoreOnStartup
-	InUse* : strategy = everyChange, restoreOnStartup
-	CalcConsHour* : strategy = everyHour, restoreOnStartup
-	CalcConsDay* : strategy = everyDay, restoreOnStartup
-	PlugSwitch* : strategy = everyChange, restoreOnStartup
+	//LowElectricity: strategy = everyChange, restoreOnStartup
+	gPower* : strategy = everyFiveMinutes, restoreOnStartup
+	gConsumption* : strategy = everyCourterHour, restoreOnStartup
+	gCurrentConsumption* : strategy = everyChange, restoreOnStartup
+	gInUse* : strategy = everyChange, restoreOnStartup
+	gCalcConsHour* : strategy = everyChange, restoreOnStartup
+	gCalcConsDay* : strategy = everyChange, restoreOnStartup
+	gCalcConsMonth* : strategy = everyChange, restoreOnStartup
+	gPlugSwitch* : strategy = everyChange, restoreOnStartup
 
 	//smoke
-	Smoke :	strategy = everyChange, restoreOnStartup
+	gPantrySmokeDetector :	strategy = everyChange, restoreOnStartup
+
+	//puščanje vode
+	gWaterLeak* : strategy = everyChange, restoreOnStartup
+
+	//Gibanje
+	gMot* : strategy = everyChange, restoreOnStartup
 	
 	//telefona
-	Phone* :	strategy = everyChange, restoreOnStartup
+	gNetwork* :	strategy = everyChange, restoreOnStartup
 	
 	//žaluzije
-	BlindAct* : strategy = everyChange
-	BlindSwi* : strategy = everyChange
-	BlindLog* : strategy = everyChange, restoreOnStartup
-	BlindState* : strategy = everyChange, restoreOnStartup
-	ShellyOverTemp* : strategy = everyChange
-	BlindsAlive* : strategy = everyChange
+	gBlindAct* : strategy = everyChange
+	gBlindSwi* : strategy = everyChange
+	gBlindLog* : strategy = everyChange, restoreOnStartup
+	gBlindState* : strategy = everyChange, restoreOnStartup
+	gShellyTemp* : strategy = everyChange
+	gShellyAlarm* : strategy = everyChange
+	gShellyConsumption* : strategy = everyChange, restoreOnStartup
 	
 	//dodatne
-	Other* : strategy = everyChange, restoreOnStartup
+	gLogicItemsToPersist* : strategy = everyChange, restoreOnStartup
 	All* : strategy = everyChange, restoreOnStartup
-	TimeSetter* : strategy = everyChange, restoreOnStartup
+	gTimeSetter* : strategy = everyChange, restoreOnStartup
 
 	undefined : strategy = everyFiveMinutes, restoreOnStartup
 }

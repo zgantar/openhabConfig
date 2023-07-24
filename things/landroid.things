@@ -1,0 +1,3 @@
+Bridge worxlandroid:worxlandroidBridge:MyWorxBridge "Landroid Bridge" [ webapiUsername="zgantar@yahoo.com", webapiPassword="KosilnicaNaPalc3" ] {
+    Thing mower 20213026720100730042 "Becka Ovčić Kosi" [ refreshStatusInterval=300, pollingInterval=3600, reconnectInterval=0 ]
+}

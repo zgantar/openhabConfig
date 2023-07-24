@@ -1,0 +1,32 @@
+{
+  "mqtt:systemBroker:prod": {
+    "class": "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "thingUID": {
+        "segments": [
+          "mqtt",
+          "systemBroker",
+          "prod"
+        ],
+        "uid": "mqtt:systemBroker:prod"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "mqtt",
+          "systemBroker"
+        ],
+        "uid": ""
+      },
+      "properties": {
+        "host": "192.168.1.202",
+        "brokerid": "prod",
+        "port": 8883.0
+      },
+      "representationProperty": "brokerid",
+      "flag": "IGNORED",
+      "label": "MQTT Broker",
+      "timestamp": 1628226968415,
+      "timeToLive": -1
+    }
+  }
+}

@@ -32,7 +32,7 @@
 //     var String message
 //     var SwitchItem tmpSwitch
 
-//     val activeMessages = MessagesSwitches.members.filter(filtItem|filtItem.state == ON)
+//     val activeMessages = gMessagesSwitches.members.filter(filtItem|filtItem.state == ON)
 //     logInfo(log, "Dobil sem {} sporočil", activeMessages)
 //     if (activeMessages.size > 0) {
 //         MessagesNumber.postUpdate(activeMessages.size as Number)
@@ -45,7 +45,7 @@
 
 //         name = tmpSwitch.name.substring(6, tmpSwitch.name.length)
 //         logInfo("messages", "Prvo sporočilo je iz {}", name)
-//         activeMessage = Messages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name)).head
+//         activeMessage = gMessages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name)).head
 //         logInfo("messages", "Dobil sem sporočilo {}, ki ga moram prikazati", activeMessage)
 //         logInfo("messages", "Kam pa prikažem sporočilo {} ", Message)
 //         message = activeMessage
@@ -64,7 +64,7 @@
 
 //             val name2 = tmpSwitch2.name.substring(6, tmpSwitch2.name.length)
 //             logInfo("messages", "Prvo sporočilo je iz {}", name2)
-//             val activeMessage2 = Messages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name2)).head
+//             val activeMessage2 = gMessages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name2)).head
 //             logInfo("messages", "Dobil sem sporočilo {}, ki ga moram prikazati", activeMessage2)
 //             Message.postUpdate(activeMessage2.state)
 //             logInfo("messages", "-----------------Konec funkcije assignMessage--------------")
@@ -83,7 +83,7 @@
 //     logInfo("messages", "-----------------Klic funkcije assignMessage--------------")
 //     val name = activeMessageSwitch.name.substring(6, activeMessageSwitch.name.length)
 //     logInfo("messages", "Prvo sporočilo je iz {}", name)
-//     val activeMessage = Messages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name)).head
+//     val activeMessage = gMessages.members.filter(filtItem | filtItem.name.equalsIgnoreCase(name)).head
 //     logInfo("messages", "Dobil sem sporočilo {}, ki ga moram prikazati", name)
 //     Message.postUpdate(activeMessage.state.toString)
 //     logInfo("messages", "-----------------Konec funkcije assignMessage--------------")

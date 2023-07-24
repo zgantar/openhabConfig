@@ -1,0 +1,15 @@
+//Plugs
+//TV&HiFi
+Number:ElectricPotential    plugTVHiFiVoltage              "Napetost"                                        (gLivingRoomTVHiFiPLug)                                      ["Measurement","Voltage"]        {unit="V", channel="mqtt:topic:mosquitto:plugTvHiFi:voltage"}
+Number:Temperature          plugTVHiFiTemperature          "TV&HiFi shelly temperatura"    <temperature>     (gLivingRoomTVHiFiPLug,gShellyTemp,gEquipmentTemperature)    ["Temperature","Measurement"]    {unit="°C", channel="mqtt:topic:mosquitto:plugTvHiFi:temperature"}
+Switch                      plugTVHiFiAlarm                "TV&HiFi shelly alarm"          <alarm>           (gLivingRoomTVHiFiPLug,gShellyAlarm)                         ["Alarm"]                        {channel="mqtt:topic:mosquitto:plugTvHiFi:overTemp"}
+//TV
+Switch                      plugTeVeSwitch                 "Stikalo TV"                    <switch>          (gLivingRoomTVHiFiPLug,gPlugSwitch)                          ["Switch","Control"]             {channel="mqtt:topic:mosquitto:plugTvHiFi:state1"}
+Number:Power                plugTeVePower                  "Trenutna moč TV"               <energy>          (gLivingRoomTVHiFiPLug,gPower)                               ["Measurement","Power"]          {unit="W", channel="mqtt:topic:mosquitto:plugTvHiFi:power1"}
+Number:Energy               plugTeVeReportedConsumption    "Poročana poraba TV"            <line-incline>    (gLivingRoomTVHiFiPLug,gShellyConsumption)                   ["Measurement","Energy"]         {unit="Wmin", channel="mqtt:topic:mosquitto:plugTvHiFi:consumption1"}
+Number:Energy               plugTeVeConsumption            "Skupna poraba TV"              <line-incline>    (gLivingRoomTVHiFiPLug,gConsumption)                         ["Measurement","Energy"]         {unit="kWh", stateDescription=""[ pattern="%.2f kWh" ]}
+//HiFi
+Switch                      plugHiFiSwitch                 "Stikalo HiFi"                  <switch>          (gLivingRoomTVHiFiPLug,gPlugSwitch)                          ["Switch","Control"]             {channel="mqtt:topic:mosquitto:plugTvHiFi:state0"}
+Number:Power                plugHiFiPower                  "Trenutna moč HiFi"             <energy>          (gLivingRoomTVHiFiPLug,gPower)                               ["Measurement","Power"]          {unit="W", channel="mqtt:topic:mosquitto:plugTvHiFi:power0"}
+Number:Energy               plugHiFiReportedConsumption    "Poročana poraba HiFi"          <line-incline>    (gLivingRoomTVHiFiPLug,gShellyConsumption)                   ["Measurement","Energy"]         {unit="Wmin", channel="mqtt:topic:mosquitto:plugTvHiFi:consumption0"}
+Number:Energy               plugHiFiConsumption            "Skupna poraba HiFi"            <line-incline>    (gLivingRoomTVHiFiPLug,gConsumption)                         ["Measurement","Energy"]         {unit="kWh", stateDescription=""[ pattern="%.2f kWh" ]}

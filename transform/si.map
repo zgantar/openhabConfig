@@ -1,7 +1,15 @@
-DOOR-CLOSED=zaprto
-DOOR-OPEN=odprto
+DOOR-CLOSED=zaprta
+DOOR-OFF=zaprta
+DOOR-OPEN=odprta
+DOOR-ON=odprta
 DOOR-NULL=ni podatka
 DOOR-UNDEF=ni podatka
+WINDOW-CLOSED=zaprto
+WINDOW-OFF=zaprto
+WINDOW-OPEN=odprto
+WINDOW-ON=odprto
+WINDOW-NULL=ni podatka
+WINDOW-UNDEF=ni podatka
 undefined=neznano
 MOTION-CLOSED=ni gibanja
 MOTION-OPEN=gibanje

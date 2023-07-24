@@ -1,0 +1,8 @@
+//Talno gretje ventili
+//zgoraj
+Switch    fhsHodnikZ                "Hodnik zgoraj"    <heating>    (gFhs)                                        {channel="mqtt:topic:mosquitto:talnoZgoraj3:state"}
+Switch    fhsHodnikZAvailability    "Ali dela"         <switch>     (gMqttAvailability)    ["Switch","Status"]    {channel="mqtt:topic:mosquitto:talnoZgoraj3:availability", stateDescription=" "[options="off=Red, on=Green"]}
+
+//spodaj
+Switch    fhsKuhinja                "Kuhinja"          <heating>    (gFhs,gFhsRev)                                {channel="mqtt:topic:mosquitto:talnoSpodaj1:state"}
+Switch    fhsKuhinjaAvailability    "Ali dela"         <switch>     (gMqttAvailability)    ["Switch","Status"]    {channel="mqtt:topic:mosquitto:talnoSpodaj1:availability", stateDescription=" "[options="off=Red, on=Green"]}

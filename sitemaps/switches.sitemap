@@ -1,6 +1,6 @@
 sitemap switches label="Stikala za rezidenco Gantar" {
 	Frame label="Ogrevanje" icon="heating" {
-		Switch item=FhsHeater
+		Switch item=fhsHeater
 	}
 
 	Frame label="Ogrevanje po sobah" icon="heating" {

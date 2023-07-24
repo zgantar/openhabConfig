@@ -1,0 +1,86 @@
+////Luči
+//otok
+Thing mqtt:topic:mosquitto:otokMalaLuc "Luč mala otok" (mqtt:broker:mosquitto) @ "Kuhinja" [ availabilityTopic="zigbee2mqtt/lightMalaOtok/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/lightMalaOtok/brightness", commandTopic = "zigbee2mqtt/lightMalaOtok/set/brightness" ]
+        Type number : linkQuality   "povezava"      [ stateTopic = "zigbee2mqtt/lightMalaOtok/linkquality" ]
+        Type number : colorTemp     "barva luči"    [ stateTopic = "zigbee2mqtt/lightMalaOtok/color_temp", commandTopic = "zigbee2mqtt/lightMalaOtok/set/color_temp" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/lightMalaOtok/state", commandTopic = "zigbee2mqtt/lightMalaOtok/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/lightMalaOtok/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/lightMalaOtok/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+
+Thing mqtt:topic:mosquitto:otokVelikaLuc "Luč velika otok" (mqtt:broker:mosquitto) @ "Kuhinja" [ availabilityTopic="zigbee2mqtt/lightVelikaOtok/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/lightVelikaOtok/brightness", commandTopic = "zigbee2mqtt/lightVelikaOtok/set/brightness" ]
+        Type number : linkquality   "povezava"      [ stateTopic = "zigbee2mqtt/lightVelikaOtok/linkquality" ]
+        Type number : colorTemp     "barva luči"    [ stateTopic = "zigbee2mqtt/lightVelikaOtok/color_temp", commandTopic = "zigbee2mqtt/lightVelikaOtok/set/color_temp" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/lightVelikaOtok/state", commandTopic = "zigbee2mqtt/lightVelikaOtok/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/lightVelikaOtok/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/lightVelikaOtok/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+
+//jedilnica
+Thing mqtt:topic:mosquitto:lightJedilnicaLevoLevo "Luč jedilnica levo levo" (mqtt:broker:mosquitto) @ "Jedilnica" [ availabilityTopic="zigbee2mqtt/lightJedilnicaLevoLevo/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/lightJedilnicaLevoLevo/brightness", commandTopic = "zigbee2mqtt/lightJedilnicaLevoLevo/set/brightness" ]
+        Type number : linkquality   "povezava"      [ stateTopic = "zigbee2mqtt/lightJedilnicaLevoLevo/linkquality" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/lightJedilnicaLevoLevo/state", commandTopic = "zigbee2mqtt/lightJedilnicaLevoLevo/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/lightJedilnicaLevoLevo/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/lightJedilnicaLevoLevo/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+
+Thing mqtt:topic:mosquitto:lightJedilnicaLevo "Luč jedilnica levo" (mqtt:broker:mosquitto) @ "Jedilnica" [ availabilityTopic="zigbee2mqtt/lightJedilnicaLevo/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/lightJedilnicaLevo/brightness", commandTopic = "zigbee2mqtt/lightJedilnicaLevo/set/brightness" ]
+        Type number : linkquality   "povezava"      [ stateTopic = "zigbee2mqtt/lightJedilnicaLevo/linkquality" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/lightJedilnicaLevo/state", commandTopic = "zigbee2mqtt/lightJedilnicaLevo/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/lightJedilnicaLevo/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/lightJedilnicaLevo/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+
+Thing mqtt:topic:mosquitto:lightJedilnicaSredina "Luč jedilnica sredina" (mqtt:broker:mosquitto) @ "Jedilnica" [ availabilityTopic="zigbee2mqtt/lightJedilnicaSredina/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/lightJedilnicaSredina/brightness", commandTopic = "zigbee2mqtt/lightJedilnicaSredina/set/brightness" ]
+        Type number : linkquality   "povezava"      [ stateTopic = "zigbee2mqtt/lightJedilnicaSredina/linkquality" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/lightJedilnicaSredina/state", commandTopic = "zigbee2mqtt/lightJedilnicaSredina/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/lightJedilnicaSredina/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/lightJedilnicaSredina/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+
+Thing mqtt:topic:mosquitto:lightJedilnicaDesno "Luč jedilnica desno" (mqtt:broker:mosquitto) @ "Jedilnica" [ availabilityTopic="zigbee2mqtt/lightJedilnicaDesno/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/lightJedilnicaDesno/brightness", commandTopic = "zigbee2mqtt/lightJedilnicaDesno/set/brightness" ]
+        Type number : linkquality   "povezava"      [ stateTopic = "zigbee2mqtt/lightJedilnicaDesno/linkquality" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/lightJedilnicaDesno/state", commandTopic = "zigbee2mqtt/lightJedilnicaDesno/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/lightJedilnicaDesno/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/lightJedilnicaDesno/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+
+Thing mqtt:topic:mosquitto:lightJedilnicaDesnoDesno "Luč jedilnica desno desno" (mqtt:broker:mosquitto) @ "Jedilnica" [ availabilityTopic="zigbee2mqtt/lightJedilnicaDesnoDesno/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type number : brightness    "svetlost"      [ stateTopic = "zigbee2mqtt/lightJedilnicaDesnoDesno/brightness", commandTopic = "zigbee2mqtt/lightJedilnicaDesnoDesno/set/brightness" ]
+        Type number : linkquality   "povezava"      [ stateTopic = "zigbee2mqtt/lightJedilnicaDesnoDesno/linkquality" ]
+        Type switch : state         "stanje"        [ stateTopic = "zigbee2mqtt/lightJedilnicaDesnoDesno/state", commandTopic = "zigbee2mqtt/lightJedilnicaDesnoDesno/set/state", on="on", off="off" ]
+        Type switch : update        "posodobitev"   [ stateTopic = "zigbee2mqtt/lightJedilnicaDesnoDesno/update_available", on="true", off="false" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/lightJedilnicaDesnoDesno/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+
+////Stikala
+//otok
+Thing mqtt:topic:mosquitto:stikaloLuciOtok "Stikalo luči otok" (mqtt:broker:mosquitto) @ "Kuhinja" {
+    Channels:
+        Type string : action            "akcija"        [ stateTopic = "zigbee2mqtt/otokStikalo/action" ]   //toggle;brightness_down_click;brightness_up_click;arrow_left_click;arrow_right_click;toggle_hold
+        Type number : battery           "baterija"      [ stateTopic = "zigbee2mqtt/otokStikalo/battery" ]
+        Type number : linkquality       "povezava"      [ stateTopic = "zigbee2mqtt/otokStikalo/linkquality" ]
+        // Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/otokStikalo/availability", on="online", off="offline" ]
+}
+
+//jedlnica
+Thing mqtt:topic:mosquitto:stikaloLightJedilnica "Stikalo luči jedilnica" (mqtt:broker:mosquitto) @ "Jedilnica" [ availabilityTopic="zigbee2mqtt/stikaloLightJedilnica/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type string : action            "akcija"        [ stateTopic = "zigbee2mqtt/stikaloLightJedilnica/action" ]   //toggle;brightness_down_click;brightness_up_click;arrow_left_click;arrow_right_click;toggle_hold
+        Type number : battery           "baterija"      [ stateTopic = "zigbee2mqtt/stikaloLightJedilnica/battery" ]
+        Type number : linkquality       "povezava"      [ stateTopic = "zigbee2mqtt/stikaloLightJedilnica/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/stikaloLightJedilnica/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}

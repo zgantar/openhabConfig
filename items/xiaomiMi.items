@@ -1,0 +1,48 @@
+Switch      xiaomiMiGatewayAddDevice            "Nova naprava"                                     (gKitchenXiaomiGateway)                       ["Switch","Control"]         {channel="mihome:gateway:286c0788c0ee:joinPermission"}
+Switch      xiaomiMiGatewayLightSwitch          "Sveti"                      <light>               (gKitchenXiaomiGateway)                       ["Switch","Control"]         {channel="mihome:gateway:286c0788c0ee:brightness"}
+Dimmer      xiaomiMiGatewayBrightness           "Svetlost luči"              <dimmablelight>       (gKitchenXiaomiGateway)                       ["Control","Light"]          {channel="mihome:gateway:286c0788c0ee:brightness"}
+Color       xiaomiMiGatewayColor                "Barva"                      <rgb>                 (gKitchenXiaomiGateway)                       ["Control","Light"]          {channel="mihome:gateway:286c0788c0ee:color"}
+Dimmer      xiaomiMiGatewayColorTemperature     "Temperatura barve"          <heating>             (gKitchenXiaomiGateway)                       ["Control","Light"]          {channel="mihome:gateway:286c0788c0ee:colorTemperature"}
+Number      xiaomiMiGatewayAmbientLight         "Svetlost sobe"              <sun>                 (gKitchenXiaomiGateway)                       ["Measurement","Light"]      {channel="mihome:gateway:286c0788c0ee:illumination"}
+Number      xiaomiMiGatewaySound                "Zvok"                       <soundvolume-0>       (gKitchenXiaomiGateway)                       ["Control","SoundVolume"]    {channel="mihome:gateway:286c0788c0ee:sound"}
+Switch      xiaomiMiGatewaySoundSwitch          "Stikalo zvoka"              <soundvolume_mute>    (gKitchenXiaomiGateway)                       ["Control","Switch"]         {channel="mihome:gateway:286c0788c0ee:enableSound"}
+Dimmer      xiaomiMiGatewaySoundVolume          "Jakost zvoka"               <soundvolume>         (gKitchenXiaomiGateway)                       ["Control","SoundVolume"]    {channel="mihome:gateway:286c0788c0ee:volume"}
+
+//Puščanje vode
+// Switch      puscanjeVodeEnergetskiAlarm         "Zaznal puščanje vode"       <alarm>               (gUtilityWaterLeakDetector,gWaterLeak)        ["Water","Alarm"]            {channel="mihome:sensor_wleak_aq1:158d000245c982:leak"}
+// Switch      puscanjeVodeEnergetskiBatteryLow    "Zaznal slabo baterijo"      <battery>             (gUtilityWaterLeakDetector,gBatteryLow)       ["LowBattery", "Alarm"]      {channel="mihome:sensor_wleak_aq1:158d000245c982:lowBattery"}
+// Number      puscanjeVodeEnergetskiBattery       "Baterija"                   <battery>             (gUtilityWaterLeakDetector,gBattery)          ["Measurement","Battery"]    {channel="mihome:sensor_wleak_aq1:158d000245c982:batteryLevel", stateDescription=" "[ pattern="%d %%",min="0",max="100"]}
+
+
+//Detektor dima
+// Number      dimCumnataSmokeDensity              "Gostota"                    <smoke>               (gPantrySmokeDetector)                        ["Measurement","Smoke"]      {channel="mihome:smoke:158d0001b76b9c:density"}
+// Switch      dimCumnataSmokeAlarm                "Alarm"                      <alarm>               (gPantrySmokeDetector)                        ["Smoke","Alarm"]            {channel="mihome:smoke:158d0001b76b9c:alarm"}
+// Switch      dimCumnataBatteryLow                "Zaznal slabo baterijo"      <battery>             (gPantrySmokeDetector)                        ["LowBattery", "Alarm"]      {channel="mihome:smoke:158d0001b76b9c:lowBattery"}
+// Number      dimCumnataBattery                   "Baterija"                   <battery>             (gPantrySmokeDetector)                        ["Measurement","Battery"]    {channel="mihome:smoke:158d0001b76b9c:batteryLevel", stateDescription=" "[ pattern="%d %%" ,min="0",max="100" ]}
+// String      dimCumnataStatus                    "Status"                                           (gPantrySmokeDetector)                        ["Status"]                   {channel="mihome:smoke:158d0001b76b9c:status"}
+
+//Detektor oken/vrat
+// Contact     gFrontDoorContact         "Status"                     <window>      (gGroundCorridorFrontDoorContact,gDoor)          ["Opening","OpenState"]      {channel="mihome:sensor_magnet:158d0001a5eff5:isOpen", stateDescription=" "[ pattern="MAP(si.map):DOOR-%s" ]}
+// Number      gFrontDoorAlarmTimer      "Časovnik za alarm"          <clock>       (gGroundCorridorFrontDoorContact)                                             {channel="mihome:sensor_magnet:158d0001a5eff5:isOpenAlarmTimer"}
+// DateTime    gFrontDoorLastOpened      "Nazadnje odprto"            <clock-on>    (gGroundCorridorFrontDoorContact)                ["Timestamp"]                {channel="mihome:sensor_magnet:158d0001a5eff5:lastOpened", stateDescription=" "[ pattern="%1$tY-%1$tm-%1$td  %1$tH:%1$tM" ]}
+// Number      gFrontDoorBattery         "Baterija"                   <battery>     (gGroundCorridorFrontDoorContact,gBattery)       ["Measurement","Battery"]    {channel="mihome:sensor_magnet:158d0001a5eff5:batteryLevel", stateDescription=" "[ pattern="%d %%" ], min="0", max="100"}
+// Switch      gFrontDoorBatteryLow      "Alarm za slabo baterijo"    <energy>      (gGroundCorridorFrontDoorContact,gBatteryLow)    ["LowBattery", "Alarm"]      {channel="mihome:sensor_magnet:158d0001a5eff5:lowBattery"}
+
+// Switch      gRaiseWindowContact       "Status"                     <window>      (gKitchenRaiseWindowContact,gDoor)               ["Opening","OpenState"]      {channel="mihome:sensor_magnet:158d0001a5eaf2:isOpen", stateDescription=" "[ pattern="MAP(si.map):DOOR-%s" ]}
+// Number      gRaiseWindowAlarmTimer    "Časovnik za alarm"          <clock>       (gKitchenRaiseWindowContact)                                                  {channel="mihome:sensor_magnet:158d0001a5eaf2:isOpenAlarmTimer"}
+// DateTime    gRaiseWindowLastOpened    "Test"                       <clock-on>    (gKitchenRaiseWindowContact)                     ["Timestamp"]                {channel="mihome:sensor_magnet:158d0001a5eaf2:lastOpened", stateDescription=" "[ pattern="%1$tY-%1$tm-%1$td  %1$tH:%1$tM" ]}
+// Number      gRaiseWindowBattery       "Baterija"                   <battery>     (gKitchenRaiseWindowContact,gBattery)            ["Measurement","Battery"]    {channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel", stateDescription=" "[ pattern="%d %%",min="0",max="100" ]}
+// Switch      gRaiseWindowBatteryLow    "Alarm za slabo baterijo"    <energy>      (gKitchenRaiseWindowContact,gBatteryLow)         ["LowBattery", "Alarm"]      {channel="mihome:sensor_magnet:158d0001a5eaf2:batteryLevel" [profile="system:hysteresis", lower=15, inverted="true"]}
+
+// Switch      gTiltWindowContact        "Status"                     <window>      (gLivingRoomTiltWindowContact,gDoor)             ["Opening","OpenState"]      {channel="mihome:sensor_magnet:158d0001a5f10d:isOpen", stateDescription=" "[ pattern="MAP(si.map):DOOR-%s" ]}
+// Number      gTiltWindowAlarmTimer     "Časovnik za alarm"          <clock>       (gLivingRoomTiltWindowContact)                                                {channel="mihome:sensor_magnet:158d0001a5f10d:isOpenAlarmTimer"}
+// DateTime    gTiltWindowLastOpened     "Zadnjič odprt"              <clock-on>    (gLivingRoomTiltWindowContact)                   ["Timestamp"]                {channel="mihome:sensor_magnet:158d0001a5f10d:lastOpened", stateDescription=" "[ pattern="%1$tY-%1$tm-%1$td  %1$tH:%1$tM"]}
+// Number      gTiltWindowBattery        "Baterija"                   <battery>     (gLivingRoomTiltWindowContact,gBattery)          ["Measurement","Battery"]    {channel="mihome:sensor_magnet:158d0001a5f10d:batteryLevel", stateDescription=" "[ pattern="%d %%" ], min="0", max="100"}
+// Switch      gTiltWindowBatteryLow     "Alarm za slabo baterijo"    <energy>      (gLivingRoomTiltWindowContact,gBatteryLow)       ["LowBattery", "Alarm"]      {channel="mihome:sensor_magnet:158d0001a5f10d:batteryLevel" [profile="system:hysteresis", lower=15, inverted="true"]}
+
+//Gibanje
+// Switch                  gibanjeDnevna                "Gibanje"                     <motion>     (gLivingRoomMotionSensor,gMot,gGroundF)    ["Presence","Status"]      {channel="mihome:sensor_motion_aq2:158d00044b0ff3:motion"}
+// Number:Illuminance      gibanjeDnevnalum             "Svetlost"                    <light>      (gLivingRoomMotionSensor,gLum)             ["Measurement","Light"]    {channel="mihome:sensor_motion_aq2:158d00044b0ff3:illumination"}
+// DateTime                gibanjeDnevnaLastActivity    "Nazadnje zaznano gibanje"                 (gLivingRoomMotionSensor)                  ["Timestamp"]              {channel="mihome:sensor_motion_aq2:158d00044b0ff3:lastMotion"}
+// Switch                  gibanjeDnevnaBatteryLow      "Prazna baterija"             <switch>     (gLivingRoomMotionSensor,gBatteryLow)      ["LowBattery", "Alarm"]    {channel="mihome:sensor_motion_aq2:158d00044b0ff3:batteryLevel" [profile="system:hysteresis", lower=15, inverted="true"]}
+// Number:Dimensionless    gibanjeDnevnaBattery         "Baterija"                    <battery>    (gLivingRoomMotionSensor,gBattery)         ["Status","Level"]         {channel="mihome:sensor_motion_aq2:158d00044b0ff3:batteryLevel", stateDescription=" "[ pattern="%d %%",min="0",max="100" ]}

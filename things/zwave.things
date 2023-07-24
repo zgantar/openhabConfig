@@ -1,0 +1,8 @@
+Bridge zwave:serial_zstick:zwaveStick "ZWave Controller" @ "Kabinet" [ port="/dev/ttyACM0", controller_softreset="false", controller_master="true", heal_enable="true", security_networkkey="0E 63 AA 5E 68 99 27 B4 D3 57 7C 27 2F D3 03 B0" ]
+{
+	Thing shenzhen_coolcampwrplug_00_000	fridPlug			"Vtičnica hladilnik" @ "Kuhinja"					[ node_id=5 ]
+	Thing tkb_tz74_00_000					ceilingTVLights		"Podometno stikalo luči TV&strop" @ "Dnevna"		[ node_id=8 ]
+	Thing qubino_zmnhbd_00_000				stairwayLights 		"Podometno stikalo luči stopnišče" @ "Dnevna"		[ node_id=9 ]
+	Thing shenzhen_coolcampwrplug_00_000	washingmachinePlug	"Vtičnica pralni stroj" @ "Kopalnica zgoraj"		[ node_id=3 ]
+	Thing shenzhen_coolcampwrplug_00_000 	dryerPlug			"Vtičnica sušilec" @ "Kopalnica zgoraj"				[ node_id=4 ]
+}
