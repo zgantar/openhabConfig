@@ -13,7 +13,8 @@ rules.JSRule({
 
     var RadioStationURL = items.getItem("RadioStationURL");
     
-    if (RadioStationURL.state == NULL) {  
+    LogAction.logInfo("chromecast","Current state of RadioStationURL is - {}", RadioStationURL.state);
+    if (RadioStationURL.state == null) {  
       RadioStationURL.postUpdate(1);
       LogAction.logInfo("chromecast","Nastavljam na prvo radijsko postajo")
     } else {
@@ -22,5 +23,5 @@ rules.JSRule({
     LogAction.logInfo("chromecast","#####################Vse potrebno za delo s chromecastom nastavjeno#########################")
 },
   tags: ["Chromecast", "SetUp"],
-  id: "chromecastSetUpJS"
+  id: "chromecastRadioSetUpJS"
 });

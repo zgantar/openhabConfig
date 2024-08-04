@@ -25,6 +25,7 @@ advanced:
     protocol: udp4
     type: '5424'
   adapter_concurrent: 16
+  log_level: info
 experimental:
   output: attribute
 device_options:
@@ -35,8 +36,6 @@ availability:
   passive:
     timeout: 1500
 devices:
-  '0x00158d000237314e':
-    friendly_name: plugRecu
   '0x00158d000210a5ec':
     friendly_name: tempKabinet
   '0x00158d00020db6d4':
@@ -73,6 +72,8 @@ devices:
     friendly_name: talnoZgoraj1
   '0x00124b0024c1e419':
     friendly_name: talnoZgoraj3
+    availability:
+      timeout: 15
   '0x00158d000637181d':
     friendly_name: talnoZgoraj2
   '0x00158d0001f58033':
@@ -93,6 +94,8 @@ devices:
     friendly_name: tempRecu
   '0x00124b0024c07423':
     friendly_name: talnoSpodaj1
+    availability:
+      timeout: 15
   '0x00158d000245c982':
     friendly_name: leakKuhinja
   '0x00158d00016d77ce':
@@ -108,6 +111,36 @@ devices:
     friendly_name: motHodnikS
   '0x00158d000405906e':
     friendly_name: motKuhinja
+  '0x00158d0001a5f10d':
+    friendly_name: oknoDnevna
+  '0x00158d000241bdac':
+    friendly_name: tempLopa
+  '0xb4e3f9fffe8ea9ea':
+    friendly_name: stikaloLightJedilnica
+  '0x000b57fffe30a13d':
+    friendly_name: lightJedilnicaLevoLevo
+  '0x000b57fffe233b2a':
+    friendly_name: lightJedilnicaLevo
+  '0x000b57fffe0ee4b0':
+    friendly_name: lightJedilnicaSredina
+  '0x000b57fffe1000a4':
+    friendly_name: lightJedilnicaDesnoDesno
+  '0x000b57fffe147c96':
+    friendly_name: lightJedilnicaDesno
+  '0x00158d000245ca00':
+    friendly_name: leakEnergetski
+  '0x00158d0009e197de':
+    friendly_name: oknoAljaz
+  '0xa4c138ee90ee61ba':
+    friendly_name: plugReku
+  '0xa4c13802b18463b1':
+    friendly_name: plugSusi
+    availability:
+      timeout: 30
+  '0xa4c1383c61841e61':
+    friendly_name: plugPral
+    availability:
+      timeout: 30
 ota:
   ikea_ota_use_test_url: false
   update_check_interval: 2880

@@ -13,7 +13,7 @@ rules.JSRule({
 
     items.getItem("Heating").sendCommand("OFF");
     items.getItem("LogOgrevanje").sendCommand("OFF");
-    items.getItem("ManOgrevanje, OFF").sendCommand("OFF");
+    items.getItem("ManOgrevanje").sendCommand("OFF");
     items.getItem("gLog").sendCommand("OFF");
     items.getItem("gMan").sendCommand("OFF");
     items.getItem("gFhs").sendCommand("OFF");

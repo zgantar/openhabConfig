@@ -1,12 +1,18 @@
-Thing mqtt:topic:mosquitto:plugTvHiFi "Vtičnica TV in HiFi" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" { //192.168.1.241
+// Thing mqtt:topic:mosquitto:plugTvHiFi "Vtičnica TV in HiFi" (mqtt:broker:mosquitto) @ "Hodnik zgoraj" { //192.168.1.241
+//     Channels:
+//         Type switch : state1        "state 1"       [ stateTopic = "shellies/plugTVHiFi/relay/1", on="on", off="off", commandTopic = "shellies/plugTVHiFi/relay/1/command" ]
+//         Type switch : state0        "state 0"       [ stateTopic = "shellies/plugTVHiFi/relay/0", on="on", off="off", commandTopic = "shellies/plugTVHiFi/relay/0/command" ]
+//         Type number : power1        "power 1"       [ stateTopic = "shellies/plugTVHiFi/relay/1/power" ]
+//         Type number : power0        "power 0"       [ stateTopic = "shellies/plugTVHiFi/relay/0/power" ]
+//         Type number : consumption1  "consumption 1" [ stateTopic = "shellies/plugTVHiFi/relay/1/energy" ]
+//         Type number : consumption0  "consumption 0" [ stateTopic = "shellies/plugTVHiFi/relay/0/energy" ]
+//         Type number : temperature   "temperature"   [ stateTopic = "shellies/plugTVHiFi/temperature" ]
+//         Type number : voltage       "voltage"       [ stateTopic = "shellies/plugTVHiFi/voltage" ]
+//         Type switch : overTemp      "overTemp"      [ stateTopic = "shellies/plugTVHiFi/overtemperature", on="1", off="0" ]
+// }
+
+Thing mqtt:topic:mosquitto:plugCombinedElectricity "Skupna elektrika" (mqtt:broker:mosquitto) @ "Energetski prostor" { //192.168.1.121
     Channels:
-        Type switch : state1        "state 1"       [ stateTopic = "shellies/plugTVHiFi/relay/1", on="on", off="off", commandTopic = "shellies/plugTVHiFi/relay/1/command" ]
-        Type switch : state0        "state 0"       [ stateTopic = "shellies/plugTVHiFi/relay/0", on="on", off="off", commandTopic = "shellies/plugTVHiFi/relay/0/command" ]
-        Type number : power1        "power 1"       [ stateTopic = "shellies/plugTVHiFi/relay/1/power" ]
-        Type number : power0        "power 0"       [ stateTopic = "shellies/plugTVHiFi/relay/0/power" ]
-        Type number : consumption1  "consumption 1" [ stateTopic = "shellies/plugTVHiFi/relay/1/energy" ]
-        Type number : consumption0  "consumption 0" [ stateTopic = "shellies/plugTVHiFi/relay/0/energy" ]
-        Type number : temperature   "temperature"   [ stateTopic = "shellies/plugTVHiFi/temperature" ]
-        Type number : voltage       "voltage"       [ stateTopic = "shellies/plugTVHiFi/voltage" ]
-        Type switch : overTemp      "overTemp"      [ stateTopic = "shellies/plugTVHiFi/overtemperature", on="1", off="0" ]
+        Type number : consumption   "Poraba"    [ stateTopic = "SkupnaElektrika/status/emdata:0", transformationPattern = "JSONPATH:$.total_act" ]
+        Type number : returned      "Vračilo"   [ stateTopic = "SkupnaElektrika/status/emdata:0", transformationPattern = "JSONPATH:$.total_act_ret" ]
 }

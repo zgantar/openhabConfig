@@ -22,7 +22,7 @@ rules.JSRule({
         var temp = 18.0
         if (loopItem.state != null) temp = parseFloat(loopItem.state);
         if ((temp <= 10.0 || temp >= 35.0) && !loopItem.name.includes("Lopa")) {
-          temp = loopItem.history.averageSince(time.ZonedDateTime.now().minusHours(2));
+          temp = loopItem.persistence.averageSince(time.ZonedDateTime.now().minusHours(2));
           LogAction.logInfo("heating", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Filtracija izvedena, nova vrednost za {} je {} !!!!!!!!!!!!!!!!!!!!!!!!!!!", loopItem.name, temp);
           loopItem.postUpdate(temp);
         }
@@ -34,7 +34,7 @@ rules.JSRule({
     function checkTrend (tempItem, minutes) {      
       LogAction.logInfo("heating", "Preverjam temperaturni trend za {}", tempItem.name);
       var temp = tempItem.rawState;
-      var delta = tempItem.history.deltaSince(time.ZonedDateTime.now().minusMinutes(60));
+      var delta = tempItem.persistence.deltaSince(time.ZonedDateTime.now().minusMinutes(60));
       LogAction.logInfo("heating", "Delta je {}", delta);
       var deviation = delta/60;
       LogAction.logInfo("heating", "Deviation je {}", deviation);
@@ -162,12 +162,12 @@ rules.JSRule({
             LogAction.logInfo("heating", "Ker je trenutno ventil odprt, izdam ukaz za zaprtje logičnega stikala {}", logValveItem.name);
           }
         }
-        LogAction.logInfo("heating", "Preverjam ali kaj sprememb pri temperaturi, {}, {}", tempItem.state, tempItem.history.averageSince(now.minusHours(2)));
-        if ( tempItem.state == tempItem.history.averageSince(now.minusHours(2))) {
-          logWarn("heating", "Zadnja sprememba temperature za {} je bila shranjena {}, kar je zelo čudno. Preverjam še vlažnost", name, tempItem.history.lastUpdate);
+        LogAction.logInfo("heating", "Preverjam ali kaj sprememb pri temperaturi, {}, {}", tempItem.state, tempItem.persistence.averageSince(now.minusHours(2)));
+        if ( tempItem.state == tempItem.persistence.averageSince(now.minusHours(2))) {
+          logWarn("heating", "Zadnja sprememba temperature za {} je bila shranjena {}, kar je zelo čudno. Preverjam še vlažnost", name, tempItem.persistence.lastUpdate);
           var humItem = gHum.members.filter(humer => humer.name === name)[0];
-          if (humItem !== null && humItem.state == humItem.history.averageSince(now.minusHours(1))) {
-            logWarn("heating", "Zadnja sprememba vlažnosti je bila shranjena {}, kar je zelo čudno. Prožim alarm", humItem.history.lastUpdate);
+          if (humItem !== null && humItem.state == humItem.persistence.averageSince(now.minusHours(1))) {
+            logWarn("heating", "Zadnja sprememba vlažnosti je bila shranjena {}, kar je zelo čudno. Prožim alarm", humItem.persistence.lastUpdate);
             // actions.NotificationAction.sendBroadcastNotification(m)
             // sendNotification("Ob "+ now +" sta temperatura in vlažnost v "+ name +" enaka kot eno uro nazaj, kar kaže na morebitno napako! PREVERI!!!!")
           }

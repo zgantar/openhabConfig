@@ -5,7 +5,7 @@ rules.JSRule({
   execute: (event) => {
     var LogAction = Java.type('org.openhab.core.model.script.actions.Log');
     // var logger = Java.type('org.slf4j.LoggerFactory').getLogger('org.openhab.rule.' + ctx.ruleUID);
-    LogAction.logInfo("electricity","#####################Začenjam preračunavanje sumarne porabe električne energije#####################")
+    LogAction.logDebug("electricity","#####################Začenjam preračunavanje sumarne porabe električne energije#####################")
 
     x = time.ZonedDateTime.now();
     h = x.hour();
@@ -26,20 +26,20 @@ rules.JSRule({
       calcCons = items.getItem("gConsumption").members.filter(nameEquals, loopCons)[0];
       if (calcCons != null) {
         LogAction.logDebug("electricity","Pa poglejmo kaj smo najdl po filtriranju: {}.", calcCons.name);
-        LogAction.logDebug("electricity","In kakšna je vrednost: {}.", calcCons.state);
-        var tempCons = calcCons.rawState + loopCons.rawState;
-        LogAction.logDebug("electricity","Suma porabe je {}", tempCons);
+        LogAction.logInfo("electricity","In kakšna je vrednost: {}.", calcCons.quantityState.toString());
+        var tempCons = calcCons.quantityState.toUnit('kWh').add(loopCons.quantityState.toUnit('kWh'));
+        LogAction.logDebug("electricity","Suma porabe je {}", tempCons.toString());
         calcCons.postUpdate(tempCons);
-        LogAction.logInfo("electricity","Shranil preračunano vrednost porabe {} za {}", calcCons.state, calcCons.name);
+        LogAction.logInfo("electricity","Shranil preračunano vrednost porabe {} za {}", calcCons.state.toString(), calcCons.name);
       } else {
         LogAction.logWarn("electricity", "Nisem uspel najti poraba item za {}", loopCons.name);
       }
     }
 
 
-    LogAction.logDebug("electricity", "Podatek je prišel za meter {}.", event.itemName);
+    LogAction.logInfo("electricity", "Podatek je prišel za meter {}.", event.itemName);
     var triggeringItem = items.getItem(event.itemName);
-    LogAction.logInfo("electricity", "In to je item {}.", triggeringItem);
+    LogAction.logDebug("electricity", "In to je item {}.", triggeringItem);
 
     calculateCons(triggeringItem);
     LogAction.logInfo("electricity","#####################Končal preračunavanje sumarne porabe električne energije#########################")

@@ -26,24 +26,23 @@ rules.JSRule({
       calcCons = items.getItem("gCalcConsHour").members.filter(nameEquals, loopCons)[0];
       if (calcCons != null) {
         LogAction.logDebug("electricity","Pa poglejmo kaj smo najdl po filtriranju: {}.", calcCons.name);
-        var time = x.minusHours(1).minusSeconds(5);
-        LogAction.logDebug("electricity","Preračunavam porabo od {}", time);
-        var tempCons = loopCons.history.deltaSince(time);
-        LogAction.logDebug("electricity","Delta porabe je {}", tempCons);
-        if (tempCons == null) {
-          if (loopCons.countStateChangesSince(time) == 0) {
-            tempCons = loopCons.rawState;
-          } else {
-            tempCons = 0;
-          }
+        var timeVar = x.withMinute(0).withSecond(0).withNano(0);
+        LogAction.logDebug("electricity","Preračunavam porabo od {}", timeVar.minusHours(1).toString());
+        LogAction.logDebug("electricity","Preračunavam porabo do {}", timeVar.minusSeconds(1).toString());
+        // var tempCons = Math.ceil(loopCons.persistence.deltaSince(time)*100)/100;
+        var tempCons = loopCons.persistence.deltaBetween(timeVar.minusHours(1), timeVar.minusSeconds(1)).quantityState;
+        LogAction.logInfo("electricity","Delta porabe je {}", tempCons.toString());
+        if (tempCons == "NULL" || tempCons == "UNDEF" || tempCons == null) {
+          LogAction.logDebug("electricity","Delta porabe je NULL, UNDEF, null ali 0 - {}. Zato ignoriramo", tempCons);
+        } else if (!tempCons.equal("0 kWh")) {
+          LogAction.logDebug("electricity","Delta porabe je {}", tempCons.toString());
+          calcCons.postUpdate(tempCons);
+          LogAction.logInfo("electricity","Shranil preračunano vrednost porabe {} za {}", calcCons.state, calcCons.name);
         }
-        calcCons.postUpdate(tempCons);
-        LogAction.logInfo("electricity","Shranil preračunano vrednost porabe {} za {}", calcCons.state, calcCons.name);
       } else {
         LogAction.logWarn("electricity", "Nisem uspel najti poraba item za {}", loopCons.name);
       }
     }
-
 
     var consumptionItems = items.getItem("gConsumption").members;
     consumptionItems.forEach(calculateCons);

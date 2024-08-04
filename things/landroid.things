@@ -1,3 +1,3 @@
-Bridge worxlandroid:worxlandroidBridge:MyWorxBridge "Landroid Bridge" [ webapiUsername="zgantar@yahoo.com", webapiPassword="KosilnicaNaPalc3" ] {
-    Thing mower 20213026720100730042 "Becka Ovčić Kosi" [ refreshStatusInterval=300, pollingInterval=3600, reconnectInterval=0 ]
+Bridge worxlandroid:bridge:bridge "My bridge" [ password="KosilnicaNaPalc3", username="zgantar@yahoo.com" ] {
+    Thing worxlandroid:bridge:mower:becka "Becka Ovčić Kosi" @ "Zunaj" [ refreshStatusInterval=3600, pollingInterval=3600, serialNumber=20213026720100730042 ]
 }

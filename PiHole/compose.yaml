@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    extra_hosts:
+      - "ZigovMob5=192.168.1.88"
+      - "ZigovMob2.5=192.168.1.93"
+      - "ThinkPad=192.168.1.8"
+      - "NininMob2.5=192.168.1.111"
+      - "NininMob5=192.168.1.231"
+      - "AljazevPC=192.168.1.195"
+      - "AljazevMob2.5=192.168.1.56"
+      - "NininPC=192.168.1.249"
+      - "JulijinMob2.5=192.168.1.170"
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "80:80/tcp"
+    environment:
+      TZ: 'Europe/Amsterdam'
+      WEBPASSWORD: 'PinHoleNaPalc3'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+      - './resolv.conf:/etc/resolv.conf'
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped

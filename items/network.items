@@ -1,12 +1,17 @@
-Switch      networkPingableZigaPhone5     "Zaznana naprava"    (gPhoneZiga,gPhonePing)    ["Status"]       {channel="network:pingdevice:ziga5:online"}
-DateTime    networkLastSeenZigaPhone5     "Nazadnje viden"     (gPhoneZiga)               ["Timestamp"]    {channel="network:pingdevice:ziga5:lastseen"}
-Switch      networkPingableZigaPhone25    "Zaznana naprava"    (gPhoneZiga,gPhonePing)    ["Status"]       {channel="network:pingdevice:ziga25:online"}
-DateTime    networkLastSeenZigaPhone25    "Nazadnje viden"     (gPhoneZiga)               ["Timestamp"]    {channel="network:pingdevice:ziga25:lastseen"}
+Switch      networkPingableZigaPhone5      "Zaznan Žigov telefon"              (gPhoneZiga,gPhonePing)          ["Status"]       {channel="network:pingdevice:ziga5:online"}
+DateTime    networkLastSeenZigaPhone5      "Nazadnje viden Žigov telefon"      (gPhoneZiga)                     ["Timestamp"]    {channel="network:pingdevice:ziga5:lastseen"}
+Switch      networkPingableZigaPhone25     "Zaznan Žigov telefon"              (gPhoneZiga,gPhonePing)          ["Status"]       {channel="network:pingdevice:ziga25:online"}
+DateTime    networkLastSeenZigaPhone25     "Nazadnje viden Žigov telefon"      (gPhoneZiga)                     ["Timestamp"]    {channel="network:pingdevice:ziga25:lastseen"}
 
-Switch      networkPingableNinaPhone5     "Zaznana naprava"    (gPhoneNina,gPhonePing)    ["Status"]       {channel="network:pingdevice:nina5:online"}
-DateTime    networkLastSeenNinaPhone5     "Nazadnje viden"     (gPhoneNina)               ["Timestamp"]    {channel="network:pingdevice:nina5:lastseen"}
-Switch      networkPingableNinaPhone25    "Zaznana naprava"    (gPhoneNina,gPhonePing)    ["Status"]       {channel="network:pingdevice:nina25:online"}
-DateTime    networkLastSeenNinaPhone25    "Nazadnje viden"     (gPhoneNina)               ["Timestamp"]    {channel="network:pingdevice:nina25:lastseen"}
+Switch      networkPingableNinaPhone5      "Zaznan Ninin telefon"              (gPhoneNina,gPhonePing)          ["Status"]       {channel="network:pingdevice:nina5:online"}
+DateTime    networkLastSeenNinaPhone5      "Nazadnje viden Ninin telefon"      (gPhoneNina)                     ["Timestamp"]    {channel="network:pingdevice:nina5:lastseen"}
+Switch      networkPingableNinaPhone25     "Zaznan Ninin telefon"              (gPhoneNina,gPhonePing)          ["Status"]       {channel="network:pingdevice:nina25:online"}
+DateTime    networkLastSeenNinaPhone25     "Nazadnje viden Ninin telefon"      (gPhoneNina)                     ["Timestamp"]    {channel="network:pingdevice:nina25:lastseen"}
 
-Switch      networkPingableAljazPC        "Zaznana naprava"    (gPCAljaz)                 ["Status"]       {channel="network:pingdevice:aljazPC:online"}
-DateTime    networkLastSeenAljazPC        "Nazadnje viden"     (gPCAljaz)                 ["Timestamp"]    {channel="network:pingdevice:aljazPC:lastseen"}
+Switch      networkPingableAljazPC         "Zaznan Aljažev PC"                 (gPCAljaz)                       ["Status"]       {channel="network:pingdevice:aljazPC:online"}
+DateTime    networkLastSeenAljazPC         "Nazadnje viden Aljažev PC"         (gPCAljaz)                       ["Timestamp"]    {channel="network:pingdevice:aljazPC:lastseen"}
+
+Switch      networkPingableAljazPhone5     "Zaznan Aljažev telefon"            (gPhoneAljaz,gAljazPhonePing)    ["Status"]       {channel="network:pingdevice:aljaz5:online"}
+DateTime    networkLastSeenAljazPhone5     "Nazadnje viden Aljažev telefon"    (gPhoneAljaz)                    ["Timestamp"]    {channel="network:pingdevice:aljaz5:lastseen"}
+Switch      networkPingableAljazPhone25    "Zaznan Aljažev telefon"            (gPhoneAljaz,gAljazPhonePing)    ["Status"]       {channel="network:pingdevice:aljaz25:online"}
+DateTime    networkLastSeenAljazPhone25    "Nazadnje viden Aljažev telefon"    (gPhoneAljaz)                    ["Timestamp"]    {channel="network:pingdevice:aljaz25:lastseen"}

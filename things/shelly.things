@@ -1,15 +1,24 @@
-Thing shelly:shelly25-relay:6938C4 "Žaluzija kabinet" @ "Kabinet" [deviceIp="192.168.1.109"]
-Thing shelly:shelly25-relay:68E04B "Žaluzija dnevna desno" @ "Dnevna"  [deviceIp="192.168.1.150"]
-Thing shelly:shelly25-relay:68E55A "Žaluzija dnevna levo" @ "Dnevna" [deviceIp="192.168.1.19"]
+////Žaluzije
+//mansarda
+Thing shelly:shelly25-relay:68FD82 "Žaluzija Aljaž" @ "Aljaž" [deviceIp="192.168.1.16", userId="zgantar", password="gantarzi"]
+Thing shelly:shelly25-relay:68E532 "Žaluzija Julija" @ "Julija" [deviceIp="192.168.1.232", userId="zgantar", password="gantarzi"]
+Thing shelly:shelly25-relay:68661F "Žaluzija spalnica" @ "Spalnica" [deviceIp="192.168.1.177", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyplus2pm-relay:5443b23da210 "Žaluzije peglarnica" @ "Hodnik zgoraj" [deviceIp="192.168.1.131", userId="zgantar", password="gantarzi"]
+//pritličje
+Thing shelly:shellyplus2pm-relay:B8D61A876A20 "Žaluzija jedilnica" @ "Jedilnica" [deviceIp="192.168.1.4", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyplus2pm-relay:3ce90e2ef59c "Žaluzije kuhinja levo" @ "Kuhinja" [deviceIp="192.168.1.217", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyplus2pm-relay:5443b23e9fbc "Žaluzije kuhinja desno" @ "Kuhinja" [deviceIp="192.168.1.130", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyplus2pm-relay:08b61fccbd30 "Žaluzija kabinet" @ "Kabinet" [deviceIp="192.168.1.94", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyplus2pm-relay:80646fcfc1b0 "Žaluzija dnevna desno" @ "Dnevna"  [deviceIp="192.168.1.99", userId="zgantar", password="gantarzi"]
+Thing shelly:shelly25-relay:68e55a "Žaluzija dnevna levo" @ "Dnevna" [deviceIp="192.168.1.19", userId="zgantar", password="gantarzi"]
 
-Thing shelly:shelly25-relay:68FD82 "Žaluzija Aljaž" @ "Aljaž" [deviceIp="192.168.1.16"]
-Thing shelly:shelly25-relay:68E532 "Žaluzija Julija" @ "Julija" [deviceIp="192.168.1.232"]
-Thing shelly:shelly25-relay:68661F "Žaluzija spalnica" @ "Spalnica" [deviceIp="192.168.1.177"]
-
-Thing shelly:shelly25-relay:6914F8 "Žaluzije jedilnica" @ "Jedilnica" [deviceIp="192.168.1.99"]
-Thing shelly:shelly25-relay:68F40F "Žaluzije kuhinja levo" @ "Kuhinja" [deviceIp="192.168.1.12"]
-//Thing shelly:shelly25-relay:694338 "Žaluzije kuhinja desno" @ "Kuhinja" [deviceIp="192.168.1.2"]
-
-// Thing shelly:shelly25-relay:68E216 "Vtičnica TV&HiFi" @ "Dnevna" [deviceIp="192.168.1.241"]
-
-Thing shelly:shelly1:941769 "Talno gretje" @ "Energetski prostor" [deviceIp="192.168.1.11"]
+////Ostalo 
+Thing shelly:shelly1:9413CD "Luč stenska dnevna" @ "Dnevna" [deviceIp="192.168.1.76", userId="zgantar", password="gantarzi"]
+Thing shelly:shelly1:941769 "Talno gretje" @ "Energetski prostor" [deviceIp="192.168.1.11", userId="zgantar", password="gantarzi"]
+Thing shelly:shelly1:9425F8 "Talno gretje omejevanje" @ "Energetski prostor" [deviceIp="192.168.1.151", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyem:485519DA30AB "Meter električne energije" @ "Energetski prostor" [deviceIp="192.168.1.49", userId="zgantar", password="gantarzi"]
+Thing shelly:shellypro3em:C8F09E895C78 "Skupna elektrika" @ "Energetski prostor" [deviceIp="192.168.1.121", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyem3:3494547b8e33 "Talno gretje peč" @ "Energetski prostor" [deviceIp="192.168.1.69", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyplus1pm:9f72cbc0ac "Bojler" @ "Energetski prostor" [deviceIp="192.168.1.165", userId="zgantar", password="gantarzi"]
+Thing shelly:shellyplus2pm-relay:d4d4da09d3a4 "TV&HiFi" @ "Dnevna" [deviceIp="192.168.1.207", userId="zgantar", password="gantarzi"]
+//Thing shelly:shellyplus2pm-relay:d4d4da09d3a4 "Julija PC" @ "Julija" [deviceIp="192.168.1.207", userId="zgantar", password="gantarzi"]

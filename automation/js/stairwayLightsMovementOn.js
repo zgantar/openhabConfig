@@ -10,14 +10,17 @@ rules.JSRule({
     min = x.minute();
     LogAction.logInfo("lights", "Current time: "+h+":"+min);
 
-    var gOutSolarRad = items.getItem("gOutSolarRad");
-    var plugLiSt2Switch2 = items.getItem("plugLiSt2Switch2");
+    const gibanjeHodnikZLum = items.getItem("gibanjeHodnikZLum");
+    const gOutSolarRad = items.getItem("gOutSolarRad");
+    const plugLiSt2Switch2 = items.getItem("plugLiSt2Switch2");
+    const astroSunSet = items.getItem("astroSunSet");
+    const astroSunRise = items.getItem("astroSunRise");
     var shutDownTimer;
 
     if (items.getItem("ignoreMovementForLights").state == "OFF") {
       LogAction.logInfo("lights", "Ne ignoriramo gibanja");
-      if (gOutSolarRad.rawState.intValue() <= 8) {
-        LogAction.logInfo("lights", "Zunanje osvetlitev je manjša od 8");
+      if (gibanjeHodnikZLum.rawState <= 5 || gOutSolarRad.rawState <= 8) {
+        LogAction.logInfo("lights", "Svetlost na vrhu stopnic je - {}, zunaj pa - {}", gibanjeHodnikZLum.state, gOutSolarRad.state);
         if (plugLiSt2Switch2.state == "OFF") {
           LogAction.logInfo("lights", "Ker so luči ugasnjene, jih prižigam.");
           plugLiSt2Switch2.sendCommand("ON");
@@ -41,7 +44,18 @@ rules.JSRule({
             LogAction.logInfo("lights", "Ker so luči že prižgane, ignoriram.");
         }
       } else {
-        LogAction.logInfo("lights", "Ker je zunaj svetlo, ignoriram.");
+        LogAction.logInfo("lights", "Ker je na vrhu stopnic še svetlo {}, preverjam stanje luči.", gibanjeHodnikZLum.rawState);
+        if (x.isAfter(astroSunSet.rawState.getZonedDateTime()) || x.isBefore(astroSunRise.rawState.getZonedDateTime())) {
+          LogAction.logInfo("lights", "Sonce je že zašlo oziroma še ni vzšlo, zato ignoriramo, ker je očitno prižig luči povzročil višjo osvetljenost");
+        } else {
+          LogAction.logInfo("lights", "Sonce še ni zašlo oziroma je že vzšlo, zato preverjam stanje luči");
+          if (plugLiSt2Switch2.state == "ON") {
+            LogAction.logInfo("lights", "Ugašam luči");
+            plugLiSt2Switch2.sendCommand("OFF");
+          } else {
+            LogAction.logInfo("lights", "Luči so že ugasnjene.");
+          }
+        }
       }
     } else {
       LogAction.logInfo("lights", "Ker je nastavljeno ignoriranje gibanja, ignoriram.");

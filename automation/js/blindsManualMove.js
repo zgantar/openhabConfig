@@ -4,8 +4,7 @@ rules.JSRule({
   triggers: [triggers.GroupStateChangeTrigger('gBlindSwi',null,null)],
   execute: (event) => {
     const LogAction = Java.type('org.openhab.core.model.script.actions.Log');
-    var PersistenceExtensions = Java.type("org.openhab.core.persistence.extensions.PersistenceExtensions");
-
+    
     LogAction.logInfo("blinds", "###########################Dobil obvestilo o ročnem premiku žaluzije##############################");
     x = time.ZonedDateTime.now();
     h = x.hour();
@@ -63,7 +62,7 @@ rules.JSRule({
       LogAction.logInfo("blinds", "Ukaz je {}.", order);
       
       if (triggeringItem.state == "OFF") {
-        var prevoiusState = PersistenceExtensions.previousState(triggeringItem.rawItem, true); //history.prevoiusState.timestamp;
+        var prevoiusState = triggeringItem.persistence.previousState(true); //history.prevoiusState.timestamp;
         LogAction.logInfo("blinds", "oldState je {} ", prevoiusState);
         var lastUpdateTime = prevoiusState.timestamp.toEpochSecond();
         LogAction.logInfo("blinds", "Zadnja sprememba je bila {} ", lastUpdateTime);
@@ -83,7 +82,7 @@ rules.JSRule({
         } else {
           LogAction.logInfo("blinds", "Dobil obvestilo o končanju premika žaluzije {} višje, zato posodabljam stanje", name);
           var vsota = stateItem.rawState + timeDifference;
-          var length = 58000;
+          var length = 60;
           if (vsota > length) {
             LogAction.logInfo("blinds", "Ker je dolžina premika daljša, kot je čas celotnega premika, nastavim stanje na {}", length);
             stateItem.postUpdate(length);

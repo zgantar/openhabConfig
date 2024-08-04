@@ -135,18 +135,18 @@ Thing mqtt:topic:mosquitto:lopaTemp "Temperatura lopa" (mqtt:broker:mosquitto) @
 }
 
 //Vtičnice
-Thing mqtt:topic:mosquitto:recuPlug "Vtičnica rekuperacija" (mqtt:broker:mosquitto) @ "Energetski prostor" [ availabilityTopic="zigbee2mqtt/plugRecu/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
-    Channels:
-        Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/plugRecu/state", commandTopic = "zigbee2mqtt/plugRecu/set/state" ]
-        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/plugRecu/temperature" ]
-        Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/plugRecu/consumption" ]
-        // Type number : voltage        "voltage"       [ stateTopic = "zigbee2mqtt/plugRecu/voltage" ]     
-        Type number : power             "power"         [ stateTopic = "zigbee2mqtt/plugRecu/power" ]     
-        Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/plugRecu/device_temperature" ]     
-        Type switch : update_available  "update"        [ stateTopic = "zigbee2mqtt/plugRecu/update_available", on="true", off="false" ]
-        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/plugRecu/linkquality" ]
-        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/plugRecu/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
-}
+// Thing mqtt:topic:mosquitto:recuPlug "Vtičnica rekuperacija" (mqtt:broker:mosquitto) @ "Energetski prostor" [ availabilityTopic="zigbee2mqtt/plugRecu/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+//     Channels:
+//         Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/plugRecu/state", commandTopic = "zigbee2mqtt/plugRecu/set/state" ]
+//         Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/plugRecu/temperature" ]
+//         Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/plugRecu/consumption" ]
+//         // Type number : voltage        "voltage"       [ stateTopic = "zigbee2mqtt/plugRecu/voltage" ]     
+//         Type number : power             "power"         [ stateTopic = "zigbee2mqtt/plugRecu/power" ]     
+//         Type number : temperature       "temperature"   [ stateTopic = "zigbee2mqtt/plugRecu/device_temperature" ]     
+//         Type switch : update_available  "update"        [ stateTopic = "zigbee2mqtt/plugRecu/update_available", on="true", off="false" ]
+//         Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/plugRecu/linkquality" ]
+//         Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/plugRecu/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+// }
 // Thing mqtt:topic:mosquitto:boilerPlug "Vtičnica bojler" (mqtt:broker:mosquitto) @ "Energetski prostor" {
 //     Channels:
 //         Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/fridPlug/state", commandTopic = "zigbee2mqtt/fridPlug/set/state", on="ON", off="OFF" ]
@@ -318,10 +318,28 @@ Thing mqtt:topic:mosquitto:nagibnoDrsnaContact "Kontakt nagibno drsna" (mqtt:bro
         Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/oknoDnevna/linkquality" ]
         Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/oknoDnevna/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
 }
+Thing mqtt:topic:mosquitto:aljazContact "Kontakt Aljaž okno" (mqtt:broker:mosquitto) @ "Aljaž" [ availabilityTopic="zigbee2mqtt/oknoAljaz/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type switch : state         "occupancy"     [ stateTopic = "zigbee2mqtt/oknoAljaz/contact", on="false", off="true" ]
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/oknoAljaz/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/oknoAljaz/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/oknoAljaz/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/oknoAljaz/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
 
 
 //Puščanje vode
 Thing mqtt:topic:mosquitto:kuhinjaLeak "Puščanje vode kuhinja" (mqtt:broker:mosquitto) @ "Kuhinja" [ availabilityTopic="zigbee2mqtt/leakKuhinja/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type switch : leak          "leak"          [ stateTopic = "zigbee2mqtt/leakEnergetski/water_leak", on="true", off="false" ]
+        Type switch : battery_low   "battery_low"   [ stateTopic = "zigbee2mqtt/leakEnergetski/battery_low", on="true", off="false" ]
+        Type number : temperature   "temperature"   [ stateTopic = "zigbee2mqtt/leakEnergetski/temperature" ]     
+        Type number : voltage       "voltage"       [ stateTopic = "zigbee2mqtt/leakEnergetski/voltage" ]     
+        Type number : battery       "battery"       [ stateTopic = "zigbee2mqtt/leakEnergetski/battery" ]     
+        Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/leakEnergetski/linkquality" ]
+        Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/leakEnergetski/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+Thing mqtt:topic:mosquitto:energetskiLeak "Puščanje vode energetski prostor" (mqtt:broker:mosquitto) @ "Energetski prostor" [ availabilityTopic="zigbee2mqtt/leakEnergetski/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
     Channels:
         Type switch : leak          "leak"          [ stateTopic = "zigbee2mqtt/leakKuhinja/water_leak", on="true", off="false" ]
         Type switch : battery_low   "battery_low"   [ stateTopic = "zigbee2mqtt/leakKuhinja/battery_low", on="true", off="false" ]

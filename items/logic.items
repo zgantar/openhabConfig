@@ -13,10 +13,10 @@ Group:Switch               gBlindLogDo
 Group:Number               gBlindState
 // Group                   BlindsPeek
 // Group                   BlindsDimm
-Group                      gBlindsSE                   "Stikala na JV"
-Group                      gBlindsSW                   "Stikala na JZ"
-Group:Switch               gBlindLogD
-Group:Switch               gBlindLogU
+Group                      gBlindsSE                           "Stikala na JV"
+Group                      gBlindsSW                           "Stikala na JZ"
+Group:Switch               gBlindLogGFDo
+Group:Switch               gBlindLogGFUp
 
 Group                      gAlarm
 Group:Number               gCalcConsHour
@@ -25,183 +25,216 @@ Group:Number               gCalcConsMonth
 Group:Number               gTimeSetter
 Group:Switch:OR(ON,OFF)    gMessagesSwitches
 Group                      gMessages
+Group:Number               gLimiter
 
-
-Switch  KillAlarm
-Switch  SuspendStairwayLights
+Switch                     KillAlarm
+Switch                     SuspendStairwayLights
 
 
 String                     Message
 Number                     MessageNumber
 Number                     MessagesNumber
-String                     TempCumnataMessage                                                                          (gMessages)
-String                     TempLopaMessage                                                                             (gMessages)
-String                     HeatingMessage                                                                              (gMessages)
+String                     TempCumnataMessage                                                                                                       (gMessages)
+String                     TempLopaMessage                                                                                                          (gMessages)
+String                     HeatingMessage                                                                                                           (gMessages)
 
-Switch                     SwitchTempCumnataMessage                                                                    (MessagesSwitches)
-Switch                     SwitchTempLopaMessage                                                                       (MessagesSwitches)
+Switch                     SwitchTempCumnataMessage                                                                                                 (MessagesSwitches)
+Switch                     SwitchTempLopaMessage                                                                                                    (MessagesSwitches)
 
 
-Number                     RadioStationURL             "Naslov radio toka :)"                                          (gLogicItemsToPersist)
-String                     RadioStation                "[MAP(radio_stations.map):%s]"
-Switch                     NextRadioStation            "Naslednja postaja"
-Switch                     PrevRadioStation            "Prejšnja postaja"
+Number                     RadioStationURL                     "Naslov radio toka :)"                                                               (gLogicItemsToPersist)
+String                     RadioStation                        "[MAP(radio_stations.map):%s]"
+Switch                     NextRadioStation                    "Naslednja postaja"
+Switch                     PrevRadioStation                    "Prejšnja postaja"
 
-String                     Vacuum_Zone                 "Cona [%s]"
-String                     Vacuum_Control              "Ukaz"
+String                     Vacuum_Zone                         "Cona [%s]"
+String                     Vacuum_Control                      "Ukaz"
 
-Number                     HoursStartSetter            "Ura"                                                           (gTimeSetter)
-Number                     MinutesStartSetter          "Minute"                                                        (gTimeSetter)
-Number                     HoursStopSetter             "Ura"                                                           (gTimeSetter)
-Number                     MinutesStopSetter           "Minute"                                                        (gTimeSetter)
-Number                     HoursStartSetter2           "Ura"                                                           (gTimeSetter)
-Number                     MinutesStartSetter2         "Minute"                                                        (gTimeSetter)
-Number                     HoursStopSetter2            "Ura"                                                           (gTimeSetter)
-Number                     MinutesStopSetter2          "Minute"                                                        (gTimeSetter)
+Number                     HoursStartSetter                    "Ura"                                                                                (gTimeSetter)
+Number                     MinutesStartSetter                  "Minute"                                                                             (gTimeSetter)
+Number                     HoursStopSetter                     "Ura"                                                                                (gTimeSetter)
+Number                     MinutesStopSetter                   "Minute"                                                                             (gTimeSetter)
+Number                     HoursStartSetter2                   "Ura"                                                                                (gTimeSetter)
+Number                     MinutesStartSetter2                 "Minute"                                                                             (gTimeSetter)
+Number                     HoursStopSetter2                    "Ura"                                                                                (gTimeSetter)
+Number                     MinutesStopSetter2                  "Minute"                                                                             (gTimeSetter)
+Number                     plugAljazPCLimitHours               "Ura"                                                                                (gLimiter)
+Number                     plugAljazPCLimitMinutes             "Minute"                                                                             (gLimiter)
 
-Switch                     TimeSetterSaver             "Shrani uro"
+Switch                     TimeSetterSaver                     "Shrani uro"
+Number                     AljazPCTimeSum                      "Dnevna poraba časa"
+Number                     AljazPCTimeAllowed                  "Dnevna dovoljena poraba časa"                                                       (gLimiter)
 
-Number:Energy              PlugSusiMonthCons           "Mesečna poraba sušilec"                      <line-incline>    (gCalcConsMonth,gUpperBathDryer)                ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugPralMonthCons           "Mesečna poraba pralni stroj"                 <line-incline>    (gCalcConsMonth,gUpperBathWashingMachine)       ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugBoilerMonthCons         "Mesečna poraba bojler"                       <line-incline>    (gCalcConsMonth,gUtilityBoiler)                 ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugIronMonthCons           "Mesečna poraba likalnik"                     <line-incline>    (gCalcConsMonth,gUpperCorridorIron)             ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugRekuMonthCons           "Mesečna poraba rekuperacija"                 <line-incline>    (gCalcConsMonth,gUtilityRecuperation)           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugFridMonthCons           "Mesečna poraba hladilnik"                    <line-incline>    (gCalcConsMonth,gKitchenRefridgerator)          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugFreeMonthCons           "Mesečna poraba skrinja"                      <line-incline>    (gCalcConsMonth,gPantryFreezer)                 ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugAljazPCMonthCons        "Mesečna poraba Aljaž PC"                     <line-incline>    (gCalcConsMonth,gAljazPCPLug)                   ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugHiFiMonthCons           "Mesečna poraba HiFi"                         <line-incline>    (gCalcConsMonth,gLivingRoomTVHiFiPLug)          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugTeVeMonthCons           "Mesečna poraba TV"                           <line-incline>    (gCalcConsMonth,gLivingRoomTVHiFiPLug)          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugSusiMonthCons                   "Mesečna poraba sušilec"                                           <line-incline>    (gCalcConsMonth,gUpperBathDryer)                                         ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugPralMonthCons                   "Mesečna poraba pralni stroj"                                      <line-incline>    (gCalcConsMonth,gUpperBathWashingMachine)                                ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugBoilerMonthCons                 "Mesečna poraba bojler"                                            <line-incline>    (gCalcConsMonth,gUtilityBoiler)                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugIronMonthCons                   "Mesečna poraba likalnik"                                          <line-incline>    (gCalcConsMonth,gUpperCorridorIron)                                      ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugRekuMonthCons                   "Mesečna poraba rekuperacija"                                      <line-incline>    (gCalcConsMonth,gUtilityRecuperation)                                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugFridMonthCons                   "Mesečna poraba hladilnik"                                         <line-incline>    (gCalcConsMonth,gKitchenRefridgerator)                                   ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugFreeMonthCons                   "Mesečna poraba skrinja"                                           <line-incline>    (gCalcConsMonth,gPantryFreezer)                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugAljazPCMonthCons                "Mesečna poraba Aljaž PC"                                          <line-incline>    (gCalcConsMonth,gAljazPCPLug)                                            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugHiFiMonthCons                   "Mesečna poraba HiFi"                                              <line-incline>    (gCalcConsMonth,gLivingRoomTVHiFiPLug)                                   ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugTiViMonthCons                   "Mesečna poraba TV"                                                <line-incline>    (gCalcConsMonth,gLivingRoomTVHiFiPLug)                                   ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugHeatMonthCons                   "Mesečna poraba ogrevanje"                                         <line-incline>    (gCalcConsMonth,gUtilityHeating)                                         ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugElCoMonthCons                   "Mesečna poraba elektrike"                                         <line-incline>    (gCalcConsMonth,gUtilityElectricity)                                     ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugDishMonthCons                   "Mesečna poraba pomivalni stroj"                                   <line-incline>    (gCalcConsMonth,gKitchenDishwasher)                                      ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugLiStMonthCons                   "Mesečna poraba stopnišče"                                         <line-incline>    (gCalcConsMonth,gStairwayLights)                                         ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugJuPCMonthCons                   "Mesečna poraba Julija PC"                                         <line-incline>    (gCalcConsMonth,gJulijaPCPLug)                                           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugJuMoMonthCons                   "Mesečna poraba Julija Monitor"                                    <line-incline>    (gCalcConsMonth,gJulijaPCPLug)                                           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugComCMonthCons                   "Mesečna poraba komunikacijska omarica"                            <line-incline>    (gCalcConsMonth,gOfficeCommunicationCabinet)                             ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
 
-Number:Energy              PlugSusiDayCons             "Dnevna poraba sušilec"                       <line-incline>    (gCalcConsDay,gUpperBathDryer)                  ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugPralDayCons             "Dnevna poraba pralni stroj"                  <line-incline>    (gCalcConsDay,gUpperBathWashingMachine)         ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugBoilerDayCons           "Dnevna poraba bojler"                        <line-incline>    (gCalcConsDay,gUtilityBoiler)                   ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugIronDayCons             "Dnevna poraba likalnik"                      <line-incline>    (gCalcConsDay,gUpperCorridorIron)               ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugRekuDayCons             "Dnevna poraba rekuperacija"                  <line-incline>    (gCalcConsDay,gUtilityRecuperation)             ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugFridDayCons             "Dnevna poraba hladilnik"                     <line-incline>    (gCalcConsDay,gKitchenRefridgerator)            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugFreeDayCons             "Dnevna poraba skrinja"                       <line-incline>    (gCalcConsDay,gPantryFreezer)                   ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugAljazPCDayCons          "Dnevna poraba Aljaž PC"                      <line-incline>    (gCalcConsDay,gAljazPCPLug)                     ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugHiFiDayCons             "Dnevna poraba HiFi"                          <line-incline>    (gCalcConsDay,gLivingRoomTVHiFiPLug)            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugTeVeDayCons             "Dnevna poraba TV"                            <line-incline>    (gCalcConsDay,gLivingRoomTVHiFiPLug)            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugSusiDayCons                     "Dnevna poraba sušilec"                                            <line-incline>    (gCalcConsDay,gUpperBathDryer)                                           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugPralDayCons                     "Dnevna poraba pralni stroj"                                       <line-incline>    (gCalcConsDay,gUpperBathWashingMachine)                                  ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugBoilerDayCons                   "Dnevna poraba bojler"                                             <line-incline>    (gCalcConsDay,gUtilityBoiler)                                            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugIronDayCons                     "Dnevna poraba likalnik"                                           <line-incline>    (gCalcConsDay,gUpperCorridorIron)                                        ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugRekuDayCons                     "Dnevna poraba rekuperacija"                                       <line-incline>    (gCalcConsDay,gUtilityRecuperation)                                      ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugFridDayCons                     "Dnevna poraba hladilnik"                                          <line-incline>    (gCalcConsDay,gKitchenRefridgerator)                                     ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugFreeDayCons                     "Dnevna poraba skrinja"                                            <line-incline>    (gCalcConsDay,gPantryFreezer)                                            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugAljazPCDayCons                  "Dnevna poraba Aljaž PC"                                           <line-incline>    (gCalcConsDay,gAljazPCPLug)                                              ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugHiFiDayCons                     "Dnevna poraba HiFi"                                               <line-incline>    (gCalcConsDay,gLivingRoomTVHiFiPLug)                                     ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugTiViDayCons                     "Dnevna poraba TV"                                                 <line-incline>    (gCalcConsDay,gLivingRoomTVHiFiPLug)                                     ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugHeatDayCons                     "Dnevna poraba ogrevanje"                                          <line-incline>    (gCalcConsDay,gUtilityHeating)                                           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugElCoDayCons                     "Dnevna poraba elektrike"                                          <line-incline>    (gCalcConsDay,gUtilityElectricity)                                       ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugDishDayCons                     "Dnevna poraba pomivalni stroj"                                    <line-incline>    (gCalcConsDay,gKitchenDishwasher)                                        ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugLiStDayCons                     "Dnevna poraba stopnišče"                                          <line-incline>    (gCalcConsDay,gStairwayLights)                                           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugJuPCDayCons                     "Dnevna poraba Julija PC"                                          <line-incline>    (gCalcConsDay,gJulijaPCPLug)                                             ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugJuMoDayCons                     "Dnevna poraba Julija Monitor"                                     <line-incline>    (gCalcConsDay,gJulijaPCPLug)                                             ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugComCDayCons                     "Dnevna poraba komunikacijska omarica"                             <line-incline>    (gCalcConsDay,gOfficeCommunicationCabinet)                               ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
 
-Number:Energy              PlugSusiHourCons            "Urna poraba sušilec"                         <line-incline>    (gCalcConsHour,gUpperBathDryer)                 ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugPralHourCons            "Urna poraba pralni stroj"                    <line-incline>    (gCalcConsHour,gUpperBathWashingMachine)        ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugBoilerHourCons          "Urna poraba bojler"                          <line-incline>    (gCalcConsHour,gUtilityBoiler)                  ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugIronHourCons            "Urna poraba likalnik"                        <line-incline>    (gCalcConsHour,gUpperCorridorIron)              ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugRekuHourCons            "Urna poraba rekuperacija"                    <line-incline>    (gCalcConsHour,gUtilityRecuperation)            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugFridHourCons            "Urna poraba hladilnik"                       <line-incline>    (gCalcConsHour,gKitchenRefridgerator)           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugFreeHourCons            "Urna poraba skrinja"                         <line-incline>    (gCalcConsHour,gPantryFreezer)                  ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugAljazPCHourCons         "Urna poraba Aljaž PC"                        <line-incline>    (gCalcConsHour,gAljazPCPLug)                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugHiFiHourCons            "Urna poraba HiFi"                            <line-incline>    (gCalcConsHour,gLivingRoomTVHiFiPLug)           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
-Number:Energy              PlugTeVeHourCons            "Urna poraba TV"                              <line-incline>    (gCalcConsHour,gLivingRoomTVHiFiPLug)           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugSusiHourCons                    "Urna poraba sušilec"                                              <line-incline>    (gCalcConsHour,gUpperBathDryer)                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugPralHourCons                    "Urna poraba pralni stroj"                                         <line-incline>    (gCalcConsHour,gUpperBathWashingMachine)                                 ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugBoilerHourCons                  "Urna poraba bojler"                                               <line-incline>    (gCalcConsHour,gUtilityBoiler)                                           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugIronHourCons                    "Urna poraba likalnik"                                             <line-incline>    (gCalcConsHour,gUpperCorridorIron)                                       ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugRekuHourCons                    "Urna poraba rekuperacija"                                         <line-incline>    (gCalcConsHour,gUtilityRecuperation)                                     ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugFridHourCons                    "Urna poraba hladilnik"                                            <line-incline>    (gCalcConsHour,gKitchenRefridgerator)                                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugFreeHourCons                    "Urna poraba skrinja"                                              <line-incline>    (gCalcConsHour,gPantryFreezer)                                           ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugAljazPCHourCons                 "Urna poraba Aljaž PC"                                             <line-incline>    (gCalcConsHour,gAljazPCPLug)                                             ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugHiFiHourCons                    "Urna poraba HiFi"                                                 <line-incline>    (gCalcConsHour,gLivingRoomTVHiFiPLug)                                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugTiViHourCons                    "Urna poraba TV"                                                   <line-incline>    (gCalcConsHour,gLivingRoomTVHiFiPLug)                                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugHeatHourCons                    "Urna poraba ogrevanje"                                            <line-incline>    (gCalcConsHour,gUtilityHeating)                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugElCoHourCons                    "Urna poraba elektrike"                                            <line-incline>    (gCalcConsHour,gUtilityElectricity)                                      ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugDishHourCons                    "Urna poraba pomivalni stroj"                                      <line-incline>    (gCalcConsHour,gKitchenDishwasher)                                       ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugLiStHourCons                    "Urna poraba stopnišče"                                            <line-incline>    (gCalcConsHour,gStairwayLights)                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugJuPCHourCons                    "Urna poraba Julija PC"                                            <line-incline>    (gCalcConsHour,gJulijaPCPLug)                                            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugJuMoHourCons                    "Urna poraba Julija Monitor"                                       <line-incline>    (gCalcConsHour,gJulijaPCPLug)                                            ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              PlugComCHourCons                    "Urna poraba komunikacijska omarica"                               <line-incline>    (gCalcConsHour,gOfficeCommunicationCabinet)                              ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+
+Number:Energy              currentElectricityBalance           "Trenutna razlika med proizvodnjo in porabo elektrike"             <line-incline>    (gUtilityElectricity)                                                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+
+Number:Energy              InverterDailyProduction             "Dnevna proizvodnja energije"                                      <line-incline>    (gShedInverter)                                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              InverterMonthlyProduction           "Mesečna proizvodnja energije"                                     <line-incline>    (gShedInverter)                                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              InverterYearlyProduction            "Letna proizvodnja energije"                                       <line-incline>    (gShedInverter)                                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+
+Number:Energy              InverterCurrentDailyProduction      "Dnevna trenutna proizvodnja energije"                             <line-incline>    (gShedInverter)                                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              InverterCurrentMonthlyProduction    "Mesečna trenutna proizvodnja energije"                            <line-incline>    (gShedInverter)                                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              InverterCurrentYearlyProduction     "Letna trenutna proizvodnja energije"                              <line-incline>    (gShedInverter)                                                          ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+
+
+Number:Energy              dailyReconciliation                 "Dnevna razlika med proizvodnjo in porabo električne energije"     <line-incline>    (gUtilityElectricity)                                                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              monthlyReconciliation               "Mesečna razlika med proizvodnjo in porabo električne energije"    <line-incline>    (gUtilityElectricity)                                                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
+Number:Energy              yearlyReconciliation                "Letna razlika med proizvodnjo in porabo električne energije"      <line-incline>    (gUtilityElectricity)                                                    ["Measurement","Energy"]    {stateDescription=" "[ pattern="%.2f kWh" ]}
 
 Switch                     Trigger
 
-Switch                     AlarmLightRaised            "Proženje lučke za alarm"                                       (gAlarm,gLogicItemsToPersist)
-Switch                     AlarmBlinkLightRaised       "Proženje utrišajoče lučke za alarm"                            (gAlarm)
+Switch                     AlarmLightRaised                    "Proženje lučke za alarm"                                                            (gAlarm,gLogicItemsToPersist)
+Switch                     AlarmBlinkLightRaised               "Proženje utrišajoče lučke za alarm"                                                 (gAlarm)
 
-Number                     Temperature_Chart_Period    "Chart period [%s]"
+Number                     Temperature_Chart_Period            "Chart period [%s]"
 
 //Ogrevanje
-Switch                     LogKopalnicaZ               "Zgornja kopalnica"                           <heating>         (gLog,gLogRev)
-Switch                     LogSpalnica                 "Spalnica"                                    <heating>         (gLog)
-Switch                     LogJulija                   "Julija"                                      <heating>         (gLog)
-Switch                     LogAljaz                    "Aljaž"                                       <heating>         (gLog)
-Switch                     LogHodnikZ                  "Hodnik zgoraj"                               <heating>         (gLog)
-Switch                     LogHodnikS                  "Hodnik spodaj"                               <heating>         (gLog)
-Switch                     LogKopalnicaS               "Kopalnica spodaj"                            <heating>         (gLog,gLogRev)
-Switch                     LogKuhinja                  "Kuhinja"                                     <heating>         (gLog,gLogRev)
-Switch                     LogDnevna                   "Dnevna"                                      <heating>         (gLog)
-Switch                     LogKabinet                  "Kabinet"                                     <heating>         (gLog)
-Switch                     LogOgrevanje                "Ogrevanje logika"                            <heating>         (gLogicItemsToPersist)
+Switch                     LogKopalnicaZ                       "Zgornja kopalnica"                                                <heating>         (gLog,gLogRev)
+Switch                     LogSpalnica                         "Spalnica"                                                         <heating>         (gLog)
+Switch                     LogJulija                           "Julija"                                                           <heating>         (gLog)
+Switch                     LogAljaz                            "Aljaž"                                                            <heating>         (gLog)
+Switch                     LogHodnikZ                          "Hodnik zgoraj"                                                    <heating>         (gLog)
+Switch                     LogHodnikS                          "Hodnik spodaj"                                                    <heating>         (gLog)
+Switch                     LogKopalnicaS                       "Kopalnica spodaj"                                                 <heating>         (gLog,gLogRev)
+Switch                     LogKuhinja                          "Kuhinja"                                                          <heating>         (gLog,gLogRev)
+Switch                     LogDnevna                           "Dnevna"                                                           <heating>         (gLog)
+Switch                     LogKabinet                          "Kabinet"                                                          <heating>         (gLog)
+Switch                     LogOgrevanje                        "Ogrevanje logika"                                                 <heating>         (gLogicItemsToPersist)
 
-Number:Temperature         SetAljaz                    "Nastavljena temperatura Aljaž"               <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetJulija                   "Nastavljena temperatura Julija"              <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetSpalnica                 "Nastavljena temperatura spalnica"            <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetKopalnicaZ               "Nastavljena temperatura kopalnica zgoraj"    <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetKopalnicaS               "Nastavljena temperatura kopalnica spodaj"    <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetKuhinja                  "Nastavljena temperatura kuhinja"             <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetDnevna                   "Nastavljena temperatura dnevna soba"         <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetKabinet                  "Nastavljena temperatura kabinet"             <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetHodnikZ                  "Nastavljena temperatura hodnik zgoraj"       <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
-Number:Temperature         SetHodnikS                  "Nastavljena temperatura hodnik spodaj"       <temperature>     (gSet)                                                                      {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetAljaz                            "Nastavljena temperatura Aljaž"                                    <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetJulija                           "Nastavljena temperatura Julija"                                   <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetSpalnica                         "Nastavljena temperatura spalnica"                                 <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetKopalnicaZ                       "Nastavljena temperatura kopalnica zgoraj"                         <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetKopalnicaS                       "Nastavljena temperatura kopalnica spodaj"                         <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetKuhinja                          "Nastavljena temperatura kuhinja"                                  <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetDnevna                           "Nastavljena temperatura dnevna soba"                              <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetKabinet                          "Nastavljena temperatura kabinet"                                  <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetHodnikZ                          "Nastavljena temperatura hodnik zgoraj"                            <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
+Number:Temperature         SetHodnikS                          "Nastavljena temperatura hodnik spodaj"                            <temperature>     (gSet)                                                                                               {stateDescription=""[ pattern="%.1f °C", min="18.0", max="25.0" ]}
 
-Number                     DifAljaz                    "Razlika Aljaž"                               <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifJulija                   "Razlika Julija"                              <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifSpalnica                 "Razlika spalnica"                            <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifKopalnicaZ               "Razlika kopalnica zgoraj"                    <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifKopalnicaS               "Razlika kopalnica spodaj"                    <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifKuhinja                  "Razlika kuhinja"                             <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifDnevna                   "Razlika dnevna soba"                         <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifKabinet                  "Razlika kabinet"                             <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifHodnikZ                  "Razlika hodnik zgoraj"                       <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
-Number                     DifHodnikS                  "Razulika hodnik spodaj"                      <temperature>     (gDif)                                                                      {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifAljaz                            "Razlika Aljaž"                                                    <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifJulija                           "Razlika Julija"                                                   <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifSpalnica                         "Razlika spalnica"                                                 <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifKopalnicaZ                       "Razlika kopalnica zgoraj"                                         <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifKopalnicaS                       "Razlika kopalnica spodaj"                                         <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifKuhinja                          "Razlika kuhinja"                                                  <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifDnevna                           "Razlika dnevna soba"                                              <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifKabinet                          "Razlika kabinet"                                                  <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifHodnikZ                          "Razlika hodnik zgoraj"                                            <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
+Number                     DifHodnikS                          "Razulika hodnik spodaj"                                           <temperature>     (gDif)                                                                                               {stateDescription=""[ pattern="%.2f °C" ]}
 
 //Manual
-Switch                     Override                    "Aktiviraj ročni način"                       <heating>         (gLogicItemsToPersist)
-Switch                     ManKopalnicaZ               "Zgornja kopalnica"                           <heating>         (gMan,gManRev)
-Switch                     ManSpalnica                 "Spalnica"                                    <heating>         (gMan)
-Switch                     ManJulija                   "Julija"                                      <heating>         (gMan)
-Switch                     ManAljaz                    "Aljaž"                                       <heating>         (gMan)
-Switch                     ManHodnikZ                  "Hodnik zgoraj"                               <heating>         (gMan)
-Switch                     ManHodnikS                  "Hodnik spodaj"                               <heating>         (gMan)
-Switch                     ManKopalnicaS               "Kopalnica spodaj"                            <heating>         (gMan,gManRev)
-Switch                     ManKuhinja                  "Kuhinja"                                     <heating>         (gMan,gManRev)
-Switch                     ManDnevna                   "Dnevna"                                      <heating>         (gMan)
-Switch                     ManKabinet                  "Kabinet"                                     <heating>         (gMan)
+Switch                     Override                            "Aktiviraj ročni način"                                            <heating>         (gLogicItemsToPersist)
+Switch                     ManKopalnicaZ                       "Zgornja kopalnica"                                                <heating>         (gMan,gManRev)
+Switch                     ManSpalnica                         "Spalnica"                                                         <heating>         (gMan)
+Switch                     ManJulija                           "Julija"                                                           <heating>         (gMan)
+Switch                     ManAljaz                            "Aljaž"                                                            <heating>         (gMan)
+Switch                     ManHodnikZ                          "Hodnik zgoraj"                                                    <heating>         (gMan)
+Switch                     ManHodnikS                          "Hodnik spodaj"                                                    <heating>         (gMan)
+Switch                     ManKopalnicaS                       "Kopalnica spodaj"                                                 <heating>         (gMan,gManRev)
+Switch                     ManKuhinja                          "Kuhinja"                                                          <heating>         (gMan,gManRev)
+Switch                     ManDnevna                           "Dnevna"                                                           <heating>         (gMan)
+Switch                     ManKabinet                          "Kabinet"                                                          <heating>         (gMan)
 // Switch	ManHeating		"Peč"					<heating>
-Switch                     ManOgrevanje                "Ogrevanje ročno"                             <heating>         (gLogicItemsToPersist)
+Switch                     ManOgrevanje                        "Ogrevanje ročno"                                                  <heating>         (gLogicItemsToPersist)
 
 
-Switch                     AlarmRaised                 "Proženje alarma"                                               (gAlarm,gLogicItemsToPersist)
-Switch                     Heating                     "Ogrevanje"                                   <heating>         (gLogicItemsToPersist)
-Switch                     LowElectricity              "Nizka tarifa elektrike"                                        (gLogicItemsToPersist)
-Switch                     Holidays                    "Doma med tednom"                                               (gLogicItemsToPersist)
-Switch                     Away                        "Sploh nismo doma"                                              (gLogicItemsToPersist)
-Switch                     ignoreMovementForLights     "Onesposobi luči na stopnišču"                                  (gLogicItemsToPersist)
+Switch                     AlarmRaised                         "Proženje alarma"                                                                    (gAlarm,gLogicItemsToPersist)
+Switch                     Heating                             "Ogrevanje"                                                        <heating>         (gLogicItemsToPersist)
+Switch                     LowElectricity                      "Nizka tarifa elektrike"                                                             (gLogicItemsToPersist)
+Switch                     Holidays                            "Doma med tednom"                                                                    (gLogicItemsToPersist)
+Switch                     Away                                "Sploh nismo doma"                                                                   (gLogicItemsToPersist)
+Switch                     ignoreMovementForLights             "Onesposobi luči na stopnišču"                                                       (gLogicItemsToPersist)
 
 
 //Žaluzije
-Switch                     AllCompleteUp               "Vse žaluzije gor"                            <rollershuter>    (gBlindsAll)                                                                {ga="Blinds" [name="All blinds up"]}
-Switch                     AllCompleteDo               "Vse žaluzije dol"                            <rollershuter>    (gBlindsAll)                                                                {ga="Blinds" [name="All blinds down"]}
-Switch                     AllPeek                     "Vse žaluzije premik"                         <rollershuter>    (gBlinds)                                                                   {ga="Blinds" [name="All blinds peek"]}
-Switch                     GroundFlorPeek              "Premik žaluzij pritličje"                    <rollershuter>    (gBlinds)                                                                   {ga="Blinds" [name="Groundfloor blinds peek"]}
-Switch                     BlindsGroundFlorUp          "Žaluzije pritličje gor"                      <rollershuter>    (gBlinds)                                                                   {ga="Blinds" [name="Groundfloor blinds up"]}
+Switch                     AllCompleteUp                       "Vse žaluzije gor"                                                 <rollershuter>    (gBlindsAll)                                                                                         {ga="Blinds" [name="All blinds up"]}
+Switch                     AllCompleteDo                       "Vse žaluzije dol"                                                 <rollershuter>    (gBlindsAll)                                                                                         {ga="Blinds" [name="All blinds down"]}
+Switch                     AllPeek                             "Vse žaluzije premik"                                              <rollershuter>    (gBlinds)                                                                                            {ga="Blinds" [name="All blinds peek"]}
+Switch                     GroundFlorPeek                      "Premik žaluzij pritličje"                                         <rollershuter>    (gBlinds)                                                                                            {ga="Blinds" [name="Groundfloor blinds peek"]}
+Switch                     BlindsGroundFlorUp                  "Žaluzije pritličje gor"                                           <rollershuter>    (gBlinds)                                                                                            {ga="Blinds" [name="Groundfloor blinds up"]}
 
-Switch                     ZalKabinetDo                "Kabinet dol"                                 <rollershuter>    (gBlindLog,gBlindLogDo,gBlindsSW,gBlindLogD)                                {ga="Blinds" [roomHint="Office", name="Blind down"]}
-Switch                     ZalKabinetUp                "Kabinet gor"                                 <rollershuter>    (gBlindLog,gBlindLogUp,gBlindsSW,gBlindLogD)                                {ga="Blinds" [roomHint="Office", name="Blind up"]}
+Switch                     ZalKabinetDo                        "Kabinet dol"                                                      <rollershuter>    (gOfficeBlind,gBlindLog,gBlindLogDo,gBlindsSW,gBlindLogGFDo)             ["Switch","Control"]        {ga="Blinds" [roomHint="Office", name="Blind down"]}
+Switch                     ZalKabinetUp                        "Kabinet gor"                                                      <rollershuter>    (gOfficeBlind,gBlindLog,gBlindLogUp,gBlindsSW,gBlindLogGFUp)             ["Switch","Control"]        {ga="Blinds" [roomHint="Office", name="Blind up"]}
+Switch                     ZalDnevnaDesDo                      "Dnevna desno dol"                                                 <rollershuter>    (gLivingRoomRightBlind,gBlindLog,gBlindLogDo,gBlindsSW,gBlindLogGFDo)    ["Switch","Control"]
+Switch                     ZalDnevnaDesUp                      "Dnevna desno gor"                                                 <rollershuter>    (gLivingRoomRightBlind,gBlindLog,gBlindLogUp,gBlindsSW,gBlindLogGFUp)    ["Switch","Control"]
+Switch                     ZalDnevnaLevDo                      "Dnevna levo dol"                                                  <rollershuter>    (gLivingRoomLeftBlind,gBlindLog,gBlindLogDo,gBlindsSW,gBlindLogGFDo)     ["Switch","Control"]
+Switch                     ZalDnevnaLevUp                      "Dnevna levo gor"                                                  <rollershuter>    (gLivingRoomLeftBlind,gBlindLog,gBlindLogUp,gBlindsSW,gBlindLogGFUp)     ["Switch","Control"]
+Switch                     ZalSpalnicaDo                       "Spalnica dol"                                                     <rollershuter>    (gBedroomBlind,gBlindLog,gBlindLogDo,gBlindsSE)                          ["Switch","Control"]
+Switch                     ZalSpalnicaUp                       "Spalnica gor"                                                     <rollershuter>    (gBedroomBlind,gBlindLog,gBlindLogUp,gBlindsSE)                          ["Switch","Control"]
+Switch                     ZalAljazDo                          "Aljaž dol"                                                        <rollershuter>    (gAljazBlind,gBlindLog,gBlindLogDo,gBlindsSE)                            ["Switch","Control"]
+Switch                     ZalAljazUp                          "Aljaž gor"                                                        <rollershuter>    (gAljazBlind,gBlindLog,gBlindLogUp,gBlindsSE)                            ["Switch","Control"]
+Switch                     ZalJulijaDo                         "Julija dol"                                                       <rollershuter>    (gJulijaBlind,gBlindLog,gBlindLogDo,gBlindsSE)                           ["Switch","Control"]
+Switch                     ZalJulijaUp                         "Julija gor"                                                       <rollershuter>    (gJulijaBlind,gBlindLog,gBlindLogUp,gBlindsSE)                           ["Switch","Control"]
+Switch                     ZalKuhinjaLevDo                     "Kuhinja levo dol"                                                 <rollershuter>    (gKitchenLeftBlind,gBlindLog,gBlindLogDo,gBlindsSE,gBlindLogGFDo)        ["Switch","Control"]
+Switch                     ZalKuhinjaLevUp                     "Kuhinnja levo gor"                                                <rollershuter>    (gKitchenLeftBlind,gBlindLog,gBlindLogUp,gBlindsSE,gBlindLogGFUp)        ["Switch","Control"]
+Switch                     ZalKuhinjaDesDo                     "Kuhinja desno dol"                                                <rollershuter>    (gKitchenRightBlind,gBlindLog,gBlindLogDo,gBlindsSE,gBlindLogGFDo)       ["Switch","Control"]
+Switch                     ZalKuhinjaDesUp                     "Kuhinja desno gor"                                                <rollershuter>    (gKitchenRightBlind,gBlindLog,gBlindLogUp,gBlindsSE,gBlindLogGFUp)       ["Switch","Control"]
+Switch                     ZalJedilnicaDo                      "Jedilnica dol"                                                    <rollershuter>    (gDiningRoomBlind,gBlindLog,gBlindLogDo,gBlindsSE,gBlindLogGFDo)         ["Switch","Control"]
+Switch                     ZalJedilnicaUp                      "Jedilnica gor"                                                    <rollershuter>    (gDiningRoomBlind,gBlindLog,gBlindLogUp,gBlindsSE,gBlindLogGFUp)         ["Switch","Control"]
+Switch                     ZalPeglarnicaDo                     "Peglarnica dol"                                                   <rollershuter>    (gUpperCorridorBlind,gBlindLog,gBlindLogDo,gBlindsSW,gBlindLogGFDo)      ["Switch","Control"]
+Switch                     ZalPeglarnicaUp                     "Peglarnica gor"                                                   <rollershuter>    (gUpperCorridorBlind,gBlindLog,gBlindLogUp,gBlindsSW,gBlindLogGFUp)      ["Switch","Control"]
 
-Switch                     ZalDnevnaDesDo              "Dnevna desno dol"                            <rollershuter>    (gBlindLog,gBlindLogDo,gBlindsSW,gBlindLogD)
-Switch                     ZalDnevnaDesUp              "Dnevna desno gor"                            <rollershuter>    (gBlindLog,gBlindLogUp,gBlindsSW,gBlindLogD)
-
-Switch	ZalDnevnaLevDo  "Dnevna levo dol"                       <rollershuter>  (BlindLog,BlindLogDo,BlindsSW,BlindLogD)
-Switch	ZalDnevnaLevUp  "Dnevna levo gor"                       <rollershuter>  (BlindLog,BlindLogUp,BlindsSW,BlindLogD)
-Number	StateDnevnaLev  "Stanje žaluzij dnevna levo [%.1f]"                     (BlindState)
-
-Switch	ZalSpalnicaDo   "Spalnica dol"                          <rollershuter>  (BlindLog,BlindLogDo,BlindsSE)
-Switch	ZalSpalnicaUp   "Spalnica gor"                          <rollershuter>  (BlindLog,BlindLogUp,BlindsSE)
-Number	StateSpalnica   "Stanje žaluzije spalnica [%.1f]"                       (BlindState)
-
-Switch                     ZalAljazDo                  "Aljaž dol"                                   <rollershuter>    (gBlindLog,gBlindLogDo,gBlindsSE)
-Switch                     ZalAljazUp                  "Aljaž gor"                                   <rollershuter>    (gBlindLog,gBlindLogUp,gBlindsSE)
-
-Switch                     ZalJulijaDo                 "Julija dol"                                  <rollershuter>    (gBlindLog,gBlindLogDo,gBlindsSE)
-Switch                     ZalJulijaUp                 "Julija gor"                                  <rollershuter>    (gBlindLog,gBlindLogUp,gBlindsSE)
-
-Switch                     ZalKuhinjaLevDo             "Kuhinja levo dol"                            <rollershuter>    (gBlindLog,gBlindLogDo,gBlindsSE,gBlindLogD)
-Switch                     ZalKuhinjaLevUp             "Kuhinnja levo gor"                           <rollershuter>    (gBlindLog,gBlindLogUp,gBlindsSE,gBlindLogD)
-
-Switch                     ZalKuhinjaDesDo             "Kuhinja desno dol"                           <rollershuter>    (gBlindLog,gBlindLogDo,gBlindsSE,gBlindLogD)
-Switch                     ZalKuhinjaDesUp             "Kuhinja desno gor"                           <rollershuter>    (gBlindLog,gBlindLogUp,gBlindsSE,gBlindLogD)
-
-Switch                     ZalJedilnicaDo              "Jedilnica dol"                               <rollershuter>    (gBlindLog,gBlindLogDo,gBlindsSE,gBlindLogD)
-Switch                     ZalJedilnicaUp              "Jedilnica gor"                               <rollershuter>    (gBlindLog,gBlindLogUp,gBlindsSE,gBlindLogD)
-
-Number:Dimensionless       StateJedilnica              "Stanje žaluzije jedilnica"                                     (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
-Number:Dimensionless       StateKabinet                "Stanje žaluzije kabinet"                                       (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
-Number:Dimensionless       StateDnevnaDes              "Stanje žaluzij dnevna desno"                                   (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
-Number:Dimensionless       StateDnevnaLev              "Stanje žaluzij dnevna levo"                                    (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
-Number:Dimensionless       StateSpalnica               "Stanje žaluzije spalnica"                                      (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
-Number:Dimensionless       StateAljaz                  "Stanje žaluzije aljaž"                                         (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
-Number:Dimensionless       StateJulija                 "Stanje žaluzije julija"                                        (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
-Number:Dimensionless       StateKuhinjaLev             "Stanje žaluzije kuhinnja levo"                                 (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
-Number:Dimensionless       StateKuhinjaDes             "Stanje žaluzije kuhinnja desno"                                (gBlindState)                                   ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateJedilnica                      "Stanje žaluzije jedilnica"                                                          (gDiningRoomBlind,gBlindState)                                           ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateKabinet                        "Stanje žaluzije kabinet"                                                            (gOfficeBlind,gBlindState)                                               ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateDnevnaDes                      "Stanje žaluzij dnevna desno"                                                        (gLivingRoomRightBlind,gBlindState)                                      ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateDnevnaLev                      "Stanje žaluzij dnevna levo"                                                         (gLivingRoomLeftBlind,gBlindState)                                       ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateSpalnica                       "Stanje žaluzije spalnica"                                                           (gBedroomBlind,gBlindState)                                              ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateAljaz                          "Stanje žaluzije aljaž"                                                              (gAljazBlind,gBlindState)                                                ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateJulija                         "Stanje žaluzije julija"                                                             (gJulijaBlind,gBlindState)                                               ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateKuhinjaLev                     "Stanje žaluzije kuhinnja levo"                                                      (gKitchenLeftBlind,gBlindState)                                          ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StateKuhinjaDes                     "Stanje žaluzije kuhinnja desno"                                                     (gKitchenRightBlind,gBlindState)                                         ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}
+Number:Dimensionless       StatePeglarnica                     "Stanje žaluzije peglarnica"                                                         (gUpperCorridorBlind,gBlindState)                                        ["Status","Level"]          {stateDescription=""[ pattern="%d %%", min="0", max="100"]}

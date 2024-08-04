@@ -45,7 +45,7 @@ rules.JSRule({
         }
       } else {
         LogAction.logDebug("boiler", "Smo na dopustu, tako da preverjam ali je že minilo več kot 5 dni od zadnjega prižiga");
-        if (!plugBoilerSwitch.history.changedSince(time.ZonedDateTime.now().minusDays(5))) {
+        if (!plugBoilerSwitch.persistence.changedSince(time.ZonedDateTime.now().minusDays(5))) {
           LogAction.logDebug("boiler", "Je že minilo več kot 5 dni od zadnjega prižiga zato prižigam");
           if (plugBoilerSwitch.state == "OFF") {
             plugBoilerSwitch.sendCommand("ON");

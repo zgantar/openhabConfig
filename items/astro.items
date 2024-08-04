@@ -1,0 +1,3 @@
+DateTime        astroSunRise    "Sunrise [%1$tH:%1$tM]"    {channel="astro:sun:home:rise#start"}
+DateTime        astroSunSet     "Sunset [%1$tH:%1$tM]"     {channel="astro:sun:home:set#start"}
+Number:Angle    astroAzimuth    "Azimuth"                  {channel="astro:sun:home:position#azimuth"}

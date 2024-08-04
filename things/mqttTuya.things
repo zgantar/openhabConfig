@@ -1,0 +1,30 @@
+Thing mqtt:topic:mosquitto:plugPral "Vtičnica pralni stroj" (mqtt:broker:mosquitto) @ "Kopalnica zgoraj" [ availabilityTopic="zigbee2mqtt/plugPral/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/plugPral/get", on="ON", off="OFF" ]
+        Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/plugPral/energy" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/plugPral/voltage" ]
+        Type number : current           "current"       [ stateTopic = "zigbee2mqtt/plugPral/current" ]
+        Type number : power             "power"         [ stateTopic = "zigbee2mqtt/plugPral/power" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/plugPral/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/plugPral/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+Thing mqtt:topic:mosquitto:plugSusi "Vtičnica sušilni stroj" (mqtt:broker:mosquitto) @ "Kopalnica zgoraj" [ availabilityTopic="zigbee2mqtt/plugSusi/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/plugSusi/get", on="ON", off="OFF" ]
+        Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/plugSusi/energy" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/plugSusi/voltage" ]
+        Type number : current           "current"       [ stateTopic = "zigbee2mqtt/plugSusi/current" ]
+        Type number : power             "power"         [ stateTopic = "zigbee2mqtt/plugSusi/power" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/plugSusi/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/plugSusi/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}
+Thing mqtt:topic:mosquitto:plugReku "Vtičnica rekuperacija" (mqtt:broker:mosquitto) @ "Energetski prostor" [ availabilityTopic="zigbee2mqtt/plugReku/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+    Channels:
+        Type switch : state             "state"         [ stateTopic = "zigbee2mqtt/plugReku/get", on="ON", off="OFF" ]
+        Type number : consumption       "consumption"   [ stateTopic = "zigbee2mqtt/plugReku/energy" ]
+        Type number : voltage           "voltage"       [ stateTopic = "zigbee2mqtt/plugReku/voltage" ]
+        Type number : current           "current"       [ stateTopic = "zigbee2mqtt/plugReku/current" ]
+        Type number : power             "power"         [ stateTopic = "zigbee2mqtt/plugReku/power" ]     
+        Type number : linkquality       "linkquality"   [ stateTopic = "zigbee2mqtt/plugReku/linkquality" ]
+        Type switch : availability      "availability"  [ stateTopic = "zigbee2mqtt/plugReku/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+}

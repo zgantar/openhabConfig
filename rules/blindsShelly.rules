@@ -397,23 +397,27 @@ when
     Member of gBlindLog received command
 then
     logDebug("blinds", "Start movement of the blind - ###############Premik žaluzije#####################")
-    logDebug("blinds", "Ukaz je prišel za žaluzijo {}.", triggeringItem.toString)
-	if (timers === null) {
-		logDebug("blinds", "Set blinds up - Nastavljam timerje")
-		timers = newHashMap
-		logDebug("blinds", "Set blinds up - Timerji so veliki - " + timers.size)
-	}
-    val nameWithOrder = getStringFromItem.apply(triggeringItem, 3).toString
-	logDebug("blinds", "Ime je {}.", nameWithOrder)
-   	logDebug("blinds", "Ukaz je {}", triggeringItem.state)
-	if (triggeringItem.state == ON) {
-		logDebug("blinds", "Ukaz je ON zato začnemo premik")
-		activateActBlind.apply(triggeringItem, true, 0, timers, getStringFromItem)
+	if (triggeringItem === null) {
+    	logDebug("blinds", "Ukaz je prišel z NULL!!!! {}.", triggeringItem)
 	} else {
-		logDebug("blinds", "Ukaz je OFF zato končamo premik")
-		activateActBlind.apply(triggeringItem, false, 0, timers, getStringFromItem)
+	    logDebug("blinds", "Ukaz je prišel za žaluzijo {}.", triggeringItem.toString)
+		if (timers === null) {
+			logDebug("blinds", "Set blinds up - Nastavljam timerje")
+			timers = newHashMap
+			logDebug("blinds", "Set blinds up - Timerji so veliki - " + timers.size)
+		}
+	    val nameWithOrder = getStringFromItem.apply(triggeringItem, 3).toString()
+		logDebug("blinds", "Ime je {}.", nameWithOrder)
+	   	logDebug("blinds", "Ukaz je {}", triggeringItem.state)
+		if (triggeringItem.state == ON) {
+			logDebug("blinds", "Ukaz je ON zato začnemo premik")
+			activateActBlind.apply(triggeringItem, true, 0, timers, getStringFromItem)
+		} else {
+			logDebug("blinds", "Ukaz je OFF zato končamo premik")
+			activateActBlind.apply(triggeringItem, false, 0, timers, getStringFromItem)
+		}
+	    logDebug("blinds", "Start movement of the blind - ###############Konec Premik žaluzije#####################")
 	}
-    logDebug("blinds", "Start movement of the blind - ###############Konec Premik žaluzije#####################")
 end
 
 rule "Manual blind move"

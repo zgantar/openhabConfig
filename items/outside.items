@@ -1,6 +1,6 @@
 Number:Temperature      gOutTemp           "Zunanja temperatura"             <temperature>    (gOutdoorSensor,gOutsideTempAvg)    ["Measurement","Temperature"]    {unit="°C", channel="exec:command:outTemp:output"}
 Number:Temperature      gOutFeelTemp       "Zunanja občutena temperatura"    <temperature>    (gOutdoorSensor)                    ["Measurement","Temperature"]    {unit="°C", channel="exec:command:outFeelTemp:output"}
-Number:Dimensionless    gOutHum            "Zunanja vlažnost"                <humidity>       (gOutdoorSensor)                    ["Measurement","Humidity"]       {unit="%", channel="exec:command:outHum:output"}
+Number:Dimensionless    gOutHum            "Zunanja vlažnost"                <humidity>       (gOutdoorSensor,gOutsideHumAvg)     ["Measurement","Humidity"]       {unit="%", channel="exec:command:outHum:output"}
 String                  gOutWindDir        "Smer vetra"                      <wind>           (gOutdoorSensor)                    ["Measurement","Wind"]           {channel="exec:command:outWindDir:output", stateDescription=" "[ readOnly=true ]}
 Number:Speed            gOutWindSpeed      "Hitrost vetra"                   <wind>           (gOutdoorSensor)                    ["Measurement","Wind"]           {unit="km/h", channel="exec:command:outWindSpeed:output"}
 Number:Pressure         gOutPressure       "Zunanji zračni pritisk"          <pressure>       (gOutdoorSensor)                    ["Measurement","Pressure"]       {unit="hPa", channel="exec:command:outPress:output"}

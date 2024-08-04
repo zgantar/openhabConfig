@@ -58,3 +58,27 @@ Thing http:url:arsoNapoved "ARSO napoved" [
 			Type string : percipitation5 "Padavine čez pet dni" [ stateTransformation="XPATH://data/metData[5]/wwsyn_shortText" ]
 			Type string : percInten5 "Intenziteta čez pet dni" [ stateTransformation="XPATH://data/metData[5]/rr_decodeText" ]
 }
+
+Thing http:url:arsoNapoved2 "ARSO napoved jutri" [
+	baseURL="https://meteo.arso.gov.si/uploads/probase/www/fproduct/text/sl/fcast_SI_OSREDNJESLOVENSKA_latest.xml",
+	refresh=3600] {
+		Channels:
+			Type string : next 						"Napoved 1"						[ stateTransformation="XPATH://data/metData[1]/valid_day" ]
+			Type string : nextPart 					"Del dneva 1"					[ stateTransformation="XPATH://data/metData[1]/valid_daypart" ]
+			Type number : tempNext 					"Temperatura 1" 				[ stateTransformation="XPATH://data/metData[1]/t_degreesC", unit="°C" ]
+			Type string : forecastNext 				"Vreme 1"						[ stateTransformation="XPATH://data/metData[1]/nn_shortText" ]
+			Type string : weatherPojavNextTxt		"Vremenski pojav tekst 1"		[ stateTransformation="XPATH://data/metData[1]/wwsyn_shortText" ]
+			Type string : weatherPojavNextIcon		"Vremenski pojav ikona 1"		[ stateTransformation="XPATH://data/metData[1]/wwsyn_icon" ]
+			Type string : afterNext					"Napoved 2"						[ stateTransformation="XPATH://data/metData[2]/valid_day" ]
+			Type string : afterNextPart 			"Del dneva  2"					[ stateTransformation="XPATH://data/metData[2]/valid_daypart" ]
+			Type number : tempAfterNext 			"Temperatura 2"					[ stateTransformation="XPATH://data/metData[2]/t_degreesC", unit="°C" ]
+			Type string : forecastAfterNext			"Vreme 2"						[ stateTransformation="XPATH://data/metData[2]/nn_shortText" ]
+			Type string : weatherPojavAfterNextTxt	"Vremenski pojav text 2"		[ stateTransformation="XPATH://data/metData[2]/wwsyn_shortText" ]
+			Type string : weatherPojavAfterNextIcon	"Vremenski pojav ikona 2"		[ stateTransformation="XPATH://data/metData[2]/wwsyn_icon" ]
+			Type string : third 					"Napoved 3"						[ stateTransformation="XPATH://data/metData[3]/valid_day" ]
+			Type string : thirdPart 				"Del dneva  3"					[ stateTransformation="XPATH://data/metData[3]/valid_daypart" ]
+			Type number : tempThird 				"Temperatura 3" 				[ stateTransformation="XPATH://data/metData[3]/t_degreesC", unit="°C" ]
+			Type string : forecastThird 			"Vreme 3"						[ stateTransformation="XPATH://data/metData[3]/nn_shortText" ]
+			Type string : weatherPojavThirdTxt 		"Vremenski pojav tekst 3"		[ stateTransformation="XPATH://data/metData[3]/wwsyn_shortText" ]
+			Type string : weatherPojavThirdIcon		"Vremenski pojav ikona 3"		[ stateTransformation="XPATH://data/metData[3]/wwsyn_icon" ]
+}

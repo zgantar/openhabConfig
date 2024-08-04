@@ -1,0 +1,7 @@
+// Thing mqtt:topic:mosquitto:zaluzijaKabinet "Žaluzija kabinet" (mqtt:broker:mosquitto) @ "Kabinet" [ availabilityTopic="zigbee2mqtt/zaluzijaKabinet/availability", payloadAvailable="{\"state\":\"online\"}", payloadNotAvailable="{\"state\":\"offline\"}" ] {
+//     Channels:
+//         Type switch : stateLeft     "state left"    [ stateTopic = "zigbee2mqtt/zaluzijaKabinet/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/zaluzijaKabinet/set", on="ON", off="OFF", transformationPattern = "JSONPATH:$.state_left" ]
+//         Type switch : stateRight    "state right"   [ stateTopic = "zigbee2mqtt/zaluzijaKabinet/get", on="ON", off="OFF", commandTopic = "zigbee2mqtt/zaluzijaKabinet/set", on="ON", off="OFF", transformationPattern = "JSONPATH:$.state_right" ]
+//         Type number : linkquality   "linkquality"   [ stateTopic = "zigbee2mqtt/zaluzijaKabinet/linkquality" ]
+//         Type switch : availability  "availability"  [ stateTopic = "zigbee2mqtt/zaluzijaKabinet/availability", on="{\"state\":\"online\"}", off="{\"state\":\"offline\"}" ]
+// }

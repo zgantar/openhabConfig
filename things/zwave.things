@@ -3,6 +3,6 @@ Bridge zwave:serial_zstick:zwaveStick "ZWave Controller" @ "Kabinet" [ port="/de
 	Thing shenzhen_coolcampwrplug_00_000	fridPlug			"Vtičnica hladilnik" @ "Kuhinja"					[ node_id=5 ]
 	Thing tkb_tz74_00_000					ceilingTVLights		"Podometno stikalo luči TV&strop" @ "Dnevna"		[ node_id=8 ]
 	Thing qubino_zmnhbd_00_000				stairwayLights 		"Podometno stikalo luči stopnišče" @ "Dnevna"		[ node_id=9 ]
-	Thing shenzhen_coolcampwrplug_00_000	washingmachinePlug	"Vtičnica pralni stroj" @ "Kopalnica zgoraj"		[ node_id=3 ]
-	Thing shenzhen_coolcampwrplug_00_000 	dryerPlug			"Vtičnica sušilec" @ "Kopalnica zgoraj"				[ node_id=4 ]
+	// Thing shenzhen_coolcampwrplug_00_000	washingmachinePlug	"Vtičnica pralni stroj" @ "Kopalnica zgoraj"		[ node_id=3 ]
+	// Thing shenzhen_coolcampwrplug_00_000 	dryerPlug			"Vtičnica sušilec" @ "Kopalnica zgoraj"				[ node_id=4 ]
 }

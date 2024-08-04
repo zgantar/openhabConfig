@@ -1,0 +1,3 @@
+Bridge modbus:tcp:modbusTCP "Modbus most" [ host="192.168.1.224", port=1502, id=1, enableDiscovery=true, rtuEncoded=false, timeBetweenTransactionsMillis=1000 ] {
+    Thing modbus:inverter-three-phase:modbusTCP:SolarEdge "Inverter" [ address=40069, length=52, refresh=5 ]
+}

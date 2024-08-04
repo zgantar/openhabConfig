@@ -10,7 +10,8 @@
 		<RollingFile fileName="${sys:openhab.logdir}/openhab.log" filePattern="${sys:openhab.logdir}/openhab.log.%i.gz" name="LOGFILE">
 			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5.5p] [%-36.36c] - %m%n"/>
 			<Policies>
-				<OnStartupTriggeringPolicy/>
+				<CronTriggeringPolicy schedule="0 0 0 ? * MON *"/>
+<!--				<OnStartupTriggeringPolicy/> -->
 				<SizeBasedTriggeringPolicy size="16 MB"/>
 			</Policies>
 			<DefaultRolloverStrategy max="7"/>
@@ -111,6 +112,42 @@
 			<DefaultRolloverStrategy fileIndex="min" min="1" max="7"/>
 		</RollingFile>
 
+		<!--AWTRIX logger-->
+		<RollingFile fileName="${sys:openhab.logdir}/awtrix.log" filePattern="${sys:openhab.logdir}/awtrix.log.%i.gz" name="AWTRIX">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5.5p] [%-36.36c] - %m%n"/>
+			<Policies>
+				<CronTriggeringPolicy schedule="0 0 0 ? * MON *"/>
+			</Policies>
+			<DefaultRolloverStrategy fileIndex="min" min="1" max="7"/>
+		</RollingFile>
+
+		<!--Bindings-->
+		<RollingFile fileName="${sys:openhab.logdir}/bindings.log" filePattern="${sys:openhab.logdir}/bindings.log.%i.gz" name="BINDINGS">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5.5p] [%-36.36c] - %m%n"/>
+			<Policies>
+				<CronTriggeringPolicy schedule="0 0 0 ? * MON *"/>
+			</Policies>
+			<DefaultRolloverStrategy fileIndex="min" min="1" max="7"/>
+		</RollingFile>
+
+		<!--PLUG logger-->
+		<RollingFile fileName="${sys:openhab.logdir}/plug.log" filePattern="${sys:openhab.logdir}/plug.log.%i.gz" name="PLUG">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5.5p] [%-36.36c] - %m%n"/>
+			<Policies>
+				<CronTriggeringPolicy schedule="0 0 0 ? * MON *"/>
+			</Policies>
+			<DefaultRolloverStrategy fileIndex="min" min="1" max="7"/>
+		</RollingFile>
+
+		<!--INVERTER logger-->
+		<RollingFile fileName="${sys:openhab.logdir}/inverter.log" filePattern="${sys:openhab.logdir}/inverter.log.%i.gz" name="INVERTER">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5.5p] [%-36.36c] - %m%n"/>
+			<Policies>
+				<CronTriggeringPolicy schedule="0 0 0 ? * MON *"/>
+			</Policies>
+			<DefaultRolloverStrategy fileIndex="min" min="1" max="7"/>
+		</RollingFile>
+
 	</Appenders>
 
 	<Loggers>
@@ -202,7 +239,11 @@
 		<!-- Added by Karaf to prevent debug logging loops, see -->
 		<!-- https://issues.apache.org/jira/browse/KARAF-5559 -->
 		<Logger level="WARN" name="org.apache.sshd"/>
-		<Logger level="INFO" name="org.openhab.binding.zwave"/>
+		<Logger level="WARN" name="org.openhab.binding.zwave"/>
+		<Logger level="WARN" name="org.openhab.binding.shelly"/>
+		<Logger level="WARN" name="org.openhab.binding.worxlandroid">
+			<AppenderRef ref="BINDINGS"/>
+		</Logger>
 
 		<!--BLINDS logger-->
 		<Logger additivity="false" level="INFO" name="org.openhab.core.model.script.blinds">
@@ -225,7 +266,7 @@
 		</Logger>
 
 		<!--ELECTRICITY logger-->
-		<Logger additivity="false" level="INFO" name="org.openhab.core.model.script.electricity">
+		<Logger additivity="false" level="DEBUG" name="org.openhab.core.model.script.electricity">
 			<AppenderRef ref="ELECTRICITY"/>
 		</Logger>
 
@@ -243,7 +284,22 @@
 		<Logger additivity="false" level="INFO" name="org.openhab.core.model.script.contact">
 			<AppenderRef ref="CONTACT"/>
 		</Logger>
-		
+
+		<!--AWTRIX logger-->
+		<Logger additivity="false" level="INFO" name="org.openhab.core.model.script.awtrix">
+			<AppenderRef ref="AWTRIX"/>
+		</Logger>
+
+		<!--PLUG logger-->
+		<Logger additivity="false" level="INFO" name="org.openhab.core.model.script.plug">
+			<AppenderRef ref="PLUG"/>
+		</Logger>
+
+		<!--INVERTER logger-->
+		<Logger additivity="false" level="INFO" name="org.openhab.core.model.script.inverter">
+			<AppenderRef ref="INVERTER"/>
+		</Logger>
+
 	</Loggers>
 
 </Configuration>

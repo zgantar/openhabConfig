@@ -14,6 +14,10 @@ rules.JSRule({
     items.getItem("ignoreMovementForLights").sendCommand("OFF");
     LogAction.logInfo("setUp", "ignoreMovementForLights je na OFF")
 
+    //nastavim porabo časa za AljažPC
+    items.getItem("AljazPCTimeSum").postUpdate(0);
+    LogAction.logInfo("setUp", "AljazPCTimeSum je 0");
+
     LogAction.logInfo("setUp", "###############Konec začetne nastavitve sistema#####################")
   },
   tags: ["System", "SetUp"],

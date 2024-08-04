@@ -1,7 +1,7 @@
 rules.JSRule({
   name: "Contact Sensor Group Change JS",
   description: "Light will turn on when one of the windows or doors are opened",
-  triggers: [triggers.ItemStateChangeTrigger('gFrontDoorContact',null,null), triggers.ItemStateChangeTrigger('gRaiseWindowContact',null,null), triggers.ItemStateChangeTrigger('gTiltWindowContact',null,null)],
+  triggers: [triggers.ItemStateChangeTrigger('frontDoorContact',null,null), triggers.ItemStateChangeTrigger('raiseWindowContact',null,null), triggers.ItemStateChangeTrigger('tiltWindowContact',null,null)],
   execute: (event) => {
     var NotificationAction = Java.type("org.openhab.io.openhabcloud.NotificationAction");
     var LogAction = Java.type('org.openhab.core.model.script.actions.Log');
@@ -19,6 +19,7 @@ rules.JSRule({
     if (triggerringContact.state == "ON") {
       LogAction.logInfo("contact", "Ker je novo stanje ON gremo preverjat lučko");
       if (AlarmLightRaised.state == "OFF") {
+        
         LogAction.logInfo("contact", "Lučka je ugasnjena, zato jo prižigam.");
         AlarmLightRaised.sendCommand("ON");
         //checking to see if no parent is at home

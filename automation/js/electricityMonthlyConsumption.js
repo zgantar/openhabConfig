@@ -24,13 +24,16 @@ rules.JSRule({
       calcCons = items.getItem("gCalcConsMonth").members.filter(nameEquals, loopCons)[0];
       if (calcCons != null) {
         LogAction.logInfo("electricity","Pa poglejmo kaj smo najdl po filtriranju: {}.", calcCons.name);
-        var time = x.minusMonths(1).minusSeconds(15);
-        LogAction.logInfo("electricity","Preračunavam porabo od {}", time);
-        var tempCons = loopCons.history.deltaSince(time);
-        LogAction.logInfo("electricity","Delta porabe je {}", tempCons);
+        var timeVar = x.withDays(0).withHour(0).withMinute(0).withSecond(0).withNano(0);
+        LogAction.logDebug("electricity","Preračunavam porabo od {}", timeVar.minusMonths(1).toString());
+        LogAction.logDebug("electricity","Preračunavam porabo do {}", timeVar.minusSeconds(1).toString());
+        // var tempCons = loopCons.persistence.deltaSince(timeVar).quantityState;
+        var tempCons = loopCons.persistence.deltaBetween(timeVar.minusMonths(1), timeVar.minusSeconds(1)).quantityState;
+        LogAction.logInfo("electricity","Delta porabe je {}", tempCons.toString());
+//        var tempCons = loopCons.persistence.deltaSince(time).quantityState;
         if (tempCons == null) {
-          if (loopCons.countStateChangesSince(time) == 0) {
-            tempCons = loopCons.rawState;
+          if (loopCons.persistence.countStateChangesSince(time) == 0) {
+            tempCons = loopCons.quantityState;
           } else {
             tempCons = 0;
           }

@@ -33,9 +33,9 @@ rules.JSRule({
     });
     LogAction.logInfo("blinds", "Nastavljam releje");
     items.getItem("gBlindAct").members.forEach(blindsItem => {
-      LogAction.logInfo("blinds", "Preverjam stanje za {}.", logItem.toString);
-      blindsItem.sendCommand(OFF)
-      LogAction.logInfo("blinds", "Novo stanje je {}.", stateItem.state);
+      LogAction.logInfo("blinds", "Preverjam stanje za {}.", blindsItem.toString);
+      blindsItem.sendCommand("OFF");
+      LogAction.logInfo("blinds", "Novo stanje je {}.", blindsItem.state);
     });
     LogAction.logInfo("blinds", "###############Vse potrebno za delo z žaluzijami nastavljeno#####################")
 },

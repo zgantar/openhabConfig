@@ -12,18 +12,18 @@ rules.JSRule({
     LogAction.logInfo("lights", "Current time: "+h+":"+min);
 
     var gMot = items.getItem("gMot");
-    var plugTVPower = items.getItem("plugTeVePower");
+    var plugTiViPower = items.getItem("plugTiViPower");
     var plugLiSt2Switch2 = items.getItem("plugLiSt2Switch2");
 
-    LogAction.logInfo("lights", "Trenutna poraba TVja je - {}", plugTVPower.rawState);
-    if (plugTVPower.rawState < 50 && gMot.state == "OFF") {
+    LogAction.logInfo("lights", "Trenutna poraba TVja je - {}", plugTiViPower.rawState);
+    if (plugTiViPower.rawState < 50 && gMot.state == "OFF") {
       LogAction.logInfo("lights", "Ker TV ni prižgana in ni gibanja, ugašam luč na stopnišču");
       plugLiSt2Switch2.sendCommand("OFF");
     } else {
       LogAction.logInfo("lights", "Ker je prižgana TV oziroma je gibanje, prestavljam ugašanje luči na stopnišču za 5 min");
       var lightShuttOffTimer = actions.ScriptExecution.createTimer(x.plusMinutes(5),() => {
-        LogAction.logInfo("lights", "Preverjam ali je prižgan TV");
-        if (plugTVPower.rawState > 50) {
+        LogAction.logInfo("lights", "Preverjam ali je prižgan TV {} in gibanje {}", plugTiViPower.state, gMot.state);
+        if (plugTiViPower.rawState > 50) {
           LogAction.logInfo("lights", "TV je prižgan zato prestavim ugašanje za 5 minut");
           lightShuttOffTimer.reschedule(time.ZonedDateTime.now().plusMinutes(5));
         } else if (gMot.state == "ON") {

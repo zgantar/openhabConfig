@@ -5,7 +5,7 @@ rules.JSRule({
   execute: (event) => {
     const LogAction = Java.type('org.openhab.core.model.script.actions.Log');
     val Functions$Function5 activateActBlind = [ 
-      SwitchItem item,
+      Switch item,
       Boolean onOrOff,
       Integer time,
       Map<String, Timer> timers,
@@ -18,7 +18,7 @@ rules.JSRule({
       val String nameWithCommand = getStringFromItem.apply(item, 3).toString
       val String justName = getStringFromItem.apply(item, 2).toString
       val String oppName = getStringFromItem.apply(item, 4).toString
-      val SwitchItem actItem = gBlindAct.members.filter(loopItem | loopItem.name.contains(nameWithCommand)).head as SwitchItem
+      val Switch actItem = gBlindAct.members.filter(loopItem | loopItem.name.contains(nameWithCommand)).head as Switch
       if (time.intValue() == -1) {
         if (!actItem.groupNames.filter(group|group.equals("gBlindD")).empty) {
           timeToMove = 58000
@@ -34,14 +34,14 @@ rules.JSRule({
       if (onOrOff && !actItem.groupNames.filter(group|group.equals("BlindsOnDoors")).empty && downCommand){
         LogAction.logInfo("blinds", "activateActBlind - Žaluzija je na vratih zato moramo preveriti ali so vrata odprta")
         if (justName.contains("KuhinjaDes")) {
-          LogAction.logInfo("blinds", "activateActBlind - Imam ukaz za spust žaluzijo dvižno drsnih vratih {}", gRaiseWindowContact)
-          if (gRaiseWindowContact.state == OPEN) {
+          LogAction.logInfo("blinds", "activateActBlind - Imam ukaz za spust žaluzijo dvižno drsnih vratih {}", raiseWindowContact)
+          if (raiseWindowContact.state == OPEN) {
             LogAction.logInfo("blinds", "activateActBlind - Vrata so odprta zato ignoriram ukaz za spust žaluzije")
             return null
           }
         } else if (justName.contains("DnevnaDes")) {
-          LogAction.logInfo("blinds", "activateActBlind - Imam ukaz za spust žaluzijo nagibno drsnih vratih {}", gTiltWindowContact)
-          if (gTiltWindowContact.state == OPEN) {
+          LogAction.logInfo("blinds", "activateActBlind - Imam ukaz za spust žaluzijo nagibno drsnih vratih {}", tiltWindowContact)
+          if (tiltWindowContact.state == OPEN) {
             LogAction.logInfo("blinds", "activateActBlind - Vrata so odprta zato ignoriram ukaz za spust žaluzije")
             return null
           }

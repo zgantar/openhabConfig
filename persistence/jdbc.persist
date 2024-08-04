@@ -50,8 +50,13 @@ Items {
 	gCalcConsDay* : strategy = everyChange, restoreOnStartup
 	gCalcConsMonth* : strategy = everyChange, restoreOnStartup
 	gPlugSwitch* : strategy = everyChange, restoreOnStartup
+	gConsumptionReset* : strategy = everyChange, restoreOnStartup
+	gShedInverter* : strategy = everyChange, restoreOnStartup
+	gReturned* : strategy = everyChange, restoreOnStartup
+	gReturnedReset* : strategy = everyChange, restoreOnStartup
+	currentElectricityBalance : strategy = everyChange, restoreOnStartup
 
-	//smoke
+	//smoke 
 	gPantrySmokeDetector :	strategy = everyChange, restoreOnStartup
 
 	//puščanje vode
